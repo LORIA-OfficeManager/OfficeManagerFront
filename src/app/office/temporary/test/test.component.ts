@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {NbMenuService, NbSpinnerService} from '@nebular/theme';
+import {NbMenuService} from '@nebular/theme';
 
 @Component({
   selector: 'ngx-test',

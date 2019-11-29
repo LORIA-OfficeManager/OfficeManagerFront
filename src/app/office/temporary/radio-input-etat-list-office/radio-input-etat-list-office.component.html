@@ -1,0 +1,12 @@
+<nb-card>
+    <nb-card-body>
+        <nb-radio-group [(ngModel)]="option">
+            <nb-radio
+                    *ngFor="let option of options"
+                    [value]="option.value"
+                    (click)="filterState(option.value)">
+                {{ option.label }}
+            </nb-radio>
+        </nb-radio-group>
+    </nb-card-body>
+</nb-card>

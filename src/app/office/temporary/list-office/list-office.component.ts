@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NbSidebarService} from '@nebular/theme';
 import {Office, OFFICES} from '../../shared/interfaces/office';
 import {OfficePipePipe} from '../../shared/pipe/office-pipe.pipe';
+import {OfficeService} from '../../shared/services/office.service';
 
 @Component({
   selector: 'ngx-test-list-office',
@@ -21,10 +22,14 @@ export class ListOfficeComponent implements OnInit {
    * constructor
    * @param sidebarService
    * @param _officePipe
+   * @param _serviceOffice
    */
-  constructor(private sidebarService: NbSidebarService, private _officePipe: OfficePipePipe) {
-    this._offices = OFFICES;
-    this._sortedData = this._offices.slice();
+  constructor(private sidebarService: NbSidebarService, private _officePipe: OfficePipePipe,
+              private _serviceOffice: OfficeService) {
+    this._serviceOffice.fecth().subscribe( (_: Office[]) => {
+      this._offices = _ ;
+      this._sortedData = this._offices.slice();
+    });
     this._filter = 'batiment';
   }
 
@@ -77,8 +82,10 @@ export class ListOfficeComponent implements OnInit {
    * @param state
    */
   filterState(state) {
-    this._sortedData = this._offices.filter( (_: Office) => this._officePipe.transform(_) === state );
+    this._sortedData = this._offices.filter( (_: Office) =>
+        this._officePipe.transform(_.size , _.occupation) === state );
   }
+
 }
 
 

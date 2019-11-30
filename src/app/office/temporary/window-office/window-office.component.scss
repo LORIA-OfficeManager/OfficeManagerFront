@@ -1,8 +1,10 @@
 @import '~bootstrap/scss/mixins/breakpoints';
 @import '~@nebular/theme/styles/global/breakpoints';
-
+@import "~app/office/office.component";
 @import '../../../@theme/styles/themes';
-
+.color nb-card{
+  background-color: #2d8ac7!important;
+}
 @include nb-install-component() {
   button + button {
     margin-left: 5rem;
@@ -22,6 +24,7 @@
     }
   }
 
+
   @include media-breakpoint-down(is) {
     nb-card-body {
       display: block;
@@ -38,4 +41,25 @@
       padding: 0.75rem;
     }
   }
+}
+.fullOffice nb-card-header{
+  background-color: $color-officeFull;
+}
+.moreThanFullOffice{
+  background-color: $color-officeMoreThanFull;
+}
+.notFullOffice{
+  background-color: $color-officeNoEmpty;
+}
+.emptyOffice{
+  background-color: $color-officeEmpty;
+}
+.StrangerOffice {
+  background-image: linear-gradient(45deg, rgba(238, 97, 125, 0) 25%, $color-officeStrnager 25%, $color-officeStrnager 50%,
+          rgba(238, 97, 125, 0) 50%, rgba(238, 97, 125, 0) 75%, $color-officeStrnager 25%, $color-officeStrnager 100%);
+  background-size: 56.57px 56.57px;
+}
+nb-tooltip.officeManagerTooltip{
+  background-color: #2d8ac7;
+  color: white;
 }

@@ -1,0 +1,21 @@
+<ng-template #dialog let-data let-ref="dialogRef">
+    <nb-card>
+        <nb-card-header class="headerOfficeManager">Aide sur les couleurs <nb-icon (click)="ref.close()" icon="close-outline"></nb-icon> </nb-card-header>
+        <nb-card-body>
+            <div>
+                <h5 class="emptyOffice"> bureau vide</h5>
+                <h5 class="notFullOffice"> bureau non vide</h5>
+                <h5 class="fullOffice"> bureau plein</h5>
+                <h5 class="moreThanFullOffice"> bureau sur peuplé</h5>
+                <h5 class="StrangerOffice" style="color: black"> bureau avec un ou plusieur intrus</h5>
+            </div>
+        </nb-card-body>
+        <nb-card-footer class="headerOfficeManager" style="padding: 1%;">
+        </nb-card-footer>
+    </nb-card>
+</ng-template>
+<button nbButton style=" position: fixed; bottom: 15px; right: 15px; background-color: white"
+        appearance="outline" status="primary"
+        size="small" shape="round"
+        (click)="open(dialog)">
+    Aide</button>

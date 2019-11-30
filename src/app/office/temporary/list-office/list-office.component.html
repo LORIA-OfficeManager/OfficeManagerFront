@@ -1,3 +1,4 @@
+<ngx-modal-help></ngx-modal-help>
 <nb-layout>
     <nb-layout-header fixed>
         <nb-layout-column class="colored-column-basic" >
@@ -24,10 +25,10 @@
         <nb-layout-column  class="colored-column-basic col-8 noPadding" style="position: absolute;right: 0;">
             <nb-layout-header class="offset-8 col-4 noPadding" >
                         <nb-actions size="medium" fullWidth style="width: 100%" >
-                            <nb-action style="flex: .33" (click)="switchFilter('batiment')"
+                            <nb-action style="flex: .33;cursor: pointer;" (click)="switchFilter('batiment')"
                             [ngClass]="'col-4'+' '+(filter==='batiment' ? 'activeFiltre' : 'inactiveFiltre')">Batiment</nb-action>
                             <nb-action (click)="switchFilter('etat')"
-                                       style="flex: .33" [ngClass]="'col-4'+' '+(filter==='etat' ? 'activeFiltre' : 'inactiveFiltre')">Etat</nb-action>
+                                       style="flex: .33;cursor: pointer;" [ngClass]="'col-4'+' '+(filter==='etat' ? 'activeFiltre' : 'inactiveFiltre')">Etat</nb-action>
                             <nb-action *ngIf="false" (click)="switchFilter('nom')"
                                        style="flex: .33" [ngClass]="'col-4'+' '+(filter==='nom' ? 'activeFiltre' : 'inactiveFiltre')">Noms</nb-action>
                         </nb-actions>

@@ -1,5 +1,4 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import {Office} from '../interfaces/office';
 
 @Pipe({
   name: 'officePipe',
@@ -10,14 +9,14 @@ export class OfficePipePipe implements PipeTransform {
    * @param office le bureau
    * @return la class qui definie l'etat du bureau
    */
-  transform(office: Office): string {
-    if (office.size === office.personAssign.length) {
+  transform(size: number, nbP: number): string {
+    if (size === nbP) {
       return 'fullOffice';
     } else {
-      if (office.size <= office.personAssign.length) {
+      if (size <= nbP) {
         return 'moreThanFullOffice';
       } else {
-        if ( 0 === office.personAssign.length) {
+        if ( 0 === nbP) {
           return 'emptyOffice';
         } else {
           return 'notFullOffice';
@@ -25,5 +24,17 @@ export class OfficePipePipe implements PipeTransform {
       }
     }
   }
-
+}
+@Pipe({
+  name: 'strangerPipe',
+})
+export class StrangerPipe implements PipeTransform {
+  /**
+   * definie la class a retourner au bureau pour representer son etat
+   * @param office le bureau
+   * @return la class qui definie l'etat du bureau
+   */
+  transform(hasStranger: boolean): string {
+    return hasStranger ? 'StrangerOffice' : '';
+  }
 }

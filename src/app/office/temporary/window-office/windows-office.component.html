@@ -1,1 +1,18 @@
-<nb-action icon="maximize-outline" (click)="openWindow()"></nb-action>
+<nb-action icon="maximize-outline" (click)="openWindow()"  nbTooltip="Afficher le detail du bureau" nbTooltipStatus="info" nbTooltipClass="officeManagerTooltip" ></nb-action>
+<ng-template #contentTemplate let-data>
+    <div [ngClass]="'etatOffice '+( false | strangerPipe)+' '+(data.size | officePipe:data.persons.length)"></div>
+    <nb-layout-column  >
+        <nb-layout-column class="noPadding noMargin">
+            <p class=" noMargin">Batiment : {{data.building}}</p>
+            <p class=" noMargin">Etage : {{data.floor}}</p>
+            <p class=" noMargin">Numéro : {{data.num}}</p>
+            <p  class=" noMargin">Taille : {{data.persons.length}}/{{data.size}}</p>
+            <p>person :</p>
+            <ul>
+                <li *ngFor="let person of data.persons">{{person.firstname}}</li>
+            </ul>
+            <p>Description :</p>
+            <div>{{data.description}}</div>
+        </nb-layout-column>
+    </nb-layout-column >
+</ng-template>

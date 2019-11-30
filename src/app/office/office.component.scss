@@ -1,5 +1,11 @@
 @import '../@theme/styles/themes';
 $color-active: #3eace0;
+$color-intrus: #3eace0;
+$color-officeEmpty: transparent;
+$color-officeNoEmpty: rgba(0, 193, 12, 0.7);
+$color-officeFull: rgba(193, 73, 0, 0.7);
+$color-officeMoreThanFull: rgba(193, 11, 0, 0.7);
+$color-officeStrnager: rgba(193, 0, 190, 0.7);
 @include nb-install-component() {
   ::ng-deep router-outlet + * {
     display: block;
@@ -23,3 +29,4 @@ $color-active: #3eace0;
 .noMargin {
   margin: 0% !important;
 }
+

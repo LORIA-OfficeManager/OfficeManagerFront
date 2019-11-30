@@ -7,20 +7,20 @@ import {
     NbAccordionModule,
     NbActionsModule,
     NbButtonModule,
-    NbCardModule,
-    NbLayoutModule, NbRadioModule,
-    NbSidebarModule, NbWindowModule,
+    NbCardModule, NbIconModule,
+    NbLayoutModule, NbPopoverModule, NbRadioModule,
+    NbSidebarModule, NbTooltipModule, NbWindowModule,
 } from '@nebular/theme';
 import { ListOfficeComponent } from './temporary/list-office/list-office.component';
 import { SideBarListBuildingComponent} from './temporary/side-bar-list-building/side-bar-list-building.component';
 import { RadioInputListOfficeComponent } from './temporary/radio-input-list-office/radio-input-list-office.component';
 import {FormsModule} from '@angular/forms';
 import {MatSortModule} from '@angular/material/sort';
-import { OfficePipePipe } from './shared/pipe/office-pipe.pipe';
+import {OfficePipePipe, StrangerPipe} from './shared/pipe/office-pipe.pipe';
 import { RadioInputEtatListOfficeComponent } from './temporary/radio-input-etat-list-office/radio-input-etat-list-office.component';
 import { TabOfficeComponent } from './temporary/tab-office/tab-office.component';
 import { WindowOfficeComponent } from './temporary/window-office/window-office.component';
-import { DetailOfficeComponent} from './temporary/detail-office/detail-office.component';
+import { ModalHelpComponent } from './temporary/modal-help/modal-help.component';
 
 @NgModule({
     imports: [
@@ -36,6 +36,9 @@ import { DetailOfficeComponent} from './temporary/detail-office/detail-office.co
         FormsModule,
         MatSortModule,
         NbWindowModule.forChild(),
+        NbIconModule,
+        NbTooltipModule,
+        NbPopoverModule,
     ],
   declarations: [
     TestComponent,
@@ -44,12 +47,15 @@ import { DetailOfficeComponent} from './temporary/detail-office/detail-office.co
     SideBarListBuildingComponent,
     RadioInputListOfficeComponent,
     OfficePipePipe,
+    StrangerPipe,
     RadioInputEtatListOfficeComponent,
     TabOfficeComponent,
     WindowOfficeComponent,
-    DetailOfficeComponent,
+    ModalHelpComponent,
   ],
-    providers: [OfficePipePipe],
-    entryComponents: [DetailOfficeComponent],
+    providers: [
+        OfficePipePipe,
+        StrangerPipe,
+    ],
 })
 export class OfficeModule { }

@@ -1,0 +1,28 @@
+@import "~app/office/office.component";
+
+.activeFiltre{
+  color: $color-active;
+  text-align: center !important;
+}
+.inactiveFiltre{
+  text-align: center !important;
+}
+h3{
+  color: $color-active;
+}
+.fullOffice{
+  background-color: orange;
+}
+.moreThanFullOffice{
+  background-color: darkred;
+}
+.notFullOffice{
+  background-color: transparent;
+}
+.emptyOffice{
+  background-color: green;
+}
+
+.rowGrey{
+  background-color: #eaeaea;
+}

@@ -1,5 +1,5 @@
 @import '../@theme/styles/themes';
-
+$color-active: #3eace0;
 @include nb-install-component() {
   ::ng-deep router-outlet + * {
     display: block;
@@ -15,4 +15,11 @@
       }
     }
   }
+}
+
+.noPadding{
+  padding: 0% !important;
+}
+.noMargin {
+  margin: 0% !important;
 }

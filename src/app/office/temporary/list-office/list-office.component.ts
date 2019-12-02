@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {NbSidebarService} from '@nebular/theme';
-import {Office, OFFICES} from '../../shared/interfaces/office';
+import {Office} from '../../shared/interfaces/office';
 import {OfficePipePipe} from '../../shared/pipe/office-pipe.pipe';
 import {OfficeService} from '../../shared/services/office.service';
 
@@ -24,7 +24,7 @@ export class ListOfficeComponent implements OnInit {
    * @param _officePipe
    * @param _serviceOffice
    */
-  constructor(private sidebarService: NbSidebarService, private _officePipe: OfficePipePipe,
+  constructor(private _officePipe: OfficePipePipe,
               private _serviceOffice: OfficeService) {
     this._serviceOffice.fecth().subscribe( (_: Office[]) => {
       this._offices = _ ;

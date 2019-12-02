@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {NbMenuService, NbSpinnerService} from '@nebular/theme';
 import {NbAuthService, NbAuthSimpleToken} from '@nebular/auth';
 import {Router} from '@angular/router';
 

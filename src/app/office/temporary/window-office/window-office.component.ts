@@ -20,7 +20,7 @@ export class WindowOfficeComponent implements OnInit {
    * @param _officePipe
    * @param serviceOfficeD
    */
-  constructor(private windowService: NbWindowService, private _officePipe: OfficePipePipe,
+  constructor(private windowService: NbWindowService,
               private serviceOfficeD: OfficeDetailService ) {}
 
   /**

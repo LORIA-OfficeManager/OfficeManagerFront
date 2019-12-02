@@ -20,7 +20,7 @@ import {
   NbToastrModule,
   NbWindowModule,
 } from '@nebular/theme';
-import {NbAuthModule, NbDummyAuthStrategy, NbOAuth2AuthStrategy} from '@nebular/auth';
+import {NbAuthModule, NbDummyAuthStrategy} from '@nebular/auth';
 
 @NgModule({
   declarations: [AppComponent],

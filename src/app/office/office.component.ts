@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {NbSpinnerService} from '@nebular/theme';
-import {NbAuthService, NbAuthSimpleToken} from '@nebular/auth';
 
 @Component({
   selector: 'ngx-office',

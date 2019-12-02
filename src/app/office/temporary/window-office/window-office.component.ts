@@ -1,7 +1,6 @@
 import {Component, Input, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {NbWindowService} from '@nebular/theme';
 import {Office} from '../../shared/interfaces/office';
-import {OfficePipePipe} from '../../shared/pipe/office-pipe.pipe';
 import {OfficeDetailService} from '../../shared/services/office-detail.service';
 import {OfficeDetail} from '../../shared/interfaces/officeDetail';
 

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {NbSidebarService} from '@nebular/theme';
 import {Office} from '../../shared/interfaces/office';
 import {OfficePipePipe} from '../../shared/pipe/office-pipe.pipe';
 import {OfficeService} from '../../shared/services/office.service';

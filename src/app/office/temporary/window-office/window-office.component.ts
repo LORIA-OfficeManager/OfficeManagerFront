@@ -32,7 +32,7 @@ export class WindowOfficeComponent implements OnInit {
     this.serviceOfficeD.fectOne(this._office._id).subscribe(( _: OfficeDetail ) => {
       this.windowService.open(
           this.contentTemplate,
-          {windowClass: 'fullOffice', title:  this.name( _ ), context: _ },
+          {windowClass: 'headerWindow', title:  this.name( _ ), context: _ },
       );
     });
   }

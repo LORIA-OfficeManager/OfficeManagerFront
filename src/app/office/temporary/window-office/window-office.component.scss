@@ -9,9 +9,6 @@
   button + button {
     margin-left: 5rem;
   }
-  .windowfullOffice {
-    background-color: green;
-  }
 
   @include media-breakpoint-down(xxl) {
     nb-card-body {
@@ -42,7 +39,7 @@
     }
   }
 }
-.fullOffice nb-card-header {
+.fullOffice{
   background-color: $color-officeFull;
 }
 .moreThanFullOffice {
@@ -64,4 +61,8 @@
 nb-tooltip.officeManagerTooltip {
   background-color: #2d8ac7;
   color: white;
+}
+.etatOffice{
+  height: 20px;
+  margin: -8% -6% -5% -6%;
 }

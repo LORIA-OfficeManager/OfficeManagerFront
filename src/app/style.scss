@@ -1,0 +1,31 @@
+@import "~app/office/office.component";
+
+::ng-deep .headerWindow nb-card-header{
+  background-color: #3eace0 ;
+  color: white;
+}
+
+::ng-deep .headerWindow nb-card-header nb-icon{
+  color: white;
+}
+::ng-deep .headerWindow nb-card-header .buttons button:hover{
+  border: 1px solid #3eace0 !important;
+  nb-icon {
+    color: #3eace0  !important;
+  }
+}
+::ng-deep .officeManagerTooltip nb-tooltip{
+  background-color: #3eace0 ;
+  color: white;
+}
+::ng-deep .officeManagerTooltip nb-tooltip::before{
+  background-color: #3eace0 ;
+  color: white;
+}
+::ng-deep .officeManagerTooltip nb-tooltip::after{
+  background-color: #3eace0 ;
+  color: white;
+}
+::ng-deep .nb-theme-default nb-tooltip  .arrow{
+  border-bottom: 6px dashed #3eace0 !important;
+}

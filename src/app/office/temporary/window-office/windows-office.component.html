@@ -1,4 +1,4 @@
-<nb-action icon="maximize-outline" (click)="openWindow()"  nbTooltip="Afficher le detail du bureau" nbTooltipStatus="info" nbTooltipClass="officeManagerTooltip" ></nb-action>
+<nb-action icon="maximize-outline" (click)="openWindow()"  nbTooltip="Afficher le detail du bureau" nbTooltipClass="officeManagerTooltip" ></nb-action>
 <ng-template #contentTemplate let-data>
     <div [ngClass]="'etatOffice '+( false | strangerPipe)+' '+(data.size | officePipe:data.persons.length)"></div>
     <nb-layout-column  >

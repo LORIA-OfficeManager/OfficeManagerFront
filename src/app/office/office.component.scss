@@ -24,9 +24,11 @@ $color-officeStrnager: rgba(193, 0, 190, 0.7);
 }
 
 .noPadding {
-  padding: 0% !important;
+  padding: 0 !important;
 }
 .noMargin {
-  margin: 0% !important;
+  margin: 0 !important;
 }
-
+nb-sidebar.col-2 .main-container{
+  width: 100%;
+}

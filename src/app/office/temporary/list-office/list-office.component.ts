@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Office} from '../../shared/interfaces/office';
 import {OfficePipePipe} from '../../shared/pipe/office-pipe.pipe';
 import {OfficeService} from '../../shared/services/office.service';
+import {NbSidebarService} from '@nebular/theme';
 
 @Component({
   selector: 'ngx-test-list-office',
@@ -24,7 +25,8 @@ export class ListOfficeComponent implements OnInit {
    * @param _serviceOffice
    */
   constructor(private _officePipe: OfficePipePipe,
-              private _serviceOffice: OfficeService) {
+              private _serviceOffice: OfficeService,
+              private sidebarService: NbSidebarService) {
     this._serviceOffice.fecth().subscribe( (_: Office[]) => {
       this._offices = _ ;
       this._sortedData = this._offices.slice();
@@ -57,6 +59,11 @@ export class ListOfficeComponent implements OnInit {
   }
   get filter(): string {
     return this._filter;
+  }
+
+  toggle() {
+    this.sidebarService.toggle(true);
+    return false;
   }
   /**
    * change de filtre

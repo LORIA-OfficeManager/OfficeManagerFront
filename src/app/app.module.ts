@@ -20,6 +20,7 @@ import {
   NbToastrModule,
   NbWindowModule,
 } from '@nebular/theme';
+import {NbAuthModule, NbDummyAuthStrategy, NbOAuth2AuthStrategy} from '@nebular/auth';
 
 @NgModule({
   declarations: [AppComponent],
@@ -30,7 +31,14 @@ import {
     AppRoutingModule,
 
     ThemeModule.forRoot(),
-
+    NbAuthModule.forRoot({
+      strategies: [
+        NbDummyAuthStrategy.setup({
+          name: 'dummy',
+        }),
+      ],
+      forms: {},
+    }),
     NbSidebarModule.forRoot(),
     NbMenuModule.forRoot(),
     NbDatepickerModule.forRoot(),

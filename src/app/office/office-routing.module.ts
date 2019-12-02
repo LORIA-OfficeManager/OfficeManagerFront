@@ -16,6 +16,16 @@ const routes: Routes = [{
       path: 'listBureauTest',
       component: ListOfficeComponent,
     },
+    {
+      path: 'auth',
+      loadChildren: () => import('app/office/auth/auth.module')
+        .then(m => m.AuthModule),
+    },
+    {
+      path: '',
+      redirectTo: '/office/test',
+      pathMatch: 'full',
+    },
   ],
 }];
 

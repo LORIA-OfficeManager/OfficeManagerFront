@@ -1,4 +1,5 @@
 @import '~app/office/office.component';
+/***************************************code couleur du site***********************************************************/
 .headerOfficeManager {
   background-color: $color-active !important;
   color: white !important;
@@ -13,6 +14,8 @@
 h4 {
   color: $color-active;
 }
+
+/******************************************code couleur****************************************************************/
 .fullOffice {
   background-color: $color-officeFull;
 }
@@ -32,16 +35,19 @@ h4 {
     $color-officeStrnager 25%, $color-officeStrnager 100%);
   background-size: 56.57px 56.57px;
 }
-
-.rowGrey {
-  background-color: #eaeaea;
-}
 ::ng-deep .layout-container{
   padding: 0% !important;
 }
+
+/*************************************************sideBar**************************************************************/
 .compacted{
   display: none;
 }
 ::ng-deep .nb-theme-default nb-sidebar.compacted.left.fixed ~ .content {
   margin: 0;
+}
+::ng-deep nb-dialog-container{
+  width: 50%;
+  margin: 0% 25% !important;
+  max-width: 50% !important;
 }

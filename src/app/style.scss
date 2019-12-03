@@ -1,5 +1,6 @@
 @import "~app/office/office.component";
 
+/**************************************************Headerwindow********************************************************/
 ::ng-deep .headerWindow nb-card-header{
   background-color: #3eace0 ;
   color: white;
@@ -14,6 +15,7 @@
     color: #3eace0  !important;
   }
 }
+/****************************************color tooltip*****************************************************************/
 ::ng-deep .officeManagerTooltip nb-tooltip{
   background-color: #3eace0 ;
   color: white;

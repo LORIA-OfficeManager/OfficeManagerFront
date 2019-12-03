@@ -9,7 +9,7 @@ import {
     NbButtonModule,
     NbCardModule, NbIconModule,
     NbLayoutModule, NbPopoverModule, NbRadioModule,
-    NbSidebarModule, NbTooltipModule, NbWindowModule,
+    NbSidebarModule, NbTooltipModule, NbUserModule, NbWindowModule,
 } from '@nebular/theme';
 import { ListOfficeComponent } from './temporary/list-office/list-office.component';
 import { SideBarListBuildingComponent} from './temporary/side-bar-list-building/side-bar-list-building.component';
@@ -39,6 +39,7 @@ import { ModalHelpComponent } from './temporary/modal-help/modal-help.component'
         NbIconModule,
         NbTooltipModule,
         NbPopoverModule,
+        NbUserModule,
     ],
   declarations: [
     TestComponent,

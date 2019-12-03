@@ -11,13 +11,17 @@ td {
   width: 20%;
   padding: 1%;
 }
-th {
-  width: 20%;
-  padding: 1%;
-}
 .borderSimpleL {
   border-left: 1px solid black;
 }
 .borderSimpleR {
   border-right: 1px solid black;
+}
+/****************************************table************************************************************************/
+.rowGrey {
+  background-color: #eaeaea;
+}
+th {
+  width: 20%;
+  padding: 1%;
 }

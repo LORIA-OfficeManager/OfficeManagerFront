@@ -1,18 +1,36 @@
 <nb-action icon="maximize-outline" (click)="openWindow()"  nbTooltip="Afficher le detail du bureau" nbTooltipClass="officeManagerTooltip" ></nb-action>
 <ng-template #contentTemplate let-data>
-    <div [ngClass]="'etatOffice '+( false | strangerPipe)+' '+(data.size | officePipe:data.persons.length)"></div>
-    <nb-layout-column  >
-        <nb-layout-column class="noPadding noMargin">
-            <p class=" noMargin">Batiment : {{data.building}}</p>
-            <p class=" noMargin">Etage : {{data.floor}}</p>
-            <p class=" noMargin">Numéro : {{data.num}}</p>
-            <p  class=" noMargin">Taille : {{data.persons.length}}/{{data.size}}</p>
-            <p>person :</p>
-            <ul>
-                <li *ngFor="let person of data.persons">{{person.firstname}}</li>
-            </ul>
-            <p>Description :</p>
-            <div>{{data.description}}</div>
-        </nb-layout-column>
-    </nb-layout-column >
+
+    <div class="row">
+        <div class="col-md-12">
+                    <div [ngClass]="'etatOffice '+( false | strangerPipe)+' '+(data.size | officePipe:data.persons.length)"></div>
+                    <div class="row show-grid col-12">
+                        <h5>Information générale :</h5>
+                        <div class="col-md-6">
+                            <div>Batiment : {{data.building}}</div>
+                        </div>
+                        <div class="col-md-6">
+                            <div>Etage : {{data.floor}}</div>
+                        </div>
+                        <div class="col-md-6">
+                            <div>Numéro : {{data.num}}</div>
+                        </div>
+                        <div class="col-md-6">
+                            <div>Taille : {{data.persons.length}}/{{data.size}}</div>
+                        </div>
+                    </div>
+                    <div class="row show-grid">
+                        <div class="col-md-12">
+                            <h5>Personne :</h5>
+                            <ul>
+                                <li *ngFor="let person of data.persons">{{person.firstname}}</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-12">
+                            <h5>Description :</h5>
+                            <div>{{data.description}}</div>
+                        </div>
+                    </div>
+        </div>
+    </div>
 </ng-template>

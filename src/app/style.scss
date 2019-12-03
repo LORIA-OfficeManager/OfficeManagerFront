@@ -1,7 +1,7 @@
-@import "~app/office/office.component";
+@import '~app/office/office.component';
 
 /**************************************************Headerwindow********************************************************/
-::ng-deep .headerWindow nb-card-header{
+::ng-deep .headerWindow nb-card-header {
   background-color: #3eace0;
   color: white;
 }

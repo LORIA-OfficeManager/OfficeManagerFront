@@ -4,21 +4,12 @@ import {TestComponent} from './temporary/test/test.component';
 import { OfficeComponent } from './office.component';
 import {ThemeModule} from '../@theme/theme.module';
 import {
-<<<<<<< Updated upstream
-    NbAccordionModule,
-    NbActionsModule,
-    NbButtonModule,
-    NbCardModule, NbIconModule,
-    NbLayoutModule, NbPopoverModule, NbRadioModule,
-    NbSidebarModule, NbTooltipModule, NbUserModule, NbWindowModule,
-=======
   NbAccordionModule,
   NbActionsModule,
   NbButtonModule,
   NbCardModule, NbContextMenuModule, NbIconModule,
   NbLayoutModule, NbPopoverModule, NbRadioModule, NbSearchModule, NbSelectModule,
   NbSidebarModule, NbTooltipModule, NbUserModule, NbWindowModule,
->>>>>>> Stashed changes
 } from '@nebular/theme';
 import { ListOfficeComponent } from './temporary/list-office/list-office.component';
 import { SideBarListBuildingComponent} from './temporary/side-bar-list-building/side-bar-list-building.component';
@@ -34,26 +25,6 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import {NbSecurityModule} from '@nebular/security';
 
 @NgModule({
-<<<<<<< Updated upstream
-    imports: [
-        OfficeRoutingModule,
-        ThemeModule,
-        NbCardModule,
-        NbButtonModule,
-        NbLayoutModule,
-        NbActionsModule,
-        NbSidebarModule,
-        NbAccordionModule,
-        NbRadioModule,
-        FormsModule,
-        MatSortModule,
-        NbWindowModule.forChild(),
-        NbIconModule,
-        NbTooltipModule,
-        NbPopoverModule,
-        NbUserModule,
-    ],
-=======
   imports: [
     OfficeRoutingModule,
     ThemeModule,
@@ -76,7 +47,6 @@ import {NbSecurityModule} from '@nebular/security';
     NbContextMenuModule,
     NbSecurityModule,
   ],
->>>>>>> Stashed changes
   declarations: [
     TestComponent,
     OfficeComponent,

@@ -4,12 +4,21 @@ import {TestComponent} from './temporary/test/test.component';
 import { OfficeComponent } from './office.component';
 import {ThemeModule} from '../@theme/theme.module';
 import {
+<<<<<<< Updated upstream
     NbAccordionModule,
     NbActionsModule,
     NbButtonModule,
     NbCardModule, NbIconModule,
     NbLayoutModule, NbPopoverModule, NbRadioModule,
     NbSidebarModule, NbTooltipModule, NbUserModule, NbWindowModule,
+=======
+  NbAccordionModule,
+  NbActionsModule,
+  NbButtonModule,
+  NbCardModule, NbContextMenuModule, NbIconModule,
+  NbLayoutModule, NbPopoverModule, NbRadioModule, NbSearchModule, NbSelectModule,
+  NbSidebarModule, NbTooltipModule, NbUserModule, NbWindowModule,
+>>>>>>> Stashed changes
 } from '@nebular/theme';
 import { ListOfficeComponent } from './temporary/list-office/list-office.component';
 import { SideBarListBuildingComponent} from './temporary/side-bar-list-building/side-bar-list-building.component';
@@ -21,8 +30,11 @@ import { RadioInputEtatListOfficeComponent } from './temporary/radio-input-etat-
 import { TabOfficeComponent } from './temporary/tab-office/tab-office.component';
 import { WindowOfficeComponent } from './temporary/window-office/window-office.component';
 import { ModalHelpComponent } from './temporary/modal-help/modal-help.component';
+import { HeaderComponent } from './shared/components/header/header.component';
+import {NbSecurityModule} from '@nebular/security';
 
 @NgModule({
+<<<<<<< Updated upstream
     imports: [
         OfficeRoutingModule,
         ThemeModule,
@@ -41,6 +53,30 @@ import { ModalHelpComponent } from './temporary/modal-help/modal-help.component'
         NbPopoverModule,
         NbUserModule,
     ],
+=======
+  imports: [
+    OfficeRoutingModule,
+    ThemeModule,
+    NbCardModule,
+    NbButtonModule,
+    NbLayoutModule,
+    NbActionsModule,
+    NbSidebarModule,
+    NbAccordionModule,
+    NbRadioModule,
+    FormsModule,
+    MatSortModule,
+    NbWindowModule.forChild(),
+    NbIconModule,
+    NbTooltipModule,
+    NbPopoverModule,
+    NbSelectModule,
+    NbSearchModule,
+    NbUserModule,
+    NbContextMenuModule,
+    NbSecurityModule,
+  ],
+>>>>>>> Stashed changes
   declarations: [
     TestComponent,
     OfficeComponent,
@@ -53,6 +89,7 @@ import { ModalHelpComponent } from './temporary/modal-help/modal-help.component'
     TabOfficeComponent,
     WindowOfficeComponent,
     ModalHelpComponent,
+    HeaderComponent,
   ],
     providers: [
         OfficePipePipe,

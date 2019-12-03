@@ -1,7 +1,8 @@
 <ngx-modal-help></ngx-modal-help>
 <nb-layout>
     <nb-layout-header fixed>
-        <a href="#" (click)="toggle()"><i class="nb-menu"></i></a>
+      <ngx-office-header></ngx-office-header>
+     <!--   <a href="#" (click)="toggle()"><i class="nb-menu"></i></a>
         <nb-layout-column class="colored-column-basic" >
             <h1>Office Manager</h1>
         </nb-layout-column>
@@ -11,8 +12,9 @@
                     <nb-action icon="person-outline"></nb-action>
                 </nb-actions>
             </nb-layout-header>
-        </nb-layout-column>
+        </nb-layout-column>-->
     </nb-layout-header>
+
     <nb-sidebar responsive  class="menu-sidebar start expanded" style="background-color: transparent!important;box-shadow: none"
                 *ngIf="filter === 'batiment' ">
         <ngx-testside-bar-list-office (filterfloorBatiment)="filterfloorBatiment($event)"></ngx-testside-bar-list-office>

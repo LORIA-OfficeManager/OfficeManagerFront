@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {NbSpinnerService} from '@nebular/theme';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'ngx-office',
@@ -8,10 +9,11 @@ import {NbSpinnerService} from '@nebular/theme';
 })
 export class OfficeComponent implements OnInit {
 
-  constructor(private spinner$: NbSpinnerService) {
+  constructor(private spinner$: NbSpinnerService, private titleServie: Title) {
   }
 
   ngOnInit() {
+    this.titleServie.setTitle('Office Manager');
     // Getting rid of the spinner
     this.spinner$.load();
   }

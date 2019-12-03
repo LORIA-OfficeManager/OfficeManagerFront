@@ -6,13 +6,14 @@ import { RouterModule } from '@angular/router';
 import { NbAuthModule } from '@nebular/auth';
 import {
   NbAlertModule,
-  NbButtonModule,
+  NbButtonModule, NbCardModule,
   NbCheckboxModule,
-  NbInputModule,
+  NbInputModule, NbSpinnerModule,
 } from '@nebular/theme';
 import {AuthRoutingModule} from './auth-routing.module';
 import {OfficeModule} from '../office.module';
 import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
 
 
 @NgModule({
@@ -27,10 +28,14 @@ import { LoginComponent } from './login/login.component';
     NbAuthModule,
     AuthRoutingModule,
     OfficeModule,
+    NbSpinnerModule,
+    NbCardModule,
   ],
   declarations: [
     // ... here goes our new components
-  LoginComponent],
+    LoginComponent,
+    LogoutComponent,
+  ],
 })
 export class AuthModule {
 }

@@ -21,6 +21,7 @@ import {
   NbWindowModule,
 } from '@nebular/theme';
 import {NbAuthModule, NbDummyAuthStrategy} from '@nebular/auth';
+import {NbSecurityModule} from '@nebular/security';
 
 @NgModule({
   declarations: [AppComponent],
@@ -38,6 +39,24 @@ import {NbAuthModule, NbDummyAuthStrategy} from '@nebular/auth';
         }),
       ],
       forms: {},
+    }),
+    NbSecurityModule.forRoot({
+      accessControl: {
+        guest: {
+          view: ['login'],
+        },
+        user: {
+          view: ['logout', 'lists'],
+        },
+        leader: {
+          parent: 'user',
+          view: ['assign'],
+        },
+        moderator: {
+          parent: 'user',
+          view: ['import', 'export'],
+        },
+      },
     }),
     NbSidebarModule.forRoot(),
     NbMenuModule.forRoot(),

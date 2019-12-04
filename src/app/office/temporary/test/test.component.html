@@ -6,6 +6,9 @@
           <h2 class="title">Test page</h2>
           <small class="sub-title">This is a test page.</small>
           <div>Loaded : {{ user }}</div>
+          <button nbButton fullWidth (click)="login()" type="button" status="success" class="home-button">
+            login
+          </button>
           <button nbButton fullWidth (click)="goHome()" type="button" class="home-button">
             Take me home
           </button>

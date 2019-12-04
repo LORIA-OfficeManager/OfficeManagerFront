@@ -21,7 +21,12 @@ import {
   NbWindowModule,
 } from '@nebular/theme';
 import {NbAuthModule, NbDummyAuthStrategy} from '@nebular/auth';
-import {NbSecurityModule} from '@nebular/security';
+import {NbRoleProvider, NbSecurityModule} from '@nebular/security';
+import {RoleProviderService} from './office/shared/services/role-provider.service';
+import {DevGuardService} from './office/shared/services/guards/dev-guard.service';
+import {UserGuardService} from './office/shared/services/guards/user-guard.service';
+import {GuestGuardService} from './office/shared/services/guards/guest-guard.service';
+import {LeaderGuardService} from './office/shared/services/guards/leader-guard.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,30 +39,14 @@ import {NbSecurityModule} from '@nebular/security';
     ThemeModule.forRoot(),
     NbAuthModule.forRoot({
       strategies: [
+        // TODO: Update this when backend auth works.
         NbDummyAuthStrategy.setup({
           name: 'dummy',
         }),
       ],
       forms: {},
     }),
-    NbSecurityModule.forRoot({
-      accessControl: {
-        guest: {
-          view: ['login'],
-        },
-        user: {
-          view: ['logout', 'lists'],
-        },
-        leader: {
-          parent: 'user',
-          view: ['assign'],
-        },
-        moderator: {
-          parent: 'user',
-          view: ['import', 'export'],
-        },
-      },
-    }),
+    NbSecurityModule.forRoot(),
     NbSidebarModule.forRoot(),
     NbMenuModule.forRoot(),
     NbDatepickerModule.forRoot(),
@@ -70,6 +59,16 @@ import {NbSecurityModule} from '@nebular/security';
     CoreModule.forRoot(),
   ],
   bootstrap: [AppComponent],
+  providers: [
+    {
+      provide: NbRoleProvider,
+      useClass: RoleProviderService,
+    },
+    DevGuardService,
+    UserGuardService,
+    GuestGuardService,
+    LeaderGuardService,
+  ],
 })
 export class AppModule {
 }

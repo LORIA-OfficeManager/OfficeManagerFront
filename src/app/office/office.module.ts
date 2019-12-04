@@ -23,6 +23,7 @@ import { WindowOfficeComponent } from './temporary/window-office/window-office.c
 import { ModalHelpComponent } from './temporary/modal-help/modal-help.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import {NbSecurityModule} from '@nebular/security';
+import {RoleProviderService} from './shared/services/role-provider.service';
 
 @NgModule({
   imports: [
@@ -64,6 +65,7 @@ import {NbSecurityModule} from '@nebular/security';
     providers: [
         OfficePipePipe,
         StrangerPipe,
+        RoleProviderService,
     ],
 })
 export class OfficeModule { }

@@ -4,6 +4,7 @@ import {Subject} from 'rxjs';
 import {UserData} from '../../../../@core/data/users';
 import {LayoutService} from '../../../../@core/utils';
 import {map, takeUntil} from 'rxjs/operators';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'ngx-office-header',
@@ -46,7 +47,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
               private themeService: NbThemeService,
               private userService: UserData,
               private layoutService: LayoutService,
-              private breakpointService: NbMediaBreakpointsService) {
+              private breakpointService: NbMediaBreakpointsService,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -88,8 +90,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
     return false;
   }
 
+  disconnect() {
+    this.router.navigateByUrl('/office/auth/logout').then(r => r);
+  }
+
   navigateHome() {
     this.menuService.navigateHome();
     return false;
   }
+
 }

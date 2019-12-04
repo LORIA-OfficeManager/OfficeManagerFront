@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {NbAuthService, NbAuthSimpleToken} from '@nebular/auth';
 import {Router} from '@angular/router';
-import {RoleProviderService} from '../../shared/services/role-provider.service';
 
 @Component({
   selector: 'ngx-test',
@@ -12,7 +11,7 @@ export class TestComponent implements OnInit {
 
   private puser;
 
-  constructor(private authService: NbAuthService, private router: Router, private roleService: RoleProviderService) {
+  constructor(private authService: NbAuthService, private router: Router) {
     this.authService.onTokenChange()
       .subscribe((token: NbAuthSimpleToken) => {
 

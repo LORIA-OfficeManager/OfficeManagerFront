@@ -12,7 +12,7 @@ export class LeaderGuardService implements CanActivate {
   private prole;
 
   constructor(private roleProviderService: NbRoleProvider) {
-    roleProviderService.getRole().subscribe( role => this.prole = role);
+    this.roleProviderService.getRole().subscribe( role => this.prole = role);
   }
 
   canActivate(route: ActivatedRouteSnapshot,

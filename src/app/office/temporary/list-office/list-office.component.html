@@ -2,24 +2,13 @@
 <nb-layout>
     <nb-layout-header fixed>
       <ngx-office-header></ngx-office-header>
-     <!--   <a href="#" (click)="toggle()"><i class="nb-menu"></i></a>
-        <nb-layout-column class="colored-column-basic" >
-            <h1>Office Manager</h1>
-        </nb-layout-column>
-        <nb-layout-column  class="colored-column-basic noPadding" style="position: fixed;right: 0;">
-            <nb-layout-header>
-                <nb-actions>
-                    <nb-action icon="person-outline"></nb-action>
-                </nb-actions>
-            </nb-layout-header>
-        </nb-layout-column>-->
     </nb-layout-header>
 
-    <nb-sidebar responsive  class="menu-sidebar start expanded" style="background-color: transparent!important;box-shadow: none"
+    <nb-sidebar responsive  class="menu-sidebar start expanded" style="box-shadow: none"
                 *ngIf="filter === 'batiment' ">
         <ngx-testside-bar-list-office (filterfloorBatiment)="filterfloorBatiment($event)"></ngx-testside-bar-list-office>
     </nb-sidebar>
-    <nb-sidebar responsive class="menu-sidebar start expanded" style="background-color: transparent!important;box-shadow: none"
+    <nb-sidebar responsive class="menu-sidebar start expanded" style="box-shadow: none"
                 *ngIf="filter === 'etat' ">
         <ngx-radio-input-etat-list-office (filterState)="filterState($event)"></ngx-radio-input-etat-list-office>
     </nb-sidebar>
@@ -32,7 +21,7 @@
                     </div>
                     <div class="col-md-8" >
                         <nb-actions size="medium">
-                            <nb-action style="cursor: pointer;" class="offset-6 col-md-3" (click)="switchFilter('batiment')"
+                            <nb-action style="cursor: pointer;" class="offset-md-6 col-md-3" (click)="switchFilter('batiment')"
                                        [ngClass]="' '+(filter==='batiment' ? 'activeFiltre' : 'inactiveFiltre')">
                                 <div style="text-align: center" class="col-12">Batiment</div>
                             </nb-action>

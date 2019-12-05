@@ -40,9 +40,7 @@ h4 {
 }
 
 /*************************************************sideBar**************************************************************/
-.compacted{
-  display: none;
-}
+
 ::ng-deep .nb-theme-default nb-sidebar.compacted.left.fixed ~ .content {
   margin: 0;
 }
@@ -51,3 +49,4 @@ h4 {
   margin: 0% 25% !important;
   max-width: 50% !important;
 }
+

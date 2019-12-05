@@ -1,5 +1,6 @@
 @import '~app/office/office.component';
 
+
 /**************************************************Headerwindow********************************************************/
 ::ng-deep .headerWindow nb-card-header {
   background-color: #3eace0;
@@ -31,3 +32,126 @@
 ::ng-deep .nb-theme-default nb-tooltip  .arrow {
   border-bottom: 6px dashed #3eace0 !important;
 }
+/*************************************************ROW******************************************************************/
+
+::ng-deep {
+  .rowBack {
+    background-color: #ffffff;;
+  }
+
+  .borderSimpleL {
+    border-left: 1px solid black;
+  }
+
+  .borderSimpleR {
+    border-right: 1px solid black;
+  }
+  nb-sidebar.compacted{
+    display: none;
+  }
+  nb-sidebar.compacted.left.fixed ~ .content {
+    margin: 0;
+  }
+}
+
+::ng-deep .nb-theme-dark{
+  .borderSimpleL {
+    border-left: 1px solid #222b45;
+  }
+  .borderSimpleR {
+    border-right: 1px solid #222b45;
+  }
+  .rowBack  {
+    background-color: #222b45 !important;
+  }
+  nb-sidebar.compacted{
+    display: none;
+  }
+  nb-sidebar.compacted.left.fixed ~ .content {
+    margin: 0;
+  }
+}
+::ng-deep .nb-theme-cosmic{
+  .borderSimpleL {
+    border-left: 1px solid #323259;
+  }
+  .borderSimpleR {
+    border-right: 1px solid #323259;
+  }
+  .rowBack  {
+    background-color: #323259 !important;
+  }
+  nb-sidebar.compacted{
+    display: none;
+  }
+  nb-sidebar.compacted.left.fixed ~ .content {
+    margin: 0;
+  }
+}
+
+@mixin for-phone-only {
+@media (max-width: 599px) {
+  nb-sidebar{
+    background-color: #3c763d!important;
+    color: green;
+  }
+}
+}
+@mixin for-tablet-portrait-up {
+  @media (min-width: 600px) { @content; }
+}
+@mixin for-tablet-landscape-up {
+  @media (min-width: 900px) { @content; }
+}
+@mixin for-desktop-up {
+  @media (min-width: 1200px) {
+    nb-sidebar{
+      background-color: #3c763d!important;
+      color: green;
+    }
+  }
+}
+//big Screen
+@media screen and (min-width: 1800px) {
+
+  ::ng-deep .menu-sidebar {
+    background-color: transparent!important;
+  }
+}
+//screen
+@media screen and (min-width: 1200px) and (max-width: 1800px) {
+
+  ::ng-deep .menu-sidebar {
+      background-color: transparent!important;
+  }
+
+}
+//tablet
+@media screen and (min-width: 900px) and (max-width: 1200px) {
+
+
+  ::ng-deep {
+    .nb-theme-default {
+      .menu-sidebar {
+        background-color: #ffffff;;
+      }
+    }
+    .nb-theme-cosmic {
+      .menu-sidebar {
+        background-color: #323259 !important;
+      }
+    }
+    .nb-theme-dark {
+      .menu-sidebar {
+        background-color: #222b45 !important;
+      }
+    }
+  }
+
+
+}
+//tablet
+@media screen and (min-width: 599px) and (max-width: 900px) {
+
+}
+

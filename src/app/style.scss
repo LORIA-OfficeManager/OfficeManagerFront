@@ -43,15 +43,10 @@
 
 /*************************************************ROW******************************************************************/
 
-.gallery {
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
-}
 
 ::ng-deep {
 
-  .homeBody {
+  .homeBody{
     position: absolute;
     top: 25%;
     left: 25% !important;
@@ -90,11 +85,11 @@
 }
 
 ::ng-deep .nb-theme-dark {
-  .logoDefault {
-    width: 0% !important;
-  }
   .logoDarOrCom {
     width: 100% !important;
+  }
+  .logoDefault {
+    width: 0% !important;
   }
   .borderSimpleL {
     border-left: 1px solid #222b45;
@@ -115,11 +110,11 @@
 }
 
 ::ng-deep .nb-theme-cosmic {
-  .logoDefault {
-    width: 0% !important;
-  }
   .logoDarOrCom {
     width: 100% !important;
+  }
+  .logoDefault {
+    width: 0% !important;
   }
   .borderSimpleL {
     border-left: 1px solid #323259;

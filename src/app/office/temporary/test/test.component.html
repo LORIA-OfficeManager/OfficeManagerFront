@@ -1,19 +1,31 @@
-<div class="row">
+<nb-layout-header id="nav">
+  <h1>OFFICE MANAGER</h1>
+</nb-layout-header>
+<div class="row homeBody">
   <div class="col-md-12">
-    <nb-card>
+    <nb-card >
       <nb-card-body>
-        <div class="flex-centered col-xl-4 col-lg-6 col-md-8 col-sm-12">
+        <div class="flex-centered col-xl-12 col-lg-12 col-md-12 col-sm-12" style="text-align: center">
           <h2 class="title">Test page</h2>
           <small class="sub-title">This is a test page.</small>
           <div>Loaded : {{ user }}</div>
-          <button nbButton fullWidth (click)="login()" type="button" status="success" class="home-button">
-            login
+          <button nbButton fullWidth (click)="login()"  type="button" class=" col-lg-12 home-button-reverse">
+            Se connecter
           </button>
-          <button nbButton fullWidth (click)="goHome()" type="button" class="home-button">
-            Take me home
+          <button nbButton fullWidth (click)="goHome()" type="button" class="col-lg-12 home-button">
+            Afficher la liste des bureaux
           </button>
         </div>
       </nb-card-body>
     </nb-card>
   </div>
 </div>
+<nb-layout-footer class="homeFooter" >
+  <div class="row show-grid" >
+    <div class="col-lg-12 row">
+      <img class=" offset-lg-2 col-lg-4 offset-md-2 col-md-4 col-sm-6 " src="https://members.loria.fr/infodoc/files/img/DOCLOGO/logo_loria_complet_couleur.png">
+      <img class="logoDefault col-lg-4 col-md-4 col-sm-6 " src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Logo_Universit%C3%A9_de_Lorraine.svg/1280px-Logo_Universit%C3%A9_de_Lorraine.svg.png">
+      <img class="logoDarOrCom col-lg-4 col-md-6 col-sm-6" src="http://bienvenue.blog.univ-lorraine.fr/files/2019/06/ul-logo.png">
+    </div>
+  </div>
+</nb-layout-footer>

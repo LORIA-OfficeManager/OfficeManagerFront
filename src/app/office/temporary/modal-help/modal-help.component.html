@@ -1,15 +1,15 @@
 <ng-template #dialog let-data let-ref="dialogRef">
     <nb-card>
-        <nb-card-header class="headerOfficeManager">AIDE<nb-icon (click)="ref.close()" icon="close-outline"></nb-icon> </nb-card-header>
+        <nb-card-header class="headerOfficeManager">AIDE<nb-icon style="float: right; cursor: pointer" (click)="ref.close()" icon="close-outline"></nb-icon> </nb-card-header>
         <nb-card-body class="modalHeight">
             <div>
                 <h4 class="titleHelpModal">Code couleur :</h4>
-                <div class="col-12">
-                    <h5 class="emptyOffice"> bureau vide</h5>
-                    <h5 class="notFullOffice"> bureau non vide</h5>
-                    <h5 class="fullOffice"> bureau plein</h5>
-                    <h5 class="moreThanFullOffice"> bureau sur peuplé</h5>
-                    <h5 class="StrangerOffice" > bureau avec un ou plusieur intrus</h5>
+                <div class="col-12 codeCouleur">
+                    <h5 class="emptyOffice"> Bureau vide</h5>
+                    <h5 class="notFullOffice"> Bureau non vide</h5>
+                    <h5 class="fullOffice"> Bureau plein</h5>
+                    <h5 class="moreThanFullOffice"> Bureau sur peuplé</h5>
+                    <h5 class="StrangerOffice" > Bureau avec un ou plusieur intrus</h5>
                 </div>
                 <div >
                    <h4 class="titleHelpModal">Liste des bureaux :</h4>
@@ -36,9 +36,9 @@
                 </div>
             </div>
         </nb-card-body>
-        <nb-card-footer class="headerOfficeManager" style="padding: 1%;">
+        <nb-card-footer class="headerOfficeManager" style="padding: 0.2%;">
         </nb-card-footer>
     </nb-card>
 </ng-template>
-<button nbButton class="buttonHelpModal" appearance="outline" status="primary"
+<button nbButton class="buttonHelpModal" appearance="outline"
         size="small" shape="round" (click)="open(dialog)">Aide</button>

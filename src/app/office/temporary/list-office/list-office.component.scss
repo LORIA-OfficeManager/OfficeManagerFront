@@ -63,11 +63,19 @@ h4 {
   max-width: 50% !important;
 }
 
-// padding du layout qui contient le tableau
-::ng-deep .layout-container{
-  padding: 0% !important;
-}
 
 .menu-sidebar {
   box-shadow: none
+}
+.colone {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.ligne::after {
+  content: "";
+  clear: both;
+  display: table;
 }

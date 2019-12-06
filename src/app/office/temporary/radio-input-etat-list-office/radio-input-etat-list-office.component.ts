@@ -10,11 +10,11 @@ export class RadioInputEtatListOfficeComponent implements OnInit {
   private _filterState$: EventEmitter<any>;
   // liste des etat possible des bureaus
   private _options = [
-    { value: 'emptyOffice', label: 'vide' },
-    { value: 'notFullOffice', label: 'non vide' },
-    { value: 'fullOffice', label: 'plein' },
-    { value: 'moreThanFullOffice', label: 'surpeuplé' },
-    { value: 'intrus', label: 'intrus' },
+    { value: 'emptyOffice', label: 'Vide' },
+    { value: 'notFullOffice', label: 'Non vide' },
+    { value: 'fullOffice', label: 'Plein' },
+    { value: 'moreThanFullOffice', label: 'Surpeuplé' },
+    { value: 'intrus', label: 'Intrus' },
   ];
   // etat selectionz
   option;

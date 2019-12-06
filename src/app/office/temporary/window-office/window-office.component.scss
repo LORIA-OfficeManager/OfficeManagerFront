@@ -1,41 +1,40 @@
 @import '~bootstrap/scss/mixins/breakpoints';
 @import '~@nebular/theme/styles/global/breakpoints';
-
+@import '~app/office/office.component';
 @import '../../../@theme/styles/themes';
 
-@include nb-install-component() {
-  button + button {
-    margin-left: 5rem;
-  }
-  .windowfullOffice {
-    background-color: green;
-  }
+/**************************************************CodeCouleur********************************************************/
+.fullOffice {
+  background-color: $color-officeFull;
+}
+.moreThanFullOffice {
+  background-color: $color-officeMoreThanFull;
+}
+.notFullOffice {
+  background-color: $color-officeNoEmpty;
+}
+.emptyOffice {
+  background-color: $color-officeEmpty;
+}
+.StrangerOffice {
+  background-image: linear-gradient(45deg, rgba(238, 97, 125, 0) 25%,
+    $color-officeStrnager 25%, $color-officeStrnager 50%,
+          rgba(238, 97, 125, 0) 50%, rgba(238, 97, 125, 0) 75%,
+    $color-officeStrnager 25%, $color-officeStrnager 100%);
+  background-size: 56.57px 56.57px;
+}
 
-  @include media-breakpoint-down(xxl) {
-    nb-card-body {
-      display: flex;
-    }
+/**************************************************composantWindow*****************************************************/
 
-    button {
-      flex: 1;
-      padding: 0.8rem;
-    }
-  }
+.color nb-card {
+  background-color: #2d8ac7!important;
+}
 
-  @include media-breakpoint-down(is) {
-    nb-card-body {
-      display: block;
-    }
+nb-tooltip.officeManagerTooltip {
+  background-color: #2d8ac7;
+  color: white;
+}
 
-    button {
-      + button {
-        margin-left: 0;
-      }
-
-      width: 100%;
-      display: block;
-      margin-bottom: 2rem;
-      padding: 0.75rem;
-    }
-  }
+.etatOffice {
+  height: 20px;
 }

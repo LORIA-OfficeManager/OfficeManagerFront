@@ -76,7 +76,7 @@ export class TabOfficeComponent implements OnInit, OnChanges {
      * @param office le bureau
      */
     people(office: Office) {
-        return office.personAssign.length || 0;
+        return office.occupation || 0;
     }
 
     /**

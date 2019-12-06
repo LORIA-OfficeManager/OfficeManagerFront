@@ -1,28 +1,68 @@
-@import "~app/office/office.component";
+@import '~app/office/office.component';
 
-.activeFiltre{
+/***************************************code couleur du site***********************************************************/
+
+.headerOfficeManager {
+  background-color: $color-active !important;
+  color: white !important;
+}
+h4 {
+  color: white;
+}
+.activeFiltre {
   color: $color-active;
   text-align: center !important;
 }
-.inactiveFiltre{
+.inactiveFiltre {
   text-align: center !important;
 }
-h3{
-  color: $color-active;
-}
-.fullOffice{
-  background-color: orange;
-}
-.moreThanFullOffice{
-  background-color: darkred;
-}
-.notFullOffice{
-  background-color: transparent;
-}
-.emptyOffice{
-  background-color: green;
+.filtre {
+  padding: 0%;
+  nb-card-header {
+  }
+  h4 {
+    text-align: center;
+    color: white;
+  }
 }
 
-.rowGrey{
-  background-color: #eaeaea;
+
+/******************************************code couleur****************************************************************/
+
+.fullOffice {
+  background-color: $color-officeFull;
+}
+.moreThanFullOffice {
+  background-color: $color-officeMoreThanFull;
+}
+.notFullOffice {
+  background-color: $color-officeNoEmpty;
+}
+.emptyOffice {
+  background-color: $color-officeEmpty;
+}
+.StrangerOffice {
+  background-image: linear-gradient(45deg, rgba(238, 97, 125, 0) 25%,
+    $color-officeStrnager 25%, $color-officeStrnager 50%,
+          rgba(238, 97, 125, 0) 50%, rgba(238, 97, 125, 0) 75%,
+    $color-officeStrnager 25%, $color-officeStrnager 100%);
+  background-size: 56.57px 56.57px;
+}
+
+/*************************************************sideBar**************************************************************/
+
+::ng-deep .nb-theme-default nb-sidebar.compacted.left.fixed ~ .content {
+  margin: 0;
+}
+
+/*************************************************MODAL****************************************************************/
+
+::ng-deep nb-dialog-container {
+  width: 50%;
+  margin: 0% 25% !important;
+  max-width: 50% !important;
+}
+
+.menu-sidebar {
+  box-shadow: none;
 }

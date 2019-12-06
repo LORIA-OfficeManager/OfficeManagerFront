@@ -1,8 +1,8 @@
 import {Component, Input, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {NbWindowService} from '@nebular/theme';
-import {DetailOfficeComponent} from '../detail-office/detail-office.component';
 import {Office} from '../../shared/interfaces/office';
-import {OfficePipePipe} from '../../shared/pipe/office-pipe.pipe';
+import {OfficeDetailService} from '../../shared/services/office-detail.service';
+import {OfficeDetail} from '../../shared/interfaces/officeDetail';
 
 @Component({
   selector: 'ngx-window-office',
@@ -12,13 +12,15 @@ import {OfficePipePipe} from '../../shared/pipe/office-pipe.pipe';
 export class WindowOfficeComponent implements OnInit {
   // bureau
   private _office: Office;
-
+  @ViewChild('contentTemplate', { static: false }) contentTemplate: TemplateRef<any>;
   /**
    * constructor
    * @param windowService
    * @param _officePipe
+   * @param serviceOfficeD
    */
-  constructor(private windowService: NbWindowService, private _officePipe: OfficePipePipe) {}
+  constructor(private windowService: NbWindowService,
+              private serviceOfficeD: OfficeDetailService ) {}
 
   /**
    */
@@ -27,17 +29,19 @@ export class WindowOfficeComponent implements OnInit {
    * ouvre la window
    */
   openWindow() {
-    this.windowService.open(DetailOfficeComponent, {
-      title: this.name(this._office),
-      context: this._office,
-      windowClass: 'windowfullOffice'});
+    this.serviceOfficeD.fectOne(this._office._id).subscribe(( _: OfficeDetail ) => {
+      this.windowService.open(
+          this.contentTemplate,
+          {windowClass: 'headerWindow', title:  this.name( _ ), context: _ },
+      );
+    });
   }
 
   /**
    * retourn le nom du bureaux
    * @param office
    */
-  name(office: Office): string {
+  name(office: OfficeDetail): string {
     let name = '' + office.num;
     if (office.num < 10) {
       name = '0' + office.num;

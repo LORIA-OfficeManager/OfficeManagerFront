@@ -8,6 +8,8 @@ import {
   NbRequestPasswordComponent,
   NbResetPasswordComponent,
 } from '@nebular/auth';
+import {DevGuardService} from './office/shared/services/guards/dev-guard.service';
+import {environment} from '../environments/environment.prod';
 
 const routes: Routes = [
   {
@@ -17,12 +19,14 @@ const routes: Routes = [
   },
   {
     path: 'exemple',
+    canActivate: [DevGuardService],
     loadChildren: () => import('app/exemple/pages.module')
       .then(m => m.PagesModule),
   },
   {
     path: 'auth',
     component: NbAuthComponent,
+    canActivate: [DevGuardService],
     children: [
       {
         path: '',
@@ -55,8 +59,8 @@ const routes: Routes = [
 ];
 
 const config: ExtraOptions = {
-  enableTracing: true,
-  useHash: false,
+  enableTracing: !environment.production,
+  useHash: !environment.production,
 };
 
 @NgModule({

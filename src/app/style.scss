@@ -43,31 +43,33 @@
 
 /*************************************************ROW******************************************************************/
 
+.gallery {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
 
 ::ng-deep {
 
-  .homeBody{
+  .homeBody {
     position: absolute;
     top: 25%;
     left: 25% !important;
     width: 50%;
-    height: 50%
+    height: 50%;
   }
 
-  .homeFooter{
+  .homeFooter {
     position: absolute;
     bottom: 0;
     right: 0;
     width: 100%;
-    img{
-      height: 100px;
-    }
   }
-  .logoDefault{
-    display: flex!important;
+  .logoDefault {
+    width: 100% !important;
   }
-  .logoDarOrCom{
-    display: none !important;
+  .logoDarOrCom {
+    width: 0% !important;
   }
   .rowBack {
     background-color: #ffffff;;
@@ -88,11 +90,11 @@
 }
 
 ::ng-deep .nb-theme-dark {
-  .logoDarOrCom{
-    display: flex !important;
+  .logoDefault {
+    width: 0% !important;
   }
-  .logoDefault{
-    display: none !important;
+  .logoDarOrCom {
+    width: 100% !important;
   }
   .borderSimpleL {
     border-left: 1px solid #222b45;
@@ -113,11 +115,11 @@
 }
 
 ::ng-deep .nb-theme-cosmic {
-  .logoDarOrCom{
-    display: flex !important;
+  .logoDefault {
+    width: 0% !important;
   }
-  .logoDefault{
-    display: none !important;
+  .logoDarOrCom {
+    width: 100% !important;
   }
   .borderSimpleL {
     border-left: 1px solid #323259;
@@ -182,7 +184,7 @@
 
 //////////////////////////////////////////////phone
 @media screen and (max-width: 600px) {
-  ::ng-deep{
+  ::ng-deep {
     .nb-theme-default {
       .buttonHelpModal {
         background-color: #ffffff !important;
@@ -203,16 +205,13 @@
       top: 25%;
       left: 5% !important;
       width: 95%;
-      height: 50%
+      height: 50%;
     }
-    .homeFooter{
+    .homeFooter {
       position: absolute;
       bottom: 0;
       right: 0;
       width: 100%;
-      img{
-        height: 100px;
-      }
     }
   }
 }

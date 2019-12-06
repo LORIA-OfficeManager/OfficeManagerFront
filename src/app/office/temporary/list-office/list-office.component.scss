@@ -16,11 +16,11 @@ h4 {
 .inactiveFiltre {
   text-align: center !important;
 }
-.filtre{
+.filtre {
   padding: 0%;
-  nb-card-header{
+  nb-card-header {
   }
-  h4{
+  h4 {
     text-align: center;
     color: white;
   }
@@ -57,25 +57,12 @@ h4 {
 
 /*************************************************MODAL****************************************************************/
 
-::ng-deep nb-dialog-container{
+::ng-deep nb-dialog-container {
   width: 50%;
   margin: 0% 25% !important;
   max-width: 50% !important;
 }
 
-
 .menu-sidebar {
-  box-shadow: none
-}
-.colone {
-  float: left;
-  width: 33.33%;
-  padding: 5px;
-}
-
-/* Clearfix (clear floats) */
-.ligne::after {
-  content: "";
-  clear: both;
-  display: table;
+  box-shadow: none;
 }

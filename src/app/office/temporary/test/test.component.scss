@@ -1,15 +1,15 @@
 @import '~app/office/office.component';
 
-::ng-deep  nb-layout-header nav{
+::ng-deep  nb-layout-header nav {
     box-shadow: none !important;
 }
-::ng-deep  nb-layout-footer nav{
+::ng-deep  nb-layout-footer nav {
   background-color: transparent!important;
   box-shadow: none !important;
 }
 
 
-#nav {
+.navbar {
   background-color: transparent;
 }
 

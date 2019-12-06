@@ -2,43 +2,8 @@
 @import '~@nebular/theme/styles/global/breakpoints';
 @import '~app/office/office.component';
 @import '../../../@theme/styles/themes';
-.color nb-card {
-  background-color: #2d8ac7!important;
-}
-@include nb-install-component() {
-  button + button {
-    margin-left: 5rem;
-  }
 
-  @include media-breakpoint-down(xxl) {
-    nb-card-body {
-      display: flex;
-    }
-
-    button {
-      flex: 1;
-      padding: 0.8rem;
-    }
-  }
-
-
-  @include media-breakpoint-down(is) {
-    nb-card-body {
-      display: block;
-    }
-
-    button {
-      + button {
-        margin-left: 0;
-      }
-
-      width: 100%;
-      display: block;
-      margin-bottom: 2rem;
-      padding: 0.75rem;
-    }
-  }
-}
+/**************************************************CodeCouleur********************************************************/
 .fullOffice{
   background-color: $color-officeFull;
 }
@@ -58,24 +23,18 @@
     $color-officeStrnager 25%, $color-officeStrnager 100%);
   background-size: 56.57px 56.57px;
 }
+
+/**************************************************composantWindow*****************************************************/
+
+.color nb-card {
+  background-color: #2d8ac7!important;
+}
+
 nb-tooltip.officeManagerTooltip {
   background-color: #2d8ac7;
   color: white;
 }
+
 .etatOffice{
   height: 20px;
-
-}
-img {
-  border-radius: 50%;
-  margin-right: 18px;
-  -webkit-filter: grayscale(100%);
-}
-
-.align-right {
-  text-align: right;
-}
-
-.full-width {
-  width: 100%;
 }

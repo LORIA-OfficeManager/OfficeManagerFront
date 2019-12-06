@@ -2,47 +2,55 @@
 
 
 /**************************************************Headerwindow********************************************************/
-::ng-deep .headerWindow nb-card-header {
-  background-color: #3eace0;
-  color: white;
-}
 
-::ng-deep .headerWindow nb-card-header nb-icon {
-  color: white;
-}
-::ng-deep .headerWindow nb-card-header .buttons button:hover {
-  border: 1px solid #3eace0 !important;
-  nb-icon {
-    color: #3eace0  !important;
+::ng-deep .headerWindow {
+  nb-card-header {
+    background-color: #3eace0;
+    color: white;
+  }
+  nb-card-header nb-icon {
+    color: white;
+  }
+  nb-card-header .buttons button:hover {
+
+    border: 1px solid #3eace0 !important;
+    nb-icon {
+      color: #3eace0 !important;
+    }
   }
 }
+
 /****************************************color tooltip*****************************************************************/
-::ng-deep .officeManagerTooltip nb-tooltip {
-  background-color: #3eace0;
-  color: white;
+
+::ng-deep .officeManagerTooltip {
+
+  nb-tooltip {
+    background-color: #3eace0;
+    color: white;
+  }
+  nb-tooltip::before {
+    background-color: #3eace0;
+    color: white;
+  }
+  nb-tooltip::after {
+    background-color: #3eace0;
+    color: white;
+  }
+  nb-tooltip .arrow {
+    border-bottom: 6px dashed #3eace0 !important;
+  }
 }
-::ng-deep .officeManagerTooltip nb-tooltip::before {
-  background-color: #3eace0;
-  color: white;
-}
-::ng-deep .officeManagerTooltip nb-tooltip::after {
-  background-color: #3eace0;
-  color: white;
-}
-::ng-deep .nb-theme-default nb-tooltip  .arrow {
-  border-bottom: 6px dashed #3eace0 !important;
-}
+
 /*************************************************ROW******************************************************************/
 
 ::ng-deep {
+
   .rowBack {
     background-color: #ffffff;;
   }
-
   .borderSimpleL {
     border-left: 1px solid black;
   }
-
   .borderSimpleR {
     border-right: 1px solid black;
   }
@@ -52,9 +60,11 @@
   nb-sidebar.compacted.left.fixed ~ .content {
     margin: 0;
   }
+
 }
 
 ::ng-deep .nb-theme-dark {
+
   .borderSimpleL {
     border-left: 1px solid #222b45;
   }
@@ -70,8 +80,11 @@
   nb-sidebar.compacted.left.fixed ~ .content {
     margin: 0;
   }
+
 }
+
 ::ng-deep .nb-theme-cosmic {
+
   .borderSimpleL {
     border-left: 1px solid #323259;
   }
@@ -87,48 +100,29 @@
   nb-sidebar.compacted.left.fixed ~ .content {
     margin: 0;
   }
+
 }
 
-@mixin for-phone-only {
-@media (max-width: 599px) {
-  nb-sidebar {
-    background-color: #3c763d!important;
-    color: green;
-  }
-}
-}
-@mixin for-tablet-portrait-up {
-  @media (min-width: 600px) { @content; }
-}
-@mixin for-tablet-landscape-up {
-  @media (min-width: 900px) { @content; }
-}
-@mixin for-desktop-up {
-  @media (min-width: 1200px) {
-    nb-sidebar {
-      background-color: #3c763d!important;
-      color: green;
-    }
-  }
-}
-//big Screen
+/*********************************************RESPONSIVE***************************************************************/
+
+//////////////////////////////////////////////big Screen
 @media screen and (min-width: 1800px) {
 
   ::ng-deep .menu-sidebar {
     background-color: transparent!important;
   }
+
 }
-//screen
+//////////////////////////////////////////////screen
 @media screen and (min-width: 1200px) and (max-width: 1800px) {
 
   ::ng-deep .menu-sidebar {
-      background-color: transparent!important;
+    background-color: transparent!important;
   }
 
 }
-//tablet
+//////////////////////////////////////////////tablet
 @media screen and (min-width: 900px) and (max-width: 1200px) {
-
 
   ::ng-deep {
     .nb-theme-default {
@@ -148,9 +142,8 @@
     }
   }
 
-
 }
-//tablet
+//////////////////////////////////////////////tablet-down
 @media screen and (min-width: 599px) and (max-width: 900px) {
 
 }

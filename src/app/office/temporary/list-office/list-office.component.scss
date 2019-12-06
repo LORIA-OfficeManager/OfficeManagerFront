@@ -1,8 +1,13 @@
 @import '~app/office/office.component';
+
 /***************************************code couleur du site***********************************************************/
+
 .headerOfficeManager {
   background-color: $color-active !important;
   color: white !important;
+}
+h4 {
+  color: white;
 }
 .activeFiltre {
   color: $color-active;
@@ -11,11 +16,19 @@
 .inactiveFiltre {
   text-align: center !important;
 }
-h4 {
-  color: $color-active;
+.filtre{
+  padding: 0%;
+  nb-card-header{
+  }
+  h4{
+    text-align: center;
+    color: white;
+  }
 }
 
+
 /******************************************code couleur****************************************************************/
+
 .fullOffice {
   background-color: $color-officeFull;
 }
@@ -35,18 +48,26 @@ h4 {
     $color-officeStrnager 25%, $color-officeStrnager 100%);
   background-size: 56.57px 56.57px;
 }
-::ng-deep .layout-container{
-  padding: 0% !important;
-}
 
 /*************************************************sideBar**************************************************************/
 
 ::ng-deep .nb-theme-default nb-sidebar.compacted.left.fixed ~ .content {
   margin: 0;
 }
+
+/*************************************************MODAL****************************************************************/
+
 ::ng-deep nb-dialog-container{
   width: 50%;
   margin: 0% 25% !important;
   max-width: 50% !important;
 }
 
+// padding du layout qui contient le tableau
+::ng-deep .layout-container{
+  padding: 0% !important;
+}
+
+.menu-sidebar {
+  box-shadow: none
+}

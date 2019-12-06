@@ -1,17 +1,12 @@
+
+/****************************************table************************************************************************/
 table {
   width: 100%;
-}
-.overflow-ellipsis {
-  /* Nécessaires pour text-overflow */
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 td {
   width: 20%;
   padding: 1%;
 }
-/****************************************table************************************************************************/
 th {
   width: 20%;
   padding: 1%;

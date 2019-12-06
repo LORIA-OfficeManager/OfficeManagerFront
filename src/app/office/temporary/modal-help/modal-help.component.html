@@ -1,9 +1,9 @@
 <ng-template #dialog let-data let-ref="dialogRef">
     <nb-card>
         <nb-card-header class="headerOfficeManager">AIDE<nb-icon (click)="ref.close()" icon="close-outline"></nb-icon> </nb-card-header>
-        <nb-card-body style="max-height: 400px">
+        <nb-card-body class="modalHeight">
             <div>
-                <h4 style="margin: 2% 0%">Code Couleur :</h4>
+                <h4 class="titleHelpModal">Code couleur :</h4>
                 <div class="col-12">
                     <h5 class="emptyOffice"> bureau vide</h5>
                     <h5 class="notFullOffice"> bureau non vide</h5>
@@ -12,23 +12,25 @@
                     <h5 class="StrangerOffice" > bureau avec un ou plusieur intrus</h5>
                 </div>
                 <div >
-                   <h4 style="margin: 2% 0%">Liste des bureaux :</h4>
+                   <h4 class="titleHelpModal">Liste des bureaux :</h4>
                     <div class="col-12">
                         <p> <strong>Nom</strong> : Le nom du bureau.</p>
-                        <p> <strong>Etage</strong> : L'étage du bureau.</p>
-                        <p> <strong>Batiment</strong> : Le nom du bâtiment du bureau.</p>
+                        <p> <strong>Étage</strong> : L'étage du bureau.</p>
+                        <p> <strong>Bâtiment</strong> : Le nom du bâtiment du bureau.</p>
                         <p> <strong>Taille</strong> : Le nombre d'occupants / La taille max.</p>
-                        <div><nb-action icon="maximize-outline" style="float: left"
-                        ></nb-action> : Permet d'afficher le détaille du bureau.</div>
+                        <div>
+                            <nb-action icon="maximize-outline" style="float: left"></nb-action>
+                            <span> : Permet d'afficher le détaille du bureau.</span>
+                        </div>
                     </div>
                 </div>
                 <div>
-                    <h4 style="margin: 2% 0%">Filtre :</h4>
+                    <h4 class="titleHelpModal">Filtre :</h4>
                     <div class="col-12">
-                        <p><strong>Batiment</strong> : Il est possible de filtrer les bureaux selon le bâtiment
+                        <p><strong>Bâtiment</strong> : Il est possible de filtrer les bureaux selon le bâtiment
                             ( C'est-à-dire : Loria, bâtiment A, bâtiment B, bâtiment C ).
                             Puis les filtrer par étage.</p>
-                        <p><strong>Etat</strong> : Il est possible de filtrer les bureaux selon l'état du bureau.
+                        <p><strong>État</strong> : Il est possible de filtrer les bureaux selon l'état du bureau.
                             C'est-à-dire si le bureau est vide, non plein, plein, surpeuplé ou avec un ou plusieurs intrus.</p>
                     </div>
                 </div>
@@ -38,8 +40,5 @@
         </nb-card-footer>
     </nb-card>
 </ng-template>
-<button nbButton style=" position: fixed; bottom: 15px; right: 15px; background-color: white; z-index : 100"
-        appearance="outline" status="primary"
-        size="small" shape="round"
-        (click)="open(dialog)">
-    Aide</button>
+<button nbButton class="buttonHelpModal" appearance="outline" status="primary"
+        size="small" shape="round" (click)="open(dialog)">Aide</button>

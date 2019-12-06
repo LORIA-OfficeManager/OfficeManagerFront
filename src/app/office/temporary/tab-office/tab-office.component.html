@@ -1,8 +1,8 @@
 <table  matSort (matSortChange)="sortData($event)">
     <tr>
         <th mat-sort-header="name" class="borderSimpleL">Nom</th>
-        <th mat-sort-header="floor" class="borderSimpleL">Etage</th>
-        <th mat-sort-header="building" class="borderSimpleL">Batiment</th>
+        <th mat-sort-header="floor" class="borderSimpleL">Étage</th>
+        <th mat-sort-header="building" class="borderSimpleL">Bâtiment</th>
         <th mat-sort-header="size" class="borderSimpleL borderSimpleR">Taille</th>
     </tr>
     <tr *ngFor="let office of offices; let index = index" [className]=" index % 2 ===1 ? 'rowBack' : 'rowNormal' ">

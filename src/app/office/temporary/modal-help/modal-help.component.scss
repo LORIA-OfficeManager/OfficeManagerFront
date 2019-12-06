@@ -1,9 +1,20 @@
 @import '~app/office/office.component';
 
-nb-icon {
-  display: inline-block;
-  float: right;
+/*************************************************Modal****************************************************************/
+.modalHeight {
+  max-height: 400px;
 }
-h4{
+.titleHelpModal{
   color: $color-active;
+  margin: 2% 0%;
+}
+.buttonHelpModal{
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  background-color: white;
+  z-index : 100;
+}
+.modalHeight {
+  max-height: 400px;
 }

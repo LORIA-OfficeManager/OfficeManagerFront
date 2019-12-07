@@ -15,9 +15,9 @@ before_deploy:
 - ssh-add /tmp/deploy_rsa
 install:
 - yarn install
-- ng build --prod
 script:
 - echo "yarn test temporarily disabled"
+- yarn run build:prod
 deploy:
   provider: script
   skip_cleanup: true

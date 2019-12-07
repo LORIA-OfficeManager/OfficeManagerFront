@@ -4,7 +4,7 @@ node_js:
 sudo: required
 addons:
   chrome: stable
-  ssh_known_hosts: 92.222.9.74
+  ssh_known_hosts: $SERVER_IP
 branches:
   only:
   - dev
@@ -15,17 +15,23 @@ before_deploy:
 - ssh-add /tmp/deploy_rsa
 install:
 - yarn install
+- ng build --prod
 script:
 - echo "yarn test temporarily disabled"
-notifications:
-  webhooks:
-  - https://discordapp.com/api/webhooks/652782139296841730/LUKrG8VG8IlQFt8cFUSNHmk9CO8Wjw8PMS_d3q0a-yvq_LxvTjhr-Q1LGh2TqBdqIPIo
 deploy:
   provider: script
   skip_cleanup: true
-  script: rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/ root@92.222.9.74:/deploy/officemanager-front
+  script: rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/ root@$SERVER_IP:/deploy/officemanager-front
   on:
     branch: dev
 after_deploy:
-- ssh root@92.222.9.74 'chmod 777 /deploy/officemanager-front/script.sh'
-- ssh root@92.222.9.74 '/deploy/officemanager-front/script.sh'
+- ssh root@$SERVER_IP 'chmod 777 /deploy/officemanager-front/script.sh'
+- ssh root@$SERVER_IP '/deploy/officemanager-front/script.sh'
+after_success:
+  - wget https://raw.githubusercontent.com/DiscordHooks/travis-ci-discord-webhook/master/send.sh
+  - chmod +x send.sh
+  - ./send.sh success $WEBHOOK_URL
+after_failure:
+  - wget https://raw.githubusercontent.com/DiscordHooks/travis-ci-discord-webhook/master/send.sh
+  - chmod +x send.sh
+  - ./send.sh failure $WEBHOOK_URL

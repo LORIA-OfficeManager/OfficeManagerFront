@@ -28,12 +28,14 @@
                 </div>
             </div>
         </nb-card>
-        <ngx-testside-bar-list-office (filterfloorBatiment)="filterfloorBatiment($event)" *ngIf="filter === 'batiment' "></ngx-testside-bar-list-office>
-        <ngx-radio-input-etat-list-office (filterState)="filterState($event)" *ngIf="filter === 'etat' "></ngx-radio-input-etat-list-office>
+        <div [ngSwitch]="filter">
+            <ngx-testside-bar-list-office (filterfloorBatiment)="filterfloorBatiment($event)"  *ngSwitchCase="batiment"></ngx-testside-bar-list-office>
+            <ngx-radio-input-etat-list-office (filterState)="filterState($event)" *ngSwitchCase="etat"></ngx-radio-input-etat-list-office>
+        </div>
     </nb-sidebar>
     <nb-layout-column class="row">
-        <div class="col-md-12">
-            <div  class="colored-column-basic col-12" >
+        <div class="col-md-12 noPadding">
+            <div  class="colored-column-basic col-12 noPadding">
                 <ngx-tab-office  [offices]="sortedData"></ngx-tab-office>
             </div>
         </div>

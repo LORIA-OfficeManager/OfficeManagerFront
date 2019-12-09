@@ -1,7 +1,6 @@
 <nb-action icon="maximize-outline" (click)="openWindow()"  nbTooltip="Afficher le detail du bureau" nbTooltipClass="officeManagerTooltip" ></nb-action>
 <ng-template #contentTemplate let-data>
-
-    <div class="row">
+    <div class="row" style="max-height: 400px">
         <div class="col-md-12">
             <div [ngClass]="'etatOffice '+( data.hasStrangers | strangerPipe)+' '+(data.size | officePipe:data.occupation)"></div>
             <h5 >Information générale :</h5>

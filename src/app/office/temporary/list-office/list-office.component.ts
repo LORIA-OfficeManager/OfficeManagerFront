@@ -11,6 +11,8 @@ import {NbSidebarService} from '@nebular/theme';
       ],
 })
 export class ListOfficeComponent implements OnInit {
+  private readonly _etat: string;
+  private readonly _batiment: string;
   // type de filtre
   private _filter: string;
   // liste des bureaux
@@ -32,6 +34,8 @@ export class ListOfficeComponent implements OnInit {
       this._sortedData = this._offices.slice();
     });
     this._filter = 'batiment';
+    this._batiment = 'batiment';
+    this._etat = 'etat';
   }
 
   /**
@@ -90,6 +94,14 @@ export class ListOfficeComponent implements OnInit {
   filterState(state) {
     this._sortedData = this._offices.filter( (_: Office) =>
         this._officePipe.transform(_.size , _.occupation) === state );
+  }
+
+  get etat(): string {
+    return this._etat;
+  }
+
+  get batiment(): string {
+    return this._batiment;
   }
 
 }

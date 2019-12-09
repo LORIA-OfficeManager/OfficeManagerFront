@@ -31,7 +31,7 @@ export const OFFICESDETAIL = [
         },
         ]},
     {  _id : 3, size: 4, floor: 2, num: 12, building: 'A',
-        occupation: 4, hasStrangers: false, description: '', persons: [
+        occupation: 4, hasStrangers: false, description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempus congue nisl. Duis blandit malesuada ullamcorper. Cras eget lorem dignissim, tristique felis in, convallis velit. Integer consectetur felis quis volutpat porta. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ex velit, blandit et volutpat sit amet, scelerisque molestie ante. Phasellus pretium sagittis neque a lobortis. Vivamus laoreet hendrerit auctor. In aliquam, augue vitae iaculis vulputate, mauris purus pretium dui, vitae mattis tellus erat ut nisi. Curabitur nec iaculis mi, ut faucibus felis. Cras a odio venenatis, volutpat enim ut, elementum elit.', persons: [
             {
                 _id: 9,
                 firstname: 'Brandon',

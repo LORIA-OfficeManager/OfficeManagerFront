@@ -7,7 +7,7 @@ addons:
   ssh_known_hosts: 92.222.9.74
 branches:
   only:
-  - dev
+  - master
 before_deploy:
 - openssl aes-256-cbc -K $encrypted_a492e0f2af60_key -iv $encrypted_a492e0f2af60_iv -in deploy_rsa.enc -out /tmp/deploy_rsa -d
 - eval "$(ssh-agent -s)"
@@ -23,7 +23,7 @@ deploy:
   skip_cleanup: true
   script: rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/ root@92.222.9.74:/deploy/officemanager-front
   on:
-    branch: dev
+    branch: master
 after_deploy:
 - ssh root@92.222.9.74 'chmod 777 /deploy/officemanager-front/script.sh'
 - ssh root@92.222.9.74 '/deploy/officemanager-front/script.sh'

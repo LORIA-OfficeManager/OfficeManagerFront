@@ -1,18 +1,27 @@
 @import '../@theme/styles/themes';
+/**************************************************UTILS COLOR ********************************************************/
+$color-active: #3eace0;
+$color-intrus: #3eace0;
+$color-officeEmpty: transparent;
+$color-officeNoEmpty: rgba(0, 193, 12, 0.7);
+$color-officeFull: rgba(193, 73, 0, 0.7);
+$color-officeMoreThanFull: rgba(193, 11, 0, 0.7);
+$color-officeStrnager: rgba(193, 0, 190, 0.7);
 
-@include nb-install-component() {
-  ::ng-deep router-outlet + * {
-    display: block;
-    animation: fade 1s;
-
-    @keyframes fade {
-      from {
-        opacity: 0;
-      }
-
-      to {
-        opacity: 1;
-      }
-    }
-  }
+/********************************************************UTILS*********************************************************/
+.noPadding {
+  padding: 0 !important;
+}
+.noMargin {
+  margin: 0 !important;
+}
+/**
+ * Permet d'adapter un text dans une div et s il est trop grand.
+ * Il n'est pas entierement afficher il y aura ... a la fin
+ */
+.overflow-ellipsis {
+  /* Nécessaires pour text-overflow */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

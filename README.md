@@ -3,11 +3,10 @@
 This project uses [ngx-admin](https://github.com/akveo/ngx-admin)
 
 ### Install the dependencies
-Run `npm install`, assuming your verion of Angular & NPM are up to date.
+Run `yarn install` if you have yarn installed or run `npm install`, assuming your verion of Angular & NPM are up to date.
 
 ## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `yarn run start` or run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 

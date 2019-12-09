@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {NbMenuService} from '@nebular/theme';
+import {NbAuthService, NbAuthSimpleToken} from '@nebular/auth';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'ngx-test',
@@ -8,14 +9,31 @@ import {NbMenuService} from '@nebular/theme';
 })
 export class TestComponent implements OnInit {
 
-  constructor(private menuService: NbMenuService) { }
+  private puser;
 
-  ngOnInit() {
-    // this.spinner$.load();
+  constructor(private authService: NbAuthService, private router: Router) {
+    this.authService.onTokenChange()
+      .subscribe((token: NbAuthSimpleToken) => {
+
+        if (token.isValid()) {
+          this.puser = token.getValue();
+        }
+
+      });
+  }
+
+  ngOnInit(): void {
   }
 
   goHome() {
-    this.menuService.navigateHome();
+    this.router.navigateByUrl('/office/listBureauTest');
   }
 
+  login() {
+    this.router.navigateByUrl('/office/auth');
+  }
+
+  get user() {
+    return this.puser;
+  }
 }

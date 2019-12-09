@@ -1,0 +1,50 @@
+<ngx-modal-help></ngx-modal-help>
+<nb-layout>
+    <nb-layout-header fixed>
+      <ngx-office-header></ngx-office-header>
+    </nb-layout-header>
+
+    <nb-sidebar responsive  class="menu-sidebar start expanded" >
+        <nb-card class="col-lg-12 filtre">
+            <nb-card-header style=" background-color: #2d8ac7;color: white!important;">
+                <div class="col-lg-12">
+                    <h4><strong>{{'Filtre' | uppercase }}</strong></h4>
+                </div>
+            </nb-card-header>
+            <div class="row show-grid" >
+                <div class="col-lg-12">
+                    <nb-actions size="medium" class="row">
+                        <nb-action style="cursor: pointer;" class=" col-lg-12" (click)="switchFilter('batiment')"
+                                   [ngClass]="' '+(filter==='batiment' ? 'activeFiltre' : 'inactiveFiltre')">
+                            <div style="text-align: center" class="col-12">Bâtiment</div>
+                        </nb-action>
+                        <nb-action (click)="switchFilter('etat')" class="col-lg-12"
+                                   style="cursor: pointer;" [ngClass]="''+(filter==='etat' ? 'activeFiltre' : 'inactiveFiltre')">
+                            <div style="text-align: center" class="col-12">État</div>
+                        </nb-action>
+                        <nb-action *ngIf="false" (click)="switchFilter('nom')"
+                                   style="" [ngClass]="' '+(filter==='nom' ? 'activeFiltre' : 'inactiveFiltre')">Noms</nb-action>
+                    </nb-actions>
+                </div>
+            </div>
+        </nb-card>
+        <ngx-testside-bar-list-office (filterfloorBatiment)="filterfloorBatiment($event)" *ngIf="filter === 'batiment' "></ngx-testside-bar-list-office>
+        <ngx-radio-input-etat-list-office (filterState)="filterState($event)" *ngIf="filter === 'etat' "></ngx-radio-input-etat-list-office>
+    </nb-sidebar>
+    <nb-layout-column class="row">
+        <div class="col-md-12">
+            <div  class="colored-column-basic col-12" >
+                <ngx-tab-office  [offices]="sortedData"></ngx-tab-office>
+            </div>
+        </div>
+    </nb-layout-column>
+    <nb-layout-footer style="margin-top: 3%">
+        <div class="row show-grid" >
+            <div class="col-lg-12 gallery" >
+                <img class="offset-sm-3 col-sm-3 col-6" src="https://members.loria.fr/infodoc/files/img/DOCLOGO/logo_loria_complet_couleur.png" alt="Snow" style="width:100%">
+                <img class="logoDefault col-sm-3  col-6" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Logo_Universit%C3%A9_de_Lorraine.svg/1280px-Logo_Universit%C3%A9_de_Lorraine.svg.png" alt="Forest" style="width:100%">
+                <img  class="logoDarOrCom col-sm-3  col-6" src="http://bienvenue.blog.univ-lorraine.fr/files/2019/06/ul-logo.png" alt="Mountains" style="width:100%">
+            </div>
+        </div>
+    </nb-layout-footer>
+</nb-layout>

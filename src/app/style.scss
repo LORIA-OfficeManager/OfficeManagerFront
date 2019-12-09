@@ -1,0 +1,213 @@
+@import '~app/office/office.component';
+
+
+/**************************************************Headerwindow********************************************************/
+
+::ng-deep .headerWindow {
+  nb-card-header {
+    background-color: #3eace0;
+    color: white;
+  }
+  nb-card-header nb-icon {
+    color: white;
+  }
+  nb-card-header .buttons button:hover {
+
+    border: 1px solid #3eace0 !important;
+    nb-icon {
+      color: #3eace0 !important;
+    }
+  }
+}
+
+/****************************************color tooltip*****************************************************************/
+
+::ng-deep .officeManagerTooltip {
+
+  nb-tooltip {
+    background-color: #3eace0;
+    color: white;
+  }
+  nb-tooltip::before {
+    background-color: #3eace0;
+    color: white;
+  }
+  nb-tooltip::after {
+    background-color: #3eace0;
+    color: white;
+  }
+  nb-tooltip .arrow {
+    border-bottom: 6px dashed #3eace0 !important;
+  }
+}
+
+/*************************************************ROW******************************************************************/
+
+
+::ng-deep {
+
+  .homeBody {
+    position: absolute;
+    top: 25%;
+    left: 25% !important;
+    width: 50%;
+    height: 50%;
+  }
+
+  .homeFooter {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+  }
+  .logoDefault {
+    width: 100% !important;
+  }
+  .logoDarOrCom {
+    width: 0% !important;
+  }
+  .rowBack {
+    background-color: #ffffff;;
+  }
+  .borderSimpleL {
+    border-left: 1px solid black;
+  }
+  .borderSimpleR {
+    border-right: 1px solid black;
+  }
+  nb-sidebar.compacted {
+    display: none;
+  }
+  nb-sidebar.compacted.left.fixed ~ .content {
+    margin: 0;
+  }
+
+}
+
+::ng-deep .nb-theme-dark {
+  .logoDarOrCom {
+    width: 100% !important;
+  }
+  .logoDefault {
+    width: 0% !important;
+  }
+  .borderSimpleL {
+    border-left: 1px solid #222b45;
+  }
+  .borderSimpleR {
+    border-right: 1px solid #222b45;
+  }
+  .rowBack {
+    background-color: #222b45 !important;
+  }
+  nb-sidebar.compacted {
+    display: none;
+  }
+  nb-sidebar.compacted.left.fixed ~ .content {
+    margin: 0;
+  }
+
+}
+
+::ng-deep .nb-theme-cosmic {
+  .logoDarOrCom {
+    width: 100% !important;
+  }
+  .logoDefault {
+    width: 0% !important;
+  }
+  .borderSimpleL {
+    border-left: 1px solid #323259;
+  }
+  .borderSimpleR {
+    border-right: 1px solid #323259;
+  }
+  .rowBack {
+    background-color: #323259 !important;
+  }
+  nb-sidebar.compacted {
+    display: none;
+  }
+  nb-sidebar.compacted.left.fixed ~ .content {
+    margin: 0;
+  }
+
+}
+
+/*********************************************RESPONSIVE***************************************************************/
+
+//////////////////////////////////////////////big Screen
+@media screen and (min-width: 1800px) {
+
+  ::ng-deep .menu-sidebar {
+    background-color: transparent!important;
+  }
+
+}
+//////////////////////////////////////////////screen
+@media screen and (min-width: 1200px) and (max-width: 1800px) {
+
+  ::ng-deep .menu-sidebar {
+    background-color: transparent!important;
+  }
+
+}
+//////////////////////////////////////////////tablet
+@media screen and (min-width: 900px) and (max-width: 1200px) {
+  ::ng-deep {
+    .nb-theme-default {
+      .menu-sidebar {
+        background-color: #ffffff;;
+      }
+    }
+    .nb-theme-cosmic {
+      .menu-sidebar {
+        background-color: #323259 !important;
+      }
+    }
+    .nb-theme-dark {
+      .menu-sidebar {
+        background-color: #222b45 !important;
+      }
+    }
+  }
+
+}
+//////////////////////////////////////////////tablet-down
+@media screen and (min-width: 599px) and (max-width: 900px) {
+}
+
+//////////////////////////////////////////////phone
+@media screen and (max-width: 600px) {
+  ::ng-deep {
+    .nb-theme-default {
+      .buttonHelpModal {
+        background-color: #ffffff !important;
+      }
+    }
+    .nb-theme-cosmic {
+      .buttonHelpModal {
+        background-color: #323259 !important;
+      }
+    }
+    .nb-theme-dark {
+      .buttonHelpModal {
+        background-color: #222b45 !important;
+      }
+    }
+    .homeBody {
+      position: absolute;
+      top: 25%;
+      left: 5% !important;
+      width: 95%;
+      height: 50%;
+    }
+    .homeFooter {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+    }
+  }
+}
+

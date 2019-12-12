@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Office} from '../../shared/interfaces/office';
-import {OfficePipePipe} from '../../shared/pipe/office-pipe.pipe';
+import {OfficePipePipe, StrangerPipe} from '../../shared/pipe/office-pipe.pipe';
 import {OfficeService} from '../../shared/services/office.service';
 import {NbSidebarService} from '@nebular/theme';
 
@@ -11,8 +11,10 @@ import {NbSidebarService} from '@nebular/theme';
       ],
 })
 export class ListOfficeComponent implements OnInit {
-  private readonly _etat: string;
-  private readonly _batiment: string;
+  private _etat: string;
+  private _batiment: string;
+  private _filterEtat: string;
+  private _filterBatiment: any;
   // type de filtre
   private _filter: string;
   // liste des bureaux
@@ -26,7 +28,7 @@ export class ListOfficeComponent implements OnInit {
    * @param _officePipe
    * @param _serviceOffice
    */
-  constructor(private _officePipe: OfficePipePipe,
+  constructor(private _officePipe: OfficePipePipe, private _officePipeStrnger: StrangerPipe,
               private _serviceOffice: OfficeService,
               private sidebarService: NbSidebarService) {
     this._serviceOffice.fecth().subscribe( (_: Office[]) => {
@@ -34,8 +36,13 @@ export class ListOfficeComponent implements OnInit {
       this._sortedData = this._offices.slice();
     });
     this._filter = 'batiment';
-    this._batiment = 'batiment';
     this._etat = 'etat';
+    this._batiment = 'batiment';
+    this._filterBatiment = {
+      floor : 0,
+      building : 'none',
+    };
+    this._filterEtat = 'none';
   }
 
   /**
@@ -49,6 +56,7 @@ export class ListOfficeComponent implements OnInit {
    * @param data
    */
   filterfloorBatiment(data: any) {
+    this._filterBatiment = data;
     // a ameliorer avec un pipe
     this._sortedData = this._offices.filter( (_: Office) =>
         ((_.floor === +data.floor) && ( _.building === data.building)) ||
@@ -92,8 +100,10 @@ export class ListOfficeComponent implements OnInit {
    * @param state
    */
   filterState(state) {
+    this._filterEtat = state;
     this._sortedData = this._offices.filter( (_: Office) =>
-        this._officePipe.transform(_.size , _.occupation) === state );
+        this._officePipe.transform(_.size , _.occupation) === state
+        || this._officePipeStrnger.transform(_.hasStrangers) === state );
   }
 
   get etat(): string {
@@ -103,7 +113,13 @@ export class ListOfficeComponent implements OnInit {
   get batiment(): string {
     return this._batiment;
   }
+  get filterEtat(): string {
+    return this._filterEtat;
+  }
 
+  get filterBatiment(): any {
+    return this._filterBatiment;
+  }
 }
 
 

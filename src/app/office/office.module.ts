@@ -24,30 +24,34 @@ import { ModalHelpComponent } from './temporary/modal-help/modal-help.component'
 import { HeaderComponent } from './shared/components/header/header.component';
 import {NbSecurityModule} from '@nebular/security';
 import {RoleProviderService} from './shared/services/role-provider.service';
+import { MapComponent } from './temporary/map-office/map/map.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { DetailOfficeComponent } from './temporary/detail-office/detail-office.component';
 
 @NgModule({
-  imports: [
-    OfficeRoutingModule,
-    ThemeModule,
-    NbCardModule,
-    NbButtonModule,
-    NbLayoutModule,
-    NbActionsModule,
-    NbSidebarModule,
-    NbAccordionModule,
-    NbRadioModule,
-    FormsModule,
-    MatSortModule,
-    NbWindowModule.forChild(),
-    NbIconModule,
-    NbTooltipModule,
-    NbPopoverModule,
-    NbSelectModule,
-    NbSearchModule,
-    NbUserModule,
-    NbContextMenuModule,
-    NbSecurityModule,
-  ],
+    imports: [
+        OfficeRoutingModule,
+        ThemeModule,
+        NbCardModule,
+        NbButtonModule,
+        NbLayoutModule,
+        NbActionsModule,
+        NbSidebarModule,
+        NbAccordionModule,
+        NbRadioModule,
+        FormsModule,
+        MatSortModule,
+        NbWindowModule.forChild(),
+        NbIconModule,
+        NbTooltipModule,
+        NbPopoverModule,
+        NbSelectModule,
+        NbSearchModule,
+        NbUserModule,
+        NbContextMenuModule,
+        NbSecurityModule,
+        MatGridListModule,
+    ],
   declarations: [
     TestComponent,
     OfficeComponent,
@@ -61,11 +65,16 @@ import {RoleProviderService} from './shared/services/role-provider.service';
     WindowOfficeComponent,
     ModalHelpComponent,
     HeaderComponent,
+    MapComponent,
+    DetailOfficeComponent,
   ],
     providers: [
         OfficePipePipe,
         StrangerPipe,
         RoleProviderService,
+    ],
+    entryComponents: [
+        DetailOfficeComponent,
     ],
 })
 export class OfficeModule { }

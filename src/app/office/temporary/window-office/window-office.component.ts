@@ -3,6 +3,7 @@ import {NbWindowService} from '@nebular/theme';
 import {Office} from '../../shared/interfaces/office';
 import {OfficeDetailService} from '../../shared/services/office-detail.service';
 import {OfficeDetail} from '../../shared/interfaces/officeDetail';
+import {DetailOfficeComponent} from '../detail-office/detail-office.component';
 
 @Component({
   selector: 'ngx-window-office',
@@ -20,7 +21,7 @@ export class WindowOfficeComponent implements OnInit {
    * @param serviceOfficeD
    */
   constructor(private windowService: NbWindowService,
-              private serviceOfficeD: OfficeDetailService ) {}
+              private serviceOfficeD: OfficeDetailService) {}
 
   /**
    */
@@ -31,7 +32,7 @@ export class WindowOfficeComponent implements OnInit {
   openWindow() {
     this.serviceOfficeD.fectOne(this._office._id).subscribe(( _: OfficeDetail ) => {
       this.windowService.open(
-          this.contentTemplate,
+          DetailOfficeComponent,
           {windowClass: 'headerWindow', title:  this.name( _ ), context: _ },
       );
     });

@@ -1,0 +1,118 @@
+@import '~app/office/office.component';
+
+.officeEmpty{
+
+}
+.officeNonEmpty{
+  opacity: .5;
+}
+rect.stairsH {
+  fill: url(#pattern-stripeH);
+}
+rect.stairsV {
+  fill: url(#pattern-stripeV);
+}
+text{
+  cursor: pointer !important;
+}
+
+/******************************************filtre etat*****************************************************************/
+svg.filterfullOffice {
+  .fullOffice{
+    opacity: 1;
+  }
+  rect {
+    opacity: 0.3;
+  }
+  path {
+    opacity: 0.3;
+  }
+  line {
+    opacity: 0.3;
+  }
+}
+
+svg.filtermoreThanFullOffice {
+  .moreThanFullOffice{
+    opacity: 1;
+  }
+  rect {
+    opacity: 0.3;
+  }
+  path {
+    opacity: 0.3;
+  }
+  line {
+    opacity: 0.3;
+  }
+}
+
+svg.filternotFullOffice {
+  .notFullOffice{
+    opacity: 1;
+  }
+  rect {
+    opacity: 0.3;
+  }
+  path {
+    opacity: 0.3;
+  }
+  line {
+    opacity: 0.3;
+  }
+}
+
+svg.filteremptyOffice {
+  .emptyOffice{
+    opacity: 1;
+  }
+  rect {
+    opacity: 0.3;
+  }
+  path {
+    opacity: 0.3;
+  }
+  line {
+    opacity: 0.3;
+  }
+}
+svg.filterStrangerOffice {
+  .StrangerOffice{
+    opacity: 1;
+  }
+  rect {
+    opacity: 0.3;
+  }
+  path {
+    opacity: 0.3;
+  }
+  line {
+    opacity: 0.3;
+  }
+}
+svg.filternone {
+  rect {
+    opacity: 1;
+  }
+  path {
+    opacity: 1;
+  }
+}
+
+/******************************************code couleur****************************************************************/
+
+.fullOffice {
+  fill: $color-officeFull;
+}
+.moreThanFullOffice {
+  fill: $color-officeMoreThanFull;
+}
+.notFullOffice {
+  fill: $color-officeNoEmpty;
+}
+.emptyOffice {
+  fill: $color-officeEmpty;
+}
+.StrangerOffice {
+  fill: $color-officeStrnager;
+}

@@ -13,6 +13,7 @@ import {NbSidebarService} from '@nebular/theme';
 export class ListOfficeComponent implements OnInit {
   private _etat: string;
   private _batiment: string;
+  private _nom: string;
   private _filterEtat: string;
   private _filterBatiment: any;
   // type de filtre
@@ -38,8 +39,9 @@ export class ListOfficeComponent implements OnInit {
     this._filter = 'batiment';
     this._etat = 'etat';
     this._batiment = 'batiment';
+    this._nom = 'nom';
     this._filterBatiment = {
-      floor : 0,
+      floor : -1,
       building : 'none',
     };
     this._filterEtat = 'none';
@@ -60,8 +62,8 @@ export class ListOfficeComponent implements OnInit {
     // a ameliorer avec un pipe
     this._sortedData = this._offices.filter( (_: Office) =>
         ((_.floor === +data.floor) && ( _.building === data.building)) ||
-        ((+data.floor === 0) && ( _.building === data.building)) ||
-        ((+data.floor === 0) && ( 'none' === data.building)) ||
+        ((+data.floor === -1) && ( _.building === data.building)) ||
+        ((+data.floor === -1) && ( 'none' === data.building)) ||
         ((_.floor === +data.floor) && ( 'none' === data.building)));
   }
 
@@ -113,12 +115,19 @@ export class ListOfficeComponent implements OnInit {
   get batiment(): string {
     return this._batiment;
   }
+    get nom(): string {
+        return this._nom;
+    }
   get filterEtat(): string {
     return this._filterEtat;
   }
 
   get filterBatiment(): any {
     return this._filterBatiment;
+  }
+
+  refresh(data: Office[]) {
+      this._sortedData = data;
   }
 }
 

@@ -88,7 +88,7 @@ export class TabOfficeComponent implements OnInit, OnChanges {
         if (office.num < 10) {
             name = '0' + office.num;
         }
-        return office.floor + '' + name + '' + office.building;
+        return  office.building + '' + office.floor + '' + name ;
     }
 
     /**

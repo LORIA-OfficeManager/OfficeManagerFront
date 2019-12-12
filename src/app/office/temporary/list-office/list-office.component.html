@@ -14,16 +14,18 @@
             <div class="row show-grid" >
                 <div class="col-lg-12">
                     <nb-actions size="medium" class="row">
-                        <nb-action style="cursor: pointer;" class=" col-lg-12" (click)="switchFilter('batiment')"
+                        <nb-action style="cursor: pointer;" class="col-lg-12" (click)="switchFilter('batiment')"
                                    [ngClass]="' '+(filter==='batiment' ? 'activeFiltre' : 'inactiveFiltre')">
                             <div style="text-align: center" class="col-12">Bâtiment</div>
                         </nb-action>
-                        <nb-action (click)="switchFilter('etat')" class="col-lg-12"
-                                   style="cursor: pointer;" [ngClass]="''+(filter==='etat' ? 'activeFiltre' : 'inactiveFiltre')">
+                        <nb-action style="cursor: pointer;" class="col-lg-12" (click)="switchFilter('etat')"
+                                   [ngClass]="''+(filter==='etat' ? 'activeFiltre' : 'inactiveFiltre')">
                             <div style="text-align: center" class="col-12">État</div>
                         </nb-action>
-                        <nb-action *ngIf="false" (click)="switchFilter('nom')"
-                                   style="" [ngClass]="' '+(filter==='nom' ? 'activeFiltre' : 'inactiveFiltre')">Noms</nb-action>
+                        <nb-action style="cursor: pointer;" class="col-lg-12" (click)="switchFilter('nom')"
+                                   [ngClass]="' '+(filter==='nom' ? 'activeFiltre' : 'inactiveFiltre')">
+                            <div style="text-align: center" class="col-12">Nom</div>
+                        </nb-action>
                     </nb-actions>
                 </div>
             </div>
@@ -31,6 +33,8 @@
         <div [ngSwitch]="filter">
             <ngx-testside-bar-list-office (filterfloorBatiment)="filterfloorBatiment($event)"  *ngSwitchCase="batiment"></ngx-testside-bar-list-office>
             <ngx-radio-input-etat-list-office (filterState)="filterState($event)" *ngSwitchCase="etat"></ngx-radio-input-etat-list-office>
+            <ngx-autocomplete-search-office (submit)="refresh($event)" [models]="sortedData" *ngSwitchCase="nom"
+            ></ngx-autocomplete-search-office>
         </div>
     </nb-sidebar>
     <nb-layout-column class="row">

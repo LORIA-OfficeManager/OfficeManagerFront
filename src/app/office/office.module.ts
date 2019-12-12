@@ -14,7 +14,7 @@ import {
 import { ListOfficeComponent } from './temporary/list-office/list-office.component';
 import { SideBarListBuildingComponent} from './temporary/side-bar-list-building/side-bar-list-building.component';
 import { RadioInputListOfficeComponent } from './temporary/radio-input-list-office/radio-input-list-office.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatSortModule} from '@angular/material/sort';
 import {OfficePipePipe, StrangerPipe} from './shared/pipe/office-pipe.pipe';
 import { RadioInputEtatListOfficeComponent } from './temporary/radio-input-etat-list-office/radio-input-etat-list-office.component';
@@ -27,6 +27,10 @@ import {RoleProviderService} from './shared/services/role-provider.service';
 import { MapComponent } from './temporary/map-office/map/map.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { DetailOfficeComponent } from './temporary/detail-office/detail-office.component';
+import { AutocompleteSearchOfficeComponent } from './temporary/autocomplete-search-office/autocomplete-search-office.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
     imports: [
@@ -51,6 +55,10 @@ import { DetailOfficeComponent } from './temporary/detail-office/detail-office.c
         NbContextMenuModule,
         NbSecurityModule,
         MatGridListModule,
+        MatDialogModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
     ],
   declarations: [
     TestComponent,
@@ -67,6 +75,7 @@ import { DetailOfficeComponent } from './temporary/detail-office/detail-office.c
     HeaderComponent,
     MapComponent,
     DetailOfficeComponent,
+    AutocompleteSearchOfficeComponent,
   ],
     providers: [
         OfficePipePipe,

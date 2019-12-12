@@ -1,4 +1,5 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Office} from '../../shared/interfaces/office';
 
 @Component({
   selector: 'ngx-test-radio-input-list-office',
@@ -9,11 +10,7 @@ export class RadioInputListOfficeComponent implements OnInit {
   // evenement qui permet de modifier les bureaux selon l'etage
   private _filterfloor$: EventEmitter<any>;
   // liste des etages
-  options = [
-    { value: '1', label: 'étage 1' },
-    { value: '2', label: 'étage 2' },
-    { value: '3', label: 'étage 3' },
-  ];
+  private _floor: any[];
   // etage selectione
   option;
 
@@ -40,5 +37,12 @@ export class RadioInputListOfficeComponent implements OnInit {
   @Output('filterFloor')
   get filterfloor$() {
     return this._filterfloor$;
+  }
+  get floor(): any[] {
+    return this._floor;
+  }
+  @Input()
+  set floor(o: any[]) {
+    this._floor = o;
   }
 }

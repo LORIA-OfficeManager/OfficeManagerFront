@@ -30,10 +30,10 @@ export class WindowOfficeComponent implements OnInit {
    * ouvre la window
    */
   openWindow() {
-    this.serviceOfficeD.fectOne(this._office._id).subscribe(( _: OfficeDetail ) => {
+    this.serviceOfficeD.fectOne(this._office.id).subscribe(( _: OfficeDetail ) => {
       this.windowService.open(
           DetailOfficeComponent,
-          {windowClass: 'headerWindow', title:  this.name( _ ), context: _ },
+          {windowClass: 'headerWindow', title:  this.name( _.office ), context: _ },
       );
     });
   }
@@ -42,12 +42,12 @@ export class WindowOfficeComponent implements OnInit {
    * retourn le nom du bureaux
    * @param office
    */
-  name(office: OfficeDetail): string {
+  name(office: Office): string {
     let name = '' + office.num;
     if (office.num < 10) {
       name = '0' + office.num;
     }
-    return office.floor + '' + name + '' + office.building;
+    return  office.building + '' + office.floor + '' + name + '';
   }
   /*********************************************************GET&SETTER*************************************************/
   @Input()

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {Office, OFFICES} from '../interfaces/office';
-import {Observable, of} from 'rxjs';
+import {Office} from '../interfaces/office';
+import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../../environments/environment.prod';
 import {defaultIfEmpty, filter} from 'rxjs/operators';
@@ -11,10 +11,10 @@ import {defaultIfEmpty, filter} from 'rxjs/operators';
 export class OfficeService {
   private readonly _backendURL: any;
   // liste des bureaux
-  private _office: Office[];
+  // private _office: Office[];
 
   constructor(private _http: HttpClient) {
-    this._office = OFFICES;
+    // this._office = OFFICES;
     this._backendURL = {};
 
     // build backend base url

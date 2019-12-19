@@ -1,6 +1,5 @@
 @import '~app/office/office.component';
 
-
 /**************************************************Headerwindow********************************************************/
 
 ::ng-deep .headerWindow {
@@ -106,7 +105,27 @@
   nb-sidebar.compacted.left.fixed ~ .content {
     margin: 0;
   }
-
+  rect {
+    stroke: white;
+  }
+  ellipse {
+    stroke: white;
+  }
+  line {
+    stroke: white;
+  }
+  path {
+    stroke: white;
+  }
+  text {
+    fill: white;
+  }
+  hr.one {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0),
+            rgba(255, 255, 255, 0.75), rgba(0, 0, 0, 0)) !important;
+  }
 }
 
 ::ng-deep .nb-theme-cosmic {
@@ -131,7 +150,27 @@
   nb-sidebar.compacted.left.fixed ~ .content {
     margin: 0;
   }
-
+  rect {
+    stroke: white;
+  }
+  ellipse {
+    stroke: white;
+  }
+  line {
+    stroke: white;
+  }
+  path {
+    stroke: white;
+  }
+  text {
+    fill: white;
+  }
+  hr.one {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0),
+            rgba(255, 255, 255, 0.75), rgba(0, 0, 0, 0)) !important;
+  }
 }
 
 /*********************************************RESPONSIVE***************************************************************/
@@ -180,9 +219,26 @@
 //////////////////////////////////////////////phone
 @media screen and (max-width: 600px) {
   ::ng-deep {
+    .headerWindow.ng-star-inserted.full-screen {
+      .buttons button:nth-child(1) {
+        display: none;
+      }
+      .buttons button:nth-child(2) {
+        display: none;
+      }
+      .buttons button:nth-child(3) {
+        margin-right: 0%;
+        margin-left: auto;
+      }
+    }
     .nb-theme-default {
       .buttonHelpModal {
         background-color: #ffffff !important;
+      }
+      nb-dialog-container {
+        margin: 0% 10% !important;
+        width: 80% !important;
+        max-width: 80% !important;
       }
     }
     .nb-theme-cosmic {

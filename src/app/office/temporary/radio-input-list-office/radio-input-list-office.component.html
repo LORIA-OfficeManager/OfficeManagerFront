@@ -1,11 +1,11 @@
 <nb-card>
     <nb-card-body>
         <nb-radio-group [(ngModel)]="option" >
-            <nb-radio [checked]="true" [value]="0" (click)="filterfloor(0)">
+            <nb-radio [checked]="true" [value]="-1" (click)="filterfloor(-1)">
                 Tous les étages
             </nb-radio>
             <nb-radio
-                    *ngFor="let option of options"
+                    *ngFor="let option of floor"
                     [checked]="false"
                     [value]="option.value" (click)="filterfloor(option.value)">
                 {{ option.label }}

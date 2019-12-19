@@ -14,7 +14,7 @@ export class RadioInputEtatListOfficeComponent implements OnInit {
     { value: 'notFullOffice', label: 'Non vide' },
     { value: 'fullOffice', label: 'Plein' },
     { value: 'moreThanFullOffice', label: 'Surpeuplé' },
-    { value: 'intrus', label: 'Intrus' },
+    { value: 'StrangerOffice', label: 'Intrus' },
   ];
   // etat selectionz
   option;

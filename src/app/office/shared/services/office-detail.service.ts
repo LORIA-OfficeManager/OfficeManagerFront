@@ -1,17 +1,32 @@
 import { Injectable } from '@angular/core';
-import {from, Observable, of} from 'rxjs';
+import {Observable, of} from 'rxjs';
 import {OfficeDetail, OFFICESDETAIL} from '../interfaces/officeDetail';
-import {filter, map} from 'rxjs/operators';
+// import {filter, map} from 'rxjs/operators';
+import {HttpClient} from '@angular/common/http';
+import {environment} from '../../../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root',
 })
 export class OfficeDetailService {
+  private readonly _backendURL: any;
   // liste des bureaux
   private _office: OfficeDetail[];
 
-  constructor() {
+  constructor(private _http: HttpClient) {
     this._office = OFFICESDETAIL;
+    this._backendURL = {};
+
+    // build backend base url
+    let baseUrl = `${environment.backend.protocol}://${environment.backend.host}`;
+    if (environment.backend.port) {
+      baseUrl += `:${environment.backend.port}`;
+    }
+
+    // build all backend urls
+    Object.keys(environment.backend.endpoints).forEach(
+        k => this._backendURL[ k ] = `${baseUrl}${environment.backend.endpoints[ k ]}`);
+
   }
 
   /**
@@ -21,10 +36,7 @@ export class OfficeDetailService {
     return of(this._office);
   }
   fectOne(id: number): Observable<OfficeDetail> {
-    return from(this._office).pipe(
-        filter( (_: OfficeDetail) => _._id === id ),
-        map((__: OfficeDetail) => __),
-    );
+    return this._http.get<OfficeDetail>(this._backendURL.oneOffice.replace(':id', id));
   }
 
 }

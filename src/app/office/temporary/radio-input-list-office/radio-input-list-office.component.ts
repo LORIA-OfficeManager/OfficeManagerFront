@@ -1,5 +1,4 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Office} from '../../shared/interfaces/office';
 
 @Component({
   selector: 'ngx-test-radio-input-list-office',

@@ -35,6 +35,7 @@ export class AutocompleteSearchOfficeComponent implements OnInit {
    *
    */
   ngOnInit() {
+    this._serviceOffice.fecth().subscribe(r => this._modelsback = r);
   }
 
   /**

@@ -28,9 +28,9 @@ import { MapComponent } from './temporary/map-office/map/map.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { DetailOfficeComponent } from './temporary/detail-office/detail-office.component';
 import { AutocompleteSearchOfficeComponent } from './temporary/autocomplete-search-office/autocomplete-search-office.component';
-import {MatDialogModule} from "@angular/material/dialog";
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatInputModule} from "@angular/material/input";
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
     imports: [

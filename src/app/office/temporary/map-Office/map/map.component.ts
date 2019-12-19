@@ -751,10 +751,11 @@ export class MapComponent implements OnInit {
   //       description: '',
   //       persons: [],
   //     },
-    ]
-  };
+    ];
+  }
 
   ngOnInit() {
+    this.serviceOfficeD.fecth().subscribe(r => this.office = r);
   }
 
   /**

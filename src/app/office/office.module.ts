@@ -37,12 +37,9 @@ import { DetailOfficeComponent } from './temporary/detail-office/detail-office.c
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button';
-import {BrowserModule} from '@angular/platform-browser';
 
 @NgModule({
     imports: [
-
         OfficeRoutingModule,
         ThemeModule,
         NbCardModule,

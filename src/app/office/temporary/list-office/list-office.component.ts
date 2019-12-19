@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {Office} from '../../shared/interfaces/office';
-import {OfficePipePipe, StrangerPipe} from '../../shared/pipe/office-pipe.pipe';
 import {OfficeService} from '../../shared/services/office.service';
 import {NbSidebarService} from '@nebular/theme';
 import {FormControl, FormGroup} from '@angular/forms';
@@ -38,9 +37,7 @@ export class ListOfficeComponent implements OnInit {
    * @param _officePipe
    * @param _serviceOffice
    */
-  constructor(private _officePipe: OfficePipePipe, private _officePipeStrnger: StrangerPipe,
-              private _serviceOffice: OfficeService,
-              private sidebarService: NbSidebarService) {
+  constructor(private _serviceOffice: OfficeService, private sidebarService: NbSidebarService) {
     this.form = new FormGroup({
       search: new FormControl(),
     });

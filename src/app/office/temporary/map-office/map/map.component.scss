@@ -3,21 +3,21 @@
 .officeEmpty{
 
 }
-.officeNonEmpty{
-  opacity: .5;
+.officeNonEmpty {
+  opacity: 0.5;
 }
 rect.stairsH {
-  fill: url(#pattern-stripeH);
+  fill: url('#pattern-stripeH');
 }
 rect.stairsV {
-  fill: url(#pattern-stripeV);
+  fill: url('#pattern-stripeV');
 }
 path.stairsH {
-  fill: url(#pattern-stripeH);
+  fill: url('#pattern-stripeH');
 }
 
 
-text{
+text {
   cursor: pointer !important;
 }
 
@@ -159,16 +159,16 @@ svg.filternone {
 }
 
 .StrangerOfficefullOffice {
-  fill: url(#pattern-fullOffice);
+  fill: url('#pattern-fullOffice');
 }
 .StrangerOfficemoreThanFullOffice {
-  fill: url(#pattern-moreThanFullOffice);
+  fill: url('#pattern-moreThanFullOffice');
 }
-.StrangerOfficenotFullOffice{
-  fill: url(#pattern-notFullOffice);
+.StrangerOfficenotFullOffice {
+  fill: url('#pattern-notFullOffice');
 }
-.StrangerOfficeemptyOffice{
-  fill: url(#pattern-emptyOffice);
+.StrangerOfficeemptyOffice {
+  fill: url('#pattern-emptyOffice');
 }
 hr.one {
   border: 0;
@@ -176,15 +176,15 @@ hr.one {
   background-image: linear-gradient(to right, #cc5d9a, rgba(0, 0, 0, 0));
 }
 
-.hide{
-  path,rect{
+.hide {
+  path,rect {
     opacity: 0;
   }
   text {
     opacity: 0 !important;
   }
 }
-.show{
+.show {
 
 }
 g:hover {
@@ -206,7 +206,7 @@ g:hover {
   }
 
 }
-.officeHover:hover{
+.officeHover:hover {
 
   path {
     stroke: black;
@@ -243,7 +243,7 @@ g:hover {
   margin-left: 2%;
   color: #000000;
 }
-svg{
+svg {
   fill: #edf1f7;
   rect, path, ellipse, line {
     stroke: #edf1f7;

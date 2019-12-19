@@ -1,9 +1,9 @@
-import {AfterContentChecked, ChangeDetectorRef, Component, Input, OnChanges, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {OfficeDetail} from '../../../shared/interfaces/officeDetail';
 import {DetailOfficeComponent} from '../../detail-office/detail-office.component';
 import {NbWindowService} from '@nebular/theme';
 import {OfficeDetailService} from '../../../shared/services/office-detail.service';
-import {Office} from "../../../shared/interfaces/office";
+import {Office} from '../../../shared/interfaces/office';
 
 
 @Component({
@@ -37,13 +37,12 @@ export class MapComponent implements OnInit  {
   @Input()
   set offices( _: Office[]) {
     this._offices = _;
-    console.log(this._offices);
   }
 
 
-  findoffice(text : string): Office{
-    let res =this._offices.filter(( _: Office) => this.createName(_).match(text) !== null);
-    if(res.length<1){
+  findoffice(text: string): Office {
+    let res = this._offices.filter(( _: Office) => this.createName(_).match(text) !== null);
+    if (res.length < 1 ) {
       res = [{
         id: -1,
         size: 1000,
@@ -52,7 +51,7 @@ export class MapComponent implements OnInit  {
         building: 'none',
         occupation: 0,
         hasStrangers: false,
-        } as Office
+        } as Office,
       ];
     }
     return res.shift();
@@ -66,11 +65,11 @@ export class MapComponent implements OnInit  {
     return res;
   }
 
-  openWindow(name : string) {
+  openWindow(name: string) {
     const  office = this.findoffice(name);
     this.serviceOfficeD.fectOne(office.id).subscribe(
         (_: OfficeDetail) => {
-          if( _ !==null ) {
+          if ( _ !== null ) {
             this.windowService.open(
                 DetailOfficeComponent,
                 {windowClass: 'headerWindow', title: this.createName(office), context: _},
@@ -78,7 +77,7 @@ export class MapComponent implements OnInit  {
           }
         },
         () => undefined,
-        () =>undefined,
+        () => undefined,
     );
   }
 
@@ -86,7 +85,7 @@ export class MapComponent implements OnInit  {
       return ((floor === this._stateFilter.floor) && ( building === this._stateFilter.building)) ||
       ((this._stateFilter.floor === -1) && ( building === this._stateFilter.building)) ||
       ((this._stateFilter.floor === -1) && ( 'none' === this._stateFilter.building)) ||
-      ((floor === this._stateFilter.floor) && ( 'none' === this._stateFilter.building))
+      ((floor === this._stateFilter.floor) && ( 'none' === this._stateFilter.building));
 
   }
 
@@ -96,7 +95,7 @@ export class MapComponent implements OnInit  {
     return this._stateFilter;
   }
 
-  filterStateOffice(): string{
+  filterStateOffice(): string {
     return this._stateFilter.stateOffice;
   }
 

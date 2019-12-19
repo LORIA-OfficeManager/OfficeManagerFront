@@ -1,4 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import {Office} from '../interfaces/office';
+import {Person} from '../interfaces/person';
 
 @Pipe({
   name: 'officePipe',
@@ -37,4 +39,148 @@ export class StrangerPipe implements PipeTransform {
   transform(hasStranger: boolean): string {
     return hasStranger ? 'StrangerOffice' : '';
   }
+}
+@Pipe({
+  name: 'zombiePipe',
+})
+export class ZombiePipe implements PipeTransform {
+  /**
+   * definie la class a retourner au bureau pour representer son etat
+   * @param office le bureau
+   * @return la class qui definie l'etat du bureau
+   */
+  transform(person: any): string {
+    const now = Date.now();
+    return person.endDate * 1000 < now  ? 'StrangerOffice' : '';
+  }
+}
+@Pipe({
+  name: 'BuildingFloorPipe',
+})
+export class BuildingFloorPipe implements PipeTransform {
+  /**
+   * definie la class a retourner au bureau pour representer son etat
+   * @param office le bureau
+   * @return la class qui definie l'etat du bureau
+   */
+  transform(o: Office[], floor: number, building: string): Office[] {
+    const res = o.filter( (_: Office) =>
+        ((_.floor === +floor) && ( _.building === building)) ||
+        ((+floor === -1) && ( _.building === building)) ||
+        ((+floor === -1) && ( 'none' === building)) ||
+        ((_.floor === +floor) && ( 'none' === building)));
+    return res;
+  }
+}
+
+@Pipe({
+  name: 'StateOfficePipe',
+})
+export class StateOfficePipe implements PipeTransform {
+  /**
+   * @param o
+   */
+  constructor (private _officePipe: OfficePipePipe,
+               private _strangerPipe: StrangerPipe ) {}
+  /**
+   * definie la class a retourner au bureau pour representer son etat
+   * @param office le bureau
+   * @return la class qui definie l'etat du bureau
+   */
+  transform(o: Office[], state: string): Office[] {
+    return o.filter( (_: Office) =>
+        this._officePipe.transform(_.size , _.occupation) === state
+        || this._strangerPipe.transform(_.hasStrangers) === state || state === 'none');
+  }
+}
+
+@Pipe({
+  name: 'AutoCompletePipe',
+})
+export class AutoCompletePipe implements PipeTransform {
+  /**
+   * @param o
+   */
+  constructor ()  {}
+  /**
+   * definie la class a retourner au bureau pour representer son etat
+   * @param office le bureau
+   * @return la class qui definie l'etat du bureau
+   */
+  transform(o: Office[], search: string): Office[] {
+    return o.filter( (_: Office) =>
+        this.name(_).toLowerCase().indexOf(search) === 0 );
+  }
+  /**
+   * retourne le nom du bureau
+   * @param office
+   */
+  name(office: Office): string {
+    let name = '' + office.num;
+    if (office.num < 10) {
+      name = '0' + office.num;
+    }
+    return  office.building + '' + office.floor + '' + name ;
+  }
+}
+@Pipe({
+  name: 'SearchByNPipe',
+})
+export class SearchByNPipe implements PipeTransform {
+  /**
+   * @param o
+   */
+  constructor() {
+  }
+
+  /**
+   * definie la class a retourner au bureau pour representer son etat
+   * @param office le bureau
+   * @return la class qui definie l'etat du bureau
+   */
+  transform(oName: string, search: string): string {
+    return oName.toLowerCase().indexOf(search) === 0 ? 'officeHover' : 'hide';
+  }
+
+  /**
+   * retourne le nom du bureau
+   * @param office
+   */
+}
+@Pipe({
+  name: 'StatusPipe',
+})
+export class StatusPipe implements PipeTransform {
+  /**
+   * @param o
+   */
+  constructor(private _zombieP: ZombiePipe) {
+  }
+
+  /**
+   * definie la class a retourner au bureau pour representer son etat
+   * @param office le bureau
+   * @return la class qui definie l'etat du bureau
+   */
+  transform(p: Person): string {
+    const res = '' + Math.floor(Math.random() * Math.floor(3));
+    if (!this._zombieP.transform(p)) {
+      if (res === ('2' || 'enseignant-chercheur')) {
+        return 'fa-chalkboard-teacher';
+      } else {
+        if (res === ('1' || 'doctorant')) {
+          return 'fa-book-reader';
+        } else {
+          return '';
+        }
+      }
+    } else {
+      return 'fa-biohazard';
+    }
+  }
+
+  /**
+   * retourne le nom du bureau
+   * @param office
+   */
 }

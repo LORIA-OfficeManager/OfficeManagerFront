@@ -5,7 +5,8 @@
         <th mat-sort-header="building" class="borderSimpleL">Bâtiment</th>
         <th mat-sort-header="size" class="borderSimpleL borderSimpleR">Taille</th>
     </tr>
-    <tr *ngFor="let office of offices; let index = index" [className]=" index % 2 ===1 ? 'rowBack' : 'rowNormal' ">
+    <tr *ngFor="let office of ((offices | BuildingFloorPipe: stateFilter.floor: stateFilter.building)
+    | StateOfficePipe: stateFilter.stateOffice) | AutoCompletePipe:stateFilter.name ; let index = index" [className]=" index % 2 ===1 ? 'rowBack' : 'rowNormal' ">
         <td>{{name(office)}} <ngx-window-office style="position: absolute" [office]="office"></ngx-window-office></td>
         <td>{{office.floor}}</td>
         <td>{{office.building}}</td>

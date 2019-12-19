@@ -33,24 +33,41 @@
         <div [ngSwitch]="filter">
             <ngx-testside-bar-list-office (filterfloorBatiment)="filterfloorBatiment($event)"  *ngSwitchCase="batiment"></ngx-testside-bar-list-office>
             <ngx-radio-input-etat-list-office (filterState)="filterState($event)" *ngSwitchCase="etat"></ngx-radio-input-etat-list-office>
-            <ngx-autocomplete-search-office (submit)="refresh($event)" [models]="sortedData" *ngSwitchCase="nom"
-            ></ngx-autocomplete-search-office>
+            <nb-card *ngSwitchCase="nom">
+                <nb-card-body>
+                    <mat-dialog-content>
+                        <form [formGroup]="form">
+                            <mat-form-field class="full-width">
+                                <input  (keyup)="onKey($event)" matInput placeholder="Nom du bureau" formControlName="search" name="seacrh" />
+                            </mat-form-field>
+                        </form>
+                    </mat-dialog-content>
+                </nb-card-body>
+            </nb-card>
         </div>
     </nb-sidebar>
     <nb-layout-column class="row">
         <div class="col-md-12 noPadding">
-            <div  class="colored-column-basic col-12 noPadding">
-                <ngx-tab-office  [offices]="sortedData"></ngx-tab-office>
-<!--                <ngx-map [stateFilter]="filterEtat"></ngx-map>-->
+            <div  class="colored-column-basic col-12 noPadding" [ngSwitch]="design">
+                <div class="row col-12 show-grid noPadding" style="max-height: 30px">
+                    <div class="col-lg-12 gallery noPadding" >
+                        <i class=" fa-2x fas fa-table" style="float: right;margin-left: 2%;cursor: pointer"
+                           (click)="switchDesign('tab')" [ngClass]="' '+(design==='tab' ? 'activeFiltre' : 'inactiveFiltre')"></i>
+                        <i class=" fa-2x fas fa-map-marked-alt" style="float: right;margin-left: 2%;cursor: pointer"
+                           (click)="switchDesign('map')" [ngClass]="' '+(design==='map' ? 'activeFiltre' : 'inactiveFiltre')"></i>
+                    </div>
+                </div>
+                <ngx-tab-office  [offices]="offices" [stateFilter]="stateFilter" *ngSwitchCase="'tab'"></ngx-tab-office>
+                <ngx-map [offices]="offices" [stateFilter]="stateFilter" *ngSwitchCase="'map'"></ngx-map>
             </div>
         </div>
     </nb-layout-column>
     <nb-layout-footer style="margin-top: 3%">
         <div class="row show-grid" >
             <div class="col-lg-12 gallery" >
-                <img class="offset-sm-3 col-sm-3 col-6" src="https://members.loria.fr/infodoc/files/img/DOCLOGO/logo_loria_complet_couleur.png" alt="Snow" style="width:100%">
-                <img class="logoDefault col-sm-3  col-6" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Logo_Universit%C3%A9_de_Lorraine.svg/1280px-Logo_Universit%C3%A9_de_Lorraine.svg.png" alt="Forest" style="width:100%">
-                <img  class="logoDarOrCom col-sm-3  col-6" src="http://bienvenue.blog.univ-lorraine.fr/files/2019/06/ul-logo.png" alt="Mountains" style="width:100%">
+                <img class="offset-sm-3 col-sm-3 col-6" src="https://members.loria.fr/infodoc/files/img/DOCLOGO/logo_loria_complet_couleur.png" style="width:100%">
+                <img class="logoDefault col-sm-3  col-6" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Logo_Universit%C3%A9_de_Lorraine.svg/1280px-Logo_Universit%C3%A9_de_Lorraine.svg.png" style="width:100%">
+                <img  class="logoDarOrCom col-sm-3  col-6" src="http://bienvenue.blog.univ-lorraine.fr/files/2019/06/ul-logo.png"  style="width:100%">
             </div>
         </div>
     </nb-layout-footer>

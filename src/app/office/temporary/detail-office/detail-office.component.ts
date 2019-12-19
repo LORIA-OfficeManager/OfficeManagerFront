@@ -21,4 +21,11 @@ export class DetailOfficeComponent implements OnInit {
   get data(): any {
     return this._data;
   }
+
+  /**
+   *
+   */
+  now(p: any) {
+    return Date.now() ;
+  }
 }

@@ -12,82 +12,125 @@ rect.stairsH {
 rect.stairsV {
   fill: url(#pattern-stripeV);
 }
+path.stairsH {
+  fill: url(#pattern-stripeH);
+}
+
+
 text{
   cursor: pointer !important;
 }
 
 /******************************************filtre etat*****************************************************************/
 svg.filterfullOffice {
-  .fullOffice{
+  .fullOffice {
+    opacity: 1;
+  }
+  .fullOfficeStrangerOffice {
     opacity: 1;
   }
   rect {
-    opacity: 0.3;
+    opacity: 0.5;
   }
   path {
-    opacity: 0.3;
+    opacity: 0.5;
   }
   line {
-    opacity: 0.3;
+    opacity: 0.5;
+  }
+  ellipse {
+    opacity: 0.5;
   }
 }
 
 svg.filtermoreThanFullOffice {
-  .moreThanFullOffice{
+  .moreThanFullOffice {
+    opacity: 1;
+  }
+  .StrangerOfficemoreThanFullOffice {
     opacity: 1;
   }
   rect {
-    opacity: 0.3;
+    opacity: 0.5;
   }
   path {
-    opacity: 0.3;
+    opacity: 0.5;
   }
   line {
-    opacity: 0.3;
+    opacity: 0.5;
+  }
+  ellipse {
+    opacity: 0.5;
   }
 }
 
 svg.filternotFullOffice {
-  .notFullOffice{
+  .notFullOffice {
+    opacity: 1;
+  }
+  .StrangerOfficenotFullOffice {
     opacity: 1;
   }
   rect {
-    opacity: 0.3;
+    opacity: 0.5;
   }
   path {
-    opacity: 0.3;
+    opacity: 0.5;
   }
   line {
-    opacity: 0.3;
+    opacity: 0.5;
+  }
+  ellipse {
+    opacity: 0.5;
   }
 }
 
 svg.filteremptyOffice {
-  .emptyOffice{
+  .emptyOffice {
     opacity: 1;
+    stroke: black;
+  }
+  .StrangerOfficeemptyOffice {
+    opacity: 1;
+    stroke: black;
   }
   rect {
-    opacity: 0.3;
+    opacity: 0.5;
   }
   path {
-    opacity: 0.3;
+    opacity: 0.5;
   }
   line {
-    opacity: 0.3;
+    opacity: 0.5;
+  }
+  ellipse {
+    opacity: 0.5;
   }
 }
 svg.filterStrangerOffice {
-  .StrangerOffice{
+  .StrangerOfficefullOffice {
+    opacity: 1;
+  }
+  .StrangerOfficemoreThanFullOffice {
+    opacity: 1;
+  }
+  .StrangerOfficenotFullOffice {
+    opacity: 1;
+  }
+  .StrangerOfficeemptyOffice {
     opacity: 1;
   }
   rect {
-    opacity: 0.3;
+    opacity: 0.5;
   }
   path {
-    opacity: 0.3;
+    opacity: 0.5;
   }
   line {
-    opacity: 0.3;
+    opacity: 0.5;
+  }
+  ellipse {
+    opacity: 0.5;
   }
 }
 svg.filternone {
@@ -98,6 +141,7 @@ svg.filternone {
     opacity: 1;
   }
 }
+
 
 /******************************************code couleur****************************************************************/
 
@@ -113,6 +157,144 @@ svg.filternone {
 .emptyOffice {
   fill: $color-officeEmpty;
 }
-.StrangerOffice {
-  fill: $color-officeStrnager;
+
+.StrangerOfficefullOffice {
+  fill: url(#pattern-fullOffice);
 }
+.StrangerOfficemoreThanFullOffice {
+  fill: url(#pattern-moreThanFullOffice);
+}
+.StrangerOfficenotFullOffice{
+  fill: url(#pattern-notFullOffice);
+}
+.StrangerOfficeemptyOffice{
+  fill: url(#pattern-emptyOffice);
+}
+hr.one {
+  border: 0;
+  height: 2px;
+  background-image: linear-gradient(to right, #cc5d9a, rgba(0, 0, 0, 0));
+}
+
+.hide{
+  path,rect{
+    opacity: 0;
+  }
+  text {
+    opacity: 0 !important;
+  }
+}
+.show{
+
+}
+g:hover {
+
+  rect {
+    opacity: 0.5;
+  }
+  path {
+    opacity: 0.5;
+  }
+  ellipse {
+    opacity: 0.5;
+  }
+  line {
+    opacity: 0.5;
+  }
+  text {
+    opacity: 0.5;
+  }
+
+}
+.officeHover:hover{
+
+  path {
+    stroke: black;
+    cursor: pointer;
+    opacity: 1;
+  }
+  rect {
+    stroke: black;
+    cursor: pointer;
+    opacity: 1;
+  }
+  text {
+    cursor: pointer;
+    opacity: 1;
+  }
+
+}
+.hideAndShow {
+  position: absolute;
+  right: 0;
+  margin-top: 0.5%;
+}
+.ligne {
+  position: absolute;
+  top: 35%;
+}
+.titleBuilding {
+  z-index: 100;
+  background-color: #edf1f7;
+  color: $color-active;
+  margin-right: 1%;
+}
+.titleFloor {
+  margin-left: 2%;
+  color: #000000;
+}
+svg{
+  fill: #edf1f7;
+  rect, path, ellipse, line {
+    stroke: #edf1f7;
+  }
+}
+::ng-deep {
+  .nb-theme-cosmic {
+
+    .titleBuilding {
+      z-index: 100;
+      background-color: #1b1b38 !important;
+      color: $color-active;
+      margin-right: 1%;
+    }
+
+    .titleFloor {
+      margin-left: 2%;
+      color: white;
+    }
+
+    .mapLoria svg {
+      fill: #1b1b38!important;
+
+      rect, path, ellipse, line {
+        stroke: #1b1b38!important;
+      }
+    }
+  }
+}
+::ng-deep {
+  .nb-theme-dark {
+
+    .titleBuilding {
+      z-index: 100;
+      background-color: #151a30 !important;
+      color: $color-active;
+      margin-right: 1%;
+    }
+
+    .titleFloor {
+      margin-left: 2%;
+      color: white;
+    }
+
+    .mapLoria svg {
+      fill: #151a30 !important;
+
+      rect, path, ellipse, line {
+        stroke: #151a30 !important;
+      }
+    }
+  }
+}
+

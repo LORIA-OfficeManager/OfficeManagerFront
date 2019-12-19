@@ -17,12 +17,15 @@
   background-color: $color-officeEmpty;
 }
 .StrangerOffice {
-  background-image: linear-gradient(45deg, rgba(238, 97, 125, 0) 25%,
-          $color-officeStrnager 25%, $color-officeStrnager 50%,
-          rgba(238, 97, 125, 0) 50%, rgba(238, 97, 125, 0) 75%,
-          $color-officeStrnager 25%, $color-officeStrnager 100%);
-  background-size: 56.57px 56.57px;
+  background-color: $color-officeMoreThanFull;
+  span {
+    color: white;
+  }
+  i {
+    color: white;
+  }
 }
+
 
 /**************************************************composantWindow*****************************************************/
 
@@ -37,4 +40,8 @@ nb-tooltip.officeManagerTooltip {
 
 .etatOffice {
   height: 20px;
+}
+ul {
+  margin: 0%;
+  padding: 0% 0% 0% 2%;
 }

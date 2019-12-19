@@ -105,7 +105,26 @@
   nb-sidebar.compacted.left.fixed ~ .content {
     margin: 0;
   }
-
+  rect {
+    stroke: white;
+  }
+  ellipse {
+    stroke: white;
+  }
+  line {
+    stroke: white;
+  }
+  path {
+    stroke: white;
+  }
+  text {
+    fill: white;
+  }
+  hr.one {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.75), rgba(0, 0, 0, 0)) !important;
+  }
 }
 
 ::ng-deep .nb-theme-cosmic {
@@ -130,7 +149,26 @@
   nb-sidebar.compacted.left.fixed ~ .content {
     margin: 0;
   }
-
+  rect {
+    stroke: white;
+  }
+  ellipse {
+    stroke: white;
+  }
+  line {
+    stroke: white;
+  }
+  path {
+    stroke: white;
+  }
+  text {
+    fill: white;
+  }
+  hr.one {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.75), rgba(0, 0, 0, 0)) !important;
+  }
 }
 
 /*********************************************RESPONSIVE***************************************************************/

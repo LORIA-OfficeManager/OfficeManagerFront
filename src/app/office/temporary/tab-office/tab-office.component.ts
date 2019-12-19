@@ -2,6 +2,14 @@ import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {Office} from '../../shared/interfaces/office';
 import {Sort} from '@angular/material/sort';
 
+export interface StateFilter {
+    name: string;
+    floor: number;
+    building: string;
+    stateOffice: string;
+}
+
+
 @Component({
   selector: 'ngx-tab-office',
   templateUrl: './tab-office.component.html',
@@ -11,6 +19,7 @@ import {Sort} from '@angular/material/sort';
 export class TabOfficeComponent implements OnInit, OnChanges {
     // liste des bureaux
     private _offices: Office[];
+    private _stateFilter: StateFilter;
 
     /**
      * constructor
@@ -67,6 +76,10 @@ export class TabOfficeComponent implements OnInit, OnChanges {
     set offices(sortedDara: Office[]) {
       this._offices = sortedDara;
     }
+    @Input()
+    set stateFilter(stateF: StateFilter) {
+        this._stateFilter = stateF;
+    }
 
     get offices(): Office[] {
         return this._offices;
@@ -105,6 +118,9 @@ export class TabOfficeComponent implements OnInit, OnChanges {
             }
         });
         return res;
+    }
+    get stateFilter(): StateFilter {
+        return this._stateFilter;
     }
 }
 

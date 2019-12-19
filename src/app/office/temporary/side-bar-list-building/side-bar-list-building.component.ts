@@ -10,28 +10,28 @@ export class SideBarListBuildingComponent implements OnInit {
   // evenement qui modifier un bureaux selon l'etage et le batiment
   private _filterfloorBatiment$: EventEmitter<any>;
   batimentLoriaFloor = [
-    { value: '0', label: 'RDC' },
-    { value: '1', label: 'étage 1' },
-    { value: '2', label: 'étage 2' },
-    { value: '3', label: 'étage 3' },
-    { value: '4', label: 'étage 4' },
+    { value: 0, label: 'RDC' },
+    { value: 1, label: 'étage 1' },
+    { value: 2, label: 'étage 2' },
+    { value: 3, label: 'étage 3' },
+    { value: 4, label: 'étage 4' },
   ];
   batimentAFloor = [
-    { value: '0', label: 'RDC' },
-    { value: '1', label: 'étage 1' },
-    { value: '2', label: 'étage 2' },
+    { value: 0, label: 'RDC' },
+    { value: 1, label: 'étage 1' },
+    { value: 2, label: 'étage 2' },
   ];
   batimentBFloor = [
-    { value: '0', label: 'RDC' },
-    { value: '1', label: 'étage 1' },
-    { value: '2', label: 'étage 2' },
+    { value: 0, label: 'RDC' },
+    { value: 1, label: 'étage 1' },
+    { value: 2, label: 'étage 2' },
   ];
   batimentCFloor = [
-    { value: '0', label: 'RDC' },
-    { value: '1', label: 'étage 1' },
-    { value: '2', label: 'étage 2' },
-    { value: '3', label: 'étage 3' },
-    { value: '4', label: 'étage 4' },
+    { value: 0, label: 'RDC' },
+    { value: 1, label: 'étage 1' },
+    { value: 2, label: 'étage 2' },
+    { value: 3, label: 'étage 3' },
+    { value: 4, label: 'étage 4' },
   ];
   /**
    * constructor

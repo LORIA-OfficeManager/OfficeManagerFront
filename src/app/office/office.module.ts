@@ -16,7 +16,14 @@ import { SideBarListBuildingComponent} from './temporary/side-bar-list-building/
 import { RadioInputListOfficeComponent } from './temporary/radio-input-list-office/radio-input-list-office.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatSortModule} from '@angular/material/sort';
-import {OfficePipePipe, StrangerPipe} from './shared/pipe/office-pipe.pipe';
+import {
+    AutoCompletePipe,
+    BuildingFloorPipe,
+    OfficePipePipe, SearchByNPipe,
+    StateOfficePipe, StatusPipe,
+    StrangerPipe,
+    ZombiePipe,
+} from './shared/pipe/office-pipe.pipe';
 import { RadioInputEtatListOfficeComponent } from './temporary/radio-input-etat-list-office/radio-input-etat-list-office.component';
 import { TabOfficeComponent } from './temporary/tab-office/tab-office.component';
 import { WindowOfficeComponent } from './temporary/window-office/window-office.component';
@@ -27,13 +34,15 @@ import {RoleProviderService} from './shared/services/role-provider.service';
 import { MapComponent } from './temporary/map-office/map/map.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { DetailOfficeComponent } from './temporary/detail-office/detail-office.component';
-import { AutocompleteSearchOfficeComponent } from './temporary/autocomplete-search-office/autocomplete-search-office.component';
-import {MatDialogModule} from "@angular/material/dialog";
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatInputModule} from "@angular/material/input";
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {BrowserModule} from '@angular/platform-browser';
 
 @NgModule({
     imports: [
+
         OfficeRoutingModule,
         ThemeModule,
         NbCardModule,
@@ -60,27 +69,38 @@ import {MatInputModule} from "@angular/material/input";
         MatFormFieldModule,
         MatInputModule,
     ],
-  declarations: [
-    TestComponent,
-    OfficeComponent,
-    ListOfficeComponent,
-    SideBarListBuildingComponent,
-    RadioInputListOfficeComponent,
-    OfficePipePipe,
-    StrangerPipe,
-    RadioInputEtatListOfficeComponent,
-    TabOfficeComponent,
-    WindowOfficeComponent,
-    ModalHelpComponent,
-    HeaderComponent,
-    MapComponent,
-    DetailOfficeComponent,
-    AutocompleteSearchOfficeComponent,
-  ],
+    declarations: [
+        TestComponent,
+        OfficeComponent,
+        ListOfficeComponent,
+        SideBarListBuildingComponent,
+        RadioInputListOfficeComponent,
+        OfficePipePipe,
+        StrangerPipe,
+        RadioInputEtatListOfficeComponent,
+        TabOfficeComponent,
+        WindowOfficeComponent,
+        ModalHelpComponent,
+        HeaderComponent,
+        MapComponent,
+        DetailOfficeComponent,
+        ZombiePipe,
+        BuildingFloorPipe,
+        StateOfficePipe,
+        AutoCompletePipe,
+        SearchByNPipe,
+        StatusPipe,
+    ],
     providers: [
         OfficePipePipe,
         StrangerPipe,
+        ZombiePipe,
+        BuildingFloorPipe,
+        StateOfficePipe,
+        AutoCompletePipe,
         RoleProviderService,
+        SearchByNPipe,
+        StatusPipe,
     ],
     entryComponents: [
         DetailOfficeComponent,

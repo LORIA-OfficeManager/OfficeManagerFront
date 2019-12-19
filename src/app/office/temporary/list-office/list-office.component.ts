@@ -3,6 +3,14 @@ import {Office} from '../../shared/interfaces/office';
 import {OfficePipePipe, StrangerPipe} from '../../shared/pipe/office-pipe.pipe';
 import {OfficeService} from '../../shared/services/office.service';
 import {NbSidebarService} from '@nebular/theme';
+import {FormControl, FormGroup} from '@angular/forms';
+
+export interface StateFilter {
+  name: string;
+  floor: number;
+  building: string;
+  stateOffice: string;
+}
 
 @Component({
   selector: 'ngx-test-list-office',
@@ -10,18 +18,19 @@ import {NbSidebarService} from '@nebular/theme';
   styleUrls: ['./list-office.component.scss',
       ],
 })
+
 export class ListOfficeComponent implements OnInit {
+  // fomulaire
+  form: FormGroup;
   private _etat: string;
   private _batiment: string;
   private _nom: string;
-  private _filterEtat: string;
-  private _filterBatiment: any;
+  private _stateFilter: StateFilter;
   // type de filtre
   private _filter: string;
   // liste des bureaux
   private _offices: Office[];
-  // liste des bureaux trier
-  private _sortedData: Office[];
+  private _design: string;
 
   /**
    * constructor
@@ -32,19 +41,24 @@ export class ListOfficeComponent implements OnInit {
   constructor(private _officePipe: OfficePipePipe, private _officePipeStrnger: StrangerPipe,
               private _serviceOffice: OfficeService,
               private sidebarService: NbSidebarService) {
+    this.form = new FormGroup({
+      search: new FormControl(),
+    });
     this._serviceOffice.fecth().subscribe( (_: Office[]) => {
       this._offices = _ ;
-      this._sortedData = this._offices.slice();
     });
+    this._offices = [];
     this._filter = 'batiment';
+    this._design = 'tab';
     this._etat = 'etat';
     this._batiment = 'batiment';
     this._nom = 'nom';
-    this._filterBatiment = {
+    this._stateFilter = {
+      name : '',
       floor : -1,
       building : 'none',
+      stateOffice: 'none',
     };
-    this._filterEtat = 'none';
   }
 
   /**
@@ -58,19 +72,11 @@ export class ListOfficeComponent implements OnInit {
    * @param data
    */
   filterfloorBatiment(data: any) {
-    this._filterBatiment = data;
-    // a ameliorer avec un pipe
-    this._sortedData = this._offices.filter( (_: Office) =>
-        ((_.floor === +data.floor) && ( _.building === data.building)) ||
-        ((+data.floor === -1) && ( _.building === data.building)) ||
-        ((+data.floor === -1) && ( 'none' === data.building)) ||
-        ((_.floor === +data.floor) && ( 'none' === data.building)));
+    this._stateFilter.floor = data.floor;
+    this._stateFilter.building = data.building;
   }
 
   /*********************************************************GET&SETTER*************************************************/
-  get sortedData(): Office[] {
-    return this._sortedData;
-  }
   get filter(): string {
     return this._filter;
   }
@@ -85,27 +91,22 @@ export class ListOfficeComponent implements OnInit {
    */
   switchFilter(filtre: string) {
     this._filter = filtre;
-    switch (filtre) {
-      case 'batiment':
-        this._sortedData = this._offices;
-        break;
-      case 'etat':
-        this._sortedData = this._offices;
-        break;
-      case 'nom':
-        this._sortedData = this._offices;
-        break;
-    }
+    this._stateFilter = {
+      name: '',
+      floor: -1,
+      building: 'none',
+      stateOffice: 'none',
+    };
+  }
+  switchDesign(design: string) {
+    this._design = design;
   }
   /**
    * fltre les bureaux selon l'etat
    * @param state
    */
   filterState(state) {
-    this._filterEtat = state;
-    this._sortedData = this._offices.filter( (_: Office) =>
-        this._officePipe.transform(_.size , _.occupation) === state
-        || this._officePipeStrnger.transform(_.hasStrangers) === state );
+    this._stateFilter.stateOffice = state;
   }
 
   get etat(): string {
@@ -118,17 +119,29 @@ export class ListOfficeComponent implements OnInit {
     get nom(): string {
         return this._nom;
     }
-  get filterEtat(): string {
-    return this._filterEtat;
+  onKey(event: any) {
+    this._stateFilter.name = event.target.value.toLowerCase();
+    if (this._stateFilter.name.length > 0) {
+      this._stateFilter.building = this._stateFilter.name.charAt(0).toUpperCase();
+    } else {
+      this._stateFilter.building = 'none';
+    }
+    if (this._stateFilter.name.length > 1) {
+      this._stateFilter.floor = +this._stateFilter.name.charAt(1);
+    } else {
+      this._stateFilter.floor = -1;
+    }
+  }
+  get design(): string {
+    return this._design;
+  }
+  get stateFilter(): StateFilter {
+    return this._stateFilter;
+  }
+  get offices(): Office[] {
+    return this._offices;
   }
 
-  get filterBatiment(): any {
-    return this._filterBatiment;
-  }
-
-  refresh(data: Office[]) {
-      this._sortedData = data;
-  }
 }
 
 

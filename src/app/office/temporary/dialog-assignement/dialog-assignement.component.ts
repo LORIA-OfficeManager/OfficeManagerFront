@@ -1,5 +1,5 @@
 import {Component, OnInit, TemplateRef} from '@angular/core';
-import {NbDialogRef, NbDialogService} from '@nebular/theme';
+import { NbDialogService} from '@nebular/theme';
 import {FormControl, FormGroup} from '@angular/forms';
 
 @Component({

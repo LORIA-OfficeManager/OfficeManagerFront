@@ -1,4 +1,4 @@
-import {Component, OnInit, TemplateRef} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NbDialogService, NbWindowRef} from '@nebular/theme';
 import {WarningPopupComponent} from '../../shared/components/warning-popup/warning-popup.component';
 

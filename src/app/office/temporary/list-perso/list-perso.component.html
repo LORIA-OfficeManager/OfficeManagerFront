@@ -1,0 +1,46 @@
+<ngx-modal-help></ngx-modal-help>
+<nb-layout>
+  <nb-layout-header fixed>
+    <ngx-office-header></ngx-office-header>
+  </nb-layout-header>
+
+  <nb-sidebar responsive  class="menu-sidebar start expanded" >
+  </nb-sidebar>
+
+  <nb-layout-column class="row">
+    <div  class="colored-column-basic col-12 noPadding">
+      <div class="row col-12 show-grid noPadding" style="max-height: 30px">
+    <table  matSort>
+      <tr>
+        <th mat-sort-header="firstname" class="borderSimpleL">Prénom</th>
+        <th mat-sort-header="lastname" class="borderSimpleL">Nom</th>
+        <th mat-sort-header="status" class="borderSimpleL">Statut</th>
+        <th mat-sort-header="team" class="borderSimpleL">Équipe</th>
+        <th mat-sort-header="department" class="borderSimpleL">Départment</th>
+        <th mat-sort-header="office" class="borderSimpleL borderSimpleR">Bureau</th>
+
+      </tr>
+      <tr *ngFor="let person of people">
+        <td>{{person.firstname}}</td>
+        <td>{{person.lastname}}</td>
+        <td>{{person.status}}</td>
+        <td>{{person.team}}</td>
+        <td>{{person.department}}</td>
+        <td>{{office(person._id)}}</td>
+
+      </tr>
+    </table>
+      </div>
+    </div>
+  </nb-layout-column>
+
+  <nb-layout-footer style="margin-top: 3%">
+    <div class="row show-grid" >
+      <div class="col-lg-12 gallery" >
+        <img class="offset-sm-3 col-sm-3 col-6" src="https://members.loria.fr/infodoc/files/img/DOCLOGO/logo_loria_complet_couleur.png" style="width:100%">
+        <img class="logoDefault col-sm-3  col-6" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Logo_Universit%C3%A9_de_Lorraine.svg/1280px-Logo_Universit%C3%A9_de_Lorraine.svg.png" style="width:100%">
+        <img  class="logoDarOrCom col-sm-3  col-6" src="http://bienvenue.blog.univ-lorraine.fr/files/2019/06/ul-logo.png"  style="width:100%">
+      </div>
+    </div>
+  </nb-layout-footer>
+</nb-layout>

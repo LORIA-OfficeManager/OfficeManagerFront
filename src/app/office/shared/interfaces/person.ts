@@ -1,14 +1,16 @@
 export interface Person {
-    id: number; // id de la personne
+    _id: number; // id de la personne
     firstname: string; // nom de la personne
     lastname: string; // nom de famille de la personne
     dateStart: string; // date d'arrivé
     dateEnd: string; // date de depart
-    startDateAffectation: string;
-    endDateAffectatio: string;
-    startDateContract: string;
-    endDateContract: string;
-    status: string;
+    startDateAffectation?: string;
+    endDateAffectatio?: string;
+    startDateContract?: string;
+    endDateContract?: string;
+    status?: string;
+    team?: string;
+    department?: string;
 }
 
 export const OFFICESDETAIL = [

@@ -94,6 +94,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.router.navigateByUrl('/office/auth/logout').then(r => r);
   }
 
+  routing(path: string) {
+    this.router.navigateByUrl('/office/' + path).then(r => r);
+  }
+
   navigateHome() {
     this.menuService.navigateHome();
     return false;

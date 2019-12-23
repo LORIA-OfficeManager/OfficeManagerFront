@@ -1,0 +1,31 @@
+@import '~app/office/office.component';
+
+/*************************************************Modal****************************************************************/
+
+.headerOfficeManager {
+  background-color: $color-officeMoreThanFull !important;
+  color: white !important;
+}
+
+.titleHelpModal {
+  color: $color-active;
+  margin: 2% 0%;
+}
+.buttonHelpModal {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  background-color: white;
+  z-index : 100;
+}
+.modalHeight {
+  max-height: 400px;
+}
+.codeCouleur h5 {
+  padding: 0% 2%;
+}
+::ng-deep nb-dialog-container {
+  width: 100%;
+  margin: 0% 0% !important;
+  max-width: 100% !important;
+}

@@ -14,24 +14,37 @@ import {Office} from '../../../shared/interfaces/office';
 
 
 export class MapComponent implements OnInit  {
+  // etat des filtres
   private _stateFilter: any;
+  // liste des bureaux
   private _offices: Office[];
+
+  /**
+   * constructor
+   * @param windowService
+   * @param serviceOfficeD
+   */
   constructor(private windowService: NbWindowService,
               private serviceOfficeD: OfficeDetailService) {
     this.offices = [];
   }
 
-  ngOnInit() {}
   /**
    *
+   */
+  ngOnInit() {}
+
+  /**
+   * initialise l'etat des filtres
    * @param _
    */
   @Input()
   set stateFilter( _: any) {
     this._stateFilter = _;
   }
+
   /**
-   *
+   * initialise les bureaux
    * @param _
    */
   @Input()
@@ -39,7 +52,10 @@ export class MapComponent implements OnInit  {
     this._offices = _;
   }
 
-
+  /**
+   * recherche les bureaux
+   * @param text bureau recherche
+   */
   findoffice(text: string): Office {
     let res = this._offices.filter(( _: Office) => this.createName(_).match(text) !== null);
     if (res.length < 1 ) {
@@ -50,12 +66,17 @@ export class MapComponent implements OnInit  {
         num: 0,
         building: 'none',
         occupation: 0,
-        hasStrangers: false,
+        hasStranger: false,
         } as Office,
       ];
     }
     return res.shift();
   }
+
+  /**
+   * recreer le nom du bureau
+   * @param _
+   */
   createName(_: Office): string {
     let res = '';
     if (_.num.toString().length === 1) {
@@ -65,6 +86,10 @@ export class MapComponent implements OnInit  {
     return res;
   }
 
+  /**
+   * ouvre le detail des bureaux
+   * @param name
+   */
   openWindow(name: string) {
     const  office = this.findoffice(name);
     this.serviceOfficeD.fectOne(office.id).subscribe(
@@ -81,6 +106,11 @@ export class MapComponent implements OnInit  {
     );
   }
 
+  /**
+   * filtre selon l'etage et le batiment
+   * @param building
+   * @param floor
+   */
   filterBuildingFloor(building: string, floor: number): boolean {
       return ((floor === this._stateFilter.floor) && ( building === this._stateFilter.building)) ||
       ((this._stateFilter.floor === -1) && ( building === this._stateFilter.building)) ||
@@ -90,6 +120,7 @@ export class MapComponent implements OnInit  {
   }
 
 
+  /*********************************************************GET&SETTER*************************************************/
 
   get stateFilter(): any {
     return this._stateFilter;

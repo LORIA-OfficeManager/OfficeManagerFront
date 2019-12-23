@@ -21,20 +21,22 @@ export interface StateFilter {
 export class ListOfficeComponent implements OnInit {
   // fomulaire
   form: FormGroup;
+  // constante
   private _etat: string;
   private _batiment: string;
   private _nom: string;
+  // etat des filtres
   private _stateFilter: StateFilter;
   // type de filtre
   private _filter: string;
   // liste des bureaux
   private _offices: Office[];
+  // type de design
   private _design: string;
 
   /**
    * constructor
    * @param sidebarService
-   * @param _officePipe
    * @param _serviceOffice
    */
   constructor(private _serviceOffice: OfficeService, private sidebarService: NbSidebarService) {
@@ -73,15 +75,22 @@ export class ListOfficeComponent implements OnInit {
     this._stateFilter.building = data.building;
   }
 
-  /*********************************************************GET&SETTER*************************************************/
-  get filter(): string {
-    return this._filter;
-  }
-
+  /**
+   * affiche ou cache la sidebar
+   */
   toggle() {
     this.sidebarService.toggle(true);
     return false;
   }
+
+  /**
+   * change de design
+   * @param design
+   */
+  switchDesign(design: string) {
+    this._design = design;
+  }
+
   /**
    * change de filtre
    * @param filtre
@@ -95,27 +104,11 @@ export class ListOfficeComponent implements OnInit {
       stateOffice: 'none',
     };
   }
-  switchDesign(design: string) {
-    this._design = design;
-  }
+
   /**
-   * fltre les bureaux selon l'etat
-   * @param state
+   * gere l'event du clavier
+   * @param event
    */
-  filterState(state) {
-    this._stateFilter.stateOffice = state;
-  }
-
-  get etat(): string {
-    return this._etat;
-  }
-
-  get batiment(): string {
-    return this._batiment;
-  }
-    get nom(): string {
-        return this._nom;
-    }
   onKey(event: any) {
     this._stateFilter.name = event.target.value.toLowerCase();
     if (this._stateFilter.name.length > 0) {
@@ -129,6 +122,25 @@ export class ListOfficeComponent implements OnInit {
       this._stateFilter.floor = -1;
     }
   }
+  /*********************************************************GET&SETTER*************************************************/
+
+  /**
+   * fltre les bureaux selon l'etat
+   * @param state
+   */
+  filterState(state) {
+    this._stateFilter.stateOffice = state;
+  }
+
+  get etat(): string {
+    return this._etat;
+  }
+  get batiment(): string {
+    return this._batiment;
+  }
+  get nom(): string {
+    return this._nom;
+  }
   get design(): string {
     return this._design;
   }
@@ -138,7 +150,9 @@ export class ListOfficeComponent implements OnInit {
   get offices(): Office[] {
     return this._offices;
   }
-
+  get filter(): string {
+    return this._filter;
+  }
 }
 
 

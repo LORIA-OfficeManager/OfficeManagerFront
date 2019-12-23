@@ -17,7 +17,6 @@ export class WindowOfficeComponent implements OnInit {
   /**
    * constructor
    * @param windowService
-   * @param _officePipe
    * @param serviceOfficeD
    */
   constructor(private windowService: NbWindowService,
@@ -43,11 +42,7 @@ export class WindowOfficeComponent implements OnInit {
    * @param office
    */
   name(office: Office): string {
-    let name = '' + office.num;
-    if (office.num < 10) {
-      name = '0' + office.num;
-    }
-    return  office.building + '' + office.floor + '' + name + '';
+    return  office.building + '' + office.floor + '' + office.num + '';
   }
   /*********************************************************GET&SETTER*************************************************/
   @Input()

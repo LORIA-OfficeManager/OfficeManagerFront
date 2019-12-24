@@ -1,0 +1,31 @@
+@import '~app/office/office.component';
+
+/***************************************code couleur du site***********************************************************/
+
+.activeFiltre h6 {
+  color: $color-active !important;
+}
+.ligne {
+  position: absolute;
+  top: 35%;
+}
+.titleAction {
+  z-index: 100;
+  background-color: #edf1f7;
+  color: black;
+  margin-right: 1%;
+}
+
+hr.one {
+  border: 0;
+  height: 2px;
+  background-image: linear-gradient(to right, #cc5d9a, rgba(0, 0, 0, 0));
+}
+
+::ng-deep .nb-theme-default nb-sidebar.compacted.left.fixed ~ .content {
+  margin: 0;
+}
+
+.menu-sidebar {
+  box-shadow: none;
+}

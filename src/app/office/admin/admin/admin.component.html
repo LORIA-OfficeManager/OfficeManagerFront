@@ -1,0 +1,53 @@
+<nb-layout>
+    <nb-layout-header fixed>
+        <ngx-office-header></ngx-office-header>
+    </nb-layout-header>
+
+    <nb-sidebar responsive  class="menu-sidebar start expanded" >
+        <nb-card class="col-lg-12 filtre">
+            <nb-card-header>
+                <div class="col-lg-12">
+                    <h4><strong>{{'Menu' | uppercase }}</strong></h4>
+                </div>
+            </nb-card-header>
+            <nb-card-body>
+                <div (click)="changeAction('import')"
+                     [ngClass]="action === 'import' ? 'activeFiltre' : ''"><h6>Import</h6></div>
+                <div (click)="changeAction('export')"
+                     [ngClass]="action === 'export' ? 'activeFiltre' : ''"><h6>Export</h6></div>
+            </nb-card-body>
+        </nb-card>
+    </nb-sidebar>
+    <nb-layout-column class="row">
+        <div class="col-md-12 noPadding">
+            <div  class="colored-column-basic col-12 noPadding" [ngSwitch]="action">
+                <div *ngSwitchCase="'import'" [ngClass]="action === 'import' ? 'activeFiltre' : ''">
+                    <div class="row col-12">
+                        <h1 class="active titleAction" >Import </h1>
+                        <div class="row col-12 ligne">
+                            <hr class="one col-lg-12" >
+                        </div>
+                    </div>
+                </div>
+                <div *ngSwitchCase="'export'" [ngClass]="action === 'export' ? 'activeFiltre' : ''">
+                    <div class="row col-12">
+                        <h1 class="active titleAction" >Export </h1>
+                        <div class="row col-12 ligne">
+                            <hr class="one col-lg-12" >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nb-layout-column>
+    <nb-layout-footer style="margin-top: 3%">
+        <div class="row show-grid" >
+            <div class="col-lg-12 gallery" >
+                <img class="offset-sm-3 col-sm-3 col-6" src="https://members.loria.fr/infodoc/files/img/DOCLOGO/logo_loria_complet_couleur.png" style="width:100%">
+                <img class="logoDefault col-sm-3  col-6" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Logo_Universit%C3%A9_de_Lorraine.svg/1280px-Logo_Universit%C3%A9_de_Lorraine.svg.png" style="width:100%">
+                <img  class="logoDarOrCom col-sm-3  col-6" src="http://bienvenue.blog.univ-lorraine.fr/files/2019/06/ul-logo.png"  style="width:100%">
+            </div>
+        </div>
+    </nb-layout-footer>
+</nb-layout>
+

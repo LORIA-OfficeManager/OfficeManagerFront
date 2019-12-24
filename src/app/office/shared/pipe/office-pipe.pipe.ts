@@ -122,11 +122,7 @@ export class AutoCompletePipe implements PipeTransform {
    * @param office
    */
   name(office: Office): string {
-    let name = '' + office.num;
-    if (office.num < 10) {
-      name = '0' + office.num;
-    }
-    return  office.building + '' + office.floor + '' + name ;
+    return  office.building + '' + office.floor + '' + office.num ;
   }
 }
 @Pipe({

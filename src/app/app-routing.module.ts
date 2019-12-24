@@ -13,7 +13,7 @@ import {environment} from '../environments/environment.prod';
 
 const routes: Routes = [
   {
-    path: 'office',
+    path: 'officeManager',
     loadChildren: () => import('app/office/office.module')
       .then(m => m.OfficeModule),
   },
@@ -54,7 +54,7 @@ const routes: Routes = [
       },
     ],
   },
-  { path: '', redirectTo: 'office', pathMatch: 'full' },
+  { path: '', redirectTo: 'officeManager', pathMatch: 'full' },
   { path: '**', redirectTo: 'exemple' },
 ];
 

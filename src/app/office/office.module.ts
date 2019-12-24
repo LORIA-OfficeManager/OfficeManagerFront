@@ -39,6 +39,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { DialogAssignementComponent } from './temporary/dialog-assignement/dialog-assignement.component';
 import { WarningPopupComponent } from './shared/components/warning-popup/warning-popup.component';
+import { AdminComponent } from './admin/admin/admin.component';
 
 @NgModule({
     imports: [
@@ -98,6 +99,7 @@ import { WarningPopupComponent } from './shared/components/warning-popup/warning
         DialogAssignementComponent,
         AutoCompletePipeP,
         WarningPopupComponent,
+        AdminComponent,
     ],
     providers: [
         OfficePipePipe,

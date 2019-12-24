@@ -25,12 +25,12 @@ export class TestComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  goHome() {
-    this.router.navigateByUrl('/office/listBureauTest');
+  goOffice() {
+    this.router.navigateByUrl('/officeManager/Office');
   }
 
   login() {
-    this.router.navigateByUrl('/office/auth');
+    this.router.navigateByUrl('/officeManager/auth');
   }
 
   get user() {

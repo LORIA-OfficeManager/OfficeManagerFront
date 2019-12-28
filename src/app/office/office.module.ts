@@ -40,6 +40,9 @@ import {MatInputModule} from '@angular/material/input';
 import { DialogAssignementComponent } from './temporary/dialog-assignement/dialog-assignement.component';
 import { WarningPopupComponent } from './shared/components/warning-popup/warning-popup.component';
 import { AdminComponent } from './admin/admin/admin.component';
+import { DragAndDropDirective } from './admin/drag-and-drop.directive';
+import { ImportComponent } from './admin/import/import.component';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
     imports: [
@@ -74,6 +77,7 @@ import { AdminComponent } from './admin/admin/admin.component';
         NbInputModule,
         NbSelectModule,
         NbTooltipModule,
+        MatButtonModule,
     ],
     declarations: [
         TestComponent,
@@ -100,6 +104,8 @@ import { AdminComponent } from './admin/admin/admin.component';
         AutoCompletePipeP,
         WarningPopupComponent,
         AdminComponent,
+        DragAndDropDirective,
+        ImportComponent,
     ],
     providers: [
         OfficePipePipe,

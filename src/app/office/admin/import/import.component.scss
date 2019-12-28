@@ -1,0 +1,99 @@
+@import '~app/office/office.component';
+
+.addFile {
+  position: absolute;
+  z-index: 10000;
+  bottom: 2%;
+  right: 1%;
+  background-color: $color-second;
+}
+
+.textFile {
+  width: 100%;
+  position: absolute;
+  bottom: 0%;
+  text-align: center;
+}
+
+.fileTilte {
+  width: 80%;
+  margin: auto;
+  padding-top: 35%;
+  color: white;
+  text-shadow: rgba(0, 0, 0, 1) 0.1em 0.1em 0.2em;
+}
+
+.fileImport {
+  background-image: url('http://icons.iconarchive.com/icons/zhoolego/material/256/Filetype-Docs-icon.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+}
+
+.button-sup {
+  position: absolute;
+  bottom: 5%;
+  right: 12%;
+  background-color: white;
+  color: $color-second;
+  margin: auto;
+}
+
+/***********************************************BORDER*****************************************************************/
+.module-border-wrap {
+  position: relative;
+  background: linear-gradient(to bottom right, #3eace0, #cc5d9a);
+  padding: 1.5px;
+  width: 80%;
+  margin: auto;
+  border-radius: 11px;
+}
+
+
+/*********************************************RESPONSIVE***************************************************************/
+
+//////////////////////////////////////////////big Screen
+@media screen and (min-width: 1800px) {
+
+  .button-sup {
+    bottom: 10%;
+    right: 12%;
+  }
+
+}
+//////////////////////////////////////////////screen
+@media screen and (min-width: 1200px) and (max-width: 1800px) {
+
+  .button-sup {
+    bottom: 10%!important;
+    right: 13%!important;
+  }
+}
+//////////////////////////////////////////////tablet
+@media screen and (min-width: 900px) and (max-width: 1200px) {
+  .button-sup {
+    bottom: 12% !important;
+    right: 15% !important;
+  }
+}
+//////////////////////////////////////////////tablet-down
+@media screen and (min-width: 574px) and (max-width: 900px) {
+  .fileImport {
+    background-size: 85%;
+  }
+  .button-sup {
+    bottom: 12% !important;
+    right: 17% !important;
+  }
+}
+
+//////////////////////////////////////////////phone
+@media screen and (max-width: 575px) {
+  .fileImport {
+    background-size: 50%;
+  }
+  .button-sup {
+    bottom: 20% !important;
+    right: 33%;
+  }
+}

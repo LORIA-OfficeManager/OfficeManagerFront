@@ -29,3 +29,96 @@ hr.one {
 .menu-sidebar {
   box-shadow: none;
 }
+::ng-deep nb-layout-footer nav {
+  padding: 0% !important;
+}
+
+.footerNav {
+  background-color: $color-active;
+  color: white;
+  h5 {
+    padding-left: 1%;
+    color: white;
+    margin: auto 0%;
+  }
+}
+
+.footerNavIcon {
+  margin: auto;
+  cursor: pointer;
+}
+.hideInfo {
+  max-height: 0;
+  overflow: auto;
+  padding: 0%;
+}
+
+.showInfo {
+  max-height: 180px;
+  overflow: auto;
+}
+
+
+.uploadfilecontainer {
+  background-image: url('cloud-2044823_960_720.png');
+  background-repeat: no-repeat;
+  background-size: 100px;
+  background-position: center;
+  background-color: white;
+  height: 250px;
+  width: 100%;
+  box-shadow: 0 0.5rem 1rem 0 rgba(44, 51, 73, 0.1);
+  border-radius: 10px;
+  overflow: auto;
+  margin: 0%;
+}
+
+.uploadfilecontainer:hover {
+  cursor: pointer;
+  background-color: #9ecbec !important;
+  opacity: 0.8;
+}
+
+.files-list {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 10px auto;
+  background: #ffffff;
+  border: 1px dashed;
+  border-radius: 12px;
+  padding: 5px;
+  color: #1c8adb;
+}
+
+.files-list .delete-file {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.files-list .delete-file img {
+  width: 30px;
+}
+
+.footerInfo {
+  position: fixed;
+  bottom: 0%;
+  margin: 0% 1%;
+  right: 0%;
+  left: 18%;
+  nb-card {
+    height: fit-content;
+    width: 100%;
+  }
+}
+//////////////////////////////////////////////tablet
+@media screen and (max-width: 1200px) {
+  .footerInfo {
+    position: fixed;
+    bottom: 0% !important;
+    margin: 0% 1%;
+    right: 0% !important;
+    left: 0% !important;
+  }
+}

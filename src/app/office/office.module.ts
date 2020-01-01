@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import {OfficeRoutingModule} from './office-routing.module';
-import {TestComponent} from './temporary/test/test.component';
+import {HomePageComponent} from './temporary/home-page/home-page.component';
 import { OfficeComponent } from './office.component';
 import {ThemeModule} from '../@theme/theme.module';
 import {
@@ -43,6 +43,7 @@ import { AdminComponent } from './admin/admin/admin.component';
 import { DragAndDropDirective } from './admin/drag-and-drop.directive';
 import { ImportComponent } from './admin/import/import.component';
 import {MatButtonModule} from '@angular/material/button';
+import {AuthModule} from './auth/auth.module';
 
 @NgModule({
     imports: [
@@ -78,9 +79,10 @@ import {MatButtonModule} from '@angular/material/button';
         NbSelectModule,
         NbTooltipModule,
         MatButtonModule,
+        AuthModule,
     ],
     declarations: [
-        TestComponent,
+        HomePageComponent,
         OfficeComponent,
         ListOfficeComponent,
         SideBarListBuildingComponent,

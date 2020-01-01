@@ -4,19 +4,25 @@ import {Router} from '@angular/router';
 
 @Component({
   selector: 'ngx-test',
-  templateUrl: './test.component.html',
-  styleUrls: ['./test.component.scss'],
+  templateUrl: './home-page.component.html',
+  styleUrls: ['./home-page.component.scss'],
 })
-export class TestComponent implements OnInit {
-
+export class HomePageComponent implements OnInit {
+  // user
   private puser;
 
+  /**
+   * constructor
+   * @param authService
+   * @param router
+   */
   constructor(private authService: NbAuthService, private router: Router) {
     this.authService.onTokenChange()
       .subscribe((token: NbAuthSimpleToken) => {
 
         if (token.isValid()) {
           this.puser = token.getValue();
+          this.router.navigateByUrl('/officeManager/Office');
         }
 
       });
@@ -25,14 +31,14 @@ export class TestComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  goOffice() {
-    this.router.navigateByUrl('/officeManager/Office');
-  }
-
+  /**
+   * log l'utilisateur
+   */
   login() {
     this.router.navigateByUrl('/officeManager/auth');
   }
 
+  /*******************************************************GET&SETTER*************************************************/
   get user() {
     return this.puser;
   }

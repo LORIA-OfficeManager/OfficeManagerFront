@@ -1,19 +1,14 @@
 @import '~app/office/office.component';
 
-/***************************************code couleur du site***********************************************************/
+/***************************************title***********************************************************/
 
 .activeFiltre h6 {
   color: $color-active !important;
 }
+
 .ligne {
   position: absolute;
   top: 35%;
-}
-.titleAction {
-  z-index: 100;
-  background-color: #edf1f7;
-  color: black;
-  margin-right: 1%;
 }
 
 hr.one {
@@ -22,6 +17,14 @@ hr.one {
   background-image: linear-gradient(to right, #cc5d9a, rgba(0, 0, 0, 0));
 }
 
+.titleAction {
+  z-index: 100;
+  background-color: #edf1f7;
+  margin-right: 1%;
+}
+
+/***************************************sidebar&footer***********************************************************/
+
 ::ng-deep .nb-theme-default nb-sidebar.compacted.left.fixed ~ .content {
   margin: 0;
 }
@@ -29,24 +32,28 @@ hr.one {
 .menu-sidebar {
   box-shadow: none;
 }
+
 ::ng-deep nb-layout-footer nav {
   padding: 0% !important;
 }
 
 .footerNav {
+  padding: 0.5% 2%;
   background-color: $color-active;
   color: white;
   h5 {
-    padding-left: 1%;
+    padding-left: 2% !important;
     color: white;
-    margin: auto 0%;
+    margin: auto 0% !important;
   }
 }
 
 .footerNavIcon {
-  margin: auto;
+  padding-top: 0.15%;
+  float: right;
   cursor: pointer;
 }
+
 .hideInfo {
   max-height: 0;
   overflow: auto;
@@ -54,51 +61,8 @@ hr.one {
 }
 
 .showInfo {
-  max-height: 180px;
+  max-height: 100px;
   overflow: auto;
-}
-
-
-.uploadfilecontainer {
-  background-image: url('cloud-2044823_960_720.png');
-  background-repeat: no-repeat;
-  background-size: 100px;
-  background-position: center;
-  background-color: white;
-  height: 250px;
-  width: 100%;
-  box-shadow: 0 0.5rem 1rem 0 rgba(44, 51, 73, 0.1);
-  border-radius: 10px;
-  overflow: auto;
-  margin: 0%;
-}
-
-.uploadfilecontainer:hover {
-  cursor: pointer;
-  background-color: #9ecbec !important;
-  opacity: 0.8;
-}
-
-.files-list {
-  display: flex;
-  justify-content: space-between;
-  width: 80%;
-  margin: 10px auto;
-  background: #ffffff;
-  border: 1px dashed;
-  border-radius: 12px;
-  padding: 5px;
-  color: #1c8adb;
-}
-
-.files-list .delete-file {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-}
-
-.files-list .delete-file img {
-  width: 30px;
 }
 
 .footerInfo {
@@ -112,7 +76,44 @@ hr.one {
     width: 100%;
   }
 }
-//////////////////////////////////////////////tablet
+pre {
+  padding: 0;
+  margin: 0;
+}
+.errorImport, .errorImport pre {
+  font-family: Ubuntu, 'times new roman', times, roman, serif;
+  color: darkred;
+}
+
+/***************************************switchStyleWebSite***********************************************************/
+
+::ng-deep {
+  .nb-theme-cosmic {
+    pre {
+      color: white;
+    }
+    .titleAction {
+      background-color: #1b1b38 !important;
+    }
+    .uploadfilecontainer {
+      background-color: #1b1b38 !important;
+    }
+  }
+
+  .nb-theme-dark {
+    pre {
+      color: white;
+    }
+    .titleAction {
+      background-color: #151a30 !important;
+    }
+    .uploadfilecontainer {
+      background-color: #151a30 !important;
+    }
+  }
+}
+
+/////////////////////////////////////////////responsive
 @media screen and (max-width: 1200px) {
   .footerInfo {
     position: fixed;
@@ -120,5 +121,14 @@ hr.one {
     margin: 0% 1%;
     right: 0% !important;
     left: 0% !important;
+  }
+}
+
+
+//////////////////////////////////////////////phone
+@media screen and (max-width: 575px) {
+  .footerInfo nb-card-body {
+    font-size: 0.5em!important;
+    line-height: normal!important;
   }
 }

@@ -1,6 +1,6 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
-import {TestComponent} from './temporary/test/test.component';
+import {HomePageComponent} from './temporary/home-page/home-page.component';
 import {OfficeComponent} from './office.component';
 import {ListOfficeComponent} from './temporary/list-office/list-office.component';
 // import {DevGuardService} from './shared/services/guards/dev-guard.service';
@@ -14,7 +14,7 @@ const routes: Routes = [{
     {
       path: 'Home',
       // canActivate: [DevGuardService], // Only during dev mode, not production
-      component: TestComponent,
+      component: HomePageComponent,
     },
     {
       path: 'Office',

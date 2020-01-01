@@ -2,7 +2,6 @@
     <nb-layout-header fixed>
         <ngx-office-header></ngx-office-header>
     </nb-layout-header>
-
     <nb-sidebar responsive  class="menu-sidebar start expanded" >
         <nb-card class="col-lg-12 filtre">
             <nb-card-header>
@@ -43,15 +42,24 @@
     </nb-layout-column>
     <nb-layout-footer class="footerInfo">
         <nb-card class="noMargin full-width">
-            <nb-card-header class=" footerNav row noMargin" [ngSwitch]="showInfo">
-                <h5 class="col-11">Infos </h5>
-                <nb-icon icon="minus" class="footerNavIcon col-1" (click)="toogle()" *ngSwitchCase="'show'"></nb-icon>
-                <nb-icon icon="plus" class="footerNavIcon col-1" (click)="toogle()" *ngSwitchCase="'hide'"></nb-icon>
+            <nb-card-header class=" footerNav" [ngSwitch]="showInfo">
+                Infos
+                <nb-icon icon="minus" class="footerNavIcon" (click)="toggle()" *ngSwitchCase="'show'"></nb-icon>
+                <nb-icon icon="plus" class="footerNavIcon" (click)="toggle()" *ngSwitchCase="'hide'"></nb-icon>
             </nb-card-header>
-            <nb-card-body [ngClass]="showInfo === 'show' ? 'showInfo' : 'hideInfo'">
-                <div>
-                    <p style="text-align: center">############   LOG   ############</p>
-                    <p>{{log}}</p>
+            <nb-card-body style="padding-top: 0" [ngClass]="showInfo === 'show' ? 'showInfo' : 'hideInfo'">
+                <div >
+                    <pre>  ____  _______         __  ___
+ / __ \/ _/ _(_)______ /  |/  /__ ____  ___ ____ ____ ____
+/ /_/ / _/ _/ / __/ -_) /|_/ / _ `/ _ \/ _ `/ _ `/ -_) __/
+\____/_//_//_/\__/\__/_/  /_/\_,_/_//_/\_,_/\_, /\__/_/
+                                           /___/</pre>
+                    <div>
+                        <div *ngFor="let log of logs" [ngClass]="log.class">
+                            <strong>{{log.title}}</strong>
+                            <pre>{{log.text}}</pre>
+                        </div>
+                    </div>
                 </div>
             </nb-card-body>
         </nb-card>

@@ -24,8 +24,9 @@
                 <ul>
                     <li *ngFor="let person of data.persons" [ngClass]="(person | zombiePipe)+' row col-12' "
                     style="margin: 0;">
-                        <i [ngClass]="'fas  col-1 '+ ( person | StatusPipe )" style="float: left; margin: auto"></i>
-                        <span class="col-11">{{person.firstName}} {{person.lastName}}
+                        <span class="col-12" style="padding-left: 0 ">
+                            <i [ngClass]="'fas col-1 '+ ( person | StatusPipe )" style="padding-left: 0 "></i>
+                            {{person.firstName}} {{person.lastName}}
                             <ngx-warning-popup (submit)="suppPersonne($event)" [person]="person"
                             style="float: right"></ngx-warning-popup>
                         </span>

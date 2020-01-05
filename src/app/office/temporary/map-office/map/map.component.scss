@@ -21,6 +21,18 @@ text {
 }
 ::ng-deep {
   .nb-theme-default, .nb-theme-corporate {
+    .backDefault {
+      fill: white !important;
+    }
+    .hide {
+      path,rect {
+        fill: white!important;
+        opacity: 0.5!important;
+      }
+      text {
+        opacity: 0 !important;
+      }
+    }
     .V4 {
       line {
         stroke: #ffffff !important;
@@ -51,6 +63,18 @@ text {
 
 ::ng-deep {
   .nb-theme-cosmic {
+    .backDefault {
+      fill: #323259 !important;
+    }
+    .hide {
+      path,rect {
+        fill: #323259!important;
+        opacity: 0.5!important;
+      }
+      text {
+        opacity: 0 !important;
+      }
+    }
     .V4 {
       line {
         stroke: #323259 !important;
@@ -90,6 +114,18 @@ text {
 }
 ::ng-deep {
   .nb-theme-dark {
+    .backDefault {
+      fill: #222b45 !important;
+    }
+    .hide {
+      path,rect {
+        fill: #222b45!important;
+        opacity: 0.5!important;
+      }
+      text {
+        opacity: 0 !important;
+      }
+    }
     .V4 {
       line {
         stroke: #222b45 !important;
@@ -123,6 +159,136 @@ text {
 
     .mapLoria svg {
       fill: #151a30 !important;
+    }
+  }
+}
+::ng-deep {
+  .mapLoria {
+    g:hover {
+      .hide {
+        text {
+          opacity: 0 !important;
+        }
+      }
+
+      rect {
+        opacity: 0.5 !important;
+      }
+
+      path {
+        opacity: 0.5 !important;
+      }
+
+      ellipse {
+        opacity: 0.5 !important;
+      }
+
+      line {
+        opacity: 0.5 !important;
+      }
+
+      text {
+        opacity: 0.5 !important;
+      }
+    }
+  }
+  svg.filteremptyOffice {
+    rect {
+      opacity: 0.5 !important;
+    }
+
+    path {
+      opacity: 0.5 !important;
+    }
+
+    line {
+      opacity: 0.5 !important;
+    }
+
+    ellipse {
+      opacity: 0.5 !important;
+    }
+  }
+  .nb-theme-default, .nb-theme-corporate {
+    svg.filteremptyOffice {
+      .emptyOffice {
+        opacity: 1!important;
+        stroke: black!important;
+        stroke-width: 1!important;
+      }
+      .StrangerOfficeemptyOffice {
+        opacity: 1!important;
+        stroke: black!important;
+        stroke-width: 1!important;
+      }
+    }
+    .officeHover:hover {
+      .hide {
+        text {
+          opacity: 0 !important;
+        }
+      }
+
+      path {
+        cursor: pointer;
+        opacity: 1 !important;
+        stroke: black !important;
+        stroke-width: 1 !important;
+      }
+
+      rect {
+        cursor: pointer;
+        opacity: 1 !important;
+        stroke: black !important;
+        stroke-width: 1 !important;
+      }
+
+      text {
+        cursor: pointer;
+        opacity: 1 !important;
+      }
+
+    }
+  }
+  .nb-theme-dark, .nb-theme-cosmic {
+    svg.filteremptyOffice {
+      .emptyOffice {
+        opacity: 1!important;
+        stroke: white!important;
+        stroke-width: 1!important;
+      }
+      .StrangerOfficeemptyOffice {
+        opacity: 1!important;
+        stroke: white!important;
+        stroke-width: 1!important;
+      }
+    }
+    .officeHover:hover {
+      .hide {
+        text {
+          opacity: 0 !important;
+        }
+      }
+
+      path {
+        cursor: pointer;
+        opacity: 1 !important;
+        stroke: white !important;
+        stroke-width: 1 !important;
+      }
+
+      rect {
+        cursor: pointer;
+        opacity: 1 !important;
+        stroke: white !important;
+        stroke-width: 1 !important;
+      }
+
+      text {
+        cursor: pointer;
+        opacity: 1 !important;
+      }
+
     }
   }
 }
@@ -191,30 +357,6 @@ svg.filternotFullOffice {
   }
 }
 
-svg.filteremptyOffice {
-  .emptyOffice {
-      opacity: 1!important;
-      stroke: black!important;
-      stroke-width: 1!important;
-  }
-  .StrangerOfficeemptyOffice {
-    opacity: 1!important;
-    stroke: black!important;
-    stroke-width: 1!important;
-  }
-  rect {
-    opacity: 0.5!important;
-  }
-  path {
-    opacity: 0.5!important;
-  }
-  line {
-    opacity: 0.5!important;
-  }
-  ellipse {
-    opacity: 0.5!important;
-  }
-}
 svg.filterStrangerOffice {
   .StrangerOfficefullOffice {
     opacity: 1!important;
@@ -285,65 +427,8 @@ hr.one {
   background-image: linear-gradient(to right, #cc5d9a, rgba(0, 0, 0, 0));
 }
 
-.hide {
-  path,rect {
-    fill: white!important;
-    opacity: 0.5!important;
-  }
-  text {
-    opacity: 0 !important;
-  }
-}
-.show {
+.show {}
 
-}
-g:hover {
-  .hide {
-    text {
-      opacity: 0!important;
-    }
-  }
-  rect {
-    opacity: 0.5!important;
-  }
-  path {
-    opacity: 0.5!important;
-  }
-  ellipse {
-    opacity: 0.5!important;
-  }
-  line {
-    opacity: 0.5!important;
-  }
-  text {
-    opacity: 0.5!important;
-  }
-
-}
-.officeHover:hover {
- .hide {
-   text {
-     opacity: 0!important;
-   }
- }
-  path {
-    cursor: pointer;
-    opacity: 1!important;
-    stroke: black!important;
-    stroke-width: 1!important;
-  }
-  rect {
-    cursor: pointer;
-    opacity: 1!important;
-    stroke: black!important;
-    stroke-width: 1!important;
-  }
-  text {
-    cursor: pointer;
-    opacity: 1!important;
-  }
-
-}
 .hideAndShow {
   position: absolute;
   right: 0;

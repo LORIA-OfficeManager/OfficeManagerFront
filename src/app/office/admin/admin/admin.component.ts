@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import {OfficeService} from '../../shared/services/office.service';
 
 export interface Logs {
@@ -12,13 +12,22 @@ export interface Logs {
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.scss'],
 })
-export class AdminComponent implements OnInit {
+export class AdminComponent implements OnInit, AfterViewInit {
+  //
+  @ViewChild('scrollframe', {static: false}) scrollFrame: ElementRef;
+  //
+  @ViewChildren('item') itemElements: QueryList<any>;
+  //
+  private scrollContainer: any;
+  //
+  private isNearBottom = true;
   // string qui definie l'action selectionne encours
   private _action: string;
   // string qui definie l'affichage ou non des infos d'execution de actions
   private _showInfo: string;
   // log
   private _logs: Logs[];
+
 
   /**
    * constructor
@@ -30,8 +39,19 @@ export class AdminComponent implements OnInit {
     this._logs = [];
   }
 
-  ngOnInit() {
+  /**
+   *
+   */
+  ngAfterViewInit() {
+    this.scrollContainer = this.scrollFrame.nativeElement;
+    // a modifier plus tard car pas optimal
+    this.itemElements.changes.subscribe(_ => this.onItemElementsChanged());
   }
+
+  /**
+   *
+   */
+  ngOnInit() {}
 
   /**
    * modifie le component principale de la page
@@ -62,10 +82,37 @@ export class AdminComponent implements OnInit {
         }),
         _ =>  this._logs.push({
           title : 'Import ' + _.name + ' : ',
-          text: '\n' + _.message + '\n' + _.error.error,
+          text: '' + _.message + '\n' + _.error.error + '\n',
           class: 'errorImport',
         }),
+        () => this.onItemElementsChanged(),
     );
+  }
+
+  /*********************************************************Scroll*************************************************/
+  private onItemElementsChanged(): void {
+    if (this.isNearBottom) {
+      this.scrollToBottom();
+    }
+  }
+
+  private scrollToBottom(): void {
+    this.scrollContainer.scroll({
+      top: this.scrollContainer.scrollHeight,
+      left: 0,
+      behavior: 'smooth',
+    });
+  }
+
+  private isUserNearBottom(): boolean {
+    const threshold = 150;
+    const position = this.scrollContainer.scrollTop + this.scrollContainer.offsetHeight;
+    const height = this.scrollContainer.scrollHeight;
+    return position > height - threshold;
+  }
+
+  scrolled(event: any): void {
+    this.isNearBottom = this.isUserNearBottom();
   }
 
   /*********************************************************GET&SETTER*************************************************/

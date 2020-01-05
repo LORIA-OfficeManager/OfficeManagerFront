@@ -47,22 +47,22 @@
                 <nb-icon icon="minus" class="footerNavIcon" (click)="toggle()" *ngSwitchCase="'show'"></nb-icon>
                 <nb-icon icon="plus" class="footerNavIcon" (click)="toggle()" *ngSwitchCase="'hide'"></nb-icon>
             </nb-card-header>
-            <nb-card-body style="padding-top: 0" [ngClass]="showInfo === 'show' ? 'showInfo' : 'hideInfo'">
-                <div >
-                    <pre>  ____  _______         __  ___
- / __ \/ _/ _(_)______ /  |/  /__ ____  ___ ____ ____ ____
-/ /_/ / _/ _/ / __/ -_) /|_/ / _ `/ _ \/ _ `/ _ `/ -_) __/
-\____/_//_//_/\__/\__/_/  /_/\_,_/_//_/\_,_/\_, /\__/_/
-                                           /___/</pre>
-                    <div>
-                        <div *ngFor="let log of logs" [ngClass]="log.class">
-                            <strong>{{log.title}}</strong>
-                            <pre>{{log.text}}</pre>
-                        </div>
+            <nb-card-body style="padding-top: 0" [ngClass]="showInfo === 'show' ? 'showInfo' : 'hideInfo'" class="frame">
+                <div class="frame" (scroll)="scrolled($event)" #scrollframe>
+                    <pre>   ____  _______         __  ___
+  / __ \/ _/ _(_)______ /  |/  /__ ____  ___ ____ ____ ____
+ / /_/ / _/ _/ / __/ -_) /|_/ / _ `/ _ \/ _ `/ _ `/ -_) __/
+ \____/_//_//_/\__/\__/_/  /_/\_,_/_//_/\_,_/\_, /\__/_/
+                                            /___/</pre>
+                    <div *ngFor="let log of logs" [ngClass]="log.class" style="padding: 0 1%">
+                        <strong>{{log.title}}</strong>
+                        <pre>{{log.text}}</pre>
                     </div>
                 </div>
             </nb-card-body>
         </nb-card>
     </nb-layout-footer>
 </nb-layout>
+
+
 

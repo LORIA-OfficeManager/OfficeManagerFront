@@ -61,8 +61,16 @@ hr.one {
 }
 
 .showInfo {
-  max-height: 100px;
+  height: 125px;
   overflow: auto;
+}
+
+.frame {
+  padding: 0;
+  height: 125px;
+  width: 100%;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
 .footerInfo {

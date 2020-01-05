@@ -1,4 +1,5 @@
 .logov2 {
+  cursor: pointer;
   text-decoration: none;
   p {
     padding: 0.1rem 0 0;
@@ -28,8 +29,20 @@
 
 ::ng-deep {
  .nb-theme-cosmic, .nb-theme-dark {
-   path {
+   path, rect {
      stroke: transparent;
    }
  }
+}
+
+nb-action {
+  cursor: pointer;
+}
+
+::ng-deep nb-tooltip.start {
+  span.arrow {
+    right: -8px!important;
+    top: calc(50% - 2.4px)!important;
+    transform: rotate(90deg) !important;
+  }
 }

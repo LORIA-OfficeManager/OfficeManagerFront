@@ -3,6 +3,8 @@ import {Person} from '../../shared/interfaces/person';
 import {TreeNode} from '../../shared/interfaces/treenode';
 import {NbSortDirection, NbSortRequest, NbTreeGridDataSource, NbTreeGridDataSourceBuilder} from '@nebular/theme';
 import {PersonService} from '../../shared/services/person.service';
+import {OfficeService} from '../../shared/services/office.service';
+import {Office} from '../../shared/interfaces/office';
 
 @Component({
   selector: 'ngx-list-perso',
@@ -27,7 +29,8 @@ export class ListPersoComponent implements OnInit {
   sortDirection: NbSortDirection = NbSortDirection.NONE;
 
 
-  constructor(private dataSourceBuilder: NbTreeGridDataSourceBuilder<Person>, private peopleService: PersonService) {
+  constructor(private dataSourceBuilder: NbTreeGridDataSourceBuilder<Person>, private peopleService: PersonService,
+              private officeService: OfficeService) {
     this.departments = [];
     this.teams = [];
     this.data = [];
@@ -75,9 +78,8 @@ export class ListPersoComponent implements OnInit {
     return self.indexOf(value) === index;
   }
 
-  office(id: number): string {
-    // TODO: FIX THIS
-    return 'Not yet';
+  office(name: string): number {
+    return this.fetchedData.filter(k => k.officeName === name)[0].officeId;
   }
 
   setFilter(s: string) {
@@ -94,6 +96,13 @@ export class ListPersoComponent implements OnInit {
   }
   changeOffice(data: boolean) {
     this._changeOffice$.emit(data);
+  }
+
+  getOffice(id: number): Office {
+    // TODO: FIX THIS.
+    let local: Office;
+    this.officeService.getById(id).subscribe(k => local = k);
+    return local;
   }
 }
 

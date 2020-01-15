@@ -39,6 +39,10 @@ export class OfficeService {
         );
   }
 
+  getById(id: number): Observable<Office> {
+    return this._http.get<Office>(this._backendURL.oneOffice.replace(':id', id));
+  }
+
   /**
    *
    * @param files

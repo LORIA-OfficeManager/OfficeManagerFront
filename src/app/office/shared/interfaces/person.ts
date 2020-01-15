@@ -10,6 +10,7 @@ export interface Person {
     endDateContract?: string;
     statusName: string;
     teamName: string;
+    officeId: number;
     officeName: string;
     departmentName: string;
 }

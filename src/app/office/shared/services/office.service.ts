@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Office} from '../interfaces/office';
 import {Observable} from 'rxjs';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../../environments/environment.prod';
 import {defaultIfEmpty, filter} from 'rxjs/operators';
 
@@ -52,13 +52,13 @@ export class OfficeService {
       formData.append('file', files[0]);
       return  this._http.post( this._backendURL.importOffice, formData);
   }
-  /**
-   *
-   * @param files
-   */
-  importDefault(): Observable<any> {
-    return  this._http.get( this._backendURL.importOffice);
-  }
+  // /**
+  //  *
+  //  * @param files
+  //  */
+  // importDefault(): Observable<any> {
+  //   return  this._http.get( this._backendURL.importOffice);
+  // }
 
   // /**
   //  * Function to return request options

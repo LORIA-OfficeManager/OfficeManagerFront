@@ -1,14 +1,16 @@
 export interface Person {
-    id: number; // id de la personne
+    _id: number; // id de la personne
     firstname: string; // nom de la personne
     lastname: string; // nom de famille de la personne
     dateStart: string; // date d'arrivé
     dateEnd: string; // date de depart
-    startDateAffectation: string;
-    endDateAffectatio: string;
-    startDateContract: string;
-    endDateContract: string;
-    status: string;
+    startDateAffectation?: string;
+    endDateAffectatio?: string;
+    startDateContract?: string;
+    endDateContract?: string;
+    status?: string;
+    team?: string;
+    department?: string;
 }
 
 export const OFFICESDETAIL = [
@@ -18,6 +20,9 @@ export const OFFICESDETAIL = [
         lastname: 'Harden',
         dateStart: '',
         dateEnd: '',
+        status: 'PhD',
+        team: 'ELC',
+        department: 'DEV',
     },
     {
         _id: 2,
@@ -25,6 +30,9 @@ export const OFFICESDETAIL = [
         lastname: 'Curry',
         dateStart: '',
         dateEnd: '',
+        status: 'Unk',
+        team: 'ELC',
+        department: 'DEV',
     },
     {
         _id: 3,
@@ -32,6 +40,9 @@ export const OFFICESDETAIL = [
         lastname: 'Rose',
         dateStart: '',
         dateEnd: '',
+      status: 'PhD',
+      team: 'ELC',
+      department: 'DEV',
     },
     {
         _id: 4,
@@ -39,6 +50,9 @@ export const OFFICESDETAIL = [
         lastname: 'Embid',
         dateStart: '',
         dateEnd: '',
+        status: 'Pf',
+        team: 'ELC',
+        department: 'DEV',
     },
     {
         _id: 5,
@@ -46,6 +60,9 @@ export const OFFICESDETAIL = [
         lastname: 'Brin',
         dateStart: '',
         dateEnd: '',
+        status: 'Magus',
+        team: 'LD',
+        department: 'EXC',
     },
     {
         _id: 6,
@@ -53,6 +70,9 @@ export const OFFICESDETAIL = [
         lastname: 'McGee',
         dateStart: '',
         dateEnd: '',
+        status: 'PhD',
+        team: 'MNG',
+        department: 'EXC',
     },
     {
         _id: 7,
@@ -60,6 +80,9 @@ export const OFFICESDETAIL = [
         lastname: 'Paul',
         dateStart: '',
         dateEnd: '',
+        status: 'PhD',
+        team: 'MNG',
+        department: 'EXC',
     },
     {
         _id: 8,
@@ -67,6 +90,9 @@ export const OFFICESDETAIL = [
         lastname: 'Parker',
         dateStart: '',
         dateEnd: '',
+        status: 'PhD',
+        team: 'CSS',
+        department: 'DEV',
     },
     {
         _id: 9,
@@ -74,6 +100,9 @@ export const OFFICESDETAIL = [
         lastname: 'Ingram',
         dateStart: '',
         dateEnd: '',
+        status: 'Doyen',
+        team: 'ELC',
+        department: 'DEV',
     },
     {
         _id: 10,
@@ -81,5 +110,8 @@ export const OFFICESDETAIL = [
         lastname: 'James',
         dateStart: '',
         dateEnd: '',
+        status: 'PhD',
+        team: 'CSS',
+        department: 'DEV',
     },
 ];

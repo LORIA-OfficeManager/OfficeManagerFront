@@ -5,7 +5,9 @@ import {OfficeComponent} from './office.component';
 import {ListOfficeComponent} from './temporary/list-office/list-office.component';
 // import {DevGuardService} from './shared/services/guards/dev-guard.service';
 import {UserGuardService} from './shared/services/guards/user-guard.service';
+import {ListPersoComponent} from './temporary/list-perso/list-perso.component';
 import {AdminComponent} from './admin/admin/admin.component';
+
 
 const routes: Routes = [{
   path: '',
@@ -20,6 +22,11 @@ const routes: Routes = [{
       path: 'Office',
       canActivate: [UserGuardService], // Only Users or above
       component: ListOfficeComponent,
+    },
+    {
+      path: 'personnels',
+      canActivate: [UserGuardService], // Only Users or above
+      component: ListPersoComponent,
     },
     {
       path: 'auth',

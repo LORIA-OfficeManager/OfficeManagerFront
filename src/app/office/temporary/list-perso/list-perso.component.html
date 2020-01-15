@@ -1,0 +1,87 @@
+<ngx-modal-help></ngx-modal-help>
+<nb-layout>
+  <nb-layout-header fixed>
+    <ngx-office-header></ngx-office-header>
+  </nb-layout-header>
+
+  <nb-sidebar responsive class="menu-sidebar start expanded" >
+    <nb-card>
+      <nb-card-body>
+        <label class="search-label" for="search">Search:</label>
+        <input nbInput fullWidth [nbFilterInput]="dataSource" id="search" class="search-input spacer">
+        <mat-button-toggle-group #group="matButtonToggleGroup" class="spacer">
+          <mat-button-toggle value="dep" (click)="setFilter('')">Department</mat-button-toggle>
+          <mat-button-toggle status="danger" value="sts" (click)="setFilter('')">Status</mat-button-toggle>
+        </mat-button-toggle-group>
+        <div *ngIf="group.value==='dep'" class="spacer">
+          <nb-accordion>
+            <nb-accordion-item *ngFor="let dep of departments">
+              <nb-accordion-item-header (click)="setFilter(dep)">{{dep}}</nb-accordion-item-header>
+              <nb-accordion-item-body>
+                <div *ngFor="let tm of teams[departments.indexOf(dep)]">
+                  <nb-radio-group name="filter-group">
+                  <nb-radio (valueChange)="setFilter(tm)">
+                    {{ tm }}
+                  </nb-radio>
+                  </nb-radio-group>
+                </div>
+              </nb-accordion-item-body>
+            </nb-accordion-item>
+          </nb-accordion>
+        </div>
+        <div *ngIf="group.value==='sts'">
+          <div *ngFor="let sts of status">
+            <nb-radio-group name="filter-group">
+              <nb-radio (valueChange)="setFilter(sts)">
+                {{ sts }}
+              </nb-radio>
+            </nb-radio-group>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </nb-sidebar>
+
+  <nb-layout-column class="row">
+    <nb-card>
+      <nb-card-body>
+
+        <table [nbTreeGrid]="dataSource" [nbSort]="dataSource" (sort)="updateSort($event)">
+
+          <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="allColumns"></tr>
+          <tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: allColumns"></tr>
+
+          <ng-container [nbTreeGridColumnDef]="customColumn">
+            <th class="text-capitalize" nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(customColumn)" *nbTreeGridHeaderCellDef>
+              {{customColumn}}
+            </th>
+            <td nbTreeGridCell *nbTreeGridCellDef="let row">
+              {{row.data[customColumn]}}
+            </td>
+          </ng-container>
+
+          <ng-container *ngFor="let column of defaultColumns; let index = index"
+                        [nbTreeGridColumnDef]="column"
+                        [showOn]="getShowOn(index)">
+            <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(column)" *nbTreeGridHeaderCellDef>
+              {{column}}
+            </th>
+            <td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data[column] || '-'}}</td>
+          </ng-container>
+
+        </table>
+
+      </nb-card-body>
+    </nb-card>
+  </nb-layout-column>
+
+  <nb-layout-footer style="margin-top: 3%">
+    <div class="row show-grid" >
+      <div class="col-lg-12 gallery" >
+        <img class="offset-sm-3 col-sm-3 col-6" src="https://members.loria.fr/infodoc/files/img/DOCLOGO/logo_loria_complet_couleur.png" style="width:100%">
+        <img class="logoDefault col-sm-3  col-6" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Logo_Universit%C3%A9_de_Lorraine.svg/1280px-Logo_Universit%C3%A9_de_Lorraine.svg.png" style="width:100%">
+        <img  class="logoDarOrCom col-sm-3  col-6" src="http://bienvenue.blog.univ-lorraine.fr/files/2019/06/ul-logo.png"  style="width:100%">
+      </div>
+    </div>
+  </nb-layout-footer>
+</nb-layout>

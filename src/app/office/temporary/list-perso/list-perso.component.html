@@ -51,15 +51,6 @@
           <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="allColumns"></tr>
           <tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: allColumns"></tr>
 
-          <ng-container [nbTreeGridColumnDef]="customColumn">
-            <th class="text-capitalize" nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(customColumn)" *nbTreeGridHeaderCellDef>
-              {{customAllColumns[0]}}
-            </th>
-            <td nbTreeGridCell *nbTreeGridCellDef="let row">
-              {{row.data[customColumn]}}
-            </td>
-          </ng-container>
-
           <ng-container *ngFor="let column of defaultColumns; let index = index"
                         [nbTreeGridColumnDef]="column"
                         [showOn]="getShowOn(index)">
@@ -67,6 +58,15 @@
               {{customAllColumns[defaultColumns.indexOf(column)]}}
             </th>
             <td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data[column] || '-'}}</td>
+          </ng-container>
+
+          <ng-container [nbTreeGridColumnDef]="customColumn">
+            <th class="text-capitalize" nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(customColumn)" *nbTreeGridHeaderCellDef>
+              {{customAllColumns[customAllColumns.length-1]}}
+            </th>
+            <td nbTreeGridCell *nbTreeGridCellDef="let row">
+              {{row.data[customColumn]}} <ngx-window-office style="position: absolute" (ChangeOffice)="changeOffice($event)" [office]="row.data[customColumn]"></ngx-window-office>
+            </td>
           </ng-container>
 
         </table>

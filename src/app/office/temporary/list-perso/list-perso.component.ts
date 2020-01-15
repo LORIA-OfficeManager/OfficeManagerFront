@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Person} from '../../shared/interfaces/person';
 import {TreeNode} from '../../shared/interfaces/treenode';
 import {NbSortDirection, NbSortRequest, NbTreeGridDataSource, NbTreeGridDataSourceBuilder} from '@nebular/theme';
@@ -12,14 +12,15 @@ import {PersonService} from '../../shared/services/person.service';
     '../list-office/list-office.component.scss'],
 })
 export class ListPersoComponent implements OnInit {
+  private _changeOffice$: EventEmitter<boolean>;
   private data: TreeNode<Person>[];
   private fetchedData: Person[];
   private departments: string[];
   private teams: string[][];
   private _status: string[];
-  customColumn = 'lastname';
-  defaultColumns = [ 'firstname', 'statusName', 'teamName', 'departmentName', 'officeName' ];
-  allColumns = [ this.customColumn, ...this.defaultColumns ];
+  customColumn = 'officeName';
+  defaultColumns = [ 'lastname', 'firstname', 'statusName', 'teamName', 'departmentName'];
+  allColumns = [...this.defaultColumns, this.customColumn ];
   customAllColumns = ['Lastname', 'Firstname', 'Status', 'Team', 'Department', 'Office'];
   dataSource: NbTreeGridDataSource<Person>;
   sortColumn: string;
@@ -85,6 +86,14 @@ export class ListPersoComponent implements OnInit {
 
   get status(): string[] {
     return this._status;
+  }
+
+  @Output('ChangeOffice')
+  get changeOffice$() {
+    return this._changeOffice$;
+  }
+  changeOffice(data: boolean) {
+    this._changeOffice$.emit(data);
   }
 }
 

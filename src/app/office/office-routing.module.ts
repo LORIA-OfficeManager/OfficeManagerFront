@@ -24,7 +24,7 @@ const routes: Routes = [{
       component: ListOfficeComponent,
     },
     {
-      path: 'personnels',
+      path: 'People',
       canActivate: [UserGuardService], // Only Users or above
       component: ListPersoComponent,
     },

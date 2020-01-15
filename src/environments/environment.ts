@@ -17,6 +17,7 @@ export const environment = {
     endpoints: {
       allOffice: '/office',
       oneOffice: '/office/:id',
+      allPeople: '/people',
     },
   },
 };

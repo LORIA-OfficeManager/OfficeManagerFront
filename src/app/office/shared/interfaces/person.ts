@@ -1,5 +1,5 @@
 export interface Person {
-    _id: number; // id de la personne
+    id: number; // id de la personne
     firstname: string; // nom de la personne
     lastname: string; // nom de famille de la personne
     dateStart?: string; // date d'arrivé

@@ -3,7 +3,6 @@
     <nb-layout-header fixed>
       <ngx-office-header></ngx-office-header>
     </nb-layout-header>
-
     <nb-sidebar responsive  class="menu-sidebar start expanded" >
         <nb-card class="col-lg-12 filtre">
             <nb-card-header style=" background-color: #2d8ac7;color: white!important;">
@@ -47,18 +46,23 @@
         </div>
     </nb-sidebar>
     <nb-layout-column class="row">
+        <div class="loader" *ngIf="reload">
+            <h1>LOADING <span class="bullets">.</span></h1>
+        </div>
         <div class="col-md-12 noPadding">
             <div  class="colored-column-basic col-12 noPadding" [ngSwitch]="design">
                 <div class="row col-12 show-grid noPadding" style="max-height: 30px">
                     <div class="col-lg-12 gallery noPadding" >
                         <i class=" fa-2x fas fa-table" style="float: right;margin-left: 2%;cursor: pointer"
                            (click)="switchDesign('tab')" [ngClass]="' '+(design==='tab' ? 'activeFiltre' : 'inactiveFiltre')"></i>
-                        <i class=" fa-2x fas fa-map-marked-alt" style="float: right;margin-left: 2%;cursor: pointer"
+                        <i [nbTooltipPlacement]="'start'" nbTooltip="Afficher les bureaux sous form de plan" class=" fa-2x fas fa-map-marked-alt" style="float: right;margin-left: 2%;cursor: pointer"
                            (click)="switchDesign('map')" [ngClass]="' '+(design==='map' ? 'activeFiltre' : 'inactiveFiltre')"></i>
                     </div>
                 </div>
-                <ngx-tab-office  [offices]="offices" [stateFilter]="stateFilter" *ngSwitchCase="'tab'"></ngx-tab-office>
-                <ngx-map [offices]="offices" [stateFilter]="stateFilter" *ngSwitchCase="'map'"></ngx-map>
+                <ngx-tab-office (ChangeOffice)="setOffice($event)" [offices]="offices"
+                                [stateFilter]="stateFilter" *ngSwitchCase="'tab'"></ngx-tab-office>
+                <ngx-map (ChangeOffice)="setOffice($event)"
+                         [offices]="offices" [stateFilter]="stateFilter" *ngSwitchCase="'map'"></ngx-map>
             </div>
         </div>
     </nb-layout-column>

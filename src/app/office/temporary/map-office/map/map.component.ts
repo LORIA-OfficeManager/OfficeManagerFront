@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {OfficeDetail} from '../../../shared/interfaces/officeDetail';
 import {DetailOfficeComponent} from '../../detail-office/detail-office.component';
 import {NbWindowService} from '@nebular/theme';
@@ -18,6 +18,8 @@ export class MapComponent implements OnInit  {
   private _stateFilter: any;
   // liste des bureaux
   private _offices: Office[];
+  //
+  private _changeOffice$: EventEmitter<boolean>;
 
   /**
    * constructor
@@ -27,6 +29,7 @@ export class MapComponent implements OnInit  {
   constructor(private windowService: NbWindowService,
               private serviceOfficeD: OfficeDetailService) {
     this.offices = [];
+    this._changeOffice$ = new EventEmitter<boolean>();
   }
 
   /**
@@ -49,6 +52,7 @@ export class MapComponent implements OnInit  {
    */
   @Input()
   set offices( _: Office[]) {
+    // console.log('newdata');
     this._offices = _;
   }
 
@@ -95,10 +99,14 @@ export class MapComponent implements OnInit  {
     this.serviceOfficeD.fectOne(office.id).subscribe(
         (_: OfficeDetail) => {
           if ( _ !== null ) {
-            this.windowService.open(
+            const nbWindowsRef = this.windowService.open(
                 DetailOfficeComponent,
                 {windowClass: 'headerWindow', title: this.createName(office), context: _},
             );
+            const tmp = _.persons;
+            nbWindowsRef.onClose.subscribe((__) => {
+              this.changeOffice(tmp !== _.persons );
+            });
           }
         },
         () => undefined,
@@ -121,7 +129,16 @@ export class MapComponent implements OnInit  {
 
 
   /*********************************************************GET&SETTER*************************************************/
-
+  @Output('ChangeOffice')
+  get changeOffice$() {
+    return this._changeOffice$;
+  }
+  changeOffice( ischange: boolean) {
+    this._changeOffice$.emit(ischange);
+  }
+  findIndex(office: Office): number {
+    return this._offices.findIndex(( _: Office) => _.id === office.id);
+  }
   get stateFilter(): any {
     return this._stateFilter;
   }

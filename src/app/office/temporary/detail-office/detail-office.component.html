@@ -13,20 +13,24 @@
                 <div>Numéro : {{data.office.num}}</div>
             </div>
             <div class="col-md-6">
-                <div>Taille : {{data.persons.length}}/{{data.office.size}}</div>
+                <div>Taille : {{data.office.occupation}}/{{data.office.size}}</div>
             </div>
         </div>
         <div class="row show-grid">
             <div class="col-md-12 all" >
                 <div class="col-12 row">
-                    <h5 class="col-12 noPadding">Personne <ngx-dialog-assignement style="float: right"></ngx-dialog-assignement></h5>
+                    <h5 class="col-12 noPadding">Personne
+                        <ngx-dialog-assignement (submit)="assignement($event)" [officename]="name()"
+                                                style="float: right"></ngx-dialog-assignement>
+                    </h5>
                 </div>
                 <ul>
                     <li *ngFor="let person of data.persons" [ngClass]="(person | zombiePipe)+' row col-12' "
                     style="margin: 0;">
                         <span class="col-12" style="padding-left: 0 ">
                             <i [ngClass]="'fas col-1 '+ ( person | StatusPipe )" style="padding-left: 0 "></i>
-                            {{person.firstName}} {{person.lastName}}
+                            {{person.firstName}} {{person.lastName}} {{person.startDateAffectation | date}}
+                            {{person.endDateAffectation | date}}
                             <ngx-warning-popup (submit)="suppPersonne($event)" [person]="person"
                             style="float: right"></ngx-warning-popup>
                         </span>

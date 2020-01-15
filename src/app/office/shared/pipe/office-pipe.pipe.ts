@@ -166,12 +166,12 @@ export class StatusPipe implements PipeTransform {
    * @param p
    */
   transform(p: Person): string {
-    const res = '' + Math.floor(Math.random() * Math.floor(3));
+    const res = p.statusName;
     if (!this._zombieP.transform(p)) {
-      if (res === ('2' || 'enseignant-chercheur')) {
+      if (res === 'Défaut') {
         return 'fa-chalkboard-teacher';
       } else {
-        if (res === ('1' || 'doctorant')) {
+        if (res ===  'Doctorant') {
           return 'fa-book-reader';
         } else {
           return '';
@@ -202,7 +202,7 @@ export class AutoCompletePipeP implements PipeTransform {
    * @param obj
    * @param search
    */
-  transform(obj: any[], search: string): Office[] {
+  transform(obj: any[], search: string): Person[] {
     return obj.filter((_: any) =>
         _.lastname.toLowerCase().indexOf(search) === 0);
   }

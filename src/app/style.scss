@@ -68,9 +68,10 @@
 
 /*************************************************ROW******************************************************************/
 
-
 ::ng-deep {
-
+  nb-layout-footer.OfficeManagerFooter {
+    box-shadow: none !important;
+  }
   nb-icon svg g:hover {
     background-color: transparent!important;
   }
@@ -118,7 +119,7 @@
   }
   .OfficeManagerFooter {
     nav {
-      background-color: white !important;
+      background-color: #edf1f7 !important;
     }
   }
 }
@@ -175,7 +176,7 @@
   }
   .OfficeManagerFooter {
     nav {
-      background-color: #222b45 !important;
+      background-color: #151a30 !important;
     }
   }
 }
@@ -231,7 +232,7 @@
   }
   .OfficeManagerFooter {
     nav {
-      background-color: #323259 !important;
+      background-color: #1b1b38 !important;
     }
   }
 }

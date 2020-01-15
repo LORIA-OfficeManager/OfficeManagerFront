@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Office} from '../../shared/interfaces/office';
 import {OfficeService} from '../../shared/services/office.service';
 import {NbSidebarService} from '@nebular/theme';
 import {FormControl, FormGroup} from '@angular/forms';
+
 
 export interface StateFilter {
   name: string;
@@ -19,6 +20,9 @@ export interface StateFilter {
 })
 
 export class ListOfficeComponent implements OnInit {
+  get reload(): boolean {
+    return this._reload;
+  }
   // fomulaire
   form: FormGroup;
   // constante
@@ -33,18 +37,17 @@ export class ListOfficeComponent implements OnInit {
   private _offices: Office[];
   // type de design
   private _design: string;
+  private _reload: boolean;
 
   /**
    * constructor
    * @param sidebarService
    * @param _serviceOffice
+   * @param cd
    */
   constructor(private _serviceOffice: OfficeService, private sidebarService: NbSidebarService) {
     this.form = new FormGroup({
       search: new FormControl(),
-    });
-    this._serviceOffice.fecth().subscribe( (_: Office[]) => {
-      this._offices = _ ;
     });
     this._offices = [];
     this._filter = 'batiment';
@@ -58,12 +61,17 @@ export class ListOfficeComponent implements OnInit {
       building : 'none',
       stateOffice: 'none',
     };
+    this._reload = true;
   }
 
   /**
    * onInit
    */
   ngOnInit(): void {
+      this._reload = false;
+      this._serviceOffice.fecth().subscribe((_: Office[]) => {
+          this._offices = _;
+      });
   }
 
   /**
@@ -152,6 +160,16 @@ export class ListOfficeComponent implements OnInit {
   }
   get filter(): string {
     return this._filter;
+  }
+
+  setOffice(data: boolean) {
+    if ( data ) {
+      this._reload = true;
+      this._serviceOffice.fecth().subscribe((_: Office[]) => {
+        this._offices = _;
+        this._reload = false;
+      });
+    }
   }
 }
 

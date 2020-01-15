@@ -20,7 +20,7 @@ hr.one {
 .titleAction {
   z-index: 100;
   background-color: #edf1f7;
-  margin-right: 1%;
+  padding-right: 1%;
 }
 
 /***************************************sidebar&footer***********************************************************/
@@ -69,7 +69,6 @@ hr.one {
   padding: 0;
   height: 125px;
   width: 100%;
-  overflow: scroll;
   overflow-x: hidden;
 }
 

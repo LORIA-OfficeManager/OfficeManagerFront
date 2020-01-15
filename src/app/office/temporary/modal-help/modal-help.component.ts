@@ -27,7 +27,7 @@ export class ModalHelpComponent implements OnInit {
    * @param dialog
    */
   open(dialog: TemplateRef<any>) {
-    this.dialogService.open(dialog, { context: 'this is some additional data passed to dialog' });
+    this.dialogService.open(dialog, {context: 'this is some additional data passed to dialog'});
   }
 
 }

@@ -14,6 +14,9 @@ export const environment = {
       oneOffice: '/office/:id',
       importOffice: '/import/office',
       importPerson: '/import/person',
+      allPeople: '/people',
+      onePerson: '/people/:id',
+      assignement: '/assignement/:idO/:idP',
     },
   },
 };

@@ -1,24 +1,38 @@
 <ng-template #dialog let-data let-ref="dialogRef">
     <nb-card class="helpModal">
         <nb-card-header class="headerOfficeManager">
-            Ajouter des personnes au bureaux
-            <nb-icon style="float: right; cursor: pointer" (click)="ref.close()" icon="close-outline"></nb-icon>
+            Ajouter des personnes au bureaux {{officename}}
+            <nb-icon style="float: right; cursor: pointer" (click)="ref.close();startData()" icon="close-outline"></nb-icon>
         </nb-card-header>
         <nb-card-body class="modalHeight">
+            <h6>Personne affecté au bureaux {{officename}}</h6>
+            <span style="margin: auto" *ngIf="peopleAssign.length === 0"> Ce bureaux est vide</span>
+            <ul>
+                <li *ngFor="let person of peopleAssign "> {{person.lastname}} {{person.firstname}}
+                    <nb-icon icon="minus" style="float: right" (click)="supp(person)"></nb-icon>
+                </li>
+            </ul>
+            <h6>Personne non affecté à ce bureaux</h6>
             <form [formGroup]="form">
-                <mat-form-field class="example-full-width">
+                <mat-form-field class="full-width">
                     <input  (keyup)="onKey($event)" matInput placeholder="search" formControlName="search" name="search" />
                 </mat-form-field>
             </form>
+            <span style="margin: auto" *ngIf="peopleNotAssign().length === 0">
+                Aucune personne n'est affectable à ce bureau</span>
             <ul>
-                <li *ngFor="let person of (people |AutoCompletePipeP:search)">{{person.firstame}} {{person.lastname}}
-                <nb-icon icon="plus" *ngIf="person.id==0" style="float: right"
+                <li *ngFor="let person of (peopleNotAssign() |AutoCompletePipeP:search)"> {{person.lastname}} {{person.firstname}}
+                <nb-icon nbTooltipStatus="danger" [nbTooltipPlacement]="'start'"
+                         nbTooltip="cette personne est déja affecté au bureau {{person.officeName}},
+                          l'affecter a un nouveau bureau, le désaffectera de celui ci"
+                         icon="plus" *ngIf="person.officeName !== null" style="float: right"
                 (click)="add(person)"></nb-icon>
-                <nb-icon icon="minus" *ngIf="person.id>0" style="float: right"
-                (click)="supp(person)"></nb-icon></li>
+                    <nb-icon icon="plus" *ngIf="person.officeName === null" style="float: right"
+                             (click)="add(person)"></nb-icon>
             </ul>
         </nb-card-body>
-        <nb-card-footer class="headerOfficeManager" style="padding: 0.2%;">
+        <nb-card-footer class="footerOfficeManager">
+            <button nbButton (click)="modifier(ref)"> valider les modification</button>
         </nb-card-footer>
     </nb-card>
 </ng-template>

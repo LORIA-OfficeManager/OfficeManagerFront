@@ -1,4 +1,11 @@
-import {Component, Input, OnChanges, OnInit} from '@angular/core';
+import {
+    ChangeDetectionStrategy,
+    Component,
+    EventEmitter,
+    Input,
+    OnInit,
+    Output,
+} from '@angular/core';
 import {Office} from '../../shared/interfaces/office';
 import {Sort} from '@angular/material/sort';
 
@@ -15,28 +22,26 @@ export interface StateFilter {
   templateUrl: './tab-office.component.html',
   styleUrls: ['./tab-office.component.scss',
     '../list-office/list-office.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TabOfficeComponent implements OnInit, OnChanges {
+export class TabOfficeComponent implements OnInit {
     // liste des bureaux
     private _offices: Office[];
     private _stateFilter: StateFilter;
+    private _changeOffice$: EventEmitter<boolean>;
 
     /**
      * constructor
      */
-    constructor() { }
+    constructor() {
+        this._changeOffice$ = new EventEmitter<boolean>();
+    }
 
     /**
      * onInit
      */
     ngOnInit() {
     }
-
-    /**
-     * changes
-     * @param record
-     */
-    ngOnChanges(record): void {}
 
     /**
      * Trie les bureaux
@@ -72,6 +77,13 @@ export class TabOfficeComponent implements OnInit, OnChanges {
 
 
   /*********************************************************GET&SETTER*************************************************/
+    @Output('ChangeOffice')
+    get changeOffice$() {
+        return this._changeOffice$;
+    }
+    changeOffice(data: boolean) {
+        this._changeOffice$.emit(data);
+    }
     @Input()
     set offices(sortedDara: Office[]) {
       this._offices = sortedDara;

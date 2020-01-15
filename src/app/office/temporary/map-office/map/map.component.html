@@ -1,19 +1,19 @@
 <div class="mapLoria">
-    <svg width="0%" height="0%" xmlns="http://www.w3.org/2000/svg"
+    <svg class="patterns" width="0%" height="0%" xmlns="http://www.w3.org/2000/svg"
          xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 0 0"
     style="height: 0px;margin: 0%;padding: 0%;position: absolute">
         <defs>
             <pattern id="pattern-stripeH"
                      width="4" height="4"
                      patternUnits="userSpaceOnUse"
-                     patternTransform="rotate(0)">
-                <rect width="2" height="4" transform="translate(0,0)" fill="black"></rect>
+                     patternTransform="rotate(0)" class="stairBack">
+                <rect class="stairFront" width="2" height="4" transform="translate(0,0)" fill="black"></rect>
             </pattern>
             <pattern id="pattern-stripeV"
                      width="4" height="4"
                      patternUnits="userSpaceOnUse"
-                     patternTransform="rotate(90)">
-                <rect width="2" height="4" transform="translate(0,0)" fill="black"></rect>
+                     patternTransform="rotate(90)" class="stairBack">
+                <rect class="stairFront" width="2" height="4" transform="translate(0,0)" fill="black"></rect>
             </pattern>
             <pattern id="pattern-fullOffice"
                      width="12" height="12"
@@ -57,7 +57,7 @@
     <div *ngIf="filterBuildingFloor('A', 0)" style="text-align: center">
         <h5 class="titleFloor" >Batiment A: RDC</h5>
         <svg [ngClass]="'filter'+filterStateOffice()+' floor V4'"
-             width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+             width="80%" height="80%" xmlns="http://www.w3.org/2000/svg"
              xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 110 580 300">
             <g>
                 <title>Layer 1</title>
@@ -75,7 +75,7 @@
                 <rect class="roomPlan" stroke="#ffffff" opacity="0.2" id="svg_23" height="36.74772" width="27.4983" y="317.23042" x="386.32623" fill-opacity="null" stroke-opacity="null" stroke-width="0" fill="#ffffff"/>
                 <rect class="roomPlan" stroke="#ffffff" opacity="0.2" id="svg_24" height="36.74772" width="16.99897" y="317.23042" x="415.82439" fill-opacity="null" stroke-opacity="null" stroke-width="0" fill="#ffffff"/>
                 <rect class="roomPlan" stroke="#ffffff" opacity="0.2" id="svg_25" height="17.24892" width="17.49903" y="317.23041" x="434.32327" fill-opacity="null" stroke-opacity="null" stroke-width="0" fill="#ffffff"/>
-                <rect class="roomPlan" stroke="#ffffff" opacity="0.2" id="svg_27" height="18.24886" width="17.499" y="335.72927" x="434.32327" fill-opacity="null" stroke-opacity="null" stroke-width="0" fill="#ffffff"/>
+                <rect class="stairsV" stroke="#ffffff" opacity="0.2" id="svg_27" height="18.24886" width="17.499" y="335.72927" x="434.32327" fill-opacity="null" stroke-opacity="null" stroke-width="0" fill="#ffffff"/>
                 <rect class="roomPlan" stroke="#ffffff" opacity="0.2" id="svg_28" height="36.74772" width="38.74764" y="317.23042" x="453.32208" fill-opacity="null" stroke-opacity="null" stroke-width="0" fill="#ffffff"/>
                 <rect class="roomPlan" stroke="#ffffff" opacity="0.2" id="svg_29" height="36.74772" width="43.99723" y="317.23042" x="494.31961" fill-opacity="null" stroke-opacity="null" stroke-width="0" fill="#ffffff"/>
                 <path class="roomPlan" id="svg_30" d="m347.42858,315.68054c0,0 1.99988,-3.87476 1.99988,-3.87476c0,0 1.49991,-5.62465 1.42492,-5.69965c0.07499,0.07499 0.82494,-4.67471 0.74995,-4.74971c0.07499,0.07499 0.19998,-3.54978 0.12499,-3.62478c0.07499,0.07499 -0.05,-3.54978 -0.12499,-3.62478c0.07499,0.07499 -0.42498,-3.2998 -0.49997,-3.37479c0.07499,0.07499 -0.42498,-2.67484 -0.49997,-2.74983c0.07499,0.07499 -0.67497,-3.79977 -0.74995,-3.87476c0.07499,0.07499 -1.04994,-4.29974 -1.12493,-4.37473c0.07499,0.07499 -1.29993,-3.54978 -1.42492,-3.54978c-0.12499,0 -2.12487,-3.99975 -2.19986,-4.07475c0.07499,0.07499 -1.92489,-3.92476 -1.92489,-3.92476c0,0 17.24894,0 17.24894,0c0,0 0,47.62206 0,47.62206c0,0 -12.9992,-0.12499 -12.9992,-0.12499z" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#ffffff" fill="#ffffff"/>
@@ -90,11 +90,48 @@
                 <rect class="roomPlan" stroke="#ffffff" id="svg_44" height="1" width="114.50022" y="265.47825" x="454.06787" fill-opacity="null" stroke-opacity="null" stroke-width="0" fill="#ffffff"/>
                 <rect class="stairsH" opacity="1" id="svg_47" height="14.49983" width="57.99932" y="147.39828" x="453.6947" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#ffffff" fill="#ffffff"/>
                 <ellipse stroke="#ffffff" ry="9.81196" rx="9.99945" id="svg_48" cy="270.19756" cx="255.33586" fill-opacity="null" stroke-opacity="null" stroke-width="2" fill="none"/>
-                <ellipse stroke="#ffffff" ry="9.81196" rx="9.99945" id="svg_49" cy="320.19756" cx="556.33586" fill-opacity="null" stroke-opacity="null" stroke-width="2" fill="none"/>
-                <ellipse stroke="#ffffff" ry="9.81196" rx="9.99945" id="svg_50" cy="297.32222" cx="313.58515" fill-opacity="null" stroke-opacity="null" stroke-width="2" fill="none"/>
-                <ellipse stroke="#000" ry="5.562" rx="6.12449" id="svg_61" cy="331.44697" cx="144.21194" fill-opacity="null" stroke-opacity="null" stroke-width="2" fill="none"/>
-                <rect stroke="#ffffff" id="svg_51" height="10.24987" width="15.24981" y="292.19639" x="306.17123" fill-opacity="null" stroke-opacity="null" stroke-width="2" fill="none"/>
-                <path id="svg_53" d="m308.4212,306.19622c0,0 -9.37488,13.62483 -9.37488,13.62483c0,0 -4.87494,-3.62495 -4.87494,-3.62495c0,0 -3.87495,-4.49995 -3.92497,-4.57495c0.05002,0.075 -2.44995,-4.92494 -2.49996,-4.99994c0.05001,0.075 -1.44997,-6.04992 -1.49999,-6.12492c0.05002,0.075 -0.19998,-4.92494 -0.24999,-4.99994c0.05001,0.075 1.05,-4.79994 0.99999,-4.87494c0.05001,0.075 1.79998,-5.04994 1.79998,-5.04994c0,0 2.87497,-3.87495 2.87497,-3.87495c0,0 4.49994,-4.74994 4.49994,-4.74994c0,0 5.37494,-3.24996 5.32493,-3.32496c0.05001,0.075 6.67493,-1.42498 6.62491,-1.49998c0.05002,0.075 6.29994,-0.79999 6.29994,-0.79999c0,0 6.99991,0.74999 6.99991,0.74999c0,0 6.49992,2.87497 6.44991,2.79996c0.05001,0.07501 6.04994,4.69995 5.99993,4.62495c0.05001,0.075 -11.32485,11.57486 -11.37486,11.49986" fill-opacity="null" stroke-opacity="null" stroke-width="2" stroke="#ffffff" fill="none"/>
+                <g stroke="null" transform="rotate(90.3984146118164 555.2996826171876,318.9836120605469) " id="svg_71">
+                    <g id="svg_70" fill="#000000" transform="matrix(0.012267229948714384,0,0,-0.012622088437655695,-256.70830273818524,189.31957829446154) ">
+                        <path class="roomPlan" stroke="null" id="svg_60" d="m66233.76611,-9638.78765l0,-291l52,-13c28,-6 52,-11 53,-9c3,4 288,482 292,489c4,9 -133,65 -205,83c-33,9 -89,19 -126,23l-66,8l0,-290z"/>
+                        <path class="roomPlan" stroke="null" id="svg_61" d="m66014.76611,-9365.78765c-53,-10 -187,-55 -217,-72c-21,-12 -17,-20 118,-252c76,-132 142,-245 146,-252c6,-9 18,-9 50,-1l42,10l0,289l0,289l-47,-1c-27,-1 -68,-5 -92,-10z"/>
+                        <path class="roomPlan" stroke="null" id="svg_62" d="m65653.76611,-9521.78765c-57,-43 -169,-154 -207,-206c-29,-40 -33,-51 -22,-58c8,-5 123,-73 257,-150l243,-142l35,34c19,18 34,38 33,43c-1,17 -283,499 -294,503c-6,1 -26,-9 -45,-24z"/>
+                        <path class="roomPlan" stroke="null" id="svg_63" d="m66559.76611,-9748.78765c-80,-135 -146,-248 -146,-253c0,-4 13,-23 28,-41l27,-33l258,136c165,88 255,141 250,148c-47,84 -159,207 -241,266l-29,21l-147,-244z"/>
+                        <path class="roomPlan" stroke="null" id="svg_64" d="m65340.76611,-9918.78765c-34,-82 -54,-164 -63,-248l-7,-68l306,0l305,0l7,36c3,20 3,40 -2,44c-8,7 -458,266 -499,288c-19,10 -23,6 -47,-52z"/>
+                        <path class="roomPlan" stroke="null" id="svg_65" d="m66763.76611,-10014.78765c-140,-75 -255,-142 -254,-148c1,-7 2,-25 3,-42l1,-30l301,0l301,0l-7,53c-14,109 -72,312 -87,306c-2,-1 -118,-63 -258,-139z"/>
+                        <path class="roomPlan" stroke="null" id="svg_66" d="m65273.76611,-10619.78765l0,-305l305,0l305,0l0,305l0,305l-305,0l-305,0l0,-305z"/>
+                        <path class="roomPlan" stroke="null" id="svg_67" d="m66494.76611,-10360.78765c-7,-19 -11,-37 -9,-39c11,-10 509,-295 516,-295c25,0 92,204 106,323l6,47l-303,0l-303,0l-13,-36z"/>
+                        <path class="roomPlan" stroke="null" id="svg_68" d="m66406.76611,-10486.78765l-20,-23l155,-267l154,-268l32,22c48,34 169,154 204,202l32,44l-248,143c-136,78 -256,148 -268,156c-18,11 -23,10 -41,-9z"/>
+                        <path class="roomPlan" stroke="null" id="svg_69" d="m66266.76611,-10555.78765l-33,-10l0,-315l0,-316l53,7c118,15 343,85 334,103c-39,74 -312,542 -316,541c-3,0 -21,-5 -38,-10z"/>
+                    </g>
+                </g>
+                <g stroke="null" transform="rotate(-90.25125122070312 144.06013488769528,331.39605712890625) " id="svg_59">
+                    <g id="svg_20" fill="#000000" transform="matrix(0.006925265375468234,0,0,-0.006688654962571356,97.8296182099108,256.8614146593221) ">
+                        <path class="roomPlan" stroke="null" id="svg_21" d="m6716.13194,-10509.44224l0,-291l52,-13c28,-6 52,-11 53,-9c3,4 288,482 292,489c4,9 -133,65 -205,83c-33,9 -89,19 -126,23l-66,8l0,-290z"/>
+                        <path class="roomPlan" stroke="null" id="svg_26" d="m6497.13194,-10236.44224c-53,-10 -187,-55 -217,-72c-21,-12 -17,-20 118,-252c76,-132 142,-245 146,-252c6,-9 18,-9 50,-1l42,10l0,289l0,289l-47,-1c-27,-1 -68,-5 -92,-10z"/>
+                        <path class="roomPlan" stroke="null" id="svg_36" d="m6136.13194,-10392.44224c-57,-43 -169,-154 -207,-206c-29,-40 -33,-51 -22,-58c8,-5 123,-73 257,-150l243,-142l35,34c19,18 34,38 33,43c-1,17 -283,499 -294,503c-6,1 -26,-9 -45,-24z"/>
+                        <path class="roomPlan" stroke="null" id="svg_40" d="m7042.13194,-10619.44224c-80,-135 -146,-248 -146,-253c0,-4 13,-23 28,-41l27,-33l258,136c165,88 255,141 250,148c-47,84 -159,207 -241,266l-29,21l-147,-244z"/>
+                        <path class="roomPlan" stroke="null" id="svg_41" d="m5823.13194,-10789.44224c-34,-82 -54,-164 -63,-248l-7,-68l306,0l305,0l7,36c3,20 3,40 -2,44c-8,7 -458,266 -499,288c-19,10 -23,6 -47,-52z"/>
+                        <path class="roomPlan" stroke="null" id="svg_42" d="m7246.13194,-10885.44224c-140,-75 -255,-142 -254,-148c1,-7 2,-25 3,-42l1,-30l301,0l301,0l-7,53c-14,109 -72,312 -87,306c-2,-1 -118,-63 -258,-139z"/>
+                        <path class="roomPlan" stroke="null" id="svg_45" d="m5756.13194,-11490.44224l0,-305l305,0l305,0l0,305l0,305l-305,0l-305,0l0,-305z"/>
+                        <path class="roomPlan" stroke="null" id="svg_52" d="m6977.13194,-11231.44224c-7,-19 -11,-37 -9,-39c11,-10 509,-295 516,-295c25,0 92,204 106,323l6,47l-303,0l-303,0l-13,-36z"/>
+                        <path class="roomPlan" stroke="null" id="svg_57" d="m6889.13194,-11357.44224l-20,-23l155,-267l154,-268l32,22c48,34 169,154 204,202l32,44l-248,143c-136,78 -256,148 -268,156c-18,11 -23,10 -41,-9z"/>
+                        <path class="roomPlan" stroke="null" id="svg_58" d="m6749.13194,-11426.44224l-33,-10l0,-315l0,-316l53,7c118,15 343,85 334,103c-39,74 -312,542 -316,541c-3,0 -21,-5 -38,-10z"/>
+                    </g>
+                </g>
+                <path class="roomPlan"  id="svg_21" d="m303.05437,303.94184c0,0 -11.81218,11.2497 -11.81219,11.2372" opacity="0.5" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                <path class="roomPlan" id="svg_26" d="m304.42722,306.57089c0.03125,0 -1.93743,-1.71869 -1.96868,-1.73743c0.03124,0.01874 -10.96839,10.64338 -10.96839,10.64338c0,0 4.43735,4.37485 4.43735,4.37485c0,0 8.46846,-13.2808 8.49971,-13.2808z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                <path class="roomPlan" id="svg_30" d="m302.30229,304.57096c0,0 -10.90588,10.4684 -10.93712,10.44966c0.03124,0.01874 -3.21865,-5.07484 -3.24989,-5.09358c0.03124,0.01874 12.68707,-7.41851 12.68707,-7.41851c0,0 1.49995,2.06243 1.49995,2.06243z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                <path class="roomPlan" id="svg_31" d="m300.67734,302.19604c0,0 -12.74957,7.49975 -12.74957,7.4685c0,-0.03125 -2.09368,-5.59356 -2.09368,-5.59356c0,0 13.96828,-4.21861 13.96828,-4.21861c0,0 0.87497,2.34367 0.87497,2.34367z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                <path class="roomPlan" id="svg_35" d="m299.67738,299.53988c0,0 -0.34374,-2.49992 -0.34374,-2.49992c0,0 -14.62451,0.99997 -14.65575,0.98123c0.03124,0.01874 1.03121,5.76855 1.03121,5.76855c0,0 13.96828,-4.24986 13.96828,-4.24986z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                <path class="roomPlan" id="svg_36" d="m299.33364,296.75872c0,0 0.21874,-2.53116 0.21874,-2.53116c0,0 -14.84325,-2.46867 -14.87449,-2.48741c0.03124,0.01874 0.12499,5.92479 0.12499,5.92479c0,0 14.53076,-0.90622 14.53076,-0.90622z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                <path class="roomPlan" id="svg_37" d="m299.64613,293.97757c0,0 0.74997,-2.24992 0.74997,-2.24992c0,0 -13.93703,-6.15604 -13.96827,-6.17478c0.03124,0.01874 -1.68745,5.79979 -1.68745,5.79979c0,0 14.90575,2.62491 14.90575,2.62491z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                <path class="roomPlan" id="svg_38" d="m300.5211,291.41515c0,0 1.28121,-2.09368 1.28121,-2.09368c0,0 -12.65582,-9.59343 -12.68707,-9.61217c0.03124,0.01874 -2.59367,5.5498 -2.59367,5.5498c0,0 13.99953,6.15604 13.99953,6.15604z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                <path class="roomPlan" id="svg_40" d="m302.02105,289.00898c0,0 1.65619,-1.62495 1.62495,-1.64369c0.03124,0.01874 -10.31216,-12.69958 -10.3434,-12.71832c0.03124,0.01874 -3.99987,4.70608 -3.99987,4.70608c0,0 12.71832,9.65592 12.71832,9.65592z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                <path class="roomPlan" id="svg_41" d="m303.92723,287.13405c0,0 2.12493,-1.37495 2.12493,-1.37495c0,0 -7.3435,-14.90575 -7.37475,-14.92449c0.03124,0.01874 -5.12483,3.67487 -5.12483,3.67487c0,0 10.37465,12.62457 10.37465,12.62457z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                <path class="roomPlan" id="svg_45" d="m306.23966,285.66535c0,0 2.40617,-0.87497 2.40617,-0.87497c0,0 -3.74987,-16.74943 -3.78112,-16.76817c0.03124,0.01874 -5.81231,2.64365 -5.81231,2.64365c0,0 7.18726,14.99949 7.18726,14.99949z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                <path class="roomPlan" id="svg_49" d="m308.90207,284.70288c0,0 2.49992,-0.31249 2.49992,-0.31249c0,0 0.31249,-17.65565 0.31249,-17.65565c0,0 -6.43728,1.21871 -6.43728,1.21871c0,0 3.62488,16.74943 3.62488,16.74943z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                <path class="roomPlan" id="svg_50" d="m314.18314,284.70288c0,0 4.4686,-17.12442 4.46235,-17.14941c0.00625,0.02499 -6.58728,-0.84998 -6.58728,-0.84998c0,0 -0.37499,17.7494 -0.37499,17.7494" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                <rect fill="none" stroke-width="2" stroke-opacity="null" fill-opacity="null" x="303.44468" y="289.89491" width="17.2497" height="13.24977" id="svg_52" stroke="#000"/>
                 <g  [ngClass]="('A015' | SearchByNPipe:stateFilter.name)" (click)="openWindow('A015')">
                     <path [ngClass]="'office A015 '+( findoffice('A015').hasStranger | strangerPipe)+''+(findoffice('A015').size | officePipe:findoffice('A015').occupation)" opacity="1" stroke="#000" id="svg_16" d="m242.23183,353.97818c0,0 0.25322,-27.24832 0.25322,-27.24832c0,0 -9.62226,-10.74934 -9.87546,-10.99932c0.2532,0.24998 -38.74223,-0.24999 -38.99544,-0.49997c0.25321,0.24998 -9.87548,6.4996 -9.87548,6.4996c0,0 0.25322,32.24801 0.25322,32.24801c0,0 58.23994,0 58.23994,0z" fill-opacity="null" stroke-opacity="null" stroke-width="0" fill="#000000"/>
                     <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif"
@@ -120,10 +157,10 @@
     <div *ngIf="filterBuildingFloor('A', 1)" style="text-align: center" >
         <h5 class="titleFloor" >Batiment A: 1ere</h5>
         <svg [ngClass]="'filter'+filterStateOffice()+' floor V4'"
-             width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+             width="80%" height="80%" xmlns="http://www.w3.org/2000/svg"
              xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 125 580 300">
             <g stroke="null">
-                <title stroke="null">Layer 1</title>
+                <title stroke="null">Batiment A: 1ere</title>
                 <path style="fill: transparent!important;stroke: transparent!important;" id="svg_26" d="m32.5,334.85c0,0 184,-114 184,-114c0,0 -34,-67 -34.5,-67.85c0.5,0.85 47.5,-27.15 47,-28c0.5,0.85 16.5,35.85 16,35c0.5,0.85 207.5,1.85 207,1c0.5,0.85 0.5,106.85 0.5,106.85c0,0 120,-2 119.5,-2.85c0.5,0.85 -0.5,100.85 -1,100c0.5,0.85 -523.5,-2.15 -524,-3c0.5,0.85 2.5,-21.15 2.5,-21.15c0,0 -17,-6 -17,-6z" fill-opacity="null" stroke-opacity="null" stroke-width="2" stroke="#ffffff" fill="none"/>
                 <path class="roomPlan" stroke="#ffffff" style="vector-effect: non-scaling-stroke;" opacity="1" id="svg_10" d="m269.07625,208.12031c0,0 21.25207,0 21.25207,0c0,0 -0.25002,18.5018 -0.30003,18.40179c0.05001,0.10001 -9.70094,4.1004 -9.75095,4.00039c0.05001,0.10001 -11.20109,-22.40218 -11.20109,-22.40218z" fill-opacity="null" stroke-opacity="null" stroke-width="0" fill="#ffffff"/>
                 <rect class="roomPlan" stroke="#ffffff" style="vector-effect: non-scaling-stroke;" opacity="1" id="svg_19" height="27.75271" width="50.50496" y="238.37327" x="401.33922" stroke-opacity="null" stroke-width="0" fill="#ffffff"/>
@@ -139,16 +176,54 @@
                 <rect class="stairsH" opacity="1" stroke="#ffffff"  id="svg_68" height="23.24959" width="64.49887" y="336.64409" x="53.24906" fill-opacity="null" stroke-opacity="null" stroke-width="0" fill="#000000"/>
                 <rect class="roomPlan" id="svg_69" height="9.74983" width="1" y="225.89604" x="450.59209" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#ffffff"  fill="#ffffff"/>
                 <rect class="roomPlan" id="svg_70" height="9.74983" width="1" y="310.89455" x="538.59054" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#ffffff"  fill="#ffffff"/>
-                <ellipse ry="11.2498" rx="11.3748" id="svg_71" cy="319.3944" cx="554.21527" fill-opacity="null" stroke-opacity="null" stroke-width="2" stroke="#ffffff"  fill="none"/>
-                <ellipse ry="11.2498" rx="11.3748" id="svg_72" cy="296.64479" cx="311.71952" fill-opacity="null" stroke-opacity="null" stroke-width="2" stroke="#ffffff"  fill="none"/>
                 <rect class="roomPlan"  stroke="#ffffff"  id="svg_74" height="1" width="452.74693" y="358.13293" x="119.19713" stroke-opacity="null" fill="#ffffff"/>
-                <path class="roomPlan" id="svg_75" d="m317.69442,268.39529c0,0 -0.25,-4.24993 -0.45,-4.39993c0.2,0.15 -2.54995,-5.59989 -2.54995,-5.59989c0,0 -3.24994,-6.49989 -3.24994,-6.74989c0,-0.24999 -2.24996,-2.74995 -2.44996,-2.89995c0.2,0.15 -75.29868,47.64917 -75.29868,47.64917c0,0 1.99997,6.49988 1.79997,6.34988c0.2,0.15 5.19991,8.39986 4.99991,8.24985c0.2,0.15001 5.9499,5.64991 5.9499,5.64991c0,0 11.2498,6.24989 11.0498,6.09989c0.2,0.15 7.19988,2.39996 7.19988,2.39996c0,0 8.49985,1.24998 8.49985,1.24998c0,0 11.99979,-1.24998 11.99979,-1.24998c0,0 7.24987,-2.99994 7.24987,-2.99994c0,0 4.24993,-2.99995 4.04993,-3.14996c0.2,0.15001 -3.79993,-3.84992 -3.99993,-3.99993c0.2,0.15001 -4.79992,-7.59985 -4.79992,-7.59985c0,0 -1.99996,-7.99986 -1.99996,-7.99986c0,0 0.24999,-7.99986 0.05,-8.14987c0.19999,0.15001 2.19996,-6.84987 1.99996,-6.99988c0.2,0.15001 3.44994,-6.09988 3.24995,-6.24989c0.19999,0.15001 5.4499,-4.8499 5.4499,-4.8499c0,0 7.24987,-3.74994 7.04988,-3.89994c0.19999,0.15 5.6999,-1.09998 5.4999,-1.24998c0.2,0.15 5.6999,-0.59998 5.4999,-0.74999c0.2,0.15001 3.19995,1.14999 3.19995,1.14999z" fill-opacity="null" stroke-opacity="null" stroke-width="2" stroke="#ffffff"  fill="none"/>
-                <rect stroke="#ffffff"  id="svg_76" height="13.24977" width="17.2497" y="290.14491" x="302.94468" fill-opacity="null" stroke-opacity="null" stroke-width="2" fill="none"/>
                 <rect class="roomPlan" stroke="#ffffff"  id="svg_97" height="1" width="23.49571" y="340.63324" x="393.19607" stroke-opacity="null" fill="#ffffff"/>
                 <rect class="roomPlan" stroke="#ffffff"  id="svg_98" height="1" width="23.49571" y="340.63324" x="484.19588" stroke-opacity="null" fill="#000000"/>
-                <ellipse stroke="#ffffff"  fill="none" stroke-width="2" stroke-opacity="null" fill-opacity="null" cx="147.67166" cy="336.17832" id="svg_7" rx="5.3498" ry="5.36826"/>
+                <g stroke="null" transform="rotate(90 153.75061035156247,336.31335449218756) " id="svg_101">
+                    <g id="svg_55" fill="#000000" transform="matrix(0.0062564577044585505,0,0,-0.007043306280006226,136.0104338763981,263.0629696591156) ">
+                        <path class="roomPlan" stroke="null" id="svg_56" d="m2875.99754,-9765.99878l0,-291l52,-13c28,-6 52,-11 53,-9c3,4 288,482 292,489c4,9 -133,65 -205,83c-33,9 -89,19 -126,23l-66,8l0,-290z"/>
+                        <path class="roomPlan" stroke="null" id="svg_58" d="m2656.99754,-9492.99878c-53,-10 -187,-55 -217,-72c-21,-12 -17,-20 118,-252c76,-132 142,-245 146,-252c6,-9 18,-9 50,-1l42,10l0,289l0,289l-47,-1c-27,-1 -68,-5 -92,-10z"/>
+                        <path class="roomPlan" stroke="null" id="svg_59" d="m2295.99754,-9648.99878c-57,-43 -169,-154 -207,-206c-29,-40 -33,-51 -22,-58c8,-5 123,-73 257,-150l243,-142l35,34c19,18 34,38 33,43c-1,17 -283,499 -294,503c-6,1 -26,-9 -45,-24z"/>
+                        <path class="roomPlan" stroke="null" id="svg_60" d="m3201.99754,-9875.99878c-80,-135 -146,-248 -146,-253c0,-4 13,-23 28,-41l27,-33l258,136c165,88 255,141 250,148c-47,84 -159,207 -241,266l-29,21l-147,-244z"/>
+                        <path class="roomPlan" stroke="null" id="svg_61" d="m1982.99754,-10045.99878c-34,-82 -54,-164 -63,-248l-7,-68l306,0l305,0l7,36c3,20 3,40 -2,44c-8,7 -458,266 -499,288c-19,10 -23,6 -47,-52z"/>
+                        <path class="roomPlan" stroke="null" id="svg_65" d="m3405.99754,-10141.99878c-140,-75 -255,-142 -254,-148c1,-7 2,-25 3,-42l1,-30l301,0l301,0l-7,53c-14,109 -72,312 -87,306c-2,-1 -118,-63 -258,-139z"/>
+                        <path class="roomPlan" stroke="null" id="svg_73" d="m1915.99754,-10746.99878l0,-305l305,0l305,0l0,305l0,305l-305,0l-305,0l0,-305z"/>
+                        <path class="roomPlan" stroke="null" id="svg_88" d="m3136.99754,-10487.99878c-7,-19 -11,-37 -9,-39c11,-10 509,-295 516,-295c25,0 92,204 106,323l6,47l-303,0l-303,0l-13,-36z"/>
+                        <path class="roomPlan" stroke="null" id="svg_99" d="m3048.99754,-10613.99878l-20,-23l155,-267l154,-268l32,22c48,34 169,154 204,202l32,44l-248,143c-136,78 -256,148 -268,156c-18,11 -23,10 -41,-9z"/>
+                        <path class="roomPlan" stroke="null" id="svg_100" d="m2908.99754,-10682.99878l-33,-10l0,-315l0,-316l53,7c118,15 343,85 334,103c-39,74 -312,542 -316,541c-3,0 -21,-5 -38,-10z"/>
+                    </g>
+                </g>
+                <g stroke="null" id="svg_113">
+                    <g id="svg_112" fill="#000000" transform="matrix(0.013099022466218656,0,0,-0.013063084547005815,-306.65312649373857,198.55954287212637) ">
+                        <path class="roomPlan" stroke="null" id="svg_102" d="m65738.21822,-8614.73157l0,-291l52,-13c28,-6 52,-11 53,-9c3,4 288,482 292,489c4,9 -133,65 -205,83c-33,9 -89,19 -126,23l-66,8l0,-290z"/>
+                        <path class="roomPlan" stroke="null" id="svg_103" d="m65519.21822,-8341.73157c-53,-10 -187,-55 -217,-72c-21,-12 -17,-20 118,-252c76,-132 142,-245 146,-252c6,-9 18,-9 50,-1l42,10l0,289l0,289l-47,-1c-27,-1 -68,-5 -92,-10z"/>
+                        <path class="roomPlan" stroke="null" id="svg_104" d="m65158.21822,-8497.73157c-57,-43 -169,-154 -207,-206c-29,-40 -33,-51 -22,-58c8,-5 123,-73 257,-150l243,-142l35,34c19,18 34,38 33,43c-1,17 -283,499 -294,503c-6,1 -26,-9 -45,-24z"/>
+                        <path class="roomPlan" stroke="null" id="svg_105" d="m66064.21822,-8724.73157c-80,-135 -146,-248 -146,-253c0,-4 13,-23 28,-41l27,-33l258,136c165,88 255,141 250,148c-47,84 -159,207 -241,266l-29,21l-147,-244z"/>
+                        <path class="roomPlan" stroke="null" id="svg_106" d="m64845.21822,-8894.73157c-34,-82 -54,-164 -63,-248l-7,-68l306,0l305,0l7,36c3,20 3,40 -2,44c-8,7 -458,266 -499,288c-19,10 -23,6 -47,-52z"/>
+                        <path class="roomPlan" stroke="null" id="svg_107" d="m66268.21822,-8990.73157c-140,-75 -255,-142 -254,-148c1,-7 2,-25 3,-42l1,-30l301,0l301,0l-7,53c-14,109 -72,312 -87,306c-2,-1 -118,-63 -258,-139z"/>
+                        <path class="roomPlan" stroke="null" id="svg_108" d="m64778.21822,-9595.73157l0,-305l305,0l305,0l0,305l0,305l-305,0l-305,0l0,-305z"/>
+                        <path class="roomPlan" stroke="null" id="svg_109" d="m65999.21822,-9336.73157c-7,-19 -11,-37 -9,-39c11,-10 509,-295 516,-295c25,0 92,204 106,323l6,47l-303,0l-303,0l-13,-36z"/>
+                        <path class="roomPlan" stroke="null" id="svg_110" d="m65911.21822,-9462.73157l-20,-23l155,-267l154,-268l32,22c48,34 169,154 204,202l32,44l-248,143c-136,78 -256,148 -268,156c-18,11 -23,10 -41,-9z"/>
+                        <path class="roomPlan" stroke="null" id="svg_111" d="m65771.21822,-9531.73157l-33,-10l0,-315l0,-316l53,7c118,15 343,85 334,103c-39,74 -312,542 -316,541c-3,0 -21,-5 -38,-10z"/>
+                    </g>
+                </g>
+                <path class="roomPlan" id="svg_21" d="m303.05437,303.94184c0,0 -11.81218,11.2497 -11.81219,11.2372" opacity="0.5" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                <path class="roomPlan" id="svg_26" d="m304.42722,306.57089c0.03125,0 -1.93743,-1.71869 -1.96868,-1.73743c0.03124,0.01874 -10.96839,10.64338 -10.96839,10.64338c0,0 4.43735,4.37485 4.43735,4.37485c0,0 8.46846,-13.2808 8.49971,-13.2808z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                <path class="roomPlan" id="svg_30" d="m302.30229,304.57096c0,0 -10.90588,10.4684 -10.93712,10.44966c0.03124,0.01874 -3.21865,-5.07484 -3.24989,-5.09358c0.03124,0.01874 12.68707,-7.41851 12.68707,-7.41851c0,0 1.49995,2.06243 1.49995,2.06243z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                <path class="roomPlan" id="svg_31" d="m300.67734,302.19604c0,0 -12.74957,7.49975 -12.74957,7.4685c0,-0.03125 -2.09368,-5.59356 -2.09368,-5.59356c0,0 13.96828,-4.21861 13.96828,-4.21861c0,0 0.87497,2.34367 0.87497,2.34367z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                <path class="roomPlan" id="svg_35" d="m299.67738,299.53988c0,0 -0.34374,-2.49992 -0.34374,-2.49992c0,0 -14.62451,0.99997 -14.65575,0.98123c0.03124,0.01874 1.03121,5.76855 1.03121,5.76855c0,0 13.96828,-4.24986 13.96828,-4.24986z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                <path class="roomPlan" id="svg_36" d="m299.33364,296.75872c0,0 0.21874,-2.53116 0.21874,-2.53116c0,0 -14.84325,-2.46867 -14.87449,-2.48741c0.03124,0.01874 0.12499,5.92479 0.12499,5.92479c0,0 14.53076,-0.90622 14.53076,-0.90622z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                <path class="roomPlan" id="svg_37" d="m299.64613,293.97757c0,0 0.74997,-2.24992 0.74997,-2.24992c0,0 -13.93703,-6.15604 -13.96827,-6.17478c0.03124,0.01874 -1.68745,5.79979 -1.68745,5.79979c0,0 14.90575,2.62491 14.90575,2.62491z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                <path class="roomPlan" id="svg_38" d="m300.5211,291.41515c0,0 1.28121,-2.09368 1.28121,-2.09368c0,0 -12.65582,-9.59343 -12.68707,-9.61217c0.03124,0.01874 -2.59367,5.5498 -2.59367,5.5498c0,0 13.99953,6.15604 13.99953,6.15604z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                <path class="roomPlan" id="svg_40" d="m302.02105,289.00898c0,0 1.65619,-1.62495 1.62495,-1.64369c0.03124,0.01874 -10.31216,-12.69958 -10.3434,-12.71832c0.03124,0.01874 -3.99987,4.70608 -3.99987,4.70608c0,0 12.71832,9.65592 12.71832,9.65592z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                <path class="roomPlan" id="svg_41" d="m303.92723,287.13405c0,0 2.12493,-1.37495 2.12493,-1.37495c0,0 -7.3435,-14.90575 -7.37475,-14.92449c0.03124,0.01874 -5.12483,3.67487 -5.12483,3.67487c0,0 10.37465,12.62457 10.37465,12.62457z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                <path class="roomPlan" id="svg_45" d="m306.23966,285.66535c0,0 2.40617,-0.87497 2.40617,-0.87497c0,0 -3.74987,-16.74943 -3.78112,-16.76817c0.03124,0.01874 -5.81231,2.64365 -5.81231,2.64365c0,0 7.18726,14.99949 7.18726,14.99949z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                <path class="roomPlan" id="svg_49" d="m308.90207,284.70288c0,0 2.49992,-0.31249 2.49992,-0.31249c0,0 0.31249,-17.65565 0.31249,-17.65565c0,0 -6.43728,1.21871 -6.43728,1.21871c0,0 3.62488,16.74943 3.62488,16.74943z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                <path class="roomPlan" id="svg_50" d="m314.18314,284.70288c0,0 4.4686,-17.12442 4.46235,-17.14941c0.00625,0.02499 -6.58728,-0.84998 -6.58728,-0.84998c0,0 -0.37499,17.7494 -0.37499,17.7494" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                <path id="svg_51" d="m318.2499,267.3499c0,0 -1.75,-6 -1.75002,-6.1c0.00002,0.1 -7.24998,-12.14999 -7.24999,-12.24999c0.00001,0.1 -75.74996,47.09998 -75.74996,47.09998c0,0 2,7.25 2,7.25c0,0 4.99999,8 4.99998,7.9c0.00001,0.1 7.00001,6.35 7,6.24999c0.00001,0.10001 11.75001,6.35 11.75,6.25c0.00001,0.1 13,2.85 13,2.85c0,0 11.75,-1 11.74999,-1.1c0.00001,0.1 11.25001,-4.14999 11.24999,-4.25" fill-opacity="null" stroke-opacity="null" stroke-width="2" stroke="#000" fill="none"/>
+                <rect fill="none" stroke-width="2" stroke-opacity="null" fill-opacity="null" x="303.44468" y="289.89491" width="17.2497" height="13.24977" id="svg_52" stroke="#000"/>
                 <g  [ngClass]="('A104' | SearchByNPipe:stateFilter.name)" (click)="openWindow('A104')">
-                    <path [ngClass]="'office A104 '+( findoffice('A104').hasStranger | strangerPipe)+''+(findoffice('A104').size | officePipe:findoffice('A104').occupation)" opacity="1" id="svg_62" d="m143.44748,342.044c0,0 0.24999,-10.99981 0.05,-11.04982c0.19999,0.05001 9.19983,-0.19998 8.99984,-0.24999c0.19999,0.05001 7.69986,0.05001 7.69986,0.05001c0,0 7.49987,-0.99999 7.49987,-0.99999c0,0 8.49985,-1.24998 8.49985,-1.24998c0,0 6.99988,-2.74995 6.99988,-2.74995c0,0 5.4999,-2.99994 5.4999,-2.99994c0,0 0,19.49965 0,19.49965c0,0 -45.2492,-0.24999 -45.2492,-0.24999z" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#ffffff"/>
+                    <path [ngClass]="'office A104 '+( findoffice('A104').hasStranger | strangerPipe)+''+(findoffice('A104').size | officePipe:findoffice('A104').occupation)" stroke="#000" fill="#000000" stroke-width="0" stroke-opacity="null" fill-opacity="null" d="m160.44747,342.044c0,0 0.15607,-10.99981 0.03121,-11.04982c0.12486,0.05001 5.74348,-0.19998 5.61863,-0.24999c0.12485,0.05001 4.80705,0.05001 4.80705,0.05001c0,0 4.68219,-0.99999 4.68219,-0.99999c0,0 5.30648,-1.24998 5.30648,-1.24998c0,0 4.37005,-2.74995 4.37005,-2.74995c0,0 3.4336,-2.99994 3.4336,-2.99994c0,0 0,19.49965 0,19.49965c0,0 -28.24921,-0.24999 -28.24921,-0.24999z" id="svg_114" opacity="0.3"/>
                     <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif"
                           font-size="10" id="svg_9" y="340.15392" x="160.0353" fill-opacity="null" stroke-opacity="null"
                           stroke-width="0" stroke="#000" fill="#000000">A104</text>
@@ -296,7 +371,7 @@
     <div *ngIf="filterBuildingFloor('A', 2)" style="text-align: center">
         <h5 class="titleFloor" >Batiment A: 2eme étage</h5>
         <svg [ngClass]="'filter'+filterStateOffice()+' floor V4'"
-             width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+             width="80%" height="80%" xmlns="http://www.w3.org/2000/svg"
              xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 125 580 300">
             <g stroke="null">
                 <title stroke="null">Layer 1</title>
@@ -314,17 +389,55 @@
                 <rect class="stairsH" opacity="1" stroke="#ffffff"  id="svg_68" height="23.24959" width="64.49887" y="336.64409" x="53.24906" fill-opacity="null" stroke-opacity="null" stroke-width="0" fill="#000000"/>
                 <rect class="roomPlan" id="svg_69" height="9.74983" width="1" y="225.89604" x="450.59209" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#ffffff"  fill="#ffffff"/>
                 <rect class="roomPlan" id="svg_70" height="9.74983" width="1" y="310.89455" x="538.59054" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#ffffff"  fill="#ffffff"/>
-                <ellipse ry="11.2498" rx="11.3748" id="svg_71" cy="319.3944" cx="554.21527" fill-opacity="null" stroke-opacity="null" stroke-width="2" stroke="#ffffff"  fill="none"/>
-                <ellipse ry="11.2498" rx="11.3748" id="svg_72" cy="296.64479" cx="311.71952" fill-opacity="null" stroke-opacity="null" stroke-width="2" stroke="#ffffff"  fill="none"/>
                 <rect class="roomPlan" stroke="#ffffff"  id="svg_74" height="1" width="452.74693" y="358.13293" x="119.19713" stroke-opacity="null" fill="#ffffff"/>
-                <path class="roomPlan" id="svg_75" d="m317.69442,268.39529c0,0 -0.25,-4.24993 -0.45,-4.39993c0.2,0.15 -2.54995,-5.59989 -2.54995,-5.59989c0,0 -3.24994,-6.49989 -3.24994,-6.74989c0,-0.24999 -2.24996,-2.74995 -2.44996,-2.89995c0.2,0.15 -75.29868,47.64917 -75.29868,47.64917c0,0 1.99997,6.49988 1.79997,6.34988c0.2,0.15 5.19991,8.39986 4.99991,8.24985c0.2,0.15001 5.9499,5.64991 5.9499,5.64991c0,0 11.2498,6.24989 11.0498,6.09989c0.2,0.15 7.19988,2.39996 7.19988,2.39996c0,0 8.49985,1.24998 8.49985,1.24998c0,0 11.99979,-1.24998 11.99979,-1.24998c0,0 7.24987,-2.99994 7.24987,-2.99994c0,0 4.24993,-2.99995 4.04993,-3.14996c0.2,0.15001 -3.79993,-3.84992 -3.99993,-3.99993c0.2,0.15001 -4.79992,-7.59985 -4.79992,-7.59985c0,0 -1.99996,-7.99986 -1.99996,-7.99986c0,0 0.24999,-7.99986 0.05,-8.14987c0.19999,0.15001 2.19996,-6.84987 1.99996,-6.99988c0.2,0.15001 3.44994,-6.09988 3.24995,-6.24989c0.19999,0.15001 5.4499,-4.8499 5.4499,-4.8499c0,0 7.24987,-3.74994 7.04988,-3.89994c0.19999,0.15 5.6999,-1.09998 5.4999,-1.24998c0.2,0.15 5.6999,-0.59998 5.4999,-0.74999c0.2,0.15001 3.19995,1.14999 3.19995,1.14999z" fill-opacity="null" stroke-opacity="null" stroke-width="2" stroke="#ffffff"  fill="none"/>
-                <rect stroke="#ffffff"  id="svg_76" height="13.24977" width="17.2497" y="290.14491" x="302.94468" fill-opacity="null" stroke-opacity="null" stroke-width="2" fill="none"/>
                 <rect class="roomPlan" stroke="#ffffff"  id="svg_97" height="1" width="23.49571" y="340.63324" x="393.19607" stroke-opacity="null" fill="#ffffff"/>
                 <rect class="roomPlan" stroke="#ffffff"  id="svg_98" height="1" width="23.49571" y="340.63324" x="484.19588" stroke-opacity="null" fill="#ffffff"/>
-                <ellipse stroke="#ffffff"  fill="none" stroke-width="2" stroke-opacity="null" fill-opacity="null" cx="147.67166" cy="336.17832" id="svg_7" rx="5.3498" ry="5.36826"/>
                 <path class="roomPlan" stroke="#ffffff" opacity="1" id="svg_64" d="m215.19622,342.30147c0,0 0,-36.86536 0,-36.86536c0,0 5.2499,-2.16855 5.2499,-2.16855c0,0 2.99995,-0.72284 2.99995,-0.72284c0,0 3.74994,6.98755 3.74994,6.98755c0,0 4.49992,6.7466 4.49992,6.7466c0,0 4.99991,7.2285 4.99991,7.2285c0,0 4.24992,5.3009 4.24992,5.3009c0,0 1.74997,3.3733 1.54998,3.3251c0.19999,0.0482 0.19999,10.40905 0,10.36085c0.19999,0.0482 -27.29952,-0.19275 -27.29952,-0.19275z" fill-opacity="null" stroke-opacity="null" stroke-width="0" fill="#ffffff"/>
-                <path class="roomPlan" opacity="1" id="svg_62" d="m143.44748,342.044c0,0 0.24999,-10.99981 0.05,-11.04982c0.19999,0.05001 9.19983,-0.19998 8.99984,-0.24999c0.19999,0.05001 7.69986,0.05001 7.69986,0.05001c0,0 7.49987,-0.99999 7.49987,-0.99999c0,0 8.49985,-1.24998 8.49985,-1.24998c0,0 6.99988,-2.74995 6.99988,-2.74995c0,0 5.4999,-2.99994 5.4999,-2.99994c0,0 0,19.49965 0,19.49965c0,0 -45.2492,-0.24999 -45.2492,-0.24999z" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#ffffff" fill="#ffffff"/>
                 <path class="roomPlan" opacity="1" stroke="#ffffff" id="svg_57" d="m136.4907,270.79525c0,0 -23.79268,14.52378 -23.79268,14.52378c0,0 13.44804,25.22552 13.44804,25.22552c0,0 24.0513,-12.23055 24.0513,-12.23055c0,0 -13.70666,-27.51875 -13.70666,-27.51875z" fill-opacity="null" stroke-opacity="null" stroke-width="0" fill="#ffffff"/>
+                <g stroke="null" transform="rotate(90 153.75061035156247,336.31335449218756) " id="svg_101">
+                    <g id="svg_55" fill="#000000" transform="matrix(0.0062564577044585505,0,0,-0.007043306280006226,136.0104338763981,263.0629696591156) ">
+                        <path class="roomPlan" stroke="null" id="svg_56" d="m2875.99754,-9765.99878l0,-291l52,-13c28,-6 52,-11 53,-9c3,4 288,482 292,489c4,9 -133,65 -205,83c-33,9 -89,19 -126,23l-66,8l0,-290z"/>
+                        <path class="roomPlan" stroke="null" id="svg_58" d="m2656.99754,-9492.99878c-53,-10 -187,-55 -217,-72c-21,-12 -17,-20 118,-252c76,-132 142,-245 146,-252c6,-9 18,-9 50,-1l42,10l0,289l0,289l-47,-1c-27,-1 -68,-5 -92,-10z"/>
+                        <path class="roomPlan" stroke="null" id="svg_59" d="m2295.99754,-9648.99878c-57,-43 -169,-154 -207,-206c-29,-40 -33,-51 -22,-58c8,-5 123,-73 257,-150l243,-142l35,34c19,18 34,38 33,43c-1,17 -283,499 -294,503c-6,1 -26,-9 -45,-24z"/>
+                        <path class="roomPlan" stroke="null" id="svg_60" d="m3201.99754,-9875.99878c-80,-135 -146,-248 -146,-253c0,-4 13,-23 28,-41l27,-33l258,136c165,88 255,141 250,148c-47,84 -159,207 -241,266l-29,21l-147,-244z"/>
+                        <path class="roomPlan" stroke="null" id="svg_61" d="m1982.99754,-10045.99878c-34,-82 -54,-164 -63,-248l-7,-68l306,0l305,0l7,36c3,20 3,40 -2,44c-8,7 -458,266 -499,288c-19,10 -23,6 -47,-52z"/>
+                        <path class="roomPlan" stroke="null" id="svg_65" d="m3405.99754,-10141.99878c-140,-75 -255,-142 -254,-148c1,-7 2,-25 3,-42l1,-30l301,0l301,0l-7,53c-14,109 -72,312 -87,306c-2,-1 -118,-63 -258,-139z"/>
+                        <path class="roomPlan" stroke="null" id="svg_73" d="m1915.99754,-10746.99878l0,-305l305,0l305,0l0,305l0,305l-305,0l-305,0l0,-305z"/>
+                        <path class="roomPlan" stroke="null" id="svg_88" d="m3136.99754,-10487.99878c-7,-19 -11,-37 -9,-39c11,-10 509,-295 516,-295c25,0 92,204 106,323l6,47l-303,0l-303,0l-13,-36z"/>
+                        <path class="roomPlan" stroke="null" id="svg_99" d="m3048.99754,-10613.99878l-20,-23l155,-267l154,-268l32,22c48,34 169,154 204,202l32,44l-248,143c-136,78 -256,148 -268,156c-18,11 -23,10 -41,-9z"/>
+                        <path class="roomPlan" stroke="null" id="svg_100" d="m2908.99754,-10682.99878l-33,-10l0,-315l0,-316l53,7c118,15 343,85 334,103c-39,74 -312,542 -316,541c-3,0 -21,-5 -38,-10z"/>
+                    </g>
+                </g>
+                <g stroke="null" id="svg_113">
+                    <g id="svg_112" fill="#000000" transform="matrix(0.013099022466218656,0,0,-0.013063084547005815,-306.65312649373857,198.55954287212637) ">
+                        <path class="roomPlan" stroke="null" id="svg_102" d="m65738.21822,-8614.73157l0,-291l52,-13c28,-6 52,-11 53,-9c3,4 288,482 292,489c4,9 -133,65 -205,83c-33,9 -89,19 -126,23l-66,8l0,-290z"/>
+                        <path class="roomPlan" stroke="null" id="svg_103" d="m65519.21822,-8341.73157c-53,-10 -187,-55 -217,-72c-21,-12 -17,-20 118,-252c76,-132 142,-245 146,-252c6,-9 18,-9 50,-1l42,10l0,289l0,289l-47,-1c-27,-1 -68,-5 -92,-10z"/>
+                        <path class="roomPlan" stroke="null" id="svg_104" d="m65158.21822,-8497.73157c-57,-43 -169,-154 -207,-206c-29,-40 -33,-51 -22,-58c8,-5 123,-73 257,-150l243,-142l35,34c19,18 34,38 33,43c-1,17 -283,499 -294,503c-6,1 -26,-9 -45,-24z"/>
+                        <path class="roomPlan" stroke="null" id="svg_105" d="m66064.21822,-8724.73157c-80,-135 -146,-248 -146,-253c0,-4 13,-23 28,-41l27,-33l258,136c165,88 255,141 250,148c-47,84 -159,207 -241,266l-29,21l-147,-244z"/>
+                        <path class="roomPlan" stroke="null" id="svg_106" d="m64845.21822,-8894.73157c-34,-82 -54,-164 -63,-248l-7,-68l306,0l305,0l7,36c3,20 3,40 -2,44c-8,7 -458,266 -499,288c-19,10 -23,6 -47,-52z"/>
+                        <path class="roomPlan" stroke="null" id="svg_107" d="m66268.21822,-8990.73157c-140,-75 -255,-142 -254,-148c1,-7 2,-25 3,-42l1,-30l301,0l301,0l-7,53c-14,109 -72,312 -87,306c-2,-1 -118,-63 -258,-139z"/>
+                        <path class="roomPlan" stroke="null" id="svg_108" d="m64778.21822,-9595.73157l0,-305l305,0l305,0l0,305l0,305l-305,0l-305,0l0,-305z"/>
+                        <path class="roomPlan" stroke="null" id="svg_109" d="m65999.21822,-9336.73157c-7,-19 -11,-37 -9,-39c11,-10 509,-295 516,-295c25,0 92,204 106,323l6,47l-303,0l-303,0l-13,-36z"/>
+                        <path class="roomPlan" stroke="null" id="svg_110" d="m65911.21822,-9462.73157l-20,-23l155,-267l154,-268l32,22c48,34 169,154 204,202l32,44l-248,143c-136,78 -256,148 -268,156c-18,11 -23,10 -41,-9z"/>
+                        <path class="roomPlan" stroke="null" id="svg_111" d="m65771.21822,-9531.73157l-33,-10l0,-315l0,-316l53,7c118,15 343,85 334,103c-39,74 -312,542 -316,541c-3,0 -21,-5 -38,-10z"/>
+                    </g>
+                </g>
+                <path class="roomPlan"  id="svg_21" d="m303.05437,303.94184c0,0 -11.81218,11.2497 -11.81219,11.2372" opacity="0.5" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                <path class="roomPlan" id="svg_26" d="m304.42722,306.57089c0.03125,0 -1.93743,-1.71869 -1.96868,-1.73743c0.03124,0.01874 -10.96839,10.64338 -10.96839,10.64338c0,0 4.43735,4.37485 4.43735,4.37485c0,0 8.46846,-13.2808 8.49971,-13.2808z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                <path class="roomPlan" id="svg_30" d="m302.30229,304.57096c0,0 -10.90588,10.4684 -10.93712,10.44966c0.03124,0.01874 -3.21865,-5.07484 -3.24989,-5.09358c0.03124,0.01874 12.68707,-7.41851 12.68707,-7.41851c0,0 1.49995,2.06243 1.49995,2.06243z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                <path class="roomPlan" id="svg_31" d="m300.67734,302.19604c0,0 -12.74957,7.49975 -12.74957,7.4685c0,-0.03125 -2.09368,-5.59356 -2.09368,-5.59356c0,0 13.96828,-4.21861 13.96828,-4.21861c0,0 0.87497,2.34367 0.87497,2.34367z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                <path class="roomPlan" id="svg_35" d="m299.67738,299.53988c0,0 -0.34374,-2.49992 -0.34374,-2.49992c0,0 -14.62451,0.99997 -14.65575,0.98123c0.03124,0.01874 1.03121,5.76855 1.03121,5.76855c0,0 13.96828,-4.24986 13.96828,-4.24986z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                <path class="roomPlan" id="svg_36" d="m299.33364,296.75872c0,0 0.21874,-2.53116 0.21874,-2.53116c0,0 -14.84325,-2.46867 -14.87449,-2.48741c0.03124,0.01874 0.12499,5.92479 0.12499,5.92479c0,0 14.53076,-0.90622 14.53076,-0.90622z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                <path class="roomPlan" id="svg_37" d="m299.64613,293.97757c0,0 0.74997,-2.24992 0.74997,-2.24992c0,0 -13.93703,-6.15604 -13.96827,-6.17478c0.03124,0.01874 -1.68745,5.79979 -1.68745,5.79979c0,0 14.90575,2.62491 14.90575,2.62491z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                <path class="roomPlan" id="svg_38" d="m300.5211,291.41515c0,0 1.28121,-2.09368 1.28121,-2.09368c0,0 -12.65582,-9.59343 -12.68707,-9.61217c0.03124,0.01874 -2.59367,5.5498 -2.59367,5.5498c0,0 13.99953,6.15604 13.99953,6.15604z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                <path class="roomPlan" id="svg_40" d="m302.02105,289.00898c0,0 1.65619,-1.62495 1.62495,-1.64369c0.03124,0.01874 -10.31216,-12.69958 -10.3434,-12.71832c0.03124,0.01874 -3.99987,4.70608 -3.99987,4.70608c0,0 12.71832,9.65592 12.71832,9.65592z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                <path class="roomPlan" id="svg_41" d="m303.92723,287.13405c0,0 2.12493,-1.37495 2.12493,-1.37495c0,0 -7.3435,-14.90575 -7.37475,-14.92449c0.03124,0.01874 -5.12483,3.67487 -5.12483,3.67487c0,0 10.37465,12.62457 10.37465,12.62457z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                <path class="roomPlan" id="svg_45" d="m306.23966,285.66535c0,0 2.40617,-0.87497 2.40617,-0.87497c0,0 -3.74987,-16.74943 -3.78112,-16.76817c0.03124,0.01874 -5.81231,2.64365 -5.81231,2.64365c0,0 7.18726,14.99949 7.18726,14.99949z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                <path class="roomPlan" id="svg_49" d="m308.90207,284.70288c0,0 2.49992,-0.31249 2.49992,-0.31249c0,0 0.31249,-17.65565 0.31249,-17.65565c0,0 -6.43728,1.21871 -6.43728,1.21871c0,0 3.62488,16.74943 3.62488,16.74943z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                <path class="roomPlan" id="svg_50" d="m314.18314,284.70288c0,0 4.4686,-17.12442 4.46235,-17.14941c0.00625,0.02499 -6.58728,-0.84998 -6.58728,-0.84998c0,0 -0.37499,17.7494 -0.37499,17.7494" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                <path id="svg_51" d="m318.2499,267.3499c0,0 -1.75,-6 -1.75002,-6.1c0.00002,0.1 -7.24998,-12.14999 -7.24999,-12.24999c0.00001,0.1 -75.74996,47.09998 -75.74996,47.09998c0,0 2,7.25 2,7.25c0,0 4.99999,8 4.99998,7.9c0.00001,0.1 7.00001,6.35 7,6.24999c0.00001,0.10001 11.75001,6.35 11.75,6.25c0.00001,0.1 13,2.85 13,2.85c0,0 11.75,-1 11.74999,-1.1c0.00001,0.1 11.25001,-4.14999 11.24999,-4.25" fill-opacity="null" stroke-opacity="null" stroke-width="2" stroke="#000" fill="none"/>
+                <rect fill="none" stroke-width="2" stroke-opacity="null" fill-opacity="null" x="303.44468" y="289.89491" width="17.2497" height="13.24977" id="svg_52" stroke="#000"/>
+                <path class="roomPlan"  stroke="#000" fill="#000000" stroke-width="0" stroke-opacity="null" fill-opacity="null" d="m160.44747,342.044c0,0 0.15607,-10.99981 0.03121,-11.04982c0.12486,0.05001 5.74348,-0.19998 5.61863,-0.24999c0.12485,0.05001 4.80705,0.05001 4.80705,0.05001c0,0 4.68219,-0.99999 4.68219,-0.99999c0,0 5.30648,-1.24998 5.30648,-1.24998c0,0 4.37005,-2.74995 4.37005,-2.74995c0,0 3.4336,-2.99994 3.4336,-2.99994c0,0 0,19.49965 0,19.49965c0,0 -28.24921,-0.24999 -28.24921,-0.24999z" id="svg_114" opacity="0.3"/>
                 <g  [ngClass]="('A208' | SearchByNPipe:stateFilter.name)" (click)="openWindow('A208')">
                     <path [ngClass]="'office A208 '+( findoffice('A208').hasStranger | strangerPipe)+''+(findoffice('A208').size | officePipe:findoffice('A208').occupation)" stroke="#ffffff"  opacity="1" id="svg_46" d="m267.7453,210.7963c0,0 -41.13809,-76.99865 -41.39202,-77.04865c0.25394,0.05 -39.10658,23.0496 -39.10658,23.0496c0,0 39.61445,80.24859 39.61445,80.24859c0,0 40.88415,-26.24954 40.88415,-26.24954z" fill-opacity="null" stroke-opacity="null" stroke-width="0" fill="#ffffff"/>
                     <text transform="rotate(62.000343322753906 225.49218749999994,180.85156250000006) " xml:space="preserve"
@@ -466,7 +579,7 @@
     <div *ngIf="filterBuildingFloor('B', 0)" style="text-align: center">
         <h5 class="titleFloor" >Batiment B: RDC</h5>
         <svg [ngClass]="'filter'+filterStateOffice()+' floor V4'" style="margin: auto"
-             width="75%" height="75%" xmlns="http://www.w3.org/2000/svg"
+             width="60%" height="60%" xmlns="http://www.w3.org/2000/svg"
              xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 50 640 480">
             <g>
                 <title>Layer 1</title>
@@ -691,7 +804,7 @@
     <div *ngIf="filterBuildingFloor('B', 1)" style="text-align: center">
         <h5 class="titleFloor" >Batiment B: 1er étage</h5>
         <svg [ngClass]="'filter'+filterStateOffice()+' floor V4'" style="margin: auto"
-             width="75%" height="75%" xmlns="http://www.w3.org/2000/svg"
+             width="60%" height="60%" xmlns="http://www.w3.org/2000/svg"
              xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 50 640 480">
             <g class="layer">
                 <title>Layer 1</title>
@@ -708,7 +821,7 @@
                 <rect class="roomPlan" fill="#ffffff" stroke-width="0" stroke-dasharray="null"  opacity="1" x="470.21254" y="282.90002" width="28.875" height="16.75" id="svg_78" transform="rotate(90 484.6500244140625,291.27502441406256) " stroke="#000"/>
                 <rect class="roomPlan" fill="#ffffff" stroke-width="0" stroke-dasharray="null"  opacity="1" x="453.08755" y="262.90002" width="7.625" height="34.75" id="svg_79" transform="rotate(90 456.9000244140625,280.27502441406256) " stroke="#000"/>
                 <rect class="roomPlan" fill="#ffffff" stroke-width="0" stroke-dasharray="null"  opacity="1" x="423.08755" y="271.40002" width="8.125" height="18.75" id="svg_80" transform="rotate(90 427.1500244140625,280.77502441406256) " stroke="#000"/>
-                <rect class="roomPlan" fill="#ffffff" stroke-width="0"  opacity="1" x="275.15833" y="275.94167" width="141.08336" height="64.41668" id="svg_84" stroke="#000"/>
+                <rect class="onlywall" fill="#ffffff" stroke-width="0"  opacity="1" x="275.15833" y="275.94167" width="141.08336" height="64.41668" id="svg_84" stroke="#000"/>
                 <rect class="roomPlan" fill="#ffffff" stroke-width="0" stroke-dasharray="null"  opacity="1" x="171.03334" y="286.96667" width="11.58336" height="24.41666" id="svg_89" stroke="#000"/>
                 <path class="roomPlan" fill="#ffffff" stroke-width="0" stroke-dasharray="null"  opacity="1" d="m232.15,343.5c0,0 28.25,0.27064 28.25,0.27064c0,0 0.25,29.22936 0.25,29.22936c0,0 -8.25,-2.70642 -8.4,-2.70642c-0.15,0 -9.6,-5.68349 -9.75,-5.68349c-0.15,0 -11.1,-6.22477 -11.1,-6.22477c0,0 0.75,-14.88532 0.75,-14.88532z" id="svg_96" stroke="#000"/>
                 <path class="roomPlan" fill="#ffffff" stroke="#000" stroke-width="0" stroke-dasharray="null"  d="m311.35,383c0,0 30.5,0.625 30.4,0.625c-0.1,0 0.225,6.75 0.125,6.75c-0.1,0 -12.025,0.125 -12.125,0.125c-0.1,0 -8.9,-0.375 -9,-0.375c-0.1,0 -8.775,-0.5 -8.775,-0.5c0,0 -0.625,-6.625 -0.625,-6.625z" id="svg_104" opacity="1"/>
@@ -1083,7 +1196,7 @@
     <div *ngIf="filterBuildingFloor('B', 2)" style="text-align: center">
         <h5 class="titleFloor" >Batiment B: 2ème étage</h5>
         <svg [ngClass]="'filter'+filterStateOffice()+' floor V4'" style="margin: auto"
-             width="75%" height="75%" xmlns="http://www.w3.org/2000/svg"
+             width="60%" height="60%" xmlns="http://www.w3.org/2000/svg"
              xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 50 640 480">
             <g class="layer">
                 <title>Layer 1</title>
@@ -1097,7 +1210,7 @@
                 <rect class="roomPlan" fill="#ffffff" stroke-width="0" stroke-dasharray="null"  opacity="1" x="511.21663" y="214.90831" width="21.50003" height="29.25" id="svg_74" stroke="#000"/>
                 <rect class="roomPlan" fill="#ffffff" stroke-width="0" stroke-dasharray="null"  opacity="1" x="494.88325" y="192.24165" width="38.50002" height="19.91667" id="svg_75" stroke="#000"/>
                 <rect class="roomPlan" fill="#ffffff" stroke-width="0" stroke-dasharray="null"  opacity="1" x="502.36251" y="289.40002" width="24.625" height="10.25" id="svg_77" transform="rotate(90 514.6749877929689,294.52502441406256) " stroke="#000"/>
-                <rect class="roomPlan" fill="#ffffff" stroke-width="0"  opacity="1" x="275.15833" y="275.94167" width="141.08336" height="64.41668" id="svg_84" stroke="#000"/>
+                <rect class="onlywall" fill="#ffffff" stroke-width="0"  opacity="1" x="275.15833" y="275.94167" width="141.08336" height="64.41668" id="svg_84" stroke="#000"/>
                 <rect class="roomPlan" fill="#ffffff" stroke-width="0" stroke-dasharray="null"  opacity="1" x="171.03334" y="286.96667" width="11.58336" height="24.41666" id="svg_89" stroke="#000"/>
                 <path class="roomPlan" fill="#ffffff" stroke-width="0" stroke-dasharray="null"  opacity="1" d="m232.15,343.5c0,0 28.25,0.27064 28.25,0.27064c0,0 0.25,29.22936 0.25,29.22936c0,0 -8.25,-2.70642 -8.4,-2.70642c-0.15,0 -9.6,-5.68349 -9.75,-5.68349c-0.15,0 -11.1,-6.22477 -11.1,-6.22477c0,0 0.75,-14.88532 0.75,-14.88532z" id="svg_96" stroke="#000"/>
                 <path class="roomPlan" fill="#ffffff" stroke="#000" stroke-width="0" stroke-dasharray="null"  d="m311.35,383c0,0 30.5,0.625 30.4,0.625c-0.1,0 0.225,6.75 0.125,6.75c-0.1,0 -12.025,0.125 -12.125,0.125c-0.1,0 -8.9,-0.375 -9,-0.375c-0.1,0 -8.775,-0.5 -8.775,-0.5c0,0 -0.625,-6.625 -0.625,-6.625z" id="svg_104" opacity="1"/>
@@ -1484,7 +1597,7 @@
     <div *ngIf="filterBuildingFloor('C', 0)" style="text-align: center">
         <h5 class="titleFloor" >Batiment C : RDC</h5>
         <svg [ngClass]="'filter'+filterStateOffice()+' floor V4'"
-             width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+             width="80%" height="80%" xmlns="http://www.w3.org/2000/svg"
              xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 100 580 300">
             <g>
                 <title>Layer 1</title>
@@ -1760,7 +1873,7 @@
     <div *ngIf="filterBuildingFloor('C', 1)" style="text-align: center">
         <h5 class="titleFloor" >Batiment C : 1er étage</h5>
         <svg [ngClass]="'filter'+filterStateOffice()+' floor V4'"
-             width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+             width="80%" height="80%" xmlns="http://www.w3.org/2000/svg"
              xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 100 580 300">
             <g stroke="null">
                 <path id="svg_343" d="m4.5,149.5l234.5,160.5l306,0l2,-76l26,-1l-3,-131l-49,9l-1,28c0.5,0.5 -23.5,1.5 -23.5,1.5c0,0 0,-36 -0.5,-36.5c0.5,0.5 -124.5,-0.5 -125,-1c0.5,0.5 -1.5,41.5 -1.5,41.5c0,0 -25,-1 -25.5,-1.5c0.5,0.5 1.5,-38.5 1,-39c0.5,0.5 -127.5,-1.5 -128,-2c0.5,0.5 0.5,46.5 0.5,46.5c0,0 -27,-2 -27.5,-2.5c0.5,0.5 0.5,-42.5 0.5,-42.5c0,0 -124,3 -124.5,2.5c0.5,0.5 -0.5,40.5 -0.5,40.5c0,0 -59,-4 -59.5,-4.5" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="transparent"/>
@@ -2180,7 +2293,7 @@
     <div *ngIf="filterBuildingFloor('C', 3)" style="text-align: center">
         <h5 class="titleFloor" >Batiment C : 3ème étage</h5>
         <svg [ngClass]="'filter'+filterStateOffice()+' floor V4'"
-             width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+             width="80%" height="80%" xmlns="http://www.w3.org/2000/svg"
              xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 80 580 300">
             <g stroke="null">
                 <title stroke="null">Layer 1</title>
@@ -2248,7 +2361,7 @@
     </div>
     <div *ngIf="filterBuildingFloor('C', 4)" style="text-align: center">
         <svg [ngClass]="'filter'+filterStateOffice()+' floor V4'"
-             width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+             width="80%" height="80%" xmlns="http://www.w3.org/2000/svg"
              xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 80 580 300">
             <g stroke="null">
                 <title stroke="null">Layer 1</title>

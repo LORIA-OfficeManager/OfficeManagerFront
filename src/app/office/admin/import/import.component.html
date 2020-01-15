@@ -3,7 +3,7 @@
         <button class="addFile" mat-fab (click)="fileInput.click()">
             <nb-icon icon="plus"></nb-icon>
         </button>
-        <input hidden type="file" #fileInput (change)="uploadFile($event.target.files)">
+        <input hidden type="file" accept="application/vnd.ms-excel , application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" #fileInput (change)="uploadFile($event.target.files)">
         <div *ngFor="let file of files;let i= index" class="col-lg-3 col-md-4 col-sm-6 col-12">
             <div class="fileImport col-lg-12">
                 <div class="fileTilte overflow-ellipsis">{{file.name}}</div>
@@ -13,7 +13,12 @@
             </div>
         </div>
         <div class="textFile" *ngIf="files.length === 0">
-            <p>Ajouter des fichiers à importer</p>
+            <p style="margin: 0.5%">
+                Ajouter des fichiers à importer du type xls, xlsx ...
+            </p>
+            <p style="margin: 0.5%">
+                Inserer les fichiers avec grace au drag and drop ou avec le bouton plus.
+            </p>
         </div>
     </div>
 </div>

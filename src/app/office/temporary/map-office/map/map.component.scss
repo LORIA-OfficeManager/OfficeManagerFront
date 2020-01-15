@@ -15,12 +15,20 @@ rect.stairsV {
 path.stairsH {
   fill: url('#pattern-stripeH');
 }
+ellipse.stairsC {
+  fill: url('#pattern-stairs');
+}
 
 text {
   cursor: pointer !important;
 }
+
 ::ng-deep {
   .nb-theme-default, .nb-theme-corporate {
+    .stairFront {
+      stroke: white!important;
+      fill: white!important;
+    }
     .backDefault {
       fill: white !important;
     }
@@ -57,12 +65,21 @@ text {
       .roomPlan {
         fill: #ffffff !important;;
       }
+      .onlywall {
+        fill: transparent !important;
+        stroke: white !important;
+        stroke-width: 1;
+      }
     }
   }
 }
 
 ::ng-deep {
   .nb-theme-cosmic {
+    .stairFront {
+      stroke: #323259!important;
+      fill: #323259!important;
+    }
     .backDefault {
       fill: #323259 !important;
     }
@@ -94,6 +111,11 @@ text {
       .emptyOffice {
         fill: #323259 !important;
       }
+      .onlywall {
+        fill: transparent !important;
+        stroke: #323259 !important;
+        stroke-width: 1;
+      }
     }
 
     .titleBuilding {
@@ -114,6 +136,10 @@ text {
 }
 ::ng-deep {
   .nb-theme-dark {
+    .stairFront {
+      stroke: #222b45!important;
+      fill: #222b45!important;
+    }
     .backDefault {
       fill: #222b45 !important;
     }
@@ -144,6 +170,11 @@ text {
       }
       .roomPlan {
         fill: #222b45 !important;;
+      }
+      .onlywall {
+        fill: transparent !important;
+        stroke: #222b45 !important;
+        stroke-width: 1;
       }
     }
     .titleBuilding {

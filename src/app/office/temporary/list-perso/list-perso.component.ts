@@ -2,9 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {OFFICESDETAIL, Person} from '../../shared/interfaces/person';
 import {TreeNode} from '../../shared/interfaces/treenode';
 import {NbSortDirection, NbSortRequest, NbTreeGridDataSource, NbTreeGridDataSourceBuilder} from '@nebular/theme';
-import {Util} from 'leaflet';
-import indexOf = Util.indexOf;
-import {from, of} from 'rxjs';
 
 @Component({
   selector: 'ngx-list-perso',
@@ -14,18 +11,14 @@ import {from, of} from 'rxjs';
     '../list-office/list-office.component.scss'],
 })
 export class ListPersoComponent implements OnInit {
-
   private _people: Person[];
   private data: TreeNode<Person>[];
   private fetchedData: Person[];
-  private treeRootElements: Person[];
-  private treeChildSorted: Person[][];
   private departments: string[];
   private teams: string[][];
-  private status: string[];
-  private filter: string;
+  private _status: string[];
   customColumn = 'lastname';
-  defaultColumns = [ 'firstname', 'status', 'team', 'department', 'office' ];
+  defaultColumns = [ 'firstname', '_status', 'team', 'department', 'office' ];
   allColumns = [ this.customColumn, ...this.defaultColumns ];
   dataSource: NbTreeGridDataSource<Person>;
   sortColumn: string;
@@ -33,8 +26,6 @@ export class ListPersoComponent implements OnInit {
 
 
   constructor(private dataSourceBuilder: NbTreeGridDataSourceBuilder<Person>) {
-    this.treeRootElements = [];
-    this.treeChildSorted = [];
     this.departments = [];
     this.teams = [];
     this.data = [];
@@ -57,7 +48,7 @@ export class ListPersoComponent implements OnInit {
     this.departments.forEach(k => this.teams[this.departments.indexOf(k)] = []);
     this.departments.forEach(k => this.teams[this.departments.indexOf(k)] =
         Array.from(people.filter(p => p.department === k), j => j.team).filter(this.onlyUnique));
-    this.status = Array.from(people, k => k.status).filter(this.onlyUnique);
+    this._status = Array.from(people, k => k.status).filter(this.onlyUnique);
   }
 
   treeNodeConversion(input: Person): TreeNode<Person> {
@@ -94,6 +85,10 @@ export class ListPersoComponent implements OnInit {
 
   setFilter(s: string) {
     this.dataSource.filter(s);
+  }
+
+  get status(): string[] {
+    return this._status;
   }
 }
 

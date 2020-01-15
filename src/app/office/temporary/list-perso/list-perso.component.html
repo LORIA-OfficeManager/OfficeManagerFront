@@ -19,7 +19,7 @@
               <nb-accordion-item-header (click)="setFilter(dep)">{{dep}}</nb-accordion-item-header>
               <nb-accordion-item-body>
                 <div *ngFor="let tm of teams[departments.indexOf(dep)]">
-                  <nb-radio-group name="filter-group" [(value)]="filter">
+                  <nb-radio-group name="filter-group">
                   <nb-radio (valueChange)="setFilter(tm)">
                     {{ tm }}
                   </nb-radio>
@@ -31,7 +31,7 @@
         </div>
         <div *ngIf="group.value==='sts'">
           <div *ngFor="let sts of status">
-            <nb-radio-group name="filter-group" [(value)]="filter">
+            <nb-radio-group name="filter-group">
               <nb-radio (valueChange)="setFilter(sts)">
                 {{ sts }}
               </nb-radio>

@@ -1,0 +1,49 @@
+@import '~app/office/office.component';
+
+/***************************************ImageBack***********************************************************/
+
+.back {
+  background: url('loriaHomePage.jpg') no-repeat left top;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+::ng-deep  nb-layout-footer nav {
+  background-color: transparent!important;
+  box-shadow: none !important;
+  padding-bottom: 0!important;
+  border: none !important;
+}
+
+/***************************************form***********************************************************/
+
+.logo {
+  margin: 2% 0% 5%;
+  h1 {
+    font-size: 550% !important;
+    height: 100% !important;
+    line-height: 110%;
+  }
+}
+.versionOM {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: $color-second;
+}
+
+//////////////////////////////////////////////screen
+@media screen and (max-width: 1153px) {
+
+  .logo {
+    margin: 2% 0% 5%;
+    h1 {
+      font-size: 400% !important;
+      height: 100% !important;
+      line-height: 110%;
+    }
+  }
+
+}

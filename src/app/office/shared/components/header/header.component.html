@@ -3,7 +3,9 @@
     <a (click)="toggleSidebar()" href="#" class="sidebar-toggle">
       <nb-icon icon="menu-2-outline"></nb-icon>
     </a>
-    <a class="logov2" href="#" (click)="navigateHome()">Office Manager</a>
+    <a class="logov2" (click)="navigateHome()">
+      <p>Office Manager</p>
+    </a>
   </div>
   <nb-select [selected]="currentTheme" (selectedChange)="changeTheme($event)" status="primary">
     <nb-option *ngFor="let theme of themes" [value]="theme.value"> {{ theme.name }}</nb-option>
@@ -12,21 +14,16 @@
 
 <div class="header-container">
   <nb-actions size="small" *nbIsGranted="['view', 'logout']">
-
-    <nb-action class="control-item" (click)="routing('listBureauTest')">
-      <nb-icon icon="map" status="info"
-               nbTooltip="Afficher la liste des bureaux" nbTooltipStatus="info">
-      </nb-icon>
+    <nb-action class="control-item" (click)="goOffice()" >Bureaux</nb-action>
+    <nb-action class="control-item" (click)="goPeople()">Personnes</nb-action>
+    <nb-action class="control-item" (click)="goAdmin()"
+               icon="settings-2"  nbTooltip="Admin" nbTooltipPlacement="bottom">
     </nb-action>
-    <nb-action class="control-item" (click)="routing('personnels')">
-      <nb-icon icon="people-outline" status="info"
-               nbTooltip="Afficher la liste des personnels" nbTooltipStatus="info">
-      </nb-icon>
-    </nb-action>
-
+    <nb-action class="control-item" icon="person-outline"  nbTooltip="Votre compte"
+               nbTooltipPlacement="bottom"></nb-action>
     <nb-action class="control-item" (click)="disconnect()">
       <nb-icon icon="log-out-outline" status="danger"
-                           nbTooltip="Logout" nbTooltipStatus="danger">
+               [nbTooltipPlacement]="'start'" nbTooltip="Se déconnecter" nbTooltipStatus="danger">
       </nb-icon>
     </nb-action>
     <!--<nb-action class="control-item" icon="bell-outline"></nb-action>-->

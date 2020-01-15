@@ -29,10 +29,16 @@
 .color nb-card {
   background-color: #2d8ac7!important;
 }
-
-nb-tooltip.officeManagerTooltip {
+.officeManagerTooltip nb-tooltip {
   background-color: #2d8ac7;
   color: white;
+}
+::ng-deep .officeManagerTooltip nb-tooltip.end {
+  span.arrow {
+    left: -8px!important;
+    top: calc(50% - 2.4px)!important;
+    transform: rotate(270deg)!important;
+  }
 }
 
 .etatOffice {

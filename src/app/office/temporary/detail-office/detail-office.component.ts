@@ -44,5 +44,6 @@ export class DetailOfficeComponent implements OnInit {
 
   suppPersonne(event: any) {
     this._data.persons = this._data.persons.filter(_ => _.id !== event.id);
+    this._data.office.occupation--;
   }
 }

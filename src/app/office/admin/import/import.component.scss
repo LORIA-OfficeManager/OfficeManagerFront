@@ -1,0 +1,157 @@
+@import '~app/office/office.component';
+
+/***************************************File***********************************************************/
+
+.uploadfilecontainer {
+  background-image: url('cloud-2044823_960_720.png');
+  background-repeat: no-repeat;
+  background-size: 100px;
+  background-position: center;
+  background-color: white;
+  height: 250px;
+  width: 100%;
+  box-shadow: 0 0.5rem 1rem 0 rgba(44, 51, 73, 0.1);
+  border-radius: 10px;
+  overflow: auto;
+  margin: 0%;
+}
+
+.uploadfilecontainer:hover {
+  background-color: #9ecbec !important;
+  opacity: 0.8;
+}
+
+.addFile {
+  position: absolute;
+  z-index: 10000;
+  bottom: 2%;
+  right: 1%;
+  background-color: $color-second;
+}
+
+.textFile {
+  width: 100%;
+  position: absolute;
+  bottom: 0%;
+  text-align: center;
+  p {
+    color: $color-second!important;
+  }
+}
+
+.fileTilte {
+  width: 80%;
+  margin: auto;
+  padding-top: 35%;
+  color: white;
+  text-shadow: rgba(0, 0, 0, 1) 0.1em 0.1em 0.2em;
+}
+
+.fileImport {
+  height: 250px;
+  width: 100%;
+  text-align: center;
+  background-image: url('http://icons.iconarchive.com/icons/zhoolego/material/256/Filetype-Docs-icon.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+}
+
+.button-sup {
+  position: absolute;
+  bottom: 10%;
+  right: 15%;
+  background-color: white;
+  color: $color-second;
+  margin: auto;
+}
+.importButton {
+  text-align: center;
+  margin-top: 2%;
+  button {
+    margin: auto;
+  }
+}
+
+/***********************************************BORDER*****************************************************************/
+.module-border-wrap {
+  position: relative;
+  background: linear-gradient(to bottom right, #3eace0, #cc5d9a);
+  padding: 1.5px;
+  width: 80%;
+  margin: auto;
+  border-radius: 11px;
+}
+
+
+/*********************************************RESPONSIVE***************************************************************/
+
+//////////////////////////////////////////////big Screen
+@media screen and (min-width: 1800px) {
+  .fileTilte {
+    width: 80%;
+  }
+  .button-sup {
+    bottom: 10%;
+    right: 15%;
+  }
+
+}
+//////////////////////////////////////////////screen
+@media screen and (min-width: 1200px) and (max-width: 1800px) {
+  .fileTilte {
+    width: 80%;
+  }
+  .button-sup {
+    bottom: 15%!important;
+    right: 14%!important;
+  }
+}
+//////////////////////////////////////////////tablet
+@media screen and (min-width: 900px) and (max-width: 1200px) {
+  .fileTilte {
+    padding-top: 50% !important;
+    width: 80%;
+  }
+  .button-sup {
+    bottom: 18% !important;
+    right: 15% !important;
+  }
+}
+//////////////////////////////////////////////tablet-down
+@media screen and (min-width: 575px) and (max-width: 900px) {
+  .fileTilte {
+    padding-top: 50% !important;
+    width: 75%!important;
+  }
+  .fileImport {
+    background-size: 100%;
+  }
+  .button-sup {
+    bottom: 15% !important;
+    right: 17% !important;
+  }
+}
+
+//////////////////////////////////////////////phone
+@media screen and (max-width: 575px) {
+  .fileTilte {
+    padding-top: 20% !important;
+    width: 40%;
+  }
+  .fileImport {
+    background-size: 60%;
+  }
+  .button-sup {
+    bottom: 15% !important;
+    right: 27%;
+  }
+  .textFile {
+    top: 0%!important;
+    bottom: auto;
+    text-align: center;
+    p {
+      color: $color-active!important;
+    }
+  }
+}

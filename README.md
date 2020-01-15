@@ -22,4 +22,3 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Documentation
 This template is using [Nebular](https://github.com/akveo/nebular) modules set, [here you can find documentation and other useful articles](https://akveo.github.io/nebular/docs/guides/install-based-on-starter-kit).
-You can also find exemples and usage at: `http://localhost:4200/exemple`, once the dev server is running.

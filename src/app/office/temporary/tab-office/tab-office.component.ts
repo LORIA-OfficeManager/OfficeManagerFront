@@ -1,5 +1,4 @@
 import {
-    ChangeDetectionStrategy,
     Component,
     EventEmitter,
     Input,
@@ -22,7 +21,6 @@ export interface StateFilter {
   templateUrl: './tab-office.component.html',
   styleUrls: ['./tab-office.component.scss',
     '../list-office/list-office.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TabOfficeComponent implements OnInit {
     // liste des bureaux

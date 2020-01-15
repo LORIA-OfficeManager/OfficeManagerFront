@@ -1,0 +1,15 @@
+.spacer {
+  margin-bottom: 4px;
+}
+
+::ng-deep {
+  .mat-button-toggle-checked {
+    background-color: nb-theme(color-danger-default);
+    color: nb-theme(background-basic-color-1);
+  }
+  .mat-button-toggle-button {
+    background-color: nb-theme(color-danger-default);
+    color: nb-theme(background-basic-color-1);
+  }
+}
+

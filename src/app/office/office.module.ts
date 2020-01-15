@@ -9,7 +9,7 @@ import {
     NbButtonModule,
     NbCardModule, NbCheckboxModule, NbContextMenuModule, NbDialogModule, NbIconModule, NbInputModule,
     NbLayoutModule, NbPopoverModule, NbRadioModule, NbSearchModule, NbSelectModule,
-    NbSidebarModule, NbTabsetModule, NbTooltipModule, NbUserModule, NbWindowModule,
+    NbSidebarModule, NbTabsetModule, NbTooltipModule, NbTreeGridModule, NbUserModule, NbWindowModule,
 } from '@nebular/theme';
 import { ListOfficeComponent } from './temporary/list-office/list-office.component';
 import { SideBarListBuildingComponent} from './temporary/side-bar-list-building/side-bar-list-building.component';
@@ -40,6 +40,7 @@ import {MatInputModule} from '@angular/material/input';
 import { DialogAssignementComponent } from './temporary/dialog-assignement/dialog-assignement.component';
 import { WarningPopupComponent } from './shared/components/warning-popup/warning-popup.component';
 import { ListPersoComponent } from './temporary/list-perso/list-perso.component';
+import {MatButtonToggleModule} from '@angular/material';
 
 @NgModule({
     imports: [
@@ -74,6 +75,8 @@ import { ListPersoComponent } from './temporary/list-perso/list-perso.component'
         NbInputModule,
         NbSelectModule,
         NbTooltipModule,
+        NbTreeGridModule,
+        MatButtonToggleModule,
     ],
     declarations: [
         TestComponent,

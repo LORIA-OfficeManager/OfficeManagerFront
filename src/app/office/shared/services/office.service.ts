@@ -48,7 +48,9 @@ export class OfficeService {
    * @param files
    */
   import(files: any[]): Observable<any> {
-    return  this._http.post( this._backendURL.importOffice, files, this._options());
+      const formData = new FormData();
+      formData.append('file', files[0]);
+      return  this._http.post( this._backendURL.importOffice, formData);
   }
   /**
    *
@@ -58,10 +60,10 @@ export class OfficeService {
     return  this._http.get( this._backendURL.importOffice);
   }
 
-  /**
-   * Function to return request options
-   */
-  private _options(headerList: object = {}): any {
-    return { headers: new HttpHeaders(Object.assign({ 'Content-Type': 'application/json' }, headerList)) };
-  }
+  // /**
+  //  * Function to return request options
+  //  */
+  // private _options(headerList: object = {}): any {
+  //   return { headers: new HttpHeaders(Object.assign({ 'Content-Type': 'application/json' }, headerList)) };
+  // }
 }

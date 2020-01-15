@@ -73,8 +73,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
    * @param files
    */
   import(files: any) {
-    // this._officeService.import(files).subscribe(_ => console.log(_));
-    this._officeService.importDefault().subscribe(
+    this._officeService.import(files).subscribe(
         _ => this._logs.push({
           title : 'Import',
           text: '\n' + _.name,

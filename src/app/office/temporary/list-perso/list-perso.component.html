@@ -53,7 +53,7 @@
 
           <ng-container [nbTreeGridColumnDef]="customColumn">
             <th class="text-capitalize" nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(customColumn)" *nbTreeGridHeaderCellDef>
-              {{customColumn}}
+              {{customAllColumns[0]}}
             </th>
             <td nbTreeGridCell *nbTreeGridCellDef="let row">
               {{row.data[customColumn]}}
@@ -64,7 +64,7 @@
                         [nbTreeGridColumnDef]="column"
                         [showOn]="getShowOn(index)">
             <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(column)" *nbTreeGridHeaderCellDef>
-              {{column}}
+              {{customAllColumns[defaultColumns.indexOf(column)]}}
             </th>
             <td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data[column] || '-'}}</td>
           </ng-container>

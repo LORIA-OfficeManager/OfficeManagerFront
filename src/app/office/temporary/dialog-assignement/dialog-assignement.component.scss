@@ -28,10 +28,21 @@ ul {
   padding: 0% 2%;
 }
 ::ng-deep {
-  input {
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px #edf1f7;
+  .nb-theme-default,.nb-theme-default {
+    input {
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px #edf1f7 !important;
+    }
   }
-
+  .nb-theme-dark {
+    input {
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px #151a30 !important;
+    }
+  }
+  .nb-theme-cosmic {
+    input {
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px #1b1b38 !important;
+    }
+  }
   nb-dialog-container {
     width: 100%;
     margin: 0% !important;

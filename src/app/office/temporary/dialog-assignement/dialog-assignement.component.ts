@@ -35,10 +35,6 @@ export class DialogAssignementComponent implements OnInit {
     this._search = '';
     this._people = [];
     this._peopleAssign = [];
-    this._peopleService.fecth().subscribe( (_: Person[]) => {
-      this._people = _ ;
-      this._peopleAssign = _.filter((__: Person) => __.officeName === this._officename) ;
-    });
     this._submit$ = new EventEmitter<Person[]>();
   }
 
@@ -65,7 +61,11 @@ export class DialogAssignementComponent implements OnInit {
    * @param dialog
    */
   open(dialog: TemplateRef<any>) {
-    this.dialogService.open(dialog, { closeOnBackdropClick: false , context: 'this is some additional data passed to dialog' });
+    this._peopleService.fecth().subscribe( (_: Person[]) => {
+      this._people = _ ;
+      this._peopleAssign = _.filter((__: Person) => __.officeName === this._officename) ;
+      this.dialogService.open(dialog, { closeOnBackdropClick: false , context: ''});
+    });
   }
 
   /**

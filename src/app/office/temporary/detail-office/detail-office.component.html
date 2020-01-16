@@ -29,8 +29,7 @@
                     style="margin: 0;">
                         <span class="col-12" style="padding-left: 0 ">
                             <i [ngClass]="'fas col-1 '+ ( person | StatusPipe )" style="padding-left: 0 "></i>
-                            {{person.firstName}} {{person.lastName}} {{person.startDateAffectation | date}}
-                            {{person.endDateAffectation | date}}
+                            {{person.firstname}} {{person.lastname}}
                             <ngx-warning-popup (submit)="suppPersonne($event)" [person]="person"
                             style="float: right"></ngx-warning-popup>
                         </span>

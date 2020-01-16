@@ -47,6 +47,15 @@ export class PersonService {
     (this._backendURL.assignement.replace(':idO', idO).replace(':idP', idP), this._options());
   }
 
+
+    /**
+     * renvoit la liste des personnes
+     */
+    unassignement(idP: number): Observable<any> {
+        return this._http.put
+        (this._backendURL.unassignement.replace(':id', idP), '', this._options());
+    }
+
   /**
    * Function to return request options
    */

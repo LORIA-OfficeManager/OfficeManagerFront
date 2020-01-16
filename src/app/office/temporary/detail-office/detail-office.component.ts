@@ -46,9 +46,12 @@ export class DetailOfficeComponent implements OnInit {
     return this._data;
   }
 
-  suppPersonne(event: any) {
-    this._data.persons = this._data.persons.filter(_ => _.id !== event.id);
-    this._data.office.occupation--;
+  suppPersonne(event: Person) {
+      this._peopleService.unassignement(event.id).subscribe( (_) => {
+          this.assignement(this._data.persons = this._data.persons.filter(__ => __.id !== event.id));
+          },
+      (_) => undefined,
+      );
   }
 
   /**
@@ -60,22 +63,29 @@ export class DetailOfficeComponent implements OnInit {
 
   addPeople(_: Person) {
       this._data.persons.push({
-          endDateAffectation: _.endDateAffectation,
-          endDateContract: _.endDateContract,
-          firstName: _.firstname,
-          id: _.id,
-          lastName: _.lastname,
-          startDateAffectation: _.startDateAffectation,
-          startDateContract: _.startDateContract,
-          status: _.statusName,
-      });
+      id: _.id,
+      firstname: _.firstname,
+      lastname: _.lastname,
+      endDateAffectation: _.endDateAffectation,
+      endDateContract: _.endDateContract,
+      startDateAffectation: _.startDateAffectation,
+      startDateContract: _.startDateContract,
+      statusName: _.statusName,
+      } as Person);
       this._data.office.occupation = this._data.office.occupation  + this.ocupation(_);
       if (this._pipeZombie.transform(_) === 'Stranger') {
           this._data.office.hasStranger = true;
       }
   }
   assignement(people: Person[]) {
+      for (const oldperson of this._data.persons) {
+          const contains = people.filter(__ => __.id === oldperson.id);
+          if ( contains.length === 0 ) {
+              this.suppPersonne( oldperson);
+          }
+      }
       this._data.persons = [];
+      this._data.office.hasStranger = false;
       this._data.office.occupation = 0;
       for (const person of people) {
           if (person.officeName === this.name()) {

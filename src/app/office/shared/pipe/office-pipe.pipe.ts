@@ -13,13 +13,13 @@ export class OfficePipePipe implements PipeTransform {
    * @param nbP
    */
   transform(size: number, nbP: number): string {
-    if (size === nbP) {
+    if (size.toFixed(2) === nbP.toFixed(2)) {
       return 'fullOffice';
     } else {
-      if (size <= nbP) {
+      if (size.toFixed(2) <= nbP.toFixed(2)) {
         return 'moreThanFullOffice';
       } else {
-        if ( 0 === nbP) {
+        if ( (0).toFixed(2) === nbP.toFixed(2)) {
           return 'emptyOffice';
         } else {
           return 'notFullOffice';

@@ -16,7 +16,7 @@
             <nb-actions size="medium" class="row">
               <nb-action style="cursor: pointer;" class="col-lg-12" (click)="setCategoryFilter('dep')"
                          [ngClass]="''+(group==='dep' ? 'activeFiltre' : 'inactiveFiltre')">
-                <div style="text-align: center" class="col-12">Department</div>
+                <div style="text-align: center" class="col-12">Département</div>
               </nb-action>
               <nb-action style="cursor: pointer;" class="col-lg-12" (click)="setCategoryFilter('sts')"
                          [ngClass]="''+(group==='sts' ? 'activeFiltre' : 'inactiveFiltre')">
@@ -97,7 +97,8 @@
               {{customAllColumns[customAllColumns.length-1]}}
             </th>
             <td nbTreeGridCell *nbTreeGridCellDef="let row">
-              {{row.data[customColumn]}} <ngx-window-office style="position: absolute" (ChangeOffice)="changeOffice($event)" [office]="getOffice(row.data['officeId'])"></ngx-window-office>
+              {{row.data[customColumn]}}
+<!--              <ngx-window-office style="position: absolute" (ChangeOffice)="changeOffice($event)" [office]="getOffice(row.data['officeId'])"></ngx-window-office>-->
             </td>
           </ng-container>
 
@@ -107,7 +108,7 @@
     </nb-card>
   </nb-layout-column>
 
-  <nb-layout-footer style="margin-top: 3%">
+  <nb-layout-footer class="OfficeManagerFooter" style="margin-top: 3%">
     <div class="row show-grid" >
       <div class="col-lg-12 gallery" >
         <img class="offset-sm-3 col-sm-3 col-6" src="https://members.loria.fr/infodoc/files/img/DOCLOGO/logo_loria_complet_couleur.png" style="width:100%">

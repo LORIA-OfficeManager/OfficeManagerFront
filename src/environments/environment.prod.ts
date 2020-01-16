@@ -16,7 +16,8 @@ export const environment = {
       importPerson: '/import/person',
       allPeople: '/people',
       onePerson: '/people/:id',
-      assignement: '/assignement/:idO/:idP',
+      assignement: '/assignment/:idO/:idP',
+      unassignement: '/assignment/delete/:id',
     },
   },
 };

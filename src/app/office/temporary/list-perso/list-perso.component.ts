@@ -20,6 +20,7 @@ export class ListPersoComponent implements OnInit {
   private departments: string[];
   private teams: string[][];
   private _status: string[];
+  private group: string;
   customColumn = 'officeName';
   defaultColumns = [ 'lastname', 'firstname', 'statusName', 'teamName', 'departmentName'];
   allColumns = [...this.defaultColumns, this.customColumn ];
@@ -93,6 +94,11 @@ export class ListPersoComponent implements OnInit {
 
   setFilter(s: string) {
     this.dataSource.filter(s);
+  }
+
+  setCategoryFilter(category: string) {
+    this.setFilter('');
+    this.group === category ? this.group = '' : this.group = category;
   }
 
   get status(): string[] {

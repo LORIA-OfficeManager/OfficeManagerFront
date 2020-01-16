@@ -32,7 +32,7 @@ export class WindowOfficeComponent implements OnInit {
    * ouvre la window
    */
   openWindow() {
-    this.serviceOfficeD.fectOne(this._office.id).subscribe(( _: OfficeDetail ) => {
+    this.serviceOfficeD.fetchOne(this._office.id).subscribe((_: OfficeDetail ) => {
       const nbWindowsRef = this.windowService.open(
           DetailOfficeComponent,
           {windowClass: 'headerWindow', title:  this.name( _.office ), context: _ },

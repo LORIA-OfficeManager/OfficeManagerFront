@@ -65,7 +65,7 @@
               {{customAllColumns[customAllColumns.length-1]}}
             </th>
             <td nbTreeGridCell *nbTreeGridCellDef="let row">
-              {{row.data[customColumn]}} <ngx-window-office style="position: absolute" (ChangeOffice)="changeOffice($event)" [office]="getOffice(office(row.data[customColumn]))"></ngx-window-office>
+              {{row.data[customColumn]}} <ngx-window-office style="position: absolute" (ChangeOffice)="changeOffice($event)" [office]="getOffice(row.data['officeId'])"></ngx-window-office>
             </td>
           </ng-container>
 

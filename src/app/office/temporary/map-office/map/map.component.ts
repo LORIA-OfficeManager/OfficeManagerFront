@@ -96,7 +96,7 @@ export class MapComponent implements OnInit  {
    */
   openWindow(name: string) {
     const  office = this.findoffice(name);
-    this.serviceOfficeD.fectOne(office.id).subscribe(
+    this.serviceOfficeD.fetchOne(office.id).subscribe(
         (_: OfficeDetail) => {
           if ( _ !== null ) {
             const nbWindowsRef = this.windowService.open(

@@ -5,6 +5,7 @@ import {NbSortDirection, NbSortRequest, NbTreeGridDataSource, NbTreeGridDataSour
 import {PersonService} from '../../shared/services/person.service';
 import {OfficeService} from '../../shared/services/office.service';
 import {Office} from '../../shared/interfaces/office';
+import {OfficeDetailService} from '../../shared/services/office-detail.service';
 
 @Component({
   selector: 'ngx-list-perso',
@@ -27,13 +28,16 @@ export class ListPersoComponent implements OnInit {
   dataSource: NbTreeGridDataSource<Person>;
   sortColumn: string;
   sortDirection: NbSortDirection = NbSortDirection.NONE;
+  officeConversion: Map<number, Office>;
 
 
   constructor(private dataSourceBuilder: NbTreeGridDataSourceBuilder<Person>, private peopleService: PersonService,
-              private officeService: OfficeService) {
+              private officeService: OfficeDetailService) {
     this.departments = [];
     this.teams = [];
     this.data = [];
+    this.officeConversion = new Map<number, Office>();
+    this.dataSource = dataSourceBuilder.create([]);
   }
 
   ngOnInit() {
@@ -42,20 +46,26 @@ export class ListPersoComponent implements OnInit {
 
   asyncInit(people: Person[]) {
     this.fetchedData = people;
-    this.fetchedData.forEach(k => this.data[this.fetchedData.indexOf(k)] = this.treeNodeConversion(k));
+    this.fetchedData.forEach(k => this.data[this.fetchedData.indexOf(k)] = ListPersoComponent.treeNodeConversion(k));
     this.dataSource = this.dataSourceBuilder.create(this.data);
     this.dataSorting(people);
+    Array.from(people, j => j.officeId).filter(ListPersoComponent.onlyUnique)
+        .forEach(k => this.officeService.fetchOne(k).subscribe(p => this.asyncOfficeInit(k, p.office)));
+  }
+
+  asyncOfficeInit(id: number, office: Office) {
+    this.officeConversion.set(id, office);
   }
 
   dataSorting(people: Person[]): void {
-    this.departments = Array.from(people, k => k.departmentName).filter(this.onlyUnique);
+    this.departments = Array.from(people, k => k.departmentName).filter(ListPersoComponent.onlyUnique);
     this.departments.forEach(k => this.teams[this.departments.indexOf(k)] = []);
     this.departments.forEach(k => this.teams[this.departments.indexOf(k)] =
-        Array.from(people.filter(p => p.departmentName === k), j => j.teamName).filter(this.onlyUnique));
-    this._status = Array.from(people, k => k.statusName).filter(this.onlyUnique);
+        Array.from(people.filter(p => p.departmentName === k), j => j.teamName).filter(ListPersoComponent.onlyUnique));
+    this._status = Array.from(people, k => k.statusName).filter(ListPersoComponent.onlyUnique);
   }
 
-  treeNodeConversion(input: Person): TreeNode<Person> {
+  static treeNodeConversion(input: Person): TreeNode<Person> {
     return {data: input};
   }
 
@@ -74,7 +84,7 @@ export class ListPersoComponent implements OnInit {
     return minWithForMultipleColumns + (nextColumnStep * index);
   }
 
-  onlyUnique(value, index, self) {
+  static onlyUnique(value, index, self) {
     return self.indexOf(value) === index;
   }
 
@@ -99,10 +109,7 @@ export class ListPersoComponent implements OnInit {
   }
 
   getOffice(id: number): Office {
-    // TODO: FIX THIS.
-    let local: Office;
-    this.officeService.getById(id).subscribe(k => local = k);
-    return local;
+    return this.officeConversion.get(id);
   }
 }
 

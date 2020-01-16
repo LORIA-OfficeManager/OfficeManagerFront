@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../../environments/environment.prod';
 import {defaultIfEmpty, filter} from 'rxjs/operators';
+import {OfficeDetail} from '../interfaces/officeDetail';
 
 @Injectable({
   providedIn: 'root',
@@ -37,10 +38,6 @@ export class OfficeService {
             filter(_ => !!_),
             defaultIfEmpty([]),
         );
-  }
-
-  getById(id: number): Observable<Office> {
-    return this._http.get<Office>(this._backendURL.oneOffice.replace(':id', id));
   }
 
   /**

@@ -4,7 +4,6 @@ import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../../environments/environment.prod';
 import {defaultIfEmpty, filter} from 'rxjs/operators';
-import {OfficeDetail} from '../interfaces/officeDetail';
 
 @Injectable({
   providedIn: 'root',

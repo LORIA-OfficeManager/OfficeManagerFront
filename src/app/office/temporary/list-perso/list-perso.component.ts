@@ -3,7 +3,6 @@ import {Person} from '../../shared/interfaces/person';
 import {TreeNode} from '../../shared/interfaces/treenode';
 import {NbSortDirection, NbSortRequest, NbTreeGridDataSource, NbTreeGridDataSourceBuilder} from '@nebular/theme';
 import {PersonService} from '../../shared/services/person.service';
-import {OfficeService} from '../../shared/services/office.service';
 import {Office} from '../../shared/interfaces/office';
 import {OfficeDetailService} from '../../shared/services/office-detail.service';
 

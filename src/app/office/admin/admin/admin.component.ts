@@ -75,8 +75,8 @@ export class AdminComponent implements OnInit, AfterViewInit {
   import(files: any) {
     this._officeService.import(files).subscribe(
         _ => this._logs.push({
-          title : 'Import',
-          text: '\n' + _.name,
+          title : _.type,
+          text: '\n' + _.text,
           class: '',
         }),
         _ =>  this._logs.push({

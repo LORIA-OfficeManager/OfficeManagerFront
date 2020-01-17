@@ -1,6 +1,48 @@
 .logov2 {
-  padding: 0 1.25rem;
-  font-size: 1.3rem;
-  white-space: nowrap;
+  cursor: pointer;
   text-decoration: none;
+  p {
+    padding: 0.1rem 0 0;
+    font-size: 1.5rem;
+    height: 1.5rem;
+    white-space: nowrap;
+    text-decoration: none;
+    font-weight: 400;
+    background: -webkit-linear-gradient(45deg, #cc5d9a, #3eace0 80%);
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Bauhaus Std', Fallback, sans-serif;
+    margin: auto;
+  }
+}
+
+@font-face {
+  font-family: 'Bauhaus Std';
+  src: url('//db.onlinewebfonts.com/t/907e10e57c4620ded2b921ab70676f36.eot');
+  src: url('//db.onlinewebfonts.com/t/907e10e57c4620ded2b921ab70676f36.eot?#iefix') format('embedded-opentype'),
+  url('//db.onlinewebfonts.com/t/907e10e57c4620ded2b921ab70676f36.woff2') format('woff2'),
+  url('//db.onlinewebfonts.com/t/907e10e57c4620ded2b921ab70676f36.woff') format('woff'),
+  url('//db.onlinewebfonts.com/t/907e10e57c4620ded2b921ab70676f36.ttf') format('truetype'),
+  url('//db.onlinewebfonts.com/t/907e10e57c4620ded2b921ab70676f36.svg#Bauhaus Std') format('svg');
+}
+
+::ng-deep {
+ .nb-theme-cosmic, .nb-theme-dark {
+   path, rect {
+     stroke: transparent;
+   }
+ }
+}
+
+nb-action {
+  cursor: pointer;
+}
+
+::ng-deep nb-tooltip.start {
+  span.arrow {
+    right: -8px!important;
+    top: calc(50% - 2.4px)!important;
+    transform: rotate(90deg) !important;
+  }
 }

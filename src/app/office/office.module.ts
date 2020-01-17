@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import {OfficeRoutingModule} from './office-routing.module';
-import {TestComponent} from './temporary/test/test.component';
+import {HomePageComponent} from './temporary/home-page/home-page.component';
 import { OfficeComponent } from './office.component';
 import {ThemeModule} from '../@theme/theme.module';
 import {
-  NbAccordionModule,
-  NbActionsModule,
-  NbButtonModule,
-  NbCardModule, NbContextMenuModule, NbIconModule,
-  NbLayoutModule, NbPopoverModule, NbRadioModule, NbSearchModule, NbSelectModule,
-  NbSidebarModule, NbTooltipModule, NbUserModule, NbWindowModule,
+    NbAccordionModule,
+    NbActionsModule,
+    NbButtonModule,
+    NbCardModule, NbCheckboxModule, NbContextMenuModule, NbDialogModule, NbIconModule, NbInputModule,
+    NbLayoutModule, NbPopoverModule, NbRadioModule, NbSearchModule, NbSelectModule,
+    NbSidebarModule, NbTabsetModule, NbTooltipModule, NbTreeGridModule, NbUserModule, NbWindowModule,
 } from '@nebular/theme';
 import { ListOfficeComponent } from './temporary/list-office/list-office.component';
 import { SideBarListBuildingComponent} from './temporary/side-bar-list-building/side-bar-list-building.component';
@@ -17,7 +17,7 @@ import { RadioInputListOfficeComponent } from './temporary/radio-input-list-offi
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatSortModule} from '@angular/material/sort';
 import {
-    AutoCompletePipe,
+    AutoCompletePipe, AutoCompletePipeP,
     BuildingFloorPipe,
     OfficePipePipe, SearchByNPipe,
     StateOfficePipe, StatusPipe,
@@ -37,13 +37,20 @@ import { DetailOfficeComponent } from './temporary/detail-office/detail-office.c
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { DialogAssignementComponent } from './temporary/dialog-assignement/dialog-assignement.component';
+import { WarningPopupComponent } from './shared/components/warning-popup/warning-popup.component';
+import { ListPersoComponent } from './temporary/list-perso/list-perso.component';
+import {MatButtonToggleModule} from '@angular/material';
+import { AdminComponent } from './admin/admin/admin.component';
+import { DragAndDropDirective } from './admin/drag-and-drop.directive';
+import { ImportComponent } from './admin/import/import.component';
+import {MatButtonModule} from '@angular/material/button';
+import {AuthModule} from './auth/auth.module';
 
 @NgModule({
     imports: [
         OfficeRoutingModule,
         ThemeModule,
-        NbCardModule,
-        NbButtonModule,
         NbLayoutModule,
         NbActionsModule,
         NbSidebarModule,
@@ -51,11 +58,7 @@ import {MatInputModule} from '@angular/material/input';
         NbRadioModule,
         FormsModule,
         MatSortModule,
-        NbWindowModule.forChild(),
         NbIconModule,
-        NbTooltipModule,
-        NbPopoverModule,
-        NbSelectModule,
         NbSearchModule,
         NbUserModule,
         NbContextMenuModule,
@@ -65,9 +68,25 @@ import {MatInputModule} from '@angular/material/input';
         ReactiveFormsModule,
         MatFormFieldModule,
         MatInputModule,
+        FormsModule,
+        ThemeModule,
+        NbDialogModule.forChild(),
+        NbWindowModule.forChild(),
+        NbCardModule,
+        NbCheckboxModule,
+        NbTabsetModule,
+        NbPopoverModule,
+        NbButtonModule,
+        NbInputModule,
+        NbSelectModule,
+        NbTooltipModule,
+        NbTreeGridModule,
+        MatButtonToggleModule,
+        MatButtonModule,
+        AuthModule,
     ],
     declarations: [
-        TestComponent,
+        HomePageComponent,
         OfficeComponent,
         ListOfficeComponent,
         SideBarListBuildingComponent,
@@ -87,6 +106,14 @@ import {MatInputModule} from '@angular/material/input';
         AutoCompletePipe,
         SearchByNPipe,
         StatusPipe,
+        DialogAssignementComponent,
+        AutoCompletePipeP,
+        WarningPopupComponent,
+        ListPersoComponent,
+        AdminComponent,
+        DragAndDropDirective,
+        ImportComponent,
+
     ],
     providers: [
         OfficePipePipe,
@@ -98,9 +125,12 @@ import {MatInputModule} from '@angular/material/input';
         RoleProviderService,
         SearchByNPipe,
         StatusPipe,
+        AutoCompletePipeP,
     ],
     entryComponents: [
+        DialogAssignementComponent,
         DetailOfficeComponent,
+        WarningPopupComponent,
     ],
 })
 export class OfficeModule { }

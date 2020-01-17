@@ -10,4 +10,14 @@
 
 export const environment = {
   production: false,
+  backend: {
+    protocol: 'http',
+    host: '127.0.0.1',
+    port: '51000',
+    endpoints: {
+      allOffice: '/office',
+      oneOffice: '/office/:id',
+      allPeople: '/people',
+    },
+  },
 };

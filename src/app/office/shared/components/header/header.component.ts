@@ -91,12 +91,26 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   disconnect() {
-    this.router.navigateByUrl('/office/auth/logout').then(r => r);
+    this.router.navigateByUrl('/officeManager/auth/logout').then(r => r);
+  }
+
+  routing(path: string) {
+    this.router.navigateByUrl('/office/' + path).then(r => r);
   }
 
   navigateHome() {
     this.menuService.navigateHome();
     return false;
+  }
+
+  goOffice() {
+    this.router.navigateByUrl('/officeManager/Office');
+  }
+  goPeople() {
+    this.router.navigateByUrl('/officeManager/People');
+  }
+  goAdmin() {
+    this.router.navigateByUrl('/officeManager/Admin');
   }
 
 }

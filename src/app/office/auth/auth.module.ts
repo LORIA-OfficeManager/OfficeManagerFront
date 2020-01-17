@@ -5,37 +5,38 @@ import { RouterModule } from '@angular/router';
 
 import { NbAuthModule } from '@nebular/auth';
 import {
-  NbAlertModule,
-  NbButtonModule, NbCardModule,
-  NbCheckboxModule,
-  NbInputModule, NbSpinnerModule,
+    NbAlertModule,
+    NbButtonModule, NbCardModule,
+    NbCheckboxModule, NbIconModule,
+    NbInputModule, NbSpinnerModule,
 } from '@nebular/theme';
 import {AuthRoutingModule} from './auth-routing.module';
-import {OfficeModule} from '../office.module';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    RouterModule,
-    NbAlertModule,
-    NbInputModule,
-    NbButtonModule,
-    NbCheckboxModule,
-    NbAuthModule,
-    AuthRoutingModule,
-    OfficeModule,
-    NbSpinnerModule,
-    NbCardModule,
-  ],
-  declarations: [
-    // ... here goes our new components
-    LoginComponent,
-    LogoutComponent,
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        RouterModule,
+        NbAlertModule,
+        NbInputModule,
+        NbButtonModule,
+        NbCheckboxModule,
+        NbAuthModule,
+        AuthRoutingModule,
+        NbSpinnerModule,
+        NbCardModule,
+        NbIconModule,
+    ],
+    declarations: [
+        // ... here goes our new components
+        LoginComponent,
+        LogoutComponent,
+    ],
+    exports: [
+        LoginComponent],
 })
 export class AuthModule {
 }

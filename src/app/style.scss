@@ -1,5 +1,31 @@
 @import '~app/office/office.component';
 
+@font-face {
+  font-family: 'loria';
+  src: url('//db.onlinewebfonts.com/t/907e10e57c4620ded2b921ab70676f36.eot');
+  src: url('//db.onlinewebfonts.com/t/907e10e57c4620ded2b921ab70676f36.eot?#iefix') format('embedded-opentype'),
+  url('//db.onlinewebfonts.com/t/907e10e57c4620ded2b921ab70676f36.woff2') format('woff2'),
+  url('//db.onlinewebfonts.com/t/907e10e57c4620ded2b921ab70676f36.woff') format('woff'),
+  url('//db.onlinewebfonts.com/t/907e10e57c4620ded2b921ab70676f36.ttf') format('truetype'),
+  url('//db.onlinewebfonts.com/t/907e10e57c4620ded2b921ab70676f36.svg#Bauhaus Std') format('svg');
+}
+
+::ng-deep .logo {
+  h1, h2, h3, h4, h5, h6, p {
+    padding: 0;
+    font-size: 1.5rem;
+    height: 1.5rem;
+    white-space: nowrap;
+    text-decoration: none;
+    font-weight: 400;
+    background: -webkit-linear-gradient(45deg, #cc5d9a, #3eace0 80%);
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'loria', Fallback, sans-serif;
+    margin: auto;
+  }
+}
 /**************************************************Headerwindow********************************************************/
 
 ::ng-deep .headerWindow {
@@ -42,9 +68,20 @@
 
 /*************************************************ROW******************************************************************/
 
-
 ::ng-deep {
+  nb-layout-footer.OfficeManagerFooter {
+    box-shadow: none !important;
+  }
+  nb-icon svg g:hover {
+    background-color: transparent!important;
+  }
+  .homeComponent {
+    .col-lg-4 {
+      height: 100vh;
+      background-color: white;
+    }
 
+  }
   .homeBody {
     position: absolute;
     top: 25%;
@@ -80,10 +117,21 @@
   nb-sidebar.compacted.left.fixed ~ .content {
     margin: 0;
   }
-
+  .OfficeManagerFooter {
+    nav {
+      background-color: #edf1f7 !important;
+    }
+  }
 }
 
 ::ng-deep .nb-theme-dark {
+
+  .homeComponent {
+    .col-lg-4 {
+      height: 100vh;
+      background-color: #222b45;
+    }
+  }
   .logoDarOrCom {
     width: 100% !important;
   }
@@ -126,9 +174,20 @@
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0),
             rgba(255, 255, 255, 0.75), rgba(0, 0, 0, 0)) !important;
   }
+  .OfficeManagerFooter {
+    nav {
+      background-color: #151a30 !important;
+    }
+  }
 }
 
 ::ng-deep .nb-theme-cosmic {
+  .homeComponent {
+    .col-lg-4 {
+      height: 100vh;
+      background-color: #323259;
+    }
+  }
   .logoDarOrCom {
     width: 100% !important;
   }
@@ -170,6 +229,11 @@
     height: 1px;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0),
             rgba(255, 255, 255, 0.75), rgba(0, 0, 0, 0)) !important;
+  }
+  .OfficeManagerFooter {
+    nav {
+      background-color: #1b1b38 !important;
+    }
   }
 }
 

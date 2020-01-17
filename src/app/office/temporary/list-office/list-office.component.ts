@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Office} from '../../shared/interfaces/office';
 import {OfficeService} from '../../shared/services/office.service';
 import {NbSidebarService} from '@nebular/theme';
 import {FormControl, FormGroup} from '@angular/forms';
+
 
 export interface StateFilter {
   name: string;
@@ -19,30 +20,34 @@ export interface StateFilter {
 })
 
 export class ListOfficeComponent implements OnInit {
+  get reload(): boolean {
+    return this._reload;
+  }
   // fomulaire
   form: FormGroup;
+  // constante
   private _etat: string;
   private _batiment: string;
   private _nom: string;
+  // etat des filtres
   private _stateFilter: StateFilter;
   // type de filtre
   private _filter: string;
   // liste des bureaux
   private _offices: Office[];
+  // type de design
   private _design: string;
+  private _reload: boolean;
 
   /**
    * constructor
    * @param sidebarService
-   * @param _officePipe
    * @param _serviceOffice
+   * @param cd
    */
   constructor(private _serviceOffice: OfficeService, private sidebarService: NbSidebarService) {
     this.form = new FormGroup({
       search: new FormControl(),
-    });
-    this._serviceOffice.fecth().subscribe( (_: Office[]) => {
-      this._offices = _ ;
     });
     this._offices = [];
     this._filter = 'batiment';
@@ -56,12 +61,17 @@ export class ListOfficeComponent implements OnInit {
       building : 'none',
       stateOffice: 'none',
     };
+    this._reload = true;
   }
 
   /**
    * onInit
    */
   ngOnInit(): void {
+      this._reload = false;
+      this._serviceOffice.fecth().subscribe((_: Office[]) => {
+          this._offices = _;
+      });
   }
 
   /**
@@ -73,15 +83,22 @@ export class ListOfficeComponent implements OnInit {
     this._stateFilter.building = data.building;
   }
 
-  /*********************************************************GET&SETTER*************************************************/
-  get filter(): string {
-    return this._filter;
-  }
-
+  /**
+   * affiche ou cache la sidebar
+   */
   toggle() {
     this.sidebarService.toggle(true);
     return false;
   }
+
+  /**
+   * change de design
+   * @param design
+   */
+  switchDesign(design: string) {
+    this._design = design;
+  }
+
   /**
    * change de filtre
    * @param filtre
@@ -95,27 +112,11 @@ export class ListOfficeComponent implements OnInit {
       stateOffice: 'none',
     };
   }
-  switchDesign(design: string) {
-    this._design = design;
-  }
+
   /**
-   * fltre les bureaux selon l'etat
-   * @param state
+   * gere l'event du clavier
+   * @param event
    */
-  filterState(state) {
-    this._stateFilter.stateOffice = state;
-  }
-
-  get etat(): string {
-    return this._etat;
-  }
-
-  get batiment(): string {
-    return this._batiment;
-  }
-    get nom(): string {
-        return this._nom;
-    }
   onKey(event: any) {
     this._stateFilter.name = event.target.value.toLowerCase();
     if (this._stateFilter.name.length > 0) {
@@ -129,6 +130,25 @@ export class ListOfficeComponent implements OnInit {
       this._stateFilter.floor = -1;
     }
   }
+  /*********************************************************GET&SETTER*************************************************/
+
+  /**
+   * fltre les bureaux selon l'etat
+   * @param state
+   */
+  filterState(state) {
+    this._stateFilter.stateOffice = state;
+  }
+
+  get etat(): string {
+    return this._etat;
+  }
+  get batiment(): string {
+    return this._batiment;
+  }
+  get nom(): string {
+    return this._nom;
+  }
   get design(): string {
     return this._design;
   }
@@ -138,7 +158,19 @@ export class ListOfficeComponent implements OnInit {
   get offices(): Office[] {
     return this._offices;
   }
+  get filter(): string {
+    return this._filter;
+  }
 
+  setOffice(data: boolean) {
+    if ( data ) {
+      this._reload = true;
+      this._serviceOffice.fecth().subscribe((_: Office[]) => {
+        this._offices = _;
+        this._reload = false;
+      });
+    }
+  }
 }
 
 

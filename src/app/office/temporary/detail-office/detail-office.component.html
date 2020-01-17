@@ -1,7 +1,7 @@
 <div class="row" style="max-height: 400px; max-width: 500px;">
     <div class="col-md-12">
-        <div [ngClass]="'etatOffice '+( data.office.hasStrangers | strangerPipe)+' '+(data.office.size | officePipe:data.office.occupation)"></div>
-        <h5 >Information générale :</h5>
+        <div [ngClass]="'etatOffice '+( data.office.hasStranger | strangerPipe)+' '+(data.office.size | officePipe:data.office.occupation)"></div>
+        <h5 >Information générale </h5>
         <div class="row show-grid col-12">
             <div class="col-md-6">
                 <div>Bâtiment : {{data.office.building}}</div>
@@ -13,21 +13,31 @@
                 <div>Numéro : {{data.office.num}}</div>
             </div>
             <div class="col-md-6">
-                <div>Taille : {{data.persons.length}}/{{data.office.size}}</div>
+                <div>Taille : {{(data.office.occupation).toFixed(2)}}/{{data.office.size}}</div>
             </div>
         </div>
         <div class="row show-grid">
             <div class="col-md-12 all" >
-                <h5>Personne :</h5>
+                <div class="col-12 row">
+                    <h5 class="col-12 noPadding">Personne affecté
+                        <ngx-dialog-assignement (submit)="assignement($event)" [officename]="name()"
+                                                style="float: right;cursor: pointer"></ngx-dialog-assignement>
+                    </h5>
+                </div>
                 <ul>
-                    <li *ngFor="let person of data.persons" [ngClass]="(person | zombiePipe)+' row col-12 noPadding' ">
-                        <i [ngClass]="'fas  col-1 '+ ( person | StatusPipe )" style="float: left; margin: auto"></i>
-                        <span class="col-11">{{person.firstName}} {{person.lastName}}</span>
+                    <li *ngFor="let person of data.persons" [ngClass]="(person | zombiePipe)+' row col-12' "
+                    style="margin: 0;">
+                        <span class="col-12" style="padding-left: 0 ">
+                            <i [ngClass]="'fas col-1 '+ ( person | StatusPipe )" style="padding-left: 0 "></i>
+                            {{person.firstname}} {{person.lastname}}
+                            <ngx-warning-popup (submit)="suppPersonne($event)" [person]="person"
+                            style="float: right"></ngx-warning-popup>
+                        </span>
                     </li>
                 </ul>
             </div>
             <div class="col-md-12">
-                <h5>Description :</h5>
+                <h5>Description </h5>
                 <div>{{data.description}}</div>
             </div>
         </div>

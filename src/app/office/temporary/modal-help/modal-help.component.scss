@@ -1,5 +1,5 @@
 @import '~app/office/office.component';
-
+@import '~app/office/temporary/map-office/map/map.component';
 /*************************************************Modal****************************************************************/
 
 .titleHelpModal {
@@ -18,4 +18,23 @@
 }
 .codeCouleur h5 {
   padding: 0% 2%;
+}
+::ng-deep {
+  .nb-theme-default, .nb-theme-corporate {
+    .helpModal nb-card-body {
+      background-color: #edf1f7;
+    }
+  }
+
+  .nb-theme-dark {
+    .helpModal nb-card-body {
+      background-color:  #151a30;
+    }
+  }
+
+  .nb-theme-cosmic {
+    .helpModal nb-card-body {
+      background-color: #1b1b38;
+    }
+  }
 }

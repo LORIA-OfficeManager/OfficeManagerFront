@@ -1,0 +1,141 @@
+@import '~app/office/office.component';
+
+/***************************************title***********************************************************/
+
+.activeFiltre h6 {
+  color: $color-active !important;
+}
+
+.ligne {
+  position: absolute;
+  top: 35%;
+}
+
+hr.one {
+  border: 0;
+  height: 2px;
+  background-image: linear-gradient(to right, #cc5d9a, rgba(0, 0, 0, 0));
+}
+
+.titleAction {
+  z-index: 100;
+  background-color: #edf1f7;
+  padding-right: 1%;
+}
+
+/***************************************sidebar&footer***********************************************************/
+
+::ng-deep .nb-theme-default nb-sidebar.compacted.left.fixed ~ .content {
+  margin: 0;
+}
+
+.menu-sidebar {
+  box-shadow: none;
+}
+
+::ng-deep nb-layout-footer nav {
+  padding: 0% !important;
+}
+
+.footerNav {
+  padding: 0.5% 2%;
+  background-color: $color-active;
+  color: white;
+  h5 {
+    padding-left: 2% !important;
+    color: white;
+    margin: auto 0% !important;
+  }
+}
+
+.footerNavIcon {
+  padding-top: 0.15%;
+  float: right;
+  cursor: pointer;
+}
+
+.hideInfo {
+  max-height: 0;
+  overflow: auto;
+  padding: 0%;
+}
+
+.showInfo {
+  height: 125px;
+  overflow: auto;
+}
+
+.frame {
+  padding: 0;
+  height: 125px;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.footerInfo {
+  position: fixed;
+  bottom: 0%;
+  margin: 0% 1%;
+  right: 0%;
+  left: 18%;
+  nb-card {
+    height: fit-content;
+    width: 100%;
+  }
+}
+pre {
+  padding: 0;
+  margin: 0;
+}
+.errorImport, .errorImport pre {
+  font-family: Ubuntu, 'times new roman', times, roman, serif;
+  color: darkred;
+}
+
+/***************************************switchStyleWebSite***********************************************************/
+
+::ng-deep {
+  .nb-theme-cosmic {
+    pre {
+      color: white;
+    }
+    .titleAction {
+      background-color: #1b1b38 !important;
+    }
+    .uploadfilecontainer {
+      background-color: #1b1b38 !important;
+    }
+  }
+
+  .nb-theme-dark {
+    pre {
+      color: white;
+    }
+    .titleAction {
+      background-color: #151a30 !important;
+    }
+    .uploadfilecontainer {
+      background-color: #151a30 !important;
+    }
+  }
+}
+
+/////////////////////////////////////////////responsive
+@media screen and (max-width: 1200px) {
+  .footerInfo {
+    position: fixed;
+    bottom: 0% !important;
+    margin: 0% 1%;
+    right: 0% !important;
+    left: 0% !important;
+  }
+}
+
+
+//////////////////////////////////////////////phone
+@media screen and (max-width: 575px) {
+  .footerInfo nb-card-body {
+    font-size: 0.5em!important;
+    line-height: normal!important;
+  }
+}

@@ -9,7 +9,7 @@
             <span style="margin: auto" *ngIf="peopleAssign.length === 0"> Ce bureaux est vide</span>
             <ul>
                 <li *ngFor="let person of peopleAssign "> {{person.lastname}} {{person.firstname}}
-                    <nb-icon icon="minus" style="float: right" (click)="supp(person)"></nb-icon>
+                    <nb-icon icon="minus" style="float: right;cursor: pointer" (click)="supp(person)"></nb-icon>
                 </li>
             </ul>
             <h6>Personne non affecté à ce bureaux</h6>
@@ -25,9 +25,9 @@
                 <nb-icon nbTooltipStatus="danger" [nbTooltipPlacement]="'start'"
                          nbTooltip="cette personne est déja affecté au bureau {{person.officeName}},
                           l'affecter a un nouveau bureau, le désaffectera de celui ci"
-                         icon="plus" *ngIf="person.officeName !== null" style="float: right"
+                         icon="plus" *ngIf="person.officeName !== null" style="float: right;cursor: pointer"
                 (click)="add(person)"></nb-icon>
-                    <nb-icon icon="plus" *ngIf="person.officeName === null" style="float: right"
+                    <nb-icon icon="plus" *ngIf="person.officeName === null" style="float: right;cursor: pointer"
                              (click)="add(person)"></nb-icon>
             </ul>
         </nb-card-body>

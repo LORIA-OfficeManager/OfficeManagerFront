@@ -24,7 +24,7 @@ export class ListPersoComponent implements OnInit {
   customColumn = 'officeName';
   defaultColumns = [ 'lastname', 'firstname', 'statusName', 'teamName', 'departmentName'];
   allColumns = [...this.defaultColumns, this.customColumn ];
-  customAllColumns = ['Nom', 'Prénom', 'Status', 'Équipe', 'Département', 'Bureau'];
+  customAllColumns = ['Nom', 'Prénom', 'Statut', 'Équipe', 'Département', 'Bureau'];
   dataSource: NbTreeGridDataSource<Person>;
   sortColumn: string;
   sortDirection: NbSortDirection = NbSortDirection.NONE;

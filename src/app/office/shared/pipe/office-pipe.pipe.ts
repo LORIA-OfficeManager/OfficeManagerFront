@@ -8,17 +8,18 @@ import {Person} from '../interfaces/person';
 export class OfficePipePipe implements PipeTransform {
   /**
    * definie la class a retourner au bureau pour representer son etat
-   * @param office le bureau
    * @return la class qui definie l'etat du bureau
+   * @param size
+   * @param nbP
    */
   transform(size: number, nbP: number): string {
-    if (size === nbP) {
+    if (size.toFixed(2) === nbP.toFixed(2)) {
       return 'fullOffice';
     } else {
-      if (size <= nbP) {
+      if (size.toFixed(2) <= nbP.toFixed(2)) {
         return 'moreThanFullOffice';
       } else {
-        if ( 0 === nbP) {
+        if ( (0).toFixed(2) === nbP.toFixed(2)) {
           return 'emptyOffice';
         } else {
           return 'notFullOffice';
@@ -33,8 +34,8 @@ export class OfficePipePipe implements PipeTransform {
 export class StrangerPipe implements PipeTransform {
   /**
    * definie la class a retourner au bureau pour representer son etat
-   * @param office le bureau
    * @return la class qui definie l'etat du bureau
+   * @param hasStranger
    */
   transform(hasStranger: boolean): string {
     return hasStranger ? 'StrangerOffice' : '';
@@ -46,12 +47,12 @@ export class StrangerPipe implements PipeTransform {
 export class ZombiePipe implements PipeTransform {
   /**
    * definie la class a retourner au bureau pour representer son etat
-   * @param office le bureau
    * @return la class qui definie l'etat du bureau
+   * @param person
    */
   transform(person: any): string {
     const now = Date.now();
-    return person.endDate * 1000 < now  ? 'StrangerOffice' : '';
+    return ( person.endDateContract < now || person.startDateContract > now ) ? 'Stranger' : '';
   }
 }
 @Pipe({
@@ -60,8 +61,10 @@ export class ZombiePipe implements PipeTransform {
 export class BuildingFloorPipe implements PipeTransform {
   /**
    * definie la class a retourner au bureau pour representer son etat
-   * @param office le bureau
    * @return la class qui definie l'etat du bureau
+   * @param o
+   * @param floor
+   * @param building
    */
   transform(o: Office[], floor: number, building: string): Office[] {
     const res = o.filter( (_: Office) =>
@@ -78,19 +81,21 @@ export class BuildingFloorPipe implements PipeTransform {
 })
 export class StateOfficePipe implements PipeTransform {
   /**
-   * @param o
+   * @param _officePipe
+   * @param _strangerPipe
    */
   constructor (private _officePipe: OfficePipePipe,
                private _strangerPipe: StrangerPipe ) {}
   /**
    * definie la class a retourner au bureau pour representer son etat
-   * @param office le bureau
    * @return la class qui definie l'etat du bureau
+   * @param o
+   * @param state
    */
   transform(o: Office[], state: string): Office[] {
     return o.filter( (_: Office) =>
         this._officePipe.transform(_.size , _.occupation) === state
-        || this._strangerPipe.transform(_.hasStrangers) === state || state === 'none');
+        || this._strangerPipe.transform(_.hasStranger) === state || state === 'none');
   }
 }
 
@@ -104,8 +109,9 @@ export class AutoCompletePipe implements PipeTransform {
   constructor ()  {}
   /**
    * definie la class a retourner au bureau pour representer son etat
-   * @param office le bureau
    * @return la class qui definie l'etat du bureau
+   * @param o
+   * @param search
    */
   transform(o: Office[], search: string): Office[] {
     return o.filter( (_: Office) =>
@@ -116,11 +122,7 @@ export class AutoCompletePipe implements PipeTransform {
    * @param office
    */
   name(office: Office): string {
-    let name = '' + office.num;
-    if (office.num < 10) {
-      name = '0' + office.num;
-    }
-    return  office.building + '' + office.floor + '' + name ;
+    return  office.building + '' + office.floor + '' + office.num ;
   }
 }
 @Pipe({
@@ -135,8 +137,9 @@ export class SearchByNPipe implements PipeTransform {
 
   /**
    * definie la class a retourner au bureau pour representer son etat
-   * @param office le bureau
    * @return la class qui definie l'etat du bureau
+   * @param oName
+   * @param search
    */
   transform(oName: string, search: string): string {
     return oName.toLowerCase().indexOf(search) === 0 ? 'officeHover' : 'hide';
@@ -152,23 +155,23 @@ export class SearchByNPipe implements PipeTransform {
 })
 export class StatusPipe implements PipeTransform {
   /**
-   * @param o
+   * @param _zombieP
    */
   constructor(private _zombieP: ZombiePipe) {
   }
 
   /**
    * definie la class a retourner au bureau pour representer son etat
-   * @param office le bureau
    * @return la class qui definie l'etat du bureau
+   * @param p
    */
   transform(p: Person): string {
-    const res = '' + Math.floor(Math.random() * Math.floor(3));
+    const res = p.statusName;
     if (!this._zombieP.transform(p)) {
-      if (res === ('2' || 'enseignant-chercheur')) {
+      if (res === 'Défaut') {
         return 'fa-chalkboard-teacher';
       } else {
-        if (res === ('1' || 'doctorant')) {
+        if (res ===  'Doctorant') {
           return 'fa-book-reader';
         } else {
           return '';
@@ -183,4 +186,24 @@ export class StatusPipe implements PipeTransform {
    * retourne le nom du bureau
    * @param office
    */
+}
+
+
+@Pipe({
+  name: 'AutoCompletePipeP',
+})
+export class AutoCompletePipeP implements PipeTransform {
+  constructor() {
+  }
+
+  /**
+   * definie la class a retourner au bureau pour representer son etat
+   * @return la class qui definie l'etat du bureau
+   * @param obj
+   * @param search
+   */
+  transform(obj: any[], search: string): Person[] {
+    return obj.filter((_: any) =>
+        _.lastname.toLowerCase().indexOf(search) === 0);
+  }
 }

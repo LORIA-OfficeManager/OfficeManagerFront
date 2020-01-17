@@ -1,0 +1,68 @@
+<nb-layout>
+    <nb-layout-header fixed>
+        <ngx-office-header></ngx-office-header>
+    </nb-layout-header>
+    <nb-sidebar responsive  class="menu-sidebar start expanded" >
+        <nb-card class="col-lg-12 filtre">
+            <nb-card-header>
+                <div class="col-lg-12">
+                    <h4><strong>{{'Menu' | uppercase }}</strong></h4>
+                </div>
+            </nb-card-header>
+            <nb-card-body>
+                <div (click)="changeAction('import')"
+                     [ngClass]="action === 'import' ? 'activeFiltre' : ''"><h6>Import</h6></div>
+                <div (click)="changeAction('export')"
+                     [ngClass]="action === 'export' ? 'activeFiltre' : ''"><h6>Export</h6></div>
+            </nb-card-body>
+        </nb-card>
+    </nb-sidebar>
+    <nb-layout-column class="row">
+        <div class="col-md-12 noPadding">
+            <div  class="colored-column-basic col-12 noPadding" [ngSwitch]="action">
+                <div *ngSwitchCase="'import'" [ngClass]="action === 'import' ? 'activeFiltre' : ''">
+                    <div class="row col-12">
+                        <h1 class="active titleAction" >Import </h1>
+                        <div class="row col-12 ligne">
+                            <hr class="one col-lg-12" >
+                        </div>
+                    </div>
+                    <ngx-import (import)="import($event)"></ngx-import>
+                </div>
+                <div *ngSwitchCase="'export'" [ngClass]="action === 'export' ? 'activeFiltre' : ''">
+                    <div class="row col-12">
+                        <h1 class="active titleAction" >Export </h1>
+                        <div class="row col-12 ligne">
+                            <hr class="one col-lg-12" >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nb-layout-column>
+    <nb-layout-footer class="footerInfo">
+        <nb-card class="noMargin full-width">
+            <nb-card-header class=" footerNav" [ngSwitch]="showInfo">
+                Infos
+                <nb-icon icon="minus" class="footerNavIcon" (click)="toggle()" *ngSwitchCase="'show'"></nb-icon>
+                <nb-icon icon="plus" class="footerNavIcon" (click)="toggle()" *ngSwitchCase="'hide'"></nb-icon>
+            </nb-card-header>
+            <nb-card-body style="padding-top: 0" [ngClass]="showInfo === 'show' ? 'showInfo' : 'hideInfo'" class="frame">
+                <div class="frame" (scroll)="scrolled($event)" #scrollframe>
+                    <pre>   ____  _______         __  ___
+  / __ \/ _/ _(_)______ /  |/  /__ ____  ___ ____ ____ ____
+ / /_/ / _/ _/ / __/ -_) /|_/ / _ `/ _ \/ _ `/ _ `/ -_) __/
+ \____/_//_//_/\__/\__/_/  /_/\_,_/_//_/\_,_/\_, /\__/_/
+                                            /___/</pre>
+                    <div *ngFor="let log of logs" [ngClass]="log.class" style="padding: 0 1%">
+                        <strong>{{log.title}}</strong>
+                        <pre>{{log.text}}</pre>
+                    </div>
+                </div>
+            </nb-card-body>
+        </nb-card>
+    </nb-layout-footer>
+</nb-layout>
+
+
+

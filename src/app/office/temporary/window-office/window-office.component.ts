@@ -1,5 +1,5 @@
-import {Component, Input, OnInit, TemplateRef, ViewChild} from '@angular/core';
-import {NbWindowService} from '@nebular/theme';
+import {Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild} from '@angular/core';
+import { NbWindowService} from '@nebular/theme';
 import {Office} from '../../shared/interfaces/office';
 import {OfficeDetailService} from '../../shared/services/office-detail.service';
 import {OfficeDetail} from '../../shared/interfaces/officeDetail';
@@ -13,15 +13,17 @@ import {DetailOfficeComponent} from '../detail-office/detail-office.component';
 export class WindowOfficeComponent implements OnInit {
   // bureau
   private _office: Office;
+  private _change$: EventEmitter<boolean>;
   @ViewChild('contentTemplate', { static: false }) contentTemplate: TemplateRef<any>;
   /**
    * constructor
    * @param windowService
-   * @param _officePipe
    * @param serviceOfficeD
    */
   constructor(private windowService: NbWindowService,
-              private serviceOfficeD: OfficeDetailService) {}
+              private serviceOfficeD: OfficeDetailService) {
+    this._change$ = new EventEmitter<boolean>();
+  }
 
   /**
    */
@@ -30,11 +32,15 @@ export class WindowOfficeComponent implements OnInit {
    * ouvre la window
    */
   openWindow() {
-    this.serviceOfficeD.fectOne(this._office.id).subscribe(( _: OfficeDetail ) => {
-      this.windowService.open(
+    this.serviceOfficeD.fetchOne(this._office.id).subscribe((_: OfficeDetail ) => {
+      const nbWindowsRef = this.windowService.open(
           DetailOfficeComponent,
           {windowClass: 'headerWindow', title:  this.name( _.office ), context: _ },
       );
+      const tmp = _.persons;
+      nbWindowsRef.onClose.subscribe((__) => {
+        this.change(tmp !== _.persons );
+      });
     });
   }
 
@@ -43,13 +49,17 @@ export class WindowOfficeComponent implements OnInit {
    * @param office
    */
   name(office: Office): string {
-    let name = '' + office.num;
-    if (office.num < 10) {
-      name = '0' + office.num;
-    }
-    return  office.building + '' + office.floor + '' + name + '';
+    return  office.building + '' + office.floor + '' + office.num + '';
   }
   /*********************************************************GET&SETTER*************************************************/
+
+  @Output('ChangeOffice')
+  get change$() {
+    return this._change$;
+  }
+  change(ischange: boolean) {
+    this._change$.emit(ischange);
+  }
   @Input()
   set office(o: Office) {
     this._office = o;

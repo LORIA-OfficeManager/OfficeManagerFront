@@ -3,9 +3,9 @@
 .officeEmpty{
 
 }
-.officeNonEmpty {
-  opacity: 0.5;
-}
+//.officeNonEmpty {
+//  opacity: 0.5;
+//}
 rect.stairsH {
   fill: url('#pattern-stripeH');
 }
@@ -15,122 +15,403 @@ rect.stairsV {
 path.stairsH {
   fill: url('#pattern-stripeH');
 }
-
+ellipse.stairsC {
+  fill: url('#pattern-stairs');
+}
 
 text {
   cursor: pointer !important;
 }
 
+::ng-deep {
+  .nb-theme-default, .nb-theme-corporate {
+    .stairFront {
+      stroke: white!important;
+      fill: white!important;
+    }
+    .backDefault {
+      fill: white !important;
+    }
+    .hide {
+      path,rect {
+        fill: white!important;
+        opacity: 0.5!important;
+      }
+      text {
+        opacity: 0 !important;
+      }
+    }
+    .V4 {
+      line {
+        stroke: #ffffff !important;
+      }
+
+      path {
+        stroke: #ffffff !important;
+      }
+
+      rect {
+        stroke: #ffffff !important;
+      }
+
+      ellipse {
+        stroke: #ffffff !important;
+      }
+
+      .emptyOffice {
+        fill: #ffffff !important;
+      }
+
+      .roomPlan {
+        fill: #ffffff !important;;
+      }
+      .onlywall {
+        fill: transparent !important;
+        stroke: white !important;
+        stroke-width: 1;
+      }
+    }
+  }
+}
+
+::ng-deep {
+  .nb-theme-cosmic {
+    .stairFront {
+      stroke: #323259!important;
+      fill: #323259!important;
+    }
+    .backDefault {
+      fill: #323259 !important;
+    }
+    .hide {
+      path,rect {
+        fill: #323259!important;
+        opacity: 0.5!important;
+      }
+      text {
+        opacity: 0 !important;
+      }
+    }
+    .V4 {
+      line {
+        stroke: #323259 !important;
+      }
+      path {
+        stroke: #323259 !important;
+      }
+      rect {
+        stroke: #323259 !important;
+      }
+      ellipse {
+        stroke: #323259 !important;
+      }
+      .roomPlan {
+        fill: #323259 !important;;
+      }
+      .emptyOffice {
+        fill: #323259 !important;
+      }
+      .onlywall {
+        fill: transparent !important;
+        stroke: #323259 !important;
+        stroke-width: 1;
+      }
+    }
+
+    .titleBuilding {
+      z-index: 100;
+      background-color: #1b1b38 !important;
+      color: $color-active;
+      margin-right: 1%;
+    }
+
+    .titleFloor {
+      color: white!important;
+    }
+
+    .mapLoria svg {
+      fill: #1b1b38!important;
+    }
+  }
+}
+::ng-deep {
+  .nb-theme-dark {
+    .stairFront {
+      stroke: #222b45!important;
+      fill: #222b45!important;
+    }
+    .backDefault {
+      fill: #222b45 !important;
+    }
+    .hide {
+      path,rect {
+        fill: #222b45!important;
+        opacity: 0.5!important;
+      }
+      text {
+        opacity: 0 !important;
+      }
+    }
+    .V4 {
+      line {
+        stroke: #222b45 !important;
+      }
+      path {
+        stroke: #222b45 !important;
+      }
+      rect {
+        stroke: #222b45 !important;
+      }
+      ellipse {
+        stroke: #222b45 !important;
+      }
+      .emptyOffice {
+        fill: #222b45 !important;
+      }
+      .roomPlan {
+        fill: #222b45 !important;;
+      }
+      .onlywall {
+        fill: transparent !important;
+        stroke: #222b45 !important;
+        stroke-width: 1;
+      }
+    }
+    .titleBuilding {
+      z-index: 100;
+      background-color: #151a30 !important;
+      color: $color-active;
+      margin-right: 1%;
+    }
+
+    .titleFloor {
+      color: white!important;
+    }
+
+    .mapLoria svg {
+      fill: #151a30 !important;
+    }
+  }
+}
+::ng-deep {
+  .mapLoria {
+    g:hover {
+      .hide {
+        text {
+          opacity: 0 !important;
+        }
+      }
+
+      rect {
+        opacity: 0.5 !important;
+      }
+
+      path {
+        opacity: 0.5 !important;
+      }
+
+      ellipse {
+        opacity: 0.5 !important;
+      }
+
+      line {
+        opacity: 0.5 !important;
+      }
+
+      text {
+        opacity: 0.5 !important;
+      }
+    }
+  }
+  svg.filteremptyOffice {
+    rect {
+      opacity: 0.5 !important;
+    }
+
+    path {
+      opacity: 0.5 !important;
+    }
+
+    line {
+      opacity: 0.5 !important;
+    }
+
+    ellipse {
+      opacity: 0.5 !important;
+    }
+  }
+  .nb-theme-default, .nb-theme-corporate {
+    svg.filteremptyOffice {
+      .emptyOffice {
+        opacity: 1!important;
+        stroke: black!important;
+        stroke-width: 1!important;
+      }
+      .StrangerOfficeemptyOffice {
+        opacity: 1!important;
+        stroke: black!important;
+        stroke-width: 1!important;
+      }
+    }
+    .officeHover:hover {
+      .hide {
+        text {
+          opacity: 0 !important;
+        }
+      }
+
+      path {
+        cursor: pointer;
+        opacity: 1 !important;
+        stroke: black !important;
+        stroke-width: 1 !important;
+      }
+
+      rect {
+        cursor: pointer;
+        opacity: 1 !important;
+        stroke: black !important;
+        stroke-width: 1 !important;
+      }
+
+      text {
+        cursor: pointer;
+        opacity: 1 !important;
+      }
+
+    }
+  }
+  .nb-theme-dark, .nb-theme-cosmic {
+    svg.filteremptyOffice {
+      .emptyOffice {
+        opacity: 1!important;
+        stroke: white!important;
+        stroke-width: 1!important;
+      }
+      .StrangerOfficeemptyOffice {
+        opacity: 1!important;
+        stroke: white!important;
+        stroke-width: 1!important;
+      }
+    }
+    .officeHover:hover {
+      .hide {
+        text {
+          opacity: 0 !important;
+        }
+      }
+
+      path {
+        cursor: pointer;
+        opacity: 1 !important;
+        stroke: white !important;
+        stroke-width: 1 !important;
+      }
+
+      rect {
+        cursor: pointer;
+        opacity: 1 !important;
+        stroke: white !important;
+        stroke-width: 1 !important;
+      }
+
+      text {
+        cursor: pointer;
+        opacity: 1 !important;
+      }
+
+    }
+  }
+}
+
 /******************************************filtre etat*****************************************************************/
 svg.filterfullOffice {
   .fullOffice {
-    opacity: 1;
+    opacity: 1!important;
   }
   .fullOfficeStrangerOffice {
-    opacity: 1;
+    opacity: 1!important;
   }
   rect {
-    opacity: 0.5;
+    opacity: 0.5!important;
   }
   path {
-    opacity: 0.5;
+    opacity: 0.5!important;
   }
   line {
-    opacity: 0.5;
+    opacity: 0.5!important;
   }
   ellipse {
-    opacity: 0.5;
+    opacity: 0.5!important;
   }
 }
 
 svg.filtermoreThanFullOffice {
   .moreThanFullOffice {
-    opacity: 1;
+    opacity: 1!important;
   }
   .StrangerOfficemoreThanFullOffice {
-    opacity: 1;
+    opacity: 1!important;
   }
   rect {
-    opacity: 0.5;
+    opacity: 0.5!important;
   }
   path {
-    opacity: 0.5;
+    opacity: 0.5!important;
   }
   line {
-    opacity: 0.5;
+    opacity: 0.5!important;
   }
   ellipse {
-    opacity: 0.5;
+    opacity: 0.5!important;
   }
 }
 
 svg.filternotFullOffice {
   .notFullOffice {
-    opacity: 1;
+    opacity: 1!important;
   }
   .StrangerOfficenotFullOffice {
-    opacity: 1;
+    opacity: 1!important;
   }
   rect {
-    opacity: 0.5;
+    opacity: 0.5!important;
   }
   path {
     opacity: 0.5;
   }
   line {
-    opacity: 0.5;
+    opacity: 0.5!important;
   }
   ellipse {
-    opacity: 0.5;
+    opacity: 0.5!important;
   }
 }
 
-svg.filteremptyOffice {
-  .emptyOffice {
-    opacity: 1;
-    stroke: black;
-  }
-  .StrangerOfficeemptyOffice {
-    opacity: 1;
-    stroke: black;
-  }
-  rect {
-    opacity: 0.5;
-  }
-  path {
-    opacity: 0.5;
-  }
-  line {
-    opacity: 0.5;
-  }
-  ellipse {
-    opacity: 0.5;
-  }
-}
 svg.filterStrangerOffice {
   .StrangerOfficefullOffice {
-    opacity: 1;
+    opacity: 1!important;
   }
   .StrangerOfficemoreThanFullOffice {
-    opacity: 1;
+    opacity: 1!important;
   }
   .StrangerOfficenotFullOffice {
-    opacity: 1;
+    opacity: 1!important;
   }
   .StrangerOfficeemptyOffice {
-    opacity: 1;
+    opacity: 1!important;
   }
   rect {
-    opacity: 0.5;
+    opacity: 0.5!important;
   }
   path {
-    opacity: 0.5;
+    opacity: 0.5!important;
   }
   line {
-    opacity: 0.5;
+    opacity: 0.5!important;
   }
   ellipse {
-    opacity: 0.5;
+    opacity: 0.5!important;
   }
 }
 svg.filternone {
@@ -146,14 +427,15 @@ svg.filternone {
 /******************************************code couleur****************************************************************/
 
 .fullOffice {
-  fill: $color-officeFull;
+  fill: $color-officeFull!important;
 }
 .moreThanFullOffice {
-  fill: $color-officeMoreThanFull;
+  fill: $color-officeMoreThanFull!important;
 }
 .notFullOffice {
-  fill: $color-officeNoEmpty;
+  fill: $color-officeNoEmpty!important;
 }
+
 .emptyOffice {
   fill: $color-officeEmpty;
 }
@@ -176,54 +458,8 @@ hr.one {
   background-image: linear-gradient(to right, #cc5d9a, rgba(0, 0, 0, 0));
 }
 
-.hide {
-  path,rect {
-    opacity: 0;
-  }
-  text {
-    opacity: 0 !important;
-  }
-}
-.show {
+.show {}
 
-}
-g:hover {
-
-  rect {
-    opacity: 0.5;
-  }
-  path {
-    opacity: 0.5;
-  }
-  ellipse {
-    opacity: 0.5;
-  }
-  line {
-    opacity: 0.5;
-  }
-  text {
-    opacity: 0.5;
-  }
-
-}
-.officeHover:hover {
-
-  path {
-    stroke: black;
-    cursor: pointer;
-    opacity: 1;
-  }
-  rect {
-    stroke: black;
-    cursor: pointer;
-    opacity: 1;
-  }
-  text {
-    cursor: pointer;
-    opacity: 1;
-  }
-
-}
 .hideAndShow {
   position: absolute;
   right: 0;
@@ -240,7 +476,6 @@ g:hover {
   margin-right: 1%;
 }
 .titleFloor {
-  margin-left: 2%;
   color: #000000;
 }
 svg {
@@ -249,52 +484,5 @@ svg {
     stroke: #edf1f7;
   }
 }
-::ng-deep {
-  .nb-theme-cosmic {
 
-    .titleBuilding {
-      z-index: 100;
-      background-color: #1b1b38 !important;
-      color: $color-active;
-      margin-right: 1%;
-    }
-
-    .titleFloor {
-      margin-left: 2%;
-      color: white;
-    }
-
-    .mapLoria svg {
-      fill: #1b1b38!important;
-
-      rect, path, ellipse, line {
-        stroke: #1b1b38!important;
-      }
-    }
-  }
-}
-::ng-deep {
-  .nb-theme-dark {
-
-    .titleBuilding {
-      z-index: 100;
-      background-color: #151a30 !important;
-      color: $color-active;
-      margin-right: 1%;
-    }
-
-    .titleFloor {
-      margin-left: 2%;
-      color: white;
-    }
-
-    .mapLoria svg {
-      fill: #151a30 !important;
-
-      rect, path, ellipse, line {
-        stroke: #151a30 !important;
-      }
-    }
-  }
-}
 

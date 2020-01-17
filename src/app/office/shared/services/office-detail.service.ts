@@ -32,10 +32,10 @@ export class OfficeDetailService {
   /**
    * renvoit la liste des bureaux
    */
-  fecth(): Observable<OfficeDetail[]> {
+  fetch(): Observable<OfficeDetail[]> {
     return of(this._office);
   }
-  fectOne(id: number): Observable<OfficeDetail> {
+  fetchOne(id: number): Observable<OfficeDetail> {
     return this._http.get<OfficeDetail>(this._backendURL.oneOffice.replace(':id', id));
   }
 

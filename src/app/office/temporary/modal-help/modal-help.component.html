@@ -1,15 +1,15 @@
 <ng-template #dialog let-data let-ref="dialogRef">
     <nb-card class="helpModal">
         <nb-card-header class="headerOfficeManager">AIDE<nb-icon style="float: right; cursor: pointer" (click)="ref.close()" icon="close-outline"></nb-icon> </nb-card-header>
-        <nb-card-body class="modalHeight">
+        <nb-card-body class="modalHeight" >
             <div>
                 <h4 class="titleHelpModal">Code couleur :</h4>
                 <div class="col-12 codeCouleur">
                     <h5 class="emptyOffice"> Bureau vide</h5>
                     <h5 class="notFullOffice"> Bureau non vide</h5>
                     <h5 class="fullOffice"> Bureau plein</h5>
-                    <h5 class="moreThanFullOffice"> Bureau sur peuplé</h5>
-                    <h5 class="StrangerOffice" > Bureau avec un ou plusieur intrus</h5>
+                    <h5 class="moreThanFullOffice"> Bureau surpeuplé</h5>
+                    <h5 class="StrangerOffice" > Bureau avec un ou plusieurs intrus</h5>
                 </div>
                 <div >
                    <h4 class="titleHelpModal">Liste des bureaux :</h4>
@@ -23,15 +23,347 @@
                             <span> : Permet d'afficher le détaille du bureau.</span>
                         </div>
                     </div>
+                    <h4 class="titleHelpModal">Liste des personnes :</h4>
+                    <div class="col-12">
+                        <p> <strong>Nom</strong> : Le nom de la personne.</p>
+                        <p> <strong>Prénom</strong> : Le prénom de la personne.</p>
+                        <p> <strong>Status</strong> : Le Status de la personne.</p>
+                        <p> <strong>Équipe</strong> : L'équipe de la personne.</p>
+                        <p> <strong>Département</strong> : Le Département de la personne.</p>
+                        <p> <strong>Bureau</strong> : Le bureaux de la personne.</p>
+                    </div>
+                    <h4 class="titleHelpModal">Plan des bureaux :</h4>
+                    <div class="col-12">
+                        <div class="mapLoria">
+                            <svg width="0%" height="0%" xmlns="http://www.w3.org/2000/svg"
+                                 xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 0 0"
+                                 style="height: 0px;margin: 0%;padding: 0%;position: absolute">
+                                <defs>
+                                    <pattern id="pattern-stripeH"
+                                             width="4" height="4"
+                                             patternUnits="userSpaceOnUse"
+                                             patternTransform="rotate(0)" class="stairBack">
+                                        <rect class="stairFront" width="2" height="4" transform="translate(0,0)" fill="black"></rect>
+                                    </pattern>
+                                    <pattern id="pattern-stripeV"
+                                             width="4" height="4"
+                                             patternUnits="userSpaceOnUse"
+                                             patternTransform="rotate(90)" class="stairBack">
+                                        <rect class="stairFront" width="2" height="4" transform="translate(0,0)" fill="black"></rect>
+                                    </pattern>
+                                    <pattern id="pattern-fullOffice"
+                                             width="12" height="12"
+                                             patternUnits="userSpaceOnUse"
+                                             patternTransform="rotate(135)">
+                                        <rect width="12" height="12" stroke-width="0" style="fill:rgba(193, 73, 0, 0.7);" />
+                                        <rect width="6" height="12" stroke-width="0" transform="translate(0,0)" style="fill: rgba(193, 0, 190, 0.7)!important;"></rect>
+                                    </pattern>
+                                    <pattern id="pattern-moreThanFullOffice"
+                                             width="12" height="12"
+                                             patternUnits="userSpaceOnUse"
+                                             patternTransform="rotate(135)">
+                                        <rect width="12" height="12" stroke-width="0" style="fill:rgba(193, 11, 0, 0.7)!important;" />
+                                        <rect width="6" height="12" stroke-width="0" transform="translate(0,0)" style="fill: rgba(193, 0, 190, 0.7)!important;"></rect>
+                                    </pattern>
+                                    <pattern id="pattern-notFullOffice"
+                                             width="12" height="12"
+                                             patternUnits="userSpaceOnUse"
+                                             patternTransform="rotate(135)">
+                                        <rect width="12" height="12" stroke-width="0" style="fill:rgba(0, 193, 12, 0.7)!important;" />
+                                        <rect width="6" height="12" stroke-width="0" transform="translate(0,0)" style="fill: rgba(193, 0, 190, 0.7)!important;"></rect>
+                                    </pattern>
+                                    <pattern id="pattern-emptyOffice"
+                                             width="12" height="12"
+                                             patternUnits="userSpaceOnUse"
+                                             patternTransform="rotate(135)">
+                                        <rect class="backDefault" width="12" height="12" stroke-width="0"  />
+                                        <rect width="6" height="12" stroke-width="0" transform="translate(0,0)" style="fill: rgba(193, 0, 190, 0.7)!important;"></rect>
+                                    </pattern>
+                                    <mask id="mask-stripe">
+                                        <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-stripe)" />
+                                    </mask>
+                                </defs>
+                            </svg>
+                            <div>
+                                <svg [ngClass]="'filter floor V4'"
+                                     width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+                                     xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 125 580 300">
+                                    <g stroke="null">
+                                        <path style="fill: transparent!important;stroke: transparent!important;" id="svg_26" d="m32.5,334.85c0,0 184,-114 184,-114c0,0 -34,-67 -34.5,-67.85c0.5,0.85 47.5,-27.15 47,-28c0.5,0.85 16.5,35.85 16,35c0.5,0.85 207.5,1.85 207,1c0.5,0.85 0.5,106.85 0.5,106.85c0,0 120,-2 119.5,-2.85c0.5,0.85 -0.5,100.85 -1,100c0.5,0.85 -523.5,-2.15 -524,-3c0.5,0.85 2.5,-21.15 2.5,-21.15c0,0 -17,-6 -17,-6z" fill-opacity="null" stroke-opacity="null" stroke-width="2" stroke="#ffffff" fill="none"/>
+                                        <path class="roomPlan" stroke="#ffffff" style="vector-effect: non-scaling-stroke;" opacity="1" id="svg_10" d="m269.07625,208.12031c0,0 21.25207,0 21.25207,0c0,0 -0.25002,18.5018 -0.30003,18.40179c0.05001,0.10001 -9.70094,4.1004 -9.75095,4.00039c0.05001,0.10001 -11.20109,-22.40218 -11.20109,-22.40218z" fill-opacity="null" stroke-opacity="null" stroke-width="0" fill="#ffffff"/>
+                                        <rect class="roomPlan" stroke="#ffffff" style="vector-effect: non-scaling-stroke;" opacity="1" id="svg_19" height="27.75271" width="50.50496" y="238.37327" x="401.33922" stroke-opacity="null" stroke-width="0" fill="#ffffff"/>
+                                        <rect class="roomPlan" stroke="#ffffff" style="vector-effect: non-scaling-stroke;" opacity="1" id="svg_25" height="21.00204" width="20.50202" y="321.88144" x="519.10072" stroke-opacity="null" stroke-width="0" fill="#ffffff"/>
+                                        <rect class="roomPlan" stroke="#ffffff" id="svg_27" height="1" width="42.50415" y="340.63324" x="427.69173" stroke-opacity="null" fill="#ffffff"/>
+                                        <rect class="roomPlan" stroke="#ffffff" style="vector-effect: non-scaling-stroke;" id="svg_28" height="1" width="27.00264" y="268.12616" x="541.70285" stroke-opacity="null" fill="#ffffff"/>
+                                        <rect class="roomPlan" stroke="#ffffff" style="vector-effect: non-scaling-stroke;" transform="rotate(90 568.2054443359376,298.00399780273443) " id="svg_29" height="1" width="53.25521" y="297.504" x="541.57788" stroke-opacity="null" fill="#ffffff"/>
+                                        <path class="roomPlan" opacity="1" id="svg_43" d="m227.12333,238.52324c0,0 16.12488,32.12476 16.12488,32.09977c0,0.02499 42.12469,-26.34981 42.12469,-26.34981c0,0 -16.99988,-32.74976 -16.99988,-32.74976c0,0 -41.24969,26.9998 -41.24969,26.9998z" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#ffffff" fill="#ffffff"/>
+                                        <path class="roomPlan" id="svg_44" d="m267.74803,211.14844" opacity="0.5" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#ffffff"  fill="#ffffff"/>
+                                        <path class="roomPlan" stroke="#ffffff"  opacity="1" id="svg_46" d="m267.7453,210.7963c0,0 -41.13809,-76.99865 -41.39202,-77.04865c0.25394,0.05 -39.10658,23.0496 -39.10658,23.0496c0,0 39.61445,80.24859 39.61445,80.24859c0,0 40.88415,-26.24954 40.88415,-26.24954z" fill-opacity="null" stroke-opacity="null" stroke-width="0" fill="#ffffff"/>
+                                        <path class="roomPlan" opacity="1" id="svg_63" d="m190.69665,342.29399l-0.2,-20.79964l6.99988,-4.74992l7.24987,-4.74991c0.2,0.05 6.19989,-3.44993 6.19989,-3.44993c0,0 3.24994,-2.24996 3.04995,-2.29997c0.19999,0.05001 0.19999,36.29937 0.19999,36.29937c0,0 -25.49955,-0.25 -23.49958,-0.25z" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#ffffff"  fill="#ffffff"/>
+                                        <path class="roomPlan" opacity="1" id="svg_67" d="m76.74865,333.64415c0,0 -0.49999,-23.24959 -0.74998,-23.3996c0.24999,0.15001 -41.74927,24.64958 -41.74927,24.64958c0,0 42.49925,-1.24998 42.49925,-1.24998z" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#ffffff"  fill="#ffffff"/>
+                                        <rect class="stairsH" opacity="1" stroke="#ffffff"  id="svg_68" height="23.24959" width="64.49887" y="336.64409" x="53.24906" fill-opacity="null" stroke-opacity="null" stroke-width="0" fill="#000000"/>
+                                        <rect class="roomPlan" id="svg_69" height="9.74983" width="1" y="225.89604" x="450.59209" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#ffffff"  fill="#ffffff"/>
+                                        <rect class="roomPlan" id="svg_70" height="9.74983" width="1" y="310.89455" x="538.59054" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#ffffff"  fill="#ffffff"/>
+                                        <rect class="roomPlan"  stroke="#ffffff"  id="svg_74" height="1" width="452.74693" y="358.13293" x="119.19713" stroke-opacity="null" fill="#ffffff"/>
+                                        <rect class="roomPlan" stroke="#ffffff"  id="svg_97" height="1" width="23.49571" y="340.63324" x="393.19607" stroke-opacity="null" fill="#ffffff"/>
+                                        <rect class="roomPlan" stroke="#ffffff"  id="svg_98" height="1" width="23.49571" y="340.63324" x="484.19588" stroke-opacity="null" fill="#000000"/>
+                                        <g stroke="null" transform="rotate(90 153.75061035156247,336.31335449218756) " id="svg_101">
+                                            <g id="svg_55" fill="#000000" transform="matrix(0.0062564577044585505,0,0,-0.007043306280006226,136.0104338763981,263.0629696591156) ">
+                                                <path class="roomPlan" stroke="null" id="svg_56" d="m2875.99754,-9765.99878l0,-291l52,-13c28,-6 52,-11 53,-9c3,4 288,482 292,489c4,9 -133,65 -205,83c-33,9 -89,19 -126,23l-66,8l0,-290z"/>
+                                                <path class="roomPlan" stroke="null" id="svg_58" d="m2656.99754,-9492.99878c-53,-10 -187,-55 -217,-72c-21,-12 -17,-20 118,-252c76,-132 142,-245 146,-252c6,-9 18,-9 50,-1l42,10l0,289l0,289l-47,-1c-27,-1 -68,-5 -92,-10z"/>
+                                                <path class="roomPlan" stroke="null" id="svg_59" d="m2295.99754,-9648.99878c-57,-43 -169,-154 -207,-206c-29,-40 -33,-51 -22,-58c8,-5 123,-73 257,-150l243,-142l35,34c19,18 34,38 33,43c-1,17 -283,499 -294,503c-6,1 -26,-9 -45,-24z"/>
+                                                <path class="roomPlan" stroke="null" id="svg_60" d="m3201.99754,-9875.99878c-80,-135 -146,-248 -146,-253c0,-4 13,-23 28,-41l27,-33l258,136c165,88 255,141 250,148c-47,84 -159,207 -241,266l-29,21l-147,-244z"/>
+                                                <path class="roomPlan" stroke="null" id="svg_61" d="m1982.99754,-10045.99878c-34,-82 -54,-164 -63,-248l-7,-68l306,0l305,0l7,36c3,20 3,40 -2,44c-8,7 -458,266 -499,288c-19,10 -23,6 -47,-52z"/>
+                                                <path class="roomPlan" stroke="null" id="svg_65" d="m3405.99754,-10141.99878c-140,-75 -255,-142 -254,-148c1,-7 2,-25 3,-42l1,-30l301,0l301,0l-7,53c-14,109 -72,312 -87,306c-2,-1 -118,-63 -258,-139z"/>
+                                                <path class="roomPlan" stroke="null" id="svg_73" d="m1915.99754,-10746.99878l0,-305l305,0l305,0l0,305l0,305l-305,0l-305,0l0,-305z"/>
+                                                <path class="roomPlan" stroke="null" id="svg_88" d="m3136.99754,-10487.99878c-7,-19 -11,-37 -9,-39c11,-10 509,-295 516,-295c25,0 92,204 106,323l6,47l-303,0l-303,0l-13,-36z"/>
+                                                <path class="roomPlan" stroke="null" id="svg_99" d="m3048.99754,-10613.99878l-20,-23l155,-267l154,-268l32,22c48,34 169,154 204,202l32,44l-248,143c-136,78 -256,148 -268,156c-18,11 -23,10 -41,-9z"/>
+                                                <path class="roomPlan" stroke="null" id="svg_100" d="m2908.99754,-10682.99878l-33,-10l0,-315l0,-316l53,7c118,15 343,85 334,103c-39,74 -312,542 -316,541c-3,0 -21,-5 -38,-10z"/>
+                                            </g>
+                                        </g>
+                                        <g stroke="null" id="svg_113">
+                                            <g id="svg_112" fill="#000000" transform="matrix(0.013099022466218656,0,0,-0.013063084547005815,-306.65312649373857,198.55954287212637) ">
+                                                <path class="roomPlan" stroke="null" id="svg_102" d="m65738.21822,-8614.73157l0,-291l52,-13c28,-6 52,-11 53,-9c3,4 288,482 292,489c4,9 -133,65 -205,83c-33,9 -89,19 -126,23l-66,8l0,-290z"/>
+                                                <path class="roomPlan" stroke="null" id="svg_103" d="m65519.21822,-8341.73157c-53,-10 -187,-55 -217,-72c-21,-12 -17,-20 118,-252c76,-132 142,-245 146,-252c6,-9 18,-9 50,-1l42,10l0,289l0,289l-47,-1c-27,-1 -68,-5 -92,-10z"/>
+                                                <path class="roomPlan" stroke="null" id="svg_104" d="m65158.21822,-8497.73157c-57,-43 -169,-154 -207,-206c-29,-40 -33,-51 -22,-58c8,-5 123,-73 257,-150l243,-142l35,34c19,18 34,38 33,43c-1,17 -283,499 -294,503c-6,1 -26,-9 -45,-24z"/>
+                                                <path class="roomPlan" stroke="null" id="svg_105" d="m66064.21822,-8724.73157c-80,-135 -146,-248 -146,-253c0,-4 13,-23 28,-41l27,-33l258,136c165,88 255,141 250,148c-47,84 -159,207 -241,266l-29,21l-147,-244z"/>
+                                                <path class="roomPlan" stroke="null" id="svg_106" d="m64845.21822,-8894.73157c-34,-82 -54,-164 -63,-248l-7,-68l306,0l305,0l7,36c3,20 3,40 -2,44c-8,7 -458,266 -499,288c-19,10 -23,6 -47,-52z"/>
+                                                <path class="roomPlan" stroke="null" id="svg_107" d="m66268.21822,-8990.73157c-140,-75 -255,-142 -254,-148c1,-7 2,-25 3,-42l1,-30l301,0l301,0l-7,53c-14,109 -72,312 -87,306c-2,-1 -118,-63 -258,-139z"/>
+                                                <path class="roomPlan" stroke="null" id="svg_108" d="m64778.21822,-9595.73157l0,-305l305,0l305,0l0,305l0,305l-305,0l-305,0l0,-305z"/>
+                                                <path class="roomPlan" stroke="null" id="svg_109" d="m65999.21822,-9336.73157c-7,-19 -11,-37 -9,-39c11,-10 509,-295 516,-295c25,0 92,204 106,323l6,47l-303,0l-303,0l-13,-36z"/>
+                                                <path class="roomPlan" stroke="null" id="svg_110" d="m65911.21822,-9462.73157l-20,-23l155,-267l154,-268l32,22c48,34 169,154 204,202l32,44l-248,143c-136,78 -256,148 -268,156c-18,11 -23,10 -41,-9z"/>
+                                                <path class="roomPlan" stroke="null" id="svg_111" d="m65771.21822,-9531.73157l-33,-10l0,-315l0,-316l53,7c118,15 343,85 334,103c-39,74 -312,542 -316,541c-3,0 -21,-5 -38,-10z"/>
+                                            </g>
+                                        </g>
+                                        <path class="roomPlan" id="svg_21" d="m303.05437,303.94184c0,0 -11.81218,11.2497 -11.81219,11.2372" opacity="0.5" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                                        <path class="roomPlan" id="svg_26" d="m304.42722,306.57089c0.03125,0 -1.93743,-1.71869 -1.96868,-1.73743c0.03124,0.01874 -10.96839,10.64338 -10.96839,10.64338c0,0 4.43735,4.37485 4.43735,4.37485c0,0 8.46846,-13.2808 8.49971,-13.2808z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                                        <path class="roomPlan" id="svg_30" d="m302.30229,304.57096c0,0 -10.90588,10.4684 -10.93712,10.44966c0.03124,0.01874 -3.21865,-5.07484 -3.24989,-5.09358c0.03124,0.01874 12.68707,-7.41851 12.68707,-7.41851c0,0 1.49995,2.06243 1.49995,2.06243z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                                        <path class="roomPlan" id="svg_31" d="m300.67734,302.19604c0,0 -12.74957,7.49975 -12.74957,7.4685c0,-0.03125 -2.09368,-5.59356 -2.09368,-5.59356c0,0 13.96828,-4.21861 13.96828,-4.21861c0,0 0.87497,2.34367 0.87497,2.34367z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                                        <path class="roomPlan" id="svg_35" d="m299.67738,299.53988c0,0 -0.34374,-2.49992 -0.34374,-2.49992c0,0 -14.62451,0.99997 -14.65575,0.98123c0.03124,0.01874 1.03121,5.76855 1.03121,5.76855c0,0 13.96828,-4.24986 13.96828,-4.24986z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                                        <path class="roomPlan" id="svg_36" d="m299.33364,296.75872c0,0 0.21874,-2.53116 0.21874,-2.53116c0,0 -14.84325,-2.46867 -14.87449,-2.48741c0.03124,0.01874 0.12499,5.92479 0.12499,5.92479c0,0 14.53076,-0.90622 14.53076,-0.90622z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                                        <path class="roomPlan" id="svg_37" d="m299.64613,293.97757c0,0 0.74997,-2.24992 0.74997,-2.24992c0,0 -13.93703,-6.15604 -13.96827,-6.17478c0.03124,0.01874 -1.68745,5.79979 -1.68745,5.79979c0,0 14.90575,2.62491 14.90575,2.62491z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                                        <path class="roomPlan" id="svg_38" d="m300.5211,291.41515c0,0 1.28121,-2.09368 1.28121,-2.09368c0,0 -12.65582,-9.59343 -12.68707,-9.61217c0.03124,0.01874 -2.59367,5.5498 -2.59367,5.5498c0,0 13.99953,6.15604 13.99953,6.15604z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                                        <path class="roomPlan" id="svg_40" d="m302.02105,289.00898c0,0 1.65619,-1.62495 1.62495,-1.64369c0.03124,0.01874 -10.31216,-12.69958 -10.3434,-12.71832c0.03124,0.01874 -3.99987,4.70608 -3.99987,4.70608c0,0 12.71832,9.65592 12.71832,9.65592z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                                        <path class="roomPlan" id="svg_41" d="m303.92723,287.13405c0,0 2.12493,-1.37495 2.12493,-1.37495c0,0 -7.3435,-14.90575 -7.37475,-14.92449c0.03124,0.01874 -5.12483,3.67487 -5.12483,3.67487c0,0 10.37465,12.62457 10.37465,12.62457z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                                        <path class="roomPlan" id="svg_45" d="m306.23966,285.66535c0,0 2.40617,-0.87497 2.40617,-0.87497c0,0 -3.74987,-16.74943 -3.78112,-16.76817c0.03124,0.01874 -5.81231,2.64365 -5.81231,2.64365c0,0 7.18726,14.99949 7.18726,14.99949z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                                        <path class="roomPlan" id="svg_49" d="m308.90207,284.70288c0,0 2.49992,-0.31249 2.49992,-0.31249c0,0 0.31249,-17.65565 0.31249,-17.65565c0,0 -6.43728,1.21871 -6.43728,1.21871c0,0 3.62488,16.74943 3.62488,16.74943z" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                                        <path class="roomPlan" id="svg_50" d="m314.18314,284.70288c0,0 4.4686,-17.12442 4.46235,-17.14941c0.00625,0.02499 -6.58728,-0.84998 -6.58728,-0.84998c0,0 -0.37499,17.7494 -0.37499,17.7494" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                                        <path id="svg_51" d="m318.2499,267.3499c0,0 -1.75,-6 -1.75002,-6.1c0.00002,0.1 -7.24998,-12.14999 -7.24999,-12.24999c0.00001,0.1 -75.74996,47.09998 -75.74996,47.09998c0,0 2,7.25 2,7.25c0,0 4.99999,8 4.99998,7.9c0.00001,0.1 7.00001,6.35 7,6.24999c0.00001,0.10001 11.75001,6.35 11.75,6.25c0.00001,0.1 13,2.85 13,2.85c0,0 11.75,-1 11.74999,-1.1c0.00001,0.1 11.25001,-4.14999 11.24999,-4.25" fill-opacity="null" stroke-opacity="null" stroke-width="2" stroke="#000" fill="none"/>
+                                        <rect fill="none" stroke-width="2" stroke-opacity="null" fill-opacity="null" x="303.44468" y="289.89491" width="17.2497" height="13.24977" id="svg_52" stroke="#000"/>
+                                        <g class="officeHover">
+                                            <path [ngClass]="'office A104 fullOffice'" opacity="1" id="svg_62" d="m143.44748,342.044c0,0 0.24999,-10.99981 0.05,-11.04982c0.19999,0.05001 9.19983,-0.19998 8.99984,-0.24999c0.19999,0.05001 7.69986,0.05001 7.69986,0.05001c0,0 7.49987,-0.99999 7.49987,-0.99999c0,0 8.49985,-1.24998 8.49985,-1.24998c0,0 6.99988,-2.74995 6.99988,-2.74995c0,0 5.4999,-2.99994 5.4999,-2.99994c0,0 0,19.49965 0,19.49965c0,0 -45.2492,-0.24999 -45.2492,-0.24999z" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#ffffff"/>
+                                            <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif"
+                                                  font-size="10" id="svg_9" y="340.15392" x="160.0353" fill-opacity="null" stroke-opacity="null"
+                                                  stroke-width="0" stroke="#000" fill="#000000">A104</text>
+                                        </g>
+                                        <g class="officeHover">
+                                            <path [ngClass]="'office A108 moreThanFullOffice'" stroke="#000" opacity="1" id="svg_64" d="m215.19622,342.30147c0,0 0,-36.86536 0,-36.86536c0,0 5.2499,-2.16855 5.2499,-2.16855c0,0 2.99995,-0.72284 2.99995,-0.72284c0,0 3.74994,6.98755 3.74994,6.98755c0,0 4.49992,6.7466 4.49992,6.7466c0,0 4.99991,7.2285 4.99991,7.2285c0,0 4.24992,5.3009 4.24992,5.3009c0,0 1.74997,3.3733 1.54998,3.3251c0.19999,0.0482 0.19999,10.40905 0,10.36085c0.19999,0.0482 -27.29952,-0.19275 -27.29952,-0.19275z" fill-opacity="null" stroke-opacity="null" stroke-width="0" fill="#000000"/>
+                                            <text transform="rotate(53.69933319091797 229.05818176269537,325.859375) " xml:space="preserve"
+                                                  text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="14" id="svg_21"
+                                                  y="330.68607" x="212.82572" fill-opacity="null" stroke-opacity="null" stroke-width="0"
+                                                  stroke="#000" fill="#000000">A108</text>
+                                        </g>
+                                        <g class="officeHover">
+                                            <path [ngClass]="'office A109 StrangerOfficeemptyOffice'" stroke="#000" style="vector-effect: non-scaling-stroke;" opacity="1" id="svg_8" d="m301.57942,163.11592c0,0 -56.25549,-0.25003 -56.25549,-0.25003c0,0 22.5022,43.0042 22.5022,43.0042c0,0 33.50327,-0.25003 33.50327,-0.25003c0,0 0.25002,-42.50414 0.25002,-42.50414z" stroke-opacity="null" stroke-width="0" fill="#000000"/>
+                                            <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif"
+                                                  font-size="14" id="svg_77" y="181.5" x="262.5" fill-opacity="null" stroke-opacity="null"
+                                                  stroke-width="0" stroke="#000" fill="#000000">A109</text>
+                                        </g>
+                                        <g class="officeHover">
+                                            <rect [ngClass]="'office A111 fullOffice'" stroke="#000" style="vector-effect: non-scaling-stroke;" opacity="1" id="svg_2" height="60.5059" width="28.00273" y="163.11592" x="303.32959" stroke-opacity="null" stroke-width="0" fill="#000000"/>
+                                            <text style="cursor: move;" transform="rotate(90 316.17187500000006,192.70312500000003) "
+                                                  xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif"
+                                                  font-size="20" id="svg_78" y="199.5" x="294.5" fill-opacity="null" stroke-opacity="null"
+                                                  stroke-width="0" stroke="#000" fill="#000000">A111</text>
+                                        </g>
+                                        <g class="officeHover">
+                                            <rect [ngClass]="'office A112 notFullOffice'" stroke="#000" style="vector-effect: non-scaling-stroke;" opacity="1" id="svg_3" height="60.5059" width="28.75278" y="163.11592" x="333.08252" stroke-opacity="null" stroke-width="0" fill="#000000"/>
+                                            <text style="cursor: move;" transform="rotate(90 346.91406250000006,192.70312500000003) "
+                                                  xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif"
+                                                  font-size="20" id="svg_79" y="199.5" x="324.5" fill-opacity="null" stroke-opacity="null"
+                                                  stroke-width="0" stroke="#000" fill="#000000">A112</text>
+                                        </g>
+                                        <g class="officeHover">
+                                            <rect [ngClass]="'office A113 StrangerOfficefullOffice'" stroke="#000" style="vector-effect: non-scaling-stroke;" opacity="1" id="svg_4" height="60.5059" width="29.00286" y="163.11592" x="363.08542" stroke-opacity="null" stroke-width="0" fill="#000000"/>
+                                            <text style="cursor: move;" transform="rotate(90 377.91406250000006,192.70312500000003) "
+                                                  xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif"
+                                                  font-size="20" id="svg_80" y="199.5" x="355.5" fill-opacity="null" stroke-opacity="null"
+                                                  stroke-width="0" stroke="#000" fill="#000000">A113</text>
+                                        </g>
+                                        <g class="officeHover">
+                                            <rect [ngClass]="'office A114 notFullOffice'" stroke="#000" style="vector-effect: non-scaling-stroke;" opacity="1" id="svg_5" height="60.5059" width="28.25271" y="163.11592" x="393.33842" stroke-opacity="null" stroke-width="0" fill="#000000"/>
+                                            <text style="cursor: move;" transform="rotate(90 407.91406250000006,192.70312500000003) "
+                                                  xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif"
+                                                  font-size="20" id="svg_81" y="199.5" x="385.5" fill-opacity="null" stroke-opacity="null"
+                                                  stroke-width="0" stroke="#000" fill="#000000">A114</text>
+                                        </g>
+                                        <g class="officeHover">
+                                            <rect [ngClass]="'office A115 notFullOffice'" stroke="#000" style="vector-effect: non-scaling-stroke;" opacity="1" id="svg_6" height="60.5059" width="28.75284" y="163.11592" x="423.09133" stroke-opacity="null" stroke-width="0" fill="#000000"/>
+                                            <text style="cursor: move;" transform="rotate(90 436.91406250000006,192.70312500000003) "
+                                                  xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif"
+                                                  font-size="20" id="svg_82" y="199.5" x="414.5" fill-opacity="null" stroke-opacity="null"
+                                                  stroke-width="0" stroke="#000" fill="#000000">A115</text>
+                                        </g>
+                                        <g class="officeHover">
+                                            <rect [ngClass]="'office A120 fullOffice'" stroke="#000" style="vector-effect: non-scaling-stroke;" opacity="1" id="svg_20" height="63.00612" width="28.50281" y="267.87615" x="421.34116" stroke-opacity="null" stroke-width="0" fill="#000000"/>
+                                            <text style="cursor: move;" transform="rotate(90 436.65625,299.70312500000006) "
+                                                  xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif"
+                                                  font-size="20" id="svg_83" y="306.5" x="413.5" fill-opacity="null" stroke-opacity="null"
+                                                  stroke-width="0" stroke="#000" fill="#000000">A120</text>
+                                        </g>
+                                        <g class="officeHover">
+                                            <path [ngClass]="'office A119 StrangerOfficemoreThanFullOffice'" stroke="#000" style="vector-effect: non-scaling-stroke;" opacity="1" id="svg_33" d="m419.94097,331.38234c0,0 0,-63.25618 -0.15001,-63.35619c0.15001,0.10001 -18.60182,-0.15001 -18.60182,-0.15001c0,0 -9.00087,7.75076 -9.00087,7.75076c0,0 -0.50005,55.25539 -0.65007,55.15537c0.15002,0.10002 28.40277,0.60007 28.40277,0.60007z" stroke-opacity="null" stroke-width="0" fill="#000000"/>
+                                            <text style="cursor: move;" transform="rotate(90 405.9140625,299.70312500000006) "
+                                                  xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif"
+                                                  font-size="20" id="svg_84" y="306.5" x="383.5" fill-opacity="null" stroke-opacity="null"
+                                                  stroke-width="0" stroke="#000" fill="#000000">A119</text>
+                                        </g>
+                                        <g class="officeHover">
+                                            <rect [ngClass]="'office A121 fullOffice'" stroke="#000" style="vector-effect: non-scaling-stroke;" opacity="1" id="svg_22" height="63.00612" width="28.50278" y="267.87615" x="451.09413" stroke-opacity="null" stroke-width="0" fill="#000000"/>
+                                            <text style="cursor: move;" transform="rotate(90 465.65625,299.70312500000006) "
+                                                  xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif"
+                                                  font-size="20" id="svg_85" y="306.5" x="442.5" fill-opacity="null" stroke-opacity="null"
+                                                  stroke-width="0" stroke="#000" fill="#000000">A121</text>
+                                        </g>
+                                        <g class="officeHover">
+                                            <rect [ngClass]="'office A122 StrangerOfficenotFullOffice'" stroke="#000" style="vector-effect: non-scaling-stroke;" opacity="1" id="svg_23" height="63.00612" width="28.25276" y="267.87615" x="480.59704" stroke-opacity="null" stroke-width="0" fill="#000000"/>
+                                            <text style="cursor: move;" transform="rotate(90 494.65625,299.70312500000006) "
+                                                  xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif"
+                                                  font-size="20" id="svg_86" y="306.5" x="471.5" fill-opacity="null" stroke-opacity="null"
+                                                  stroke-width="0" stroke="#000" fill="#000000">A122</text>
+                                        </g>
+                                        <g class="officeHover">
+                                            <rect [ngClass]="'office A123 notFullOffice'" stroke="#000" style="vector-effect: non-scaling-stroke;" opacity="1" id="svg_24" height="42.00408" width="29.25288" y="267.87615" x="510.34987" stroke-opacity="null" stroke-width="0" fill="#000000"/>
+                                            <text style="cursor: move;" transform="rotate(90 525.6484375000001,288.50000000000006) "
+                                                  xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif"
+                                                  font-size="14" id="svg_87" y="293.5" x="509.5" fill-opacity="null" stroke-opacity="null"
+                                                  stroke-width="0" stroke="#000" fill="#000000">A123</text>
+                                        </g>
+                                        <g class="officeHover">
+                                            <path [ngClass]="'office A116 fullOffice'" stroke="#000" opacity="1" id="svg_32" d="m399.93902,238.37326c0,0 -34.25334,-0.25002 -34.25334,-0.25002c0,0 0,46.00449 0,46.00449c0,0 24.00234,-0.25003 24.00234,-0.25003c0,0 0,-9.00088 -0.15002,-9.10089c0.15002,0.10001 10.40102,-7.40072 10.40102,-7.40072c0,0 0,-29.00283 0,-29.00283z" stroke-opacity="null" stroke-width="0" fill="#000000"/>
+                                            <text style="cursor: move;" transform="rotate(90 377.1328125,259.50000000000006) "
+                                                  xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif"
+                                                  font-size="14" id="svg_89" y="264.5" x="361.5" fill-opacity="null" stroke-opacity="null"
+                                                  stroke-width="0" stroke="#000" fill="#000000">A116</text>
+                                        </g>
+                                        <g class="officeHover">
+                                            <path [ngClass]="'office A117 moreThanFullOffice'" opacity="1" id="svg_39" d="m364.27553,238.04169c0,0 -33.87737,0.50004 -33.87737,0.50004c0,0 0.12501,34.62742 0.12501,34.62742c0,0 2.25015,2.62519 2.25015,2.62519c0,0 1.87514,2.75019 1.75014,2.72519c0.125,0.025 1.75011,3.02521 1.75011,3.02521c0,0 1.62511,3.87527 1.50011,3.85027c0.125,0.025 1.5001,5.02535 1.3751,5.00035c0.125,0.025 1.12507,4.90034 1.00007,4.87534c0.125,0.025 24.25169,-0.1 24.25169,-0.1c0,0 -0.12501,-57.12901 -0.12501,-57.12901z" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                                            <text style="cursor: move;" transform="rotate(90 350.390625,261.89843750000006) "
+                                                  xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif"
+                                                  font-size="16" id="svg_90" y="267.5" x="332.5" fill-opacity="null" stroke-opacity="null"
+                                                  stroke-width="0" stroke="#000" fill="#000000">A117</text>
+                                        </g>
+                                        <g class="officeHover">
+                                            <path [ngClass]="'office A118 notFullOffice'" opacity="1" id="svg_42" d="m376.15136,296.54579c0,0 -36.00252,0.37503 -36.12752,0.35003c0.125,0.025 0.125,3.40023 0.125,3.40023c0,0 -0.75005,4.00028 -0.75005,4.00028c0,0 -2.12515,6.62547 -2.12515,6.62547c0,0 -2.75019,4.37531 -2.87519,4.35031c0.125,0.025 -2.6252,3.90027 -2.6252,3.90027c0,0 -1.75012,2.12515 -1.87512,2.10015c0.125,0.025 0.25001,20.27642 0.25001,20.27642c0,0 49.25345,0.25001 49.25345,0.25001c0,0 -0.12501,-45.37818 -0.12501,-45.37818c0,0 -3.12522,0.12501 -3.12522,0.12501z" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                                            <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif"
+                                                  font-size="16" id="svg_91" y="323.00001" x="339.99999" fill-opacity="null" stroke-opacity="null"
+                                                  stroke-width="0" stroke="#000" fill="#000000">A118</text>
+                                        </g>
+                                        <g class="officeHover">
+                                            <path [ngClass]="'office A107 fullOffice'" stroke="#000" opacity="1" id="svg_47" d="m216.19125,221.7961c0,0 26.0045,50.31921 26.0045,50.31921c0,0 -24.47482,15.9302 -24.67878,15.87962c0.20396,0.05058 -26.82032,-51.53293 -26.82032,-51.53293c0,0 25.4946,-14.6659 25.4946,-14.6659z" fill-opacity="null" stroke-opacity="null" stroke-width="0" fill="#000000"/>
+                                            <text style="cursor: move;" transform="rotate(60.5452880859375 215.65625,254.70312499999994) "
+                                                  xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="20"
+                                                  id="svg_92" y="261.5" x="192.5" fill-opacity="null" stroke-opacity="null" stroke-width="0"
+                                                  stroke="#000" fill="#000000">A107</text>
+                                        </g>
+                                        <g class="officeHover">
+                                            <path [ngClass]="'office A106 fullOffice'" opacity="1" stroke="#000" id="svg_48" d="m189.68677,237.79582c0,0 26.50944,51.45937 26.50944,51.45937c0,0 -24.95006,16.29116 -25.15798,16.23943c0.20792,0.05173 -27.3411,-52.70059 -27.3411,-52.70059c0,0 25.98964,-14.99821 25.98964,-14.99821z" fill-opacity="null" stroke-opacity="null" stroke-width="0" fill="#000000"/>
+                                            <text style="cursor: move;" transform="rotate(60.5452880859375 190.65625000000006,271.703125) "
+                                                  xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="20"
+                                                  id="svg_93" y="278.5" x="167.5" fill-opacity="null" stroke-opacity="null" stroke-width="0"
+                                                  stroke="#000" fill="#000000">A106</text>
+                                        </g>
+                                        <g class="officeHover">
+                                            <path [ngClass]="'office A105 emptyOffice'" opacity="1" id="svg_54" d="m162.69715,254.04553c0,0 26.49953,51.7491 26.49953,51.7491c0,0 -13.74976,8.74984 -13.94975,8.69983c0.19999,0.05001 -15.04974,-0.44998 -15.24973,-0.49999c0.19999,0.05001 -22.04962,-44.19921 -22.24961,-44.24922c0.19999,0.05001 24.94956,-15.69972 24.94956,-15.69972z" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                                            <text style="cursor: move;" transform="rotate(60.5452880859375 164.65625,284.703125) "
+                                                  xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif"
+                                                  font-size="20" id="svg_94" y="291.5" x="141.5" fill-opacity="null" stroke-opacity="null"
+                                                  stroke-width="0" stroke="#000" fill="#000000">A105</text>
+                                        </g>
+                                        <g class="officeHover">
+                                            <path [ngClass]="'office A102 emptyOffice'" opacity="1" stroke="#000" id="svg_57" d="m136.4907,270.79525c0,0 -23.79268,14.52378 -23.79268,14.52378c0,0 13.44804,25.22552 13.44804,25.22552c0,0 24.0513,-12.23055 24.0513,-12.23055c0,0 -13.70666,-27.51875 -13.70666,-27.51875z" fill-opacity="null" stroke-opacity="null" stroke-width="0" fill="#000000"/>
+                                            <text style="cursor: move;" transform="rotate(23.079015731811523 132.3125,292.296875) "
+                                                  xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif"
+                                                  font-size="12" id="svg_95" y="296.5" x="118.5" fill-opacity="null" stroke-opacity="null"
+                                                  stroke-width="0" stroke="#000" fill="#000000">A102</text>
+                                        </g>
+                                        <g class="officeHover">
+                                            <path [ngClass]="'office A101 fullOffice'" opacity="1" id="svg_66" d="m78.99861,333.64415c0,0 0.49999,-26.74953 0.49999,-26.74953c0,0 31.49945,-19.99965 31.24946,-20.14965c0.24999,0.15001 13.49976,24.39958 13.24977,24.24957c0.24999,0.15001 1.24997,22.89961 1.24997,22.89961c0,0 -46.24919,-0.25 -46.24919,-0.25z" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000"/>
+                                            <text style="cursor: move;" xml:space="preserve" text-anchor="start"
+                                                  font-family="Helvetica, Arial, sans-serif" font-size="16" id="svg_96" y="324.5" x="83.5"
+                                                  fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">A101</text>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="col-12 row" style="margin-bottom: 1%">
+                                    <svg class="V4" style="float: left" width="30" height="45" xmlns="http://www.w3.org/2000/svg">
+                                        <g class="layer">
+                                            <title>Test</title>
+                                            <rect class="roomPlan" fill="none" x="1.1" y="0.775" width="27.875" height="43.25" id="svg_1" stroke="#000000"/>
+                                            <text transform="rotate(90 9.800634384155272,20.010845184326175) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="15" id="svg_2" y="20.18773" x="-5.65599" stroke-width="0" stroke="#000" fill="#000000">A000</text>
+                                        </g>
+                                    </svg>
+                                    <span style="margin: auto 0% auto 2%" >Bureau </span>
+                                </div>
+                                <div class="col-12 row" style="margin-bottom: 1%">
+                                    <svg class="V4" style="float: left" width="30" height="45" xmlns="http://www.w3.org/2000/svg">
+                                        <g class="layer">
+                                            <title>Layer 1</title>
+                                            <rect class="roomPlan" fill="none" x="1.1" y="0.775" width="27.875" height="43.25" id="svg_1" stroke="#000000"/>
+                                        </g>
+                                    </svg>
+                                    <span style="margin: auto 0% auto 2%">Salle, Mur, Détail</span>
+                                </div>
+                                <div class="col-12 row" style="margin-bottom: 1%">
+                                    <svg class="V4" style="float: left" width="30" height="45" xmlns="http://www.w3.org/2000/svg">
+                                        <g class="layer">
+                                            <title>Layer 1</title>
+                                            <rect class="stairsV" fill="none" x="1.1" y="0.775" width="27.875" height="43.25" id="svg_1" stroke="#000000"/>
+                                         </g>
+                                    </svg>
+                                    <span style="margin: auto 0% auto 2%">Escalier</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div>
                     <h4 class="titleHelpModal">Filtre :</h4>
                     <div class="col-12">
+                        <h6 style="color: #cc5d9a">Bureau :</h6>
                         <p><strong>Bâtiment</strong> : Il est possible de filtrer les bureaux selon le bâtiment
                             ( C'est-à-dire : Loria, bâtiment A, bâtiment B, bâtiment C ).
                             Puis les filtrer par étage.</p>
                         <p><strong>État</strong> : Il est possible de filtrer les bureaux selon l'état du bureau.
                             C'est-à-dire si le bureau est vide, non plein, plein, surpeuplé ou avec un ou plusieurs intrus.</p>
+                        <p><strong>Nom</strong> : Il est possible de filtrer les bureaux selon leur nom.
+                            C'est-à-dire qu'ils vont afficher que les bureaux qui commencent de la même manière.</p>
+                    </div>
+                    <div class="col-12">
+                        <h6 style="color: #cc5d9a">Personne :</h6>
+                        <p><strong>Département</strong> : Il est possible de filtrer les personnes selon le département
+                            ( Par exemple : Informatique, Math, Biologie... ).
+                            Puis les filtrer par équipe.</p>
+                        <p><strong>Statut</strong> : Il est possible de filtrer les personnes selon le statut de la personne.
+                            C'est-à-dire Doctorant, Stagiare, Enseignant-chercheur ...</p>
+                        <p><strong>Nom</strong> : Il est possible de filtrer les personnes selon leur nom.
+                            C'est-à-dire qu'ils vont afficher que les personnes dont le nom ou prénom
+                            qui commence de la même manière.</p>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="titleHelpModal">Statut :</h4>
+                    <div class="col-12">
+                        <p class="col-12" style="padding-left: 0 "><i [ngClass]="'fas col-1 fa-chalkboard-teacher'" style="padding-left: 0 "></i>Enseignant-chercheur / Enseignante-chercheuse
+                        </p>
+                        <p class="col-12" style="padding-left: 0 "><i [ngClass]="'fas col-1 fa-book-reader'" style="padding-left: 0 "></i>Doctorant / Doctorante
+                        </p>
+                        <p class="col-12" style="padding-left: 0;color: rgba(193, 11, 0, 0.7)"><i [ngClass]="'fas col-1 fa-biohazard'" style="padding-left: 0 "></i>Intrus / Intruse
+                        </p>
+                        <p class="col-12" style="padding-left: 0 "><i [ngClass]="'fas col-1 '" style="padding-left: 0 "></i>Stagiaire
+                        </p>
                     </div>
                 </div>
             </div>
@@ -41,4 +373,5 @@
     </nb-card>
 </ng-template>
 <button nbButton class="buttonHelpModal" appearance="outline"
-        size="small" shape="round" (click)="open(dialog)">Aide</button>
+        size="small" shape="round" (click)="open(dialog)">Aide
+</button>

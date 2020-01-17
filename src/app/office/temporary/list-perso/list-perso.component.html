@@ -1,0 +1,120 @@
+<ngx-modal-help></ngx-modal-help>
+<nb-layout>
+  <nb-layout-header fixed>
+    <ngx-office-header></ngx-office-header>
+  </nb-layout-header>
+
+  <nb-sidebar responsive  class="menu-sidebar start expanded" >
+    <nb-card class="col-lg-12 filtre">
+      <nb-card-header style=" background-color: #2d8ac7;color: white!important;">
+        <div class="col-lg-12">
+          <h4><strong>{{'Filtre' | uppercase }}</strong></h4>
+        </div>
+      </nb-card-header>
+        <div class="row show-grid" >
+          <div class="col-lg-12">
+            <nb-actions size="medium" class="row">
+              <nb-action style="cursor: pointer;" class="col-lg-12" (click)="setCategoryFilter('dep')"
+                         [ngClass]="''+(group==='dep' ? 'activeFiltre' : 'inactiveFiltre')">
+                <div style="text-align: center" class="col-12">Département</div>
+              </nb-action>
+              <nb-action style="cursor: pointer;" class="col-lg-12" (click)="setCategoryFilter('sts')"
+                         [ngClass]="''+(group==='sts' ? 'activeFiltre' : 'inactiveFiltre')">
+                <div style="text-align: center" class="col-12">Statut</div>
+              </nb-action>
+              <nb-action style="cursor: pointer;" class="col-lg-12" (click)="setCategoryFilter('name')"
+                         [ngClass]="''+(group==='name' ? 'activeFiltre' : 'inactiveFiltre')">
+                <div style="text-align: center" class="col-12">Nom</div>
+              </nb-action>
+            </nb-actions>
+          </div>
+        </div>
+    </nb-card>
+      <div [ngSwitch]="group">
+        <div *ngSwitchCase="'dep'">
+          <nb-accordion>
+            <nb-accordion-item *ngFor="let dep of departments">
+              <nb-accordion-item-header (click)="setFilter(dep)">{{dep}}</nb-accordion-item-header>
+              <nb-accordion-item-body>
+                <div *ngFor="let tm of teams[departments.indexOf(dep)]">
+                  <nb-radio-group name="filter-group">
+                    <nb-radio (valueChange)="setFilter(tm)">
+                      {{ tm }}
+                    </nb-radio>
+                  </nb-radio-group>
+                </div>
+              </nb-accordion-item-body>
+            </nb-accordion-item>
+          </nb-accordion>
+        </div>
+        <div *ngSwitchCase="'sts'">
+          <nb-card>
+          <nb-card-body>
+            <div *ngFor="let sts of status">
+              <nb-radio-group name="filter-group">
+                <nb-radio (valueChange)="setFilter(sts)">
+                  {{ sts }}
+                </nb-radio>
+              </nb-radio-group>
+            </div>
+          </nb-card-body>
+          </nb-card>
+        </div>
+        <nb-card *ngSwitchCase="'name'">
+          <nb-card-body>
+            <mat-dialog-content>
+              <form>
+                <mat-form-field class="full-width">
+                  <input [nbFilterInput]="dataSource" matInput placeholder="Recherche" formControlName="search" name="search"/>
+                </mat-form-field>
+              </form>
+            </mat-dialog-content>
+          </nb-card-body>
+        </nb-card>
+      </div>
+  </nb-sidebar>
+
+  <nb-layout-column class="row">
+    <nb-card>
+      <nb-card-body>
+
+        <table [nbTreeGrid]="dataSource" [nbSort]="dataSource" (sort)="updateSort($event)">
+
+          <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="allColumns"></tr>
+          <tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: allColumns"></tr>
+
+          <ng-container *ngFor="let column of defaultColumns; let index = index"
+                        [nbTreeGridColumnDef]="column"
+                        [showOn]="getShowOn(index)">
+            <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(column)" *nbTreeGridHeaderCellDef>
+              {{customAllColumns[defaultColumns.indexOf(column)]}}
+            </th>
+            <td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data[column] || '-'}}</td>
+          </ng-container>
+
+          <ng-container [nbTreeGridColumnDef]="customColumn">
+            <th class="text-capitalize" nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(customColumn)" *nbTreeGridHeaderCellDef>
+              {{customAllColumns[customAllColumns.length-1]}}
+            </th>
+            <td nbTreeGridCell *nbTreeGridCellDef="let row">
+              {{row.data[customColumn]}}
+<!--              <ngx-window-office style="position: absolute" (ChangeOffice)="changeOffice($event)" [office]="getOffice(row.data['officeId'])"></ngx-window-office>-->
+            </td>
+          </ng-container>
+
+        </table>
+
+      </nb-card-body>
+    </nb-card>
+  </nb-layout-column>
+
+  <nb-layout-footer class="OfficeManagerFooter" style="margin-top: 3%">
+    <div class="row show-grid" >
+      <div class="col-lg-12 gallery" >
+        <img class="offset-sm-3 col-sm-3 col-6" src="https://members.loria.fr/infodoc/files/img/DOCLOGO/logo_loria_complet_couleur.png" style="width:100%">
+        <img class="logoDefault col-sm-3  col-6" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Logo_Universit%C3%A9_de_Lorraine.svg/1280px-Logo_Universit%C3%A9_de_Lorraine.svg.png" style="width:100%">
+        <img  class="logoDarOrCom col-sm-3  col-6" src="http://bienvenue.blog.univ-lorraine.fr/files/2019/06/ul-logo.png"  style="width:100%">
+      </div>
+    </div>
+  </nb-layout-footer>
+</nb-layout>

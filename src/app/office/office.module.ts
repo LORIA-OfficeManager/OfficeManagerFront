@@ -8,7 +8,7 @@ import {
     NbActionsModule,
     NbButtonModule,
     NbCardModule, NbCheckboxModule, NbContextMenuModule, NbDialogModule, NbIconModule, NbInputModule,
-    NbLayoutModule, NbPopoverModule, NbRadioModule, NbSearchModule, NbSelectModule,
+    NbLayoutModule, NbListModule, NbPopoverModule, NbRadioModule, NbSearchModule, NbSelectModule,
     NbSidebarModule, NbTabsetModule, NbTooltipModule, NbTreeGridModule, NbUserModule, NbWindowModule,
 } from '@nebular/theme';
 import { ListOfficeComponent } from './temporary/list-office/list-office.component';
@@ -46,6 +46,8 @@ import { DragAndDropDirective } from './admin/drag-and-drop.directive';
 import { ImportComponent } from './admin/import/import.component';
 import {MatButtonModule} from '@angular/material/button';
 import {AuthModule} from './auth/auth.module';
+import { DepartmentComponent } from './admin/department/department.component';
+import { DepartmentItemComponent } from './admin/department/department-item/department-item.component';
 
 @NgModule({
     imports: [
@@ -84,6 +86,7 @@ import {AuthModule} from './auth/auth.module';
         MatButtonToggleModule,
         MatButtonModule,
         AuthModule,
+        NbListModule,
     ],
     declarations: [
         HomePageComponent,
@@ -113,6 +116,8 @@ import {AuthModule} from './auth/auth.module';
         AdminComponent,
         DragAndDropDirective,
         ImportComponent,
+        DepartmentComponent,
+        DepartmentItemComponent,
 
     ],
     providers: [

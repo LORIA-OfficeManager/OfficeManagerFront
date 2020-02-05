@@ -14,6 +14,8 @@
                      [ngClass]="action === 'import' ? 'activeFiltre' : ''"><h6>Import</h6></div>
                 <div (click)="changeAction('export')"
                      [ngClass]="action === 'export' ? 'activeFiltre' : ''"><h6>Export</h6></div>
+                <div (click)="changeAction('department')"
+                     [ngClass]="action === 'department' ? 'activeFiltre' : ''"><h6>Département</h6></div>
             </nb-card-body>
         </nb-card>
     </nb-sidebar>
@@ -36,6 +38,15 @@
                             <hr class="one col-lg-12" >
                         </div>
                     </div>
+                </div>
+                <div *ngSwitchCase="'department'" [ngClass]="action === 'department' ? 'activeFiltre' : ''">
+                    <div class="row col-12">
+                        <h1 class="active titleAction" >Department </h1>
+                        <div class="row col-12 ligne">
+                            <hr class="one col-lg-12" >
+                        </div>
+                    </div>
+                    <ngx-department></ngx-department>
                 </div>
             </div>
         </div>

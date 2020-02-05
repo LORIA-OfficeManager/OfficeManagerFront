@@ -1,0 +1,8 @@
+<nb-card class="department-list-container">
+    <nb-list>
+        <nb-list-item *ngFor="let department of departments">
+            <ngx-department-item (delete)="delete($event)" (update)="update($event)" [department]="department"></ngx-department-item>
+        </nb-list-item>
+    </nb-list>
+
+</nb-card>

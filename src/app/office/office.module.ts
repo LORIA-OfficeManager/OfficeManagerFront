@@ -46,6 +46,9 @@ import { DragAndDropDirective } from './admin/drag-and-drop.directive';
 import { ImportComponent } from './admin/import/import.component';
 import {MatButtonModule} from '@angular/material/button';
 import {AuthModule} from './auth/auth.module';
+import { DialogUpdateOfficeComponent } from './temporary/dialog-update-office/dialog-update-office.component';
+import { FormOfficeComponent } from './form/form-office/form-office.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
     imports: [
@@ -84,6 +87,7 @@ import {AuthModule} from './auth/auth.module';
         MatButtonToggleModule,
         MatButtonModule,
         AuthModule,
+        MatToolbarModule,
     ],
     declarations: [
         HomePageComponent,
@@ -113,6 +117,8 @@ import {AuthModule} from './auth/auth.module';
         AdminComponent,
         DragAndDropDirective,
         ImportComponent,
+        DialogUpdateOfficeComponent,
+        FormOfficeComponent,
 
     ],
     providers: [
@@ -129,6 +135,7 @@ import {AuthModule} from './auth/auth.module';
     ],
     entryComponents: [
         DialogAssignementComponent,
+        DialogUpdateOfficeComponent,
         DetailOfficeComponent,
         WarningPopupComponent,
     ],

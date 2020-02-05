@@ -49,8 +49,8 @@ export class ListPersoComponent implements OnInit {
     this.fetchedData.forEach(k => this.data[this.fetchedData.indexOf(k)] = ListPersoComponent.treeNodeConversion(k));
     this.dataSource = this.dataSourceBuilder.create(this.data);
     this.dataSorting(people);
-    Array.from(people, j => j.officeId).filter(ListPersoComponent.onlyUnique)
-        .forEach(k => this.officeService.fetchOne(k).subscribe(p => this.asyncOfficeInit(k, p.office)));
+    // Array.from(people, j => j.officeId).filter(ListPersoComponent.onlyUnique)
+    //     .forEach(k => this.officeService.fetchOne(k).subscribe(p => this.asyncOfficeInit(k, p.office)));
   }
 
   asyncOfficeInit(id: number, office: Office) {

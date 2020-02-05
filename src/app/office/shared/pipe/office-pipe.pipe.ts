@@ -167,7 +167,6 @@ export class StatusPipe implements PipeTransform {
    */
   transform(p: Person): string {
     const res = p.statusName;
-    if (!this._zombieP.transform(p)) {
       if (res === 'Défaut') {
         return 'fa-chalkboard-teacher';
       } else {
@@ -177,9 +176,6 @@ export class StatusPipe implements PipeTransform {
           return '';
         }
       }
-    } else {
-      return 'fa-biohazard';
-    }
   }
 
   /**

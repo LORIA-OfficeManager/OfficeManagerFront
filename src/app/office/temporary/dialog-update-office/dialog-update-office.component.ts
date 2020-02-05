@@ -2,7 +2,6 @@ import {Component, EventEmitter, Input, OnInit, Output, TemplateRef} from '@angu
 import {NbDialogService} from '@nebular/theme';
 import {FormControl, FormGroup} from '@angular/forms';
 import {OfficeDetail} from '../../shared/interfaces/officeDetail';
-import {OfficeService} from '../../shared/services/office.service';
 
 @Component({
   selector: 'ngx-dialog-update-office',
@@ -15,7 +14,7 @@ export class DialogUpdateOfficeComponent implements OnInit {
   private _submit$: EventEmitter<OfficeDetail>;
   // fomulaire
   form: FormGroup;
-  constructor(private dialogService: NbDialogService, private _officeService: OfficeService) {
+  constructor(private dialogService: NbDialogService) {
     this.form = new FormGroup({
       size: new FormControl(),
     });

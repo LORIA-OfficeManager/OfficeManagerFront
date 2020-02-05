@@ -4,7 +4,7 @@ import {TreeNode} from '../../shared/interfaces/treenode';
 import {NbSortDirection, NbSortRequest, NbTreeGridDataSource, NbTreeGridDataSourceBuilder} from '@nebular/theme';
 import {PersonService} from '../../shared/services/person.service';
 import {Office} from '../../shared/interfaces/office';
-import {OfficeDetailService} from '../../shared/services/office-detail.service';
+
 
 @Component({
   selector: 'ngx-list-perso',
@@ -31,8 +31,7 @@ export class ListPersoComponent implements OnInit {
   officeConversion: Map<number, Office>;
 
 
-  constructor(private dataSourceBuilder: NbTreeGridDataSourceBuilder<Person>, private peopleService: PersonService,
-              private officeService: OfficeDetailService) {
+  constructor(private dataSourceBuilder: NbTreeGridDataSourceBuilder<Person>, private peopleService: PersonService) {
     this.departments = [];
     this.teams = [];
     this.data = [];

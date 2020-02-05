@@ -157,7 +157,7 @@ export class StatusPipe implements PipeTransform {
   /**
    * @param _zombieP
    */
-  constructor(private _zombieP: ZombiePipe) {
+  constructor() {
   }
 
   /**

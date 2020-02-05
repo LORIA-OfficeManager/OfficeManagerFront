@@ -2,7 +2,7 @@
     <nb-card class="helpModal">
         <nb-card-header class="headerOfficeManager">
             Modifier le bureaux : {{officeName}}
-            <nb-icon style="float: right; cursor: pointer" (click)="ref.close();" icon="close-outline"></nb-icon>
+            <nb-icon style="float: right; cursor: pointer; margin: 1% auto" (click)="ref.close();" icon="close-outline"></nb-icon>
         </nb-card-header>
         <nb-card-body class="modalHeight">
             <ngx-form-office (submit)="modifier(ref,$event)" (cancel)="ref.close()" [model]="office.office"></ngx-form-office>

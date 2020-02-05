@@ -18,6 +18,8 @@ export const environment = {
       allOffice: '/office',
       oneOffice: '/office/:id',
       allPeople: '/people',
+      allDepartment: '/department',
+      oneDepartment: '/department/:id',
     },
   },
 };

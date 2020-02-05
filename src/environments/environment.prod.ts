@@ -18,6 +18,8 @@ export const environment = {
       onePerson: '/people/:id',
       assignement: '/assignment/:idO/:idP',
       unassignement: '/assignment/delete/:id',
+      allDepartment: '/department',
+      oneDepartment: '/department/:id',
     },
   },
 };

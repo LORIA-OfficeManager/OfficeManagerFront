@@ -1,4 +1,4 @@
-import {Component, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Department} from '../../shared/interfaces/department';
 import {DepartmentService} from '../../shared/services/department.service';
 import {flatMap} from 'rxjs/operators';

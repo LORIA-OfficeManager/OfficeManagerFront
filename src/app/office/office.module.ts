@@ -49,6 +49,7 @@ import {AuthModule} from './auth/auth.module';
 import { DialogUpdateOfficeComponent } from './temporary/dialog-update-office/dialog-update-office.component';
 import { FormOfficeComponent } from './form/form-office/form-office.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 @NgModule({
     imports: [
@@ -88,6 +89,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
         MatButtonModule,
         AuthModule,
         MatToolbarModule,
+        MatAutocompleteModule,
     ],
     declarations: [
         HomePageComponent,

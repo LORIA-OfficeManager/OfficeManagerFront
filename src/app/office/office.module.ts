@@ -48,6 +48,10 @@ import {MatButtonModule} from '@angular/material/button';
 import {AuthModule} from './auth/auth.module';
 import { DepartmentComponent } from './admin/department/department.component';
 import { DepartmentItemComponent } from './admin/department/department-item/department-item.component';
+import { DialogUpdateOfficeComponent } from './temporary/dialog-update-office/dialog-update-office.component';
+import { FormOfficeComponent } from './form/form-office/form-office.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 @NgModule({
     imports: [
@@ -87,6 +91,8 @@ import { DepartmentItemComponent } from './admin/department/department-item/depa
         MatButtonModule,
         AuthModule,
         NbListModule,
+        MatToolbarModule,
+        MatAutocompleteModule,
     ],
     declarations: [
         HomePageComponent,
@@ -118,6 +124,8 @@ import { DepartmentItemComponent } from './admin/department/department-item/depa
         ImportComponent,
         DepartmentComponent,
         DepartmentItemComponent,
+        DialogUpdateOfficeComponent,
+        FormOfficeComponent,
 
     ],
     providers: [
@@ -134,6 +142,7 @@ import { DepartmentItemComponent } from './admin/department/department-item/depa
     ],
     entryComponents: [
         DialogAssignementComponent,
+        DialogUpdateOfficeComponent,
         DetailOfficeComponent,
         WarningPopupComponent,
     ],

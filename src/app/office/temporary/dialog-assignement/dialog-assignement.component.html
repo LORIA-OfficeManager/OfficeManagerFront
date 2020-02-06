@@ -8,7 +8,7 @@
             <h6>Personne affecté au bureaux {{officename}}</h6>
             <span style="margin: auto" *ngIf="peopleAssign.length === 0"> Ce bureaux est vide</span>
             <ul>
-                <li *ngFor="let person of peopleAssign "> {{person.lastname}} {{person.firstname}}
+                <li *ngFor="let person of peopleAssign" [ngClass]="(person | zombiePipe)"> {{person.lastname}} {{person.firstname}}
                     <nb-icon icon="minus" style="float: right;cursor: pointer" (click)="supp(person)"></nb-icon>
                 </li>
             </ul>
@@ -21,7 +21,8 @@
             <span style="margin: auto" *ngIf="peopleNotAssign().length === 0">
                 Aucune personne n'est affectable à ce bureau</span>
             <ul>
-                <li *ngFor="let person of (peopleNotAssign() |AutoCompletePipeP:search)"> {{person.lastname}} {{person.firstname}}
+                <li *ngFor="let person of (peopleNotAssign() |AutoCompletePipeP:search)"
+                    [ngClass]="(person | zombiePipe)"> {{person.lastname}} {{person.firstname}}
                 <nb-icon nbTooltipStatus="danger" [nbTooltipPlacement]="'start'"
                          nbTooltip="cette personne est déja affecté au bureau {{person.officeName}},
                           l'affecter a un nouveau bureau, le désaffectera de celui ci"

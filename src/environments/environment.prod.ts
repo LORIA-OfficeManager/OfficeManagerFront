@@ -7,7 +7,7 @@ export const environment = {
   production: true,
   backend: {
     protocol: 'http',
-    host: '92.222.9.74',
+    host: '127.0.0.1',
     port: '51000',
     endpoints: {
       allOffice: '/office',
@@ -20,6 +20,7 @@ export const environment = {
       unassignement: '/assignment/delete/:id',
       allDepartment: '/department',
       oneDepartment: '/department/:id',
+      updateCapacity: '/office/capacity',
     },
   },
 };

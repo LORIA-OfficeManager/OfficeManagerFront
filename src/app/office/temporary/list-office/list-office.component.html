@@ -25,6 +25,10 @@
                                    [ngClass]="' '+(filter==='nom' ? 'activeFiltre' : 'inactiveFiltre')">
                             <div style="text-align: center" class="col-12">Nom</div>
                         </nb-action>
+                        <nb-action style="cursor: pointer;" class="col-lg-12" (click)="switchFilter('person')"
+                                   [ngClass]="' '+(filter==='peson' ? 'activeFiltre' : 'inactiveFiltre')">
+                            <div style="text-align: center" class="col-12">Personne</div>
+                        </nb-action>
                     </nb-actions>
                 </div>
             </div>
@@ -39,6 +43,27 @@
                             <mat-form-field class="full-width">
                                 <input  (keyup)="onKey($event)" matInput placeholder="Nom du bureau" formControlName="search" name="seacrh" />
                             </mat-form-field>
+                        </form>
+                    </mat-dialog-content>
+                </nb-card-body>
+            </nb-card>
+            <nb-card *ngSwitchCase="person">
+                <nb-card-body>
+                    <mat-dialog-content>
+                        <form class="example-form">
+                            <mat-form-field class="example-full-width">
+                                <input type="text" placeholder="Nom de la Personne" aria-label="Assignee"
+                                       matInput [formControl]="myControl" [matAutocomplete]="auto">
+                                <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                                        {{option.lastname | uppercase}} {{option.firstname}}
+                                    </mat-option>
+                                </mat-autocomplete>
+                            </mat-form-field>
+                            <span class="errorSearchPersone" *ngIf="isNotAperson(myControl.value)">Vous devez choisir une Personne</span>
+                            <button style="float: right" [disabled]="isNotAperson(myControl.value)"
+                                    (click)="searchperson(myControl.value)"
+                                    outline nbButton status="primary">Rechercher</button>
                         </form>
                     </mat-dialog-content>
                 </nb-card-body>

@@ -4,6 +4,8 @@ import {WarningPopupComponent} from '../../shared/components/warning-popup/warni
 import {Person} from '../../shared/interfaces/person';
 import {PersonService} from '../../shared/services/person.service';
 import { ZombiePipe} from '../../shared/pipe/office-pipe.pipe';
+import {DialogUpdateOfficeComponent} from '../dialog-update-office/dialog-update-office.component';
+
 
 @Component({
   selector: 'ngx-detail-office',
@@ -24,6 +26,11 @@ export class DetailOfficeComponent implements OnInit {
   constructor(public windowRef: NbWindowRef, private dialogService: NbDialogService,
               private _peopleService: PersonService, private _pipeZombie: ZombiePipe) {
     this._data = windowRef.config.context;
+  }
+
+  openDialogUpdateOffice() {
+      this.dialogService.open(DialogUpdateOfficeComponent)
+          .onClose.subscribe(size => this._data.office.size = size);
   }
 
   ngOnInit() {
@@ -110,4 +117,6 @@ export class DetailOfficeComponent implements OnInit {
         }
         return occupation;
     }
+
+    update() {}
 }

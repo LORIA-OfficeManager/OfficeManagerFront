@@ -103,9 +103,10 @@ export class MapComponent implements OnInit  {
                 DetailOfficeComponent,
                 {windowClass: 'headerWindow', title: this.createName(office), context: _},
             );
-            const tmp = _.persons;
+            const tmpP = _.persons;
+            const tmpO = _.office.size;
             nbWindowsRef.onClose.subscribe((__) => {
-              this.changeOffice(tmp !== _.persons );
+              this.changeOffice((tmpP !== _.persons) || (tmpO !== _.office.size) );
             });
           }
         },
@@ -113,6 +114,8 @@ export class MapComponent implements OnInit  {
         () => undefined,
     );
   }
+
+
 
   /**
    * filtre selon l'etage et le batiment

@@ -1,6 +1,12 @@
 .department-list-container {
   width: 80%;
-  margin: auto;
+  margin: auto auto 34px;
+}
+
+@media screen and (max-width: 575px) {
+  .department-list-container {
+    width: 90%;
+  }
 }
 
 .list-item {
@@ -17,7 +23,7 @@
 
   button {
     float: right;
-    margin-right: 52px;
+    margin-right: 0px;
   }
 
   input {

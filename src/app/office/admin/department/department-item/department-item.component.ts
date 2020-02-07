@@ -11,9 +11,12 @@ export class DepartmentItemComponent implements OnInit {
   private readonly _delete$: EventEmitter<number>;
   private readonly _update$: EventEmitter<Department>;
 
+  private _state: string;
+
   constructor() {
     this._delete$ = new EventEmitter<number>();
     this._update$ = new EventEmitter<Department>();
+    this._state = 'collapsed';
   }
 
   ngOnInit() {
@@ -44,5 +47,13 @@ export class DepartmentItemComponent implements OnInit {
 
   delete(): void {
     this._delete$.emit(this._department.id);
+  }
+
+  toggle(): void {
+    this._state = this._state === 'expanded' ? 'collapsed' : 'expanded';
+  }
+
+  get state() {
+    return this._state;
   }
 }

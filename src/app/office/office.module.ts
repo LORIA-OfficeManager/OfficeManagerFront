@@ -52,6 +52,7 @@ import { DialogUpdateOfficeComponent } from './temporary/dialog-update-office/di
 import { FormOfficeComponent } from './form/form-office/form-office.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { DepartmentItemHeaderComponent } from './admin/department/department-item-header/department-item-header.component';
 
 @NgModule({
     imports: [
@@ -126,6 +127,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
         DepartmentItemComponent,
         DialogUpdateOfficeComponent,
         FormOfficeComponent,
+        DepartmentItemHeaderComponent,
 
     ],
     providers: [

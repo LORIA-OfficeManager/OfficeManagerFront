@@ -15,6 +15,7 @@ export class DepartmentComponent implements OnInit {
   private _form: FormGroup;
 
   constructor(private _departmentService: DepartmentService) {
+    this._departments = [];
     this._form = new FormGroup({
       name: new FormControl(''),
     });

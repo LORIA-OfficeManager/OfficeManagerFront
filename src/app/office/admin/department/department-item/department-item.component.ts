@@ -7,13 +7,11 @@ import {Department} from '../../../shared/interfaces/department';
   styleUrls: ['./department-item.component.scss'],
 })
 export class DepartmentItemComponent implements OnInit {
-  private _mode: string;
   private _department: Department;
-  private _delete$: EventEmitter<number>;
-  private _update$: EventEmitter<Department>;
+  private readonly _delete$: EventEmitter<number>;
+  private readonly _update$: EventEmitter<Department>;
 
   constructor() {
-    this._mode = 'vue';
     this._delete$ = new EventEmitter<number>();
     this._update$ = new EventEmitter<Department>();
   }
@@ -40,24 +38,8 @@ export class DepartmentItemComponent implements OnInit {
     return this._department;
   }
 
-  get mode(): string {
-    return this._mode;
-  }
-
-  editMode(): void {
-    this._mode = 'edit';
-  }
-
   update(val: string): void {
-    if (val.trim() !== '' && val !== this._department.name) {
-      this._department.name = val;
       this._update$.emit(this._department);
-    }
-    this._mode = 'vue';
-  }
-
-  cancel(): void {
-    this._mode = 'vue';
   }
 
   delete(): void {

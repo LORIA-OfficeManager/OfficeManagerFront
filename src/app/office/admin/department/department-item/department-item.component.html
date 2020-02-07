@@ -1,14 +1,1 @@
-
-
-<div *ngIf="mode === 'vue'" class="item-department vue-mode">
-    <div class="item-name"><p *ngIf="mode !== 'edit'">{{department.name}}</p></div>
-
-    <button nbButton size="tiny" status="danger" ghost (click)="delete()"><nb-icon icon="close-outline"></nb-icon></button>
-    <button nbButton size="tiny" (click)="editMode()"><nb-icon icon="edit-outline"></nb-icon></button>
-</div>
-<div *ngIf="mode === 'edit'" class="item-department edit-mode">
-    <input type="text" #box (keyup.enter)="update(box.value)" value="{{department.name}}">
-    <button nbButton ghost size="tiny" (click)="cancel()"><nb-icon icon="slash-outline"></nb-icon></button>
-    <button nbButton size="tiny" (click)="update(box.value)"><nb-icon icon="checkmark-outline"></nb-icon></button>
-</div>
-
+<ngx-department-item-header (delete)="delete()" (update)="update($event)" [department]="department.name"></ngx-department-item-header>

@@ -7,9 +7,10 @@
                 <button type="submit" nbButton (click)="create(form.get('name').value)" size="tiny"><nb-icon icon="checkmark-outline"></nb-icon></button>
             </form>
         </nb-list-item>
-        <nb-list-item *ngFor="let department of departments">
+        <nb-list-item *ngFor="let department of departments" >
             <ngx-department-item (delete)="delete($event)" (update)="update($event)" [department]="department"></ngx-department-item>
         </nb-list-item>
+
         <nb-list-item *ngIf="isEmpty()">
             <p class="info" >Il n'y a pas de département</p>
         </nb-list-item>

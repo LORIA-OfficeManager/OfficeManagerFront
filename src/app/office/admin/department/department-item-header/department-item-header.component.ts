@@ -1,5 +1,4 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Department} from '../../../shared/interfaces/department';
 
 @Component({
   selector: 'ngx-department-item-header',

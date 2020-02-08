@@ -8,7 +8,7 @@ import {
     NbActionsModule,
     NbButtonModule,
     NbCardModule, NbCheckboxModule, NbContextMenuModule, NbDialogModule, NbIconModule, NbInputModule,
-    NbLayoutModule, NbPopoverModule, NbRadioModule, NbSearchModule, NbSelectModule,
+    NbLayoutModule, NbListModule, NbPopoverModule, NbRadioModule, NbSearchModule, NbSelectModule,
     NbSidebarModule, NbTabsetModule, NbTooltipModule, NbTreeGridModule, NbUserModule, NbWindowModule,
 } from '@nebular/theme';
 import { ListOfficeComponent } from './temporary/list-office/list-office.component';
@@ -46,6 +46,13 @@ import { DragAndDropDirective } from './admin/drag-and-drop.directive';
 import { ImportComponent } from './admin/import/import.component';
 import {MatButtonModule} from '@angular/material/button';
 import {AuthModule} from './auth/auth.module';
+import { DepartmentComponent } from './admin/department/department.component';
+import { DepartmentItemComponent } from './admin/department/department-item/department-item.component';
+import { DialogUpdateOfficeComponent } from './temporary/dialog-update-office/dialog-update-office.component';
+import { FormOfficeComponent } from './form/form-office/form-office.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { DepartmentItemHeaderComponent } from './admin/department/department-item-header/department-item-header.component';
 
 @NgModule({
     imports: [
@@ -84,6 +91,9 @@ import {AuthModule} from './auth/auth.module';
         MatButtonToggleModule,
         MatButtonModule,
         AuthModule,
+        NbListModule,
+        MatToolbarModule,
+        MatAutocompleteModule,
     ],
     declarations: [
         HomePageComponent,
@@ -113,6 +123,11 @@ import {AuthModule} from './auth/auth.module';
         AdminComponent,
         DragAndDropDirective,
         ImportComponent,
+        DepartmentComponent,
+        DepartmentItemComponent,
+        DialogUpdateOfficeComponent,
+        FormOfficeComponent,
+        DepartmentItemHeaderComponent,
 
     ],
     providers: [
@@ -129,6 +144,7 @@ import {AuthModule} from './auth/auth.module';
     ],
     entryComponents: [
         DialogAssignementComponent,
+        DialogUpdateOfficeComponent,
         DetailOfficeComponent,
         WarningPopupComponent,
     ],

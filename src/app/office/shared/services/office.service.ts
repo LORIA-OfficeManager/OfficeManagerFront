@@ -48,6 +48,14 @@ export class OfficeService {
       formData.append('file', files[0]);
       return  this._http.post( this._backendURL.importOffice, formData);
   }
+
+  /**
+   *
+   * @param office
+   */
+  updateCapacity(office: Office) {
+    return  this._http.put<Office>(this._backendURL.updateCapacity, office);
+  }
   // /**
   //  *
   //  * @param files
@@ -55,7 +63,7 @@ export class OfficeService {
   // importDefault(): Observable<any> {
   //   return  this._http.get( this._backendURL.importOffice);
   // }
-
+  //
   // /**
   //  * Function to return request options
   //  */

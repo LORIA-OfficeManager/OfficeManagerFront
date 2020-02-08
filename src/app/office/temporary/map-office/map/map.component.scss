@@ -58,7 +58,7 @@ text {
         stroke: #ffffff !important;
       }
 
-      .emptyOffice {
+      .emptyOffice .office {
         fill: #ffffff !important;
       }
 
@@ -108,7 +108,7 @@ text {
       .roomPlan {
         fill: #323259 !important;;
       }
-      .emptyOffice {
+      .emptyOffice .office {
         fill: #323259 !important;
       }
       .onlywall {
@@ -165,7 +165,7 @@ text {
       ellipse {
         stroke: #222b45 !important;
       }
-      .emptyOffice {
+      .emptyOffice .office {
         fill: #222b45 !important;
       }
       .roomPlan {
@@ -219,7 +219,7 @@ text {
       }
 
       text {
-        opacity: 0.5 !important;
+        opacity: 0.3 !important;
       }
     }
   }
@@ -243,14 +243,27 @@ text {
   .nb-theme-default, .nb-theme-corporate {
     svg.filteremptyOffice {
       .emptyOffice {
-        opacity: 1!important;
-        stroke: black!important;
-        stroke-width: 1!important;
+        .office {
+          opacity: 1!important;
+          stroke: black!important;
+          stroke-width: 1!important;
+        }
+        text {
+          opacity: 1!important;
+        }
       }
       .StrangerOfficeemptyOffice {
-        opacity: 1!important;
-        stroke: black!important;
-        stroke-width: 1!important;
+        .office {
+          opacity: 1!important;
+          stroke: black!important;
+          stroke-width: 1!important;
+        }
+        text {
+          opacity: 1!important;
+        }
+      }
+      text {
+        opacity: 0.3;
       }
     }
     .officeHover:hover {
@@ -284,14 +297,27 @@ text {
   .nb-theme-dark, .nb-theme-cosmic {
     svg.filteremptyOffice {
       .emptyOffice {
-        opacity: 1!important;
-        stroke: white!important;
-        stroke-width: 1!important;
+        .office {
+          opacity: 1 !important;
+          stroke: white !important;
+          stroke-width: 1 !important;
+        }
+        text {
+          opacity: 1!important;
+        }
       }
       .StrangerOfficeemptyOffice {
-        opacity: 1!important;
-        stroke: white!important;
-        stroke-width: 1!important;
+        .office {
+          opacity: 1 !important;
+          stroke: white !important;
+          stroke-width: 1 !important;
+        }
+        text {
+          opacity: 1!important;
+        }
+      }
+      text {
+        opacity: 0.3;
       }
     }
     .officeHover:hover {
@@ -327,10 +353,20 @@ text {
 /******************************************filtre etat*****************************************************************/
 svg.filterfullOffice {
   .fullOffice {
-    opacity: 1!important;
+    .office {
+      opacity: 1 !important;
+    }
+    text {
+      opacity: 1!important;
+    }
   }
-  .fullOfficeStrangerOffice {
-    opacity: 1!important;
+  .StrangerOfficefullOffice {
+    .office {
+      opacity: 1 !important;
+    }
+    text {
+      opacity: 1!important;
+    }
   }
   rect {
     opacity: 0.5!important;
@@ -343,15 +379,28 @@ svg.filterfullOffice {
   }
   ellipse {
     opacity: 0.5!important;
+  }
+  text {
+    opacity: 0.3;
   }
 }
 
 svg.filtermoreThanFullOffice {
   .moreThanFullOffice {
-    opacity: 1!important;
+    .office {
+      opacity: 1 !important;
+    }
+    text {
+      opacity: 1!important;
+    }
   }
   .StrangerOfficemoreThanFullOffice {
-    opacity: 1!important;
+    .office {
+      opacity: 1 !important;
+    }
+    text {
+      opacity: 1!important;
+    }
   }
   rect {
     opacity: 0.5!important;
@@ -365,14 +414,27 @@ svg.filtermoreThanFullOffice {
   ellipse {
     opacity: 0.5!important;
   }
+  text {
+    opacity: 0.3;
+  }
 }
 
 svg.filternotFullOffice {
   .notFullOffice {
-    opacity: 1!important;
+    .office {
+      opacity: 1 !important;
+    }
+    text {
+      opacity: 1!important;
+    }
   }
   .StrangerOfficenotFullOffice {
-    opacity: 1!important;
+    .office {
+      opacity: 1 !important;
+    }
+    text {
+      opacity: 1!important;
+    }
   }
   rect {
     opacity: 0.5!important;
@@ -386,20 +448,43 @@ svg.filternotFullOffice {
   ellipse {
     opacity: 0.5!important;
   }
+  text {
+    opacity: 0.3;
+  }
 }
 
 svg.filterStrangerOffice {
   .StrangerOfficefullOffice {
-    opacity: 1!important;
+    .office {
+      opacity: 1 !important;
+    }
+    text {
+      opacity: 1!important;
+    }
   }
   .StrangerOfficemoreThanFullOffice {
-    opacity: 1!important;
+    .office {
+      opacity: 1 !important;
+    }
+    text {
+      opacity: 1!important;
+    }
   }
   .StrangerOfficenotFullOffice {
-    opacity: 1!important;
+    .office {
+      opacity: 1 !important;
+    }
+    text {
+      opacity: 1!important;
+    }
   }
   .StrangerOfficeemptyOffice {
-    opacity: 1!important;
+    .office {
+      opacity: 1 !important;
+    }
+    text {
+      opacity: 1!important;
+    }
   }
   rect {
     opacity: 0.5!important;
@@ -412,6 +497,9 @@ svg.filterStrangerOffice {
   }
   ellipse {
     opacity: 0.5!important;
+  }
+  text {
+    opacity: 0.3;
   }
 }
 svg.filternone {
@@ -426,30 +514,30 @@ svg.filternone {
 
 /******************************************code couleur****************************************************************/
 
-.fullOffice {
+.fullOffice .office {
   fill: $color-officeFull!important;
 }
-.moreThanFullOffice {
+.moreThanFullOffice .office {
   fill: $color-officeMoreThanFull!important;
 }
-.notFullOffice {
+.notFullOffice .office {
   fill: $color-officeNoEmpty!important;
 }
 
-.emptyOffice {
+.emptyOffice .office {
   fill: $color-officeEmpty;
 }
 
-.StrangerOfficefullOffice {
+.StrangerOfficefullOffice .office {
   fill: url('#pattern-fullOffice');
 }
-.StrangerOfficemoreThanFullOffice {
+.StrangerOfficemoreThanFullOffice .office {
   fill: url('#pattern-moreThanFullOffice');
 }
-.StrangerOfficenotFullOffice {
+.StrangerOfficenotFullOffice .office {
   fill: url('#pattern-notFullOffice');
 }
-.StrangerOfficeemptyOffice {
+.StrangerOfficeemptyOffice .office {
   fill: url('#pattern-emptyOffice');
 }
 hr.one {

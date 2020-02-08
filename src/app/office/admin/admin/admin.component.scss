@@ -23,6 +23,10 @@ hr.one {
   padding-right: 1%;
 }
 
+.menu-title {
+  cursor: pointer;
+}
+
 /***************************************sidebar&footer***********************************************************/
 
 ::ng-deep .nb-theme-default nb-sidebar.compacted.left.fixed ~ .content {

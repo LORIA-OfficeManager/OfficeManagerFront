@@ -37,9 +37,10 @@ export class WindowOfficeComponent implements OnInit {
           DetailOfficeComponent,
           {windowClass: 'headerWindow', title:  this.name( _.office ), context: _ },
       );
-      const tmp = _.persons;
+      const tmpP = _.persons;
+      const tmpO = _.office.size;
       nbWindowsRef.onClose.subscribe((__) => {
-        this.change(tmp !== _.persons );
+        this.change((tmpP !== _.persons) || (tmpO !== _.office.size) );
       });
     });
   }

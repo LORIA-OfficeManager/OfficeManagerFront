@@ -7,7 +7,7 @@
         <nb-card class="col-lg-12 filtre">
             <nb-card-header style=" background-color: #2d8ac7;color: white!important;">
                 <div class="col-lg-12">
-                    <h4><strong>{{'Filtre' | uppercase }}</strong></h4>
+                    <h4><strong>FILTRE</strong></h4>
                 </div>
             </nb-card-header>
             <div class="row show-grid" >
@@ -29,6 +29,10 @@
                                    [ngClass]="' '+(filter==='peson' ? 'activeFiltre' : 'inactiveFiltre')">
                             <div style="text-align: center" class="col-12">Personne</div>
                         </nb-action>
+<!--                        <nb-action style="cursor: pointer;" class="col-lg-12" (click)="switchFilter('date')"-->
+<!--                                   [ngClass]="' '+(filter==='date' ? 'activeFiltre' : 'inactiveFiltre')">-->
+<!--                            <div style="text-align: center" class="col-12">Date</div>-->
+<!--                        </nb-action>-->
                     </nb-actions>
                 </div>
             </div>
@@ -68,6 +72,11 @@
                     </mat-dialog-content>
                 </nb-card-body>
             </nb-card>
+<!--            <nb-card *ngSwitchCase="date">-->
+<!--                <nb-card-body>-->
+<!--                    <ngx-date-picker  (submit)="updateOfficeTimeT($event)"></ngx-date-picker>-->
+<!--                </nb-card-body>-->
+<!--            </nb-card>-->
         </div>
     </nb-sidebar>
     <nb-layout-column class="row">

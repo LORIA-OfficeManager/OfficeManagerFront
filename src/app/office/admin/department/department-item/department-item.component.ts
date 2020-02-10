@@ -42,6 +42,7 @@ export class DepartmentItemComponent implements OnInit {
   }
 
   update(val: string): void {
+      this._department.name = val;
       this._update$.emit(this._department);
   }
 

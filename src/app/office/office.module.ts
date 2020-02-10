@@ -7,9 +7,25 @@ import {
     NbAccordionModule,
     NbActionsModule,
     NbButtonModule,
-    NbCardModule, NbCheckboxModule, NbContextMenuModule, NbDialogModule, NbIconModule, NbInputModule,
-    NbLayoutModule, NbListModule, NbPopoverModule, NbRadioModule, NbSearchModule, NbSelectModule,
-    NbSidebarModule, NbTabsetModule, NbTooltipModule, NbTreeGridModule, NbUserModule, NbWindowModule,
+    NbCardModule,
+    NbCheckboxModule,
+    NbContextMenuModule,
+    NbDatepickerModule,
+    NbDialogModule,
+    NbIconModule,
+    NbInputModule,
+    NbLayoutModule,
+    NbListModule,
+    NbPopoverModule,
+    NbRadioModule,
+    NbSearchModule,
+    NbSelectModule,
+    NbSidebarModule,
+    NbTabsetModule,
+    NbTooltipModule,
+    NbTreeGridModule,
+    NbUserModule,
+    NbWindowModule,
 } from '@nebular/theme';
 import { ListOfficeComponent } from './temporary/list-office/list-office.component';
 import { SideBarListBuildingComponent} from './temporary/side-bar-list-building/side-bar-list-building.component';
@@ -53,6 +69,8 @@ import { FormOfficeComponent } from './form/form-office/form-office.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { DepartmentItemHeaderComponent } from './admin/department/department-item-header/department-item-header.component';
+import { DatePickerComponent } from './shared/components/date-picker/date-picker.component';
+import { CustomValidatorDirective } from './shared/validator/custom-validator.directive';
 
 @NgModule({
     imports: [
@@ -94,6 +112,7 @@ import { DepartmentItemHeaderComponent } from './admin/department/department-ite
         NbListModule,
         MatToolbarModule,
         MatAutocompleteModule,
+        NbDatepickerModule,
     ],
     declarations: [
         HomePageComponent,
@@ -128,6 +147,8 @@ import { DepartmentItemHeaderComponent } from './admin/department/department-ite
         DialogUpdateOfficeComponent,
         FormOfficeComponent,
         DepartmentItemHeaderComponent,
+        DatePickerComponent,
+        CustomValidatorDirective,
 
     ],
     providers: [

@@ -40,6 +40,42 @@ export class OfficeService {
   }
 
   /**
+   * renvoit la liste des bureaux
+   */
+  officeDate(timestamp: number): Observable<Office[]> {
+    return this._http.get<Office[]>(this._backendURL.officeDate.replace(':timestamp', timestamp))
+        .pipe(
+            filter(_ => !!_),
+            defaultIfEmpty([]),
+        );
+  }
+//   @GetMapping("date/{timestamp}")
+//   public ResponseEntity<List<OfficesDto>> getOffices(@PathVariable long timestamp){
+//   List<Office> offices = officeService.fetchAll();
+//   //Liste des occupations par bureau
+//   List<Double> occupations = new ArrayList<Double>();
+//   for(Office office: offices){
+//   Double occupation = 0.0;
+//   List<OfficeAssignment> officeAssignments = officeAssignmentService.findByOfficeID(office.getId(), true);
+//   for(OfficeAssignment oa : officeAssignments) {
+//   if (timestamp > oa.getStartDate().toEpochDay()*24*60*60*1000 &&
+//   timestamp < oa.getEndDate().toEpochDay()*24*60*60*1000){
+//   occupation += oa.getPerson().getStatus().getSize();
+// }
+// }
+// //occupations.add(this.findOccupationByOfficeId(office.getId()));
+// occupations.add(occupation);
+// }
+// //List de si il y a un étranger par bureau
+// List<Boolean> hasStrangers = new ArrayList<Boolean>();
+// for(Office office: offices){
+//   hasStrangers.add(officeAssignmentService.hasStrangerByOfficeId(office.getId()));
+// }
+// List<OfficesDto> officesDTO = mapOfficesDtosFromOffices(offices, occupations, hasStrangers);
+// return new ResponseEntity<List<OfficesDto>>(officesDTO, HttpStatus.OK);
+// }
+
+  /**
    *
    * @param files
    */

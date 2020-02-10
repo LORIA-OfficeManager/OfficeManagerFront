@@ -12,6 +12,7 @@ export const environment = {
     endpoints: {
       allOffice: '/office',
       oneOffice: '/office/:id',
+      officeDate: '/office/date/:timestamp',
       importOffice: '/import/office',
       importPerson: '/import/person',
       allPeople: '/people',

@@ -95,24 +95,26 @@ export class MapComponent implements OnInit  {
    * @param name
    */
   openWindow(name: string) {
-    const  office = this.findoffice(name);
-    this.serviceOfficeD.fetchOne(office.id).subscribe(
-        (_: OfficeDetail) => {
-          if ( _ !== null ) {
-            const nbWindowsRef = this.windowService.open(
-                DetailOfficeComponent,
-                {windowClass: 'headerWindow', title: this.createName(office), context: _},
-            );
-            const tmpP = _.persons;
-            const tmpO = _.office.size;
-            nbWindowsRef.onClose.subscribe((__) => {
-              this.changeOffice((tmpP !== _.persons) || (tmpO !== _.office.size) );
-            });
-          }
-        },
-        () => undefined,
-        () => undefined,
-    );
+    if (!this._stateFilter.dateFilter) { // on ne doit pas pouvoir affiché le detaille des bureaux a une date t
+      const office = this.findoffice(name);
+      this.serviceOfficeD.fetchOne(office.id).subscribe(
+          (_: OfficeDetail) => {
+            if (_ !== null) {
+              const nbWindowsRef = this.windowService.open(
+                  DetailOfficeComponent,
+                  {windowClass: 'headerWindow', title: this.createName(office), context: _},
+              );
+              const tmpP = _.persons;
+              const tmpO = _.office.size;
+              nbWindowsRef.onClose.subscribe((__) => {
+                this.changeOffice((tmpP !== _.persons) || (tmpO !== _.office.size));
+              });
+            }
+          },
+          () => undefined,
+          () => undefined,
+      );
+    }
   }
 
 

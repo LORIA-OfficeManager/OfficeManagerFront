@@ -13,6 +13,8 @@ export interface StateFilter {
     floor: number;
     building: string;
     stateOffice: string;
+    dateFilter: boolean;
+    officeTimeT: Office[];
 }
 
 

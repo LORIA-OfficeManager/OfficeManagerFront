@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+
+  example:
+    container_name: office_managaer_front
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    ports:
+      - '4201:4200'

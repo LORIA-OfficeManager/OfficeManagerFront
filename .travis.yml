@@ -20,6 +20,7 @@ before_install:
 script:
  - echo "npm test temporarily disabled"
 install:
+- docker network create officemanager-back_office-manager-bridge
 - docker-compose up -d --build
 deploy:
   provider: script

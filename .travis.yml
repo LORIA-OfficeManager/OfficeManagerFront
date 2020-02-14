@@ -27,6 +27,9 @@ deploy:
   script: rsync -r --delete-after --quiet $TRAVIS_BUILD_DIR/ root@51.178.82.205:/deploy/officemanager-front
   on:
     branch: master
+after_deploy:
+- ssh root@51.178.82.205 'chmod 777 /deploy/officemanager-front/script.sh'
+- ssh root@51.178.82.205 '/deploy/officemanager-front/script.sh'
 after_success:
 - wget https://raw.githubusercontent.com/DiscordHooks/travis-ci-discord-webhook/master/send.sh
 - chmod +x send.sh

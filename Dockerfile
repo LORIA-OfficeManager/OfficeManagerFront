@@ -15,4 +15,4 @@ RUN npm fund
 COPY . /app
 
 # start app
-CMD npm run build:prod --port 50000
+ENTRYPOINT ng serve --host 0.0.0.0 --port 50000

@@ -17,9 +17,15 @@ export const environment = {
     endpoints: {
       allOffice: '/office',
       oneOffice: '/office/:id',
+      importOffice: '/import/office',
+      importPerson: '/import/person',
       allPeople: '/people',
+      onePerson: '/people/:id',
+      assignement: '/assignment/:idO/:idP',
+      unassignement: '/assignment/delete/:id',
       allDepartment: '/department',
       oneDepartment: '/department/:id',
+      updateCapacity: '/office/capacity',
     },
   },
 };

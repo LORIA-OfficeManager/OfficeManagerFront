@@ -7,7 +7,7 @@ export const environment = {
   production: true,
   backend: {
     protocol: 'http',
-    host: 'office_manager_back',
+    host: '51.178.82.205',
     port: '51000',
     endpoints: {
       allOffice: '/office',

@@ -12,3 +12,7 @@ services:
       - '/app/node_modules'
     ports:
       - '50000:50000'
+    networks: 
+      default:
+        external: 
+          name: office-manager-bridge

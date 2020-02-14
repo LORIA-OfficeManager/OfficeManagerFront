@@ -17,4 +17,4 @@ services:
 networks: 
   default:
     external: 
-      name: office-manager-bridge
+      name: officemanager-back_office-manager-bridge

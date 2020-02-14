@@ -15,4 +15,4 @@ RUN npm fund
 COPY . /app
 
 # start app
-CMD npm run build:prod --host 0.0.0.0 
+CMD npm run build:prod

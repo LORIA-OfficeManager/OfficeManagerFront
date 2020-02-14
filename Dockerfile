@@ -15,4 +15,4 @@ RUN npm fund
 COPY . /app
 
 # start app
-CMD npm run build:prod
+CMD npm run build:prod --port 50000

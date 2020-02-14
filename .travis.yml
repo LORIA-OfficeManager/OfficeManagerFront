@@ -15,6 +15,7 @@ before_deploy:
 - ssh-add /tmp/deploy_rsa
 before_install:
  - npm install -g @angular/cli
+ - npm install
 install:
 - docker-compose up -d --build
 deploy:

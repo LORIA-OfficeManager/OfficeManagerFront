@@ -4,7 +4,6 @@ import {WarningPopupComponent} from '../../shared/components/warning-popup/warni
 import {Person} from '../../shared/interfaces/person';
 import {PersonService} from '../../shared/services/person.service';
 import { ZombiePipe} from '../../shared/pipe/office-pipe.pipe';
-import {DialogUpdateOfficeComponent} from '../dialog-update-office/dialog-update-office.component';
 
 
 @Component({

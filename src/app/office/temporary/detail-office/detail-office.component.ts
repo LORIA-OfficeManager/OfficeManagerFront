@@ -14,99 +14,126 @@ import {DialogUpdateOfficeComponent} from '../dialog-update-office/dialog-update
   entryComponents: [WarningPopupComponent],
 })
 export class DetailOfficeComponent implements OnInit {
-  // donnée du bureau
-  private _data: any;
-  /**
-   * constructor
-   * @param windowRef
-   * @param dialogService
-   * @param _peopleService
-   * @param _pipeZombie
-   */
-  constructor(public windowRef: NbWindowRef, private dialogService: NbDialogService,
+    // donnee du bureau
+    private _data: any;
+
+    /**
+     * constructor
+     * @param windowRef
+     * @param dialogService
+     * @param _peopleService
+     * @param _pipeZombie
+     */
+    constructor(public windowRef: NbWindowRef, private dialogService: NbDialogService,
               private _peopleService: PersonService, private _pipeZombie: ZombiePipe) {
-    this._data = windowRef.config.context;
-  }
+        this._data = windowRef.config.context;
+    }
+    //
+    // openDialogUpdateOffice() {
+    //     this.dialogService.open(DialogUpdateOfficeComponent)
+    //       .onClose.subscribe(size => this._data.office.size = size);
+    // }
+    /**
+     *
+     */
+    ngOnInit() {
+    }
 
-  openDialogUpdateOffice() {
-      this.dialogService.open(DialogUpdateOfficeComponent)
-          .onClose.subscribe(size => this._data.office.size = size);
-  }
-
-  ngOnInit() {
-  }
-
-  /**
-   * ferme la dialog
-   */
-  close() {
-      this.windowRef.close();
-  }
-
-  open(id: number) {
+    // /**
+    // * ferme la dialog
+    // */
+    // close() {
+    //   this.windowRef.close();
+    // }
+    /**
+     * ouvre la modal qui permet de supprimer une personne
+     * @param id
+     */
+    open(id: number) {
       this.dialogService.open(WarningPopupComponent, { context: 'this is some additional data passed to dialog' })
         .onClose.subscribe(name => name && (this.data.persons = this.data.persons.filter(value => value !== id)));
-  }
+    }
 
-  /*******************************************************GET&SETTER*************************************************/
-  get data(): any {
-    return this._data;
-  }
+    /**
+     * supprime une personne du buerau
+     * @param perso
+     */
+    suppPersonne(perso: Person) {
+        this._peopleService.unassignement(perso.id).subscribe( (_) => {
+                this.assignement(this._data.persons = this._data.persons.filter(__ => __.id !== perso.id));
+            },
+            (_) => undefined,
+        );
+    }
 
-  suppPersonne(event: Person) {
-      this._peopleService.unassignement(event.id).subscribe( (_) => {
-          this.assignement(this._data.persons = this._data.persons.filter(__ => __.id !== event.id));
-          },
-      (_) => undefined,
-      );
-  }
+    /**
+     * ajoute une personne au bureau
+     * @param _
+     */
+    addPeople(_: Person) {
+        this._data.persons.push({
+            id: _.id,
+            firstname: _.firstname,
+            lastname: _.lastname,
+            endDateAffectation: _.endDateAffectation,
+            endDateContract: _.endDateContract,
+            startDateAffectation: _.startDateAffectation,
+            startDateContract: _.startDateContract,
+            statusName: _.statusName,
+        } as Person);
+        this._data.office.occupation = this._data.office.occupation  + this.ocupation(_);
+        if (this._pipeZombie.transform(_) === 'Stranger') {
+            this._data.office.hasStranger = true;
+        }
+    }
 
-  /**
-   *
-   */
-  name(): string {
-    return  this._data.office.building + '' + this._data.office.floor + '' + this._data.office.num + '';
-  }
+    /**
+     * Remplie le tableau de personne
+     * @param people
+     */
+    assignement(people: Person[]) {
+        // on supprime les valeurs du tableau
+        for (const oldperson of this._data.persons) {
+            const contains = people.filter(__ => __.id === oldperson.id);
+            if ( contains.length === 0 ) {
+                this.suppPersonne( oldperson);
+            }
+        }
+        // on re remplie le tableau
+        this._data.persons = [];
+        this._data.office.hasStranger = false;
+        this._data.office.occupation = 0;
+        for (const person of people) {
+            // si la personne etait deja affecte on l ajoute au tableau
+            if (person.officeName === this.name()) {
+                this.addPeople(person);
+            } else {
+                // sinon on l'ajoute a la base de donnée
+                this._peopleService.assignement(this._data.office.id, person.id).subscribe(
+                    (_) => this.addPeople(person),
+                );
+            }
+        }
+    }
+    /*******************************************************GET&SETTER*************************************************/
+    /////// data
+    get data(): any {
+        return this._data;
+    }
 
-  addPeople(_: Person) {
-      this._data.persons.push({
-      id: _.id,
-      firstname: _.firstname,
-      lastname: _.lastname,
-      endDateAffectation: _.endDateAffectation,
-      endDateContract: _.endDateContract,
-      startDateAffectation: _.startDateAffectation,
-      startDateContract: _.startDateContract,
-      statusName: _.statusName,
-      } as Person);
-      this._data.office.occupation = this._data.office.occupation  + this.ocupation(_);
-      if (this._pipeZombie.transform(_) === 'Stranger') {
-          this._data.office.hasStranger = true;
-      }
-  }
-  assignement(people: Person[]) {
-      for (const oldperson of this._data.persons) {
-          const contains = people.filter(__ => __.id === oldperson.id);
-          if ( contains.length === 0 ) {
-              this.suppPersonne( oldperson);
-          }
-      }
-      this._data.persons = [];
-      this._data.office.hasStranger = false;
-      this._data.office.occupation = 0;
-      for (const person of people) {
-          if (person.officeName === this.name()) {
-              this.addPeople(person);
-          } else {
-              this._peopleService.assignement(this._data.office.id, person.id).subscribe(
-                  (_) => this.addPeople(person),
-              );
-          }
-      }
-  }
+    /**
+    * reconstruit le nom d un bureau
+    */
+    name(): string {
+        return  this._data.office.building + '' + this._data.office.floor + '' + this._data.office.num + '';
+    }
 
+    /**
+     * on retourne l'occupation selon le status
+     * @param _
+     */
     ocupation(_: Person): number {
-      let occupation = 0;
+        let occupation = 0;
         switch (_.statusName) {
             case 'Défaut':
                 occupation++;

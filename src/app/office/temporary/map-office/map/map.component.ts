@@ -4,6 +4,7 @@ import {DetailOfficeComponent} from '../../detail-office/detail-office.component
 import {NbWindowService} from '@nebular/theme';
 import {OfficeDetailService} from '../../../shared/services/office-detail.service';
 import {Office} from '../../../shared/interfaces/office';
+import {StateFilter} from '../../../shared/interfaces/state-filter';
 
 
 @Component({
@@ -15,10 +16,10 @@ import {Office} from '../../../shared/interfaces/office';
 
 export class MapComponent implements OnInit  {
   // etat des filtres
-  private _stateFilter: any;
+  private _stateFilter: StateFilter;
   // liste des bureaux
   private _offices: Office[];
-  //
+  // event
   private _changeOffice$: EventEmitter<boolean>;
 
   /**
@@ -52,7 +53,6 @@ export class MapComponent implements OnInit  {
    */
   @Input()
   set offices( _: Office[]) {
-    // console.log('newdata');
     this._offices = _;
   }
 
@@ -104,9 +104,13 @@ export class MapComponent implements OnInit  {
                   DetailOfficeComponent,
                   {windowClass: 'headerWindow', title: this.createName(office), context: _},
               );
+              // la liste des personne
               const tmpP = _.persons;
+              // la taille du bureau
               const tmpO = _.office.size;
               nbWindowsRef.onClose.subscribe((__) => {
+                // si les personnes ou la taille ne sont plus les meme alors le bureau a était modifie est il faut
+                // propage les valeurs
                 this.changeOffice((tmpP !== _.persons) || (tmpO !== _.office.size));
               });
             }
@@ -116,8 +120,6 @@ export class MapComponent implements OnInit  {
       );
     }
   }
-
-
 
   /**
    * filtre selon l'etage et le batiment
@@ -131,25 +133,33 @@ export class MapComponent implements OnInit  {
       ((floor === this._stateFilter.floor) && ( 'none' === this._stateFilter.building));
 
   }
-
-
+  /**
+   *
+   * @param office
+   */
+  findIndex(office: Office): number {
+    return this._offices.findIndex(( _: Office) => _.id === office.id);
+  }
   /*********************************************************GET&SETTER*************************************************/
+  /////// changeOffice$
   @Output('ChangeOffice')
   get changeOffice$() {
     return this._changeOffice$;
   }
+
+  /**
+   * prpage linformation au parent
+   * @param ischange
+   */
   changeOffice( ischange: boolean) {
     this._changeOffice$.emit(ischange);
   }
-  findIndex(office: Office): number {
-    return this._offices.findIndex(( _: Office) => _.id === office.id);
-  }
+  /////// stateFilter
   get stateFilter(): any {
     return this._stateFilter;
   }
-
+  /////// stateOffice
   filterStateOffice(): string {
     return this._stateFilter.stateOffice;
   }
-
 }

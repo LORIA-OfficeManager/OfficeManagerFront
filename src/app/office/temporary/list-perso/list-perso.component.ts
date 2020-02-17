@@ -14,12 +14,18 @@ import {Office} from '../../shared/interfaces/office';
     '../list-office/list-office.component.scss'],
 })
 export class ListPersoComponent implements OnInit {
+  // event
   private _changeOffice$: EventEmitter<boolean>;
+  // personne
   private data: TreeNode<Person>[];
   private fetchedData: Person[];
+  // list des department
   private departments: string[];
+  // list des equipe
   private teams: string[][];
+  // status
   private _status: string[];
+  // group
   private group: string;
   customColumn = 'officeName';
   defaultColumns = [ 'lastname', 'firstname', 'statusName', 'teamName', 'departmentName'];
@@ -30,7 +36,11 @@ export class ListPersoComponent implements OnInit {
   sortDirection: NbSortDirection = NbSortDirection.NONE;
   officeConversion: Map<number, Office>;
 
-
+  /**
+   * constructor
+   * @param dataSourceBuilder
+   * @param peopleService
+   */
   constructor(private dataSourceBuilder: NbTreeGridDataSourceBuilder<Person>, private peopleService: PersonService) {
     this.departments = [];
     this.teams = [];
@@ -40,10 +50,17 @@ export class ListPersoComponent implements OnInit {
     this.group = 'dep';
   }
 
+  /**
+   * Init
+   */
   ngOnInit() {
     this.peopleService.fecth().subscribe(k => this.asyncInit(k));
   }
 
+  /**
+   *
+   * @param people
+   */
   asyncInit(people: Person[]) {
     this.fetchedData = people;
     this.fetchedData.forEach(k => this.data[this.fetchedData.indexOf(k)] = ListPersoComponent.treeNodeConversion(k));
@@ -51,6 +68,10 @@ export class ListPersoComponent implements OnInit {
     this.dataSorting(people);
   }
 
+  /**
+   *
+   * @param people
+   */
   dataSorting(people: Person[]): void {
     this.departments = Array.from(people, k => k.departmentName).filter(ListPersoComponent.onlyUnique);
     this.departments.forEach(k => this.teams[this.departments.indexOf(k)] = []);
@@ -59,29 +80,55 @@ export class ListPersoComponent implements OnInit {
     this._status = Array.from(people, k => k.statusName).filter(ListPersoComponent.onlyUnique);
   }
 
+  /**
+   *
+   * @param input
+   */
   static treeNodeConversion(input: Person): TreeNode<Person> {
     return {data: input};
   }
 
+  /**
+   *
+   * @param sortRequest
+   */
   updateSort(sortRequest: NbSortRequest): void {
     this.sortColumn = sortRequest.column;
     this.sortDirection = sortRequest.direction;
   }
 
+  /**
+   *
+   * @param column
+   */
   getSortDirection(column: string): NbSortDirection {
     return (this.sortColumn === column) ? this.sortDirection : NbSortDirection.NONE;
   }
 
+  /**
+   *
+   * @param index
+   */
   getShowOn(index: number) {
     const minWithForMultipleColumns = 400;
     const nextColumnStep = 100;
     return minWithForMultipleColumns + (nextColumnStep * index);
   }
 
+  /**
+   *
+   * @param value
+   * @param index
+   * @param self
+   */
   static onlyUnique(value, index, self) {
     return self.indexOf(value) === index;
   }
 
+  /**
+   *
+   * @param name
+   */
   office(name: string): number {
     return this.fetchedData.filter(k => k.officeName === name)[0].officeId;
   }
@@ -89,16 +136,16 @@ export class ListPersoComponent implements OnInit {
   setFilter(s: string) {
     this.dataSource.filter(s);
   }
-
+  /////// offices
   setCategoryFilter(category: string) {
     this.setFilter('');
     this.group === category ? this.group = '' : this.group = category;
   }
-
+  /////// offices
   get status(): string[] {
     return this._status;
   }
-
+  /////// offices
   @Output('ChangeOffice')
   get changeOffice$() {
     return this._changeOffice$;

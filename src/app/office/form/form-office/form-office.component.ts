@@ -22,7 +22,8 @@ export class FormOfficeComponent implements OnInit, OnChanges  {
   private readonly _form: FormGroup;
 
   /**
-   * Component constructor
+   * Constructor
+   * @param _officeService
    */
   constructor(private _officeService: OfficeService) {
     this._submit$ = new EventEmitter<Office>();
@@ -30,6 +31,47 @@ export class FormOfficeComponent implements OnInit, OnChanges  {
     this._form = this._buildForm();
   }
 
+  /**
+   * OnInit implementation
+   */
+  ngOnInit() {
+  }
+
+  /**
+   * Function to handle component update
+   * @param record
+   */
+  ngOnChanges(record) {
+    if (record.model && record.model.currentValue) {
+      this._model = record.model.currentValue;
+      this._isUpdateMode = true;
+      this._form.patchValue(this._model);
+    } else {
+      this._model = {
+        id: 0, // id du bureau
+        size: 0, // nb de place du bureau
+        floor: 0, // l'etage ou se situe le bureau
+        num: 0, // le numero du bureau
+        building: 'A', // le batiment ou se situe le bureau
+        occupation: 0, // nombre de personne dans le bureau
+        hasStranger: false, // indique s'il y a un intru
+      };
+      this._isUpdateMode = false;
+    }
+  }
+
+  /**
+   * Function to build our form
+   */
+  private _buildForm(): FormGroup {
+    return new FormGroup({
+      size: new FormControl('', Validators.compose([
+        Validators.required, Validators.min(1),
+      ])),
+    });
+  }
+
+  /********************************************************GET&SETTER**************************************************/
   /**
    * Sets private property _model
    */
@@ -66,6 +108,12 @@ export class FormOfficeComponent implements OnInit, OnChanges  {
   get cancel$(): EventEmitter<void> {
     return this._cancel$;
   }
+  /**
+   * Function to emit event to cancel process
+   */
+  cancel() {
+    this._cancel$.emit();
+  }
 
   /**
    * Returns private property _submit$
@@ -74,44 +122,6 @@ export class FormOfficeComponent implements OnInit, OnChanges  {
   get submit$(): EventEmitter<Office> {
     return this._submit$;
   }
-
-
-  /**
-   * OnInit implementation
-   */
-  ngOnInit() {
-  }
-
-  /**
-   * Function to handle component update
-   */
-  ngOnChanges(record) {
-    if (record.model && record.model.currentValue) {
-      this._model = record.model.currentValue;
-      this._isUpdateMode = true;
-      this._form.patchValue(this._model);
-    } else {
-      this._model = {
-          id: 0, // id du bureau
-          size: 0, // nb de place du bureau
-          floor: 0, // l'etage ou se situe le bureau
-          num: 0, // le numero du bureau
-          building: 'A', // le batiment ou se situe le bureau
-          occupation: 0, // nombre de personne dans le bureau
-          hasStranger: false, // indique s'il y a un intru
-      };
-      this._isUpdateMode = false;
-    }
-  }
-
-  /**
-   * Function to emit event to cancel process
-   */
-  cancel() {
-    this._cancel$.emit();
-  }
-
-
   /**
    * Function to emit event to submit form and person
    */
@@ -121,15 +131,4 @@ export class FormOfficeComponent implements OnInit, OnChanges  {
         () => this._submit$.emit(office));
   }
 
-
-  /**
-   * Function to build our form
-   */
-  private _buildForm(): FormGroup {
-    return new FormGroup({
-      size: new FormControl('', Validators.compose([
-        Validators.required, Validators.min(1),
-      ])),
-    });
-  }
 }

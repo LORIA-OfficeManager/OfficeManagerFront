@@ -28,9 +28,14 @@ export class RadioInputEtatListOfficeComponent implements OnInit {
 
   /**
    */
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
+  /*********************************************************GET&SETTER*************************************************/
+  /////// filterState
+  @Output('filterState')
+  get filterState$() {
+    return this._filterState$;
+  }
   /**
    * emet l'evenement pour modifier les datas
    * @param state etat a renvoye
@@ -38,13 +43,7 @@ export class RadioInputEtatListOfficeComponent implements OnInit {
   filterState(state: string) {
     this._filterState$.emit(state);
   }
-
-  /*********************************************************GET&SETTER*************************************************/
-  @Output('filterState')
-  get filterState$() {
-    return this._filterState$;
-  }
-
+  /////// options
   /**
    * retourne la liste des etats
    */

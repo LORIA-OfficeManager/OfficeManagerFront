@@ -7,16 +7,7 @@ import {
 } from '@angular/core';
 import {Office} from '../../shared/interfaces/office';
 import {Sort} from '@angular/material/sort';
-
-export interface StateFilter {
-    name: string;
-    floor: number;
-    building: string;
-    stateOffice: string;
-    dateFilter: boolean;
-    officeTimeT: Office[];
-}
-
+import {StateFilter} from '../../shared/interfaces/state-filter';
 
 @Component({
   selector: 'ngx-tab-office',
@@ -27,7 +18,9 @@ export interface StateFilter {
 export class TabOfficeComponent implements OnInit {
     // liste des bureaux
     private _offices: Office[];
+    //
     private _stateFilter: StateFilter;
+    //
     private _changeOffice$: EventEmitter<boolean>;
 
     /**
@@ -74,8 +67,8 @@ export class TabOfficeComponent implements OnInit {
         });
     }
 
-
     /*******************************************************GET&SETTER*************************************************/
+    /////// ChangeOffice
     @Output('ChangeOffice')
     get changeOffice$() {
         return this._changeOffice$;
@@ -83,18 +76,21 @@ export class TabOfficeComponent implements OnInit {
     changeOffice(data: boolean) {
         this._changeOffice$.emit(data);
     }
+    /////// offices
     @Input()
     set offices(sortedDara: Office[]) {
         this._offices = sortedDara;
     }
+    get offices(): Office[] {
+        return this._offices;
+    }
+    /////// stateFilter
     @Input()
     set stateFilter(stateF: StateFilter) {
         this._stateFilter = stateF;
     }
 
-    get offices(): Office[] {
-        return this._offices;
-    }
+    /////// people
     /**
      * retourne les nombre de personne par office
      * @param office le bureau
@@ -102,7 +98,7 @@ export class TabOfficeComponent implements OnInit {
     people(office: Office) {
         return (office.occupation / office.size) * 100 ;
     }
-
+    /////// name
     /**
      * retourne le nom du bureau
      * @param office
@@ -111,21 +107,22 @@ export class TabOfficeComponent implements OnInit {
         return  office.building + '' + office.floor + '' + office.num ;
     }
 
-    /**
-     * retourne la liste des noms des personnne
-     * @param personAssign les personne assigne au bureau
-     */
-    listNom(personAssign: any[]): string {
-        let res = '';
-        personAssign.forEach(function (p) {
-            if (res === '') {
-                res =  p.name;
-            } else {
-                res = res + ', ' + p.name;
-            }
-        });
-        return res;
-    }
+    // /**
+    //  * retourne la liste des noms des personnne
+    //  * @param personAssign les personne assigne au bureau
+    //  */
+    // listNom(personAssign: any[]): string {
+    //     let res = '';
+    //     personAssign.forEach(function (p) {
+    //         if (res === '') {
+    //             res =  p.name;
+    //         } else {
+    //             res = res + ', ' + p.name;
+    //         }
+    //     });
+    //     return res;
+    // }
+    /////// stateFilter
     get stateFilter(): StateFilter {
         return this._stateFilter;
     }

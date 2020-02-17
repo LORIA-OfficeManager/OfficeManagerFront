@@ -40,20 +40,15 @@ export class WindowOfficeComponent implements OnInit {
       const tmpP = _.persons;
       const tmpO = _.office.size;
       nbWindowsRef.onClose.subscribe((__) => {
+        // si les personnes ou la taille ne sont plus les meme alors le bureau a était modifie est il faut
+        // propage les valeurs
         this.change((tmpP !== _.persons) || (tmpO !== _.office.size) );
       });
     });
   }
 
-  /**
-   * retourn le nom du bureaux
-   * @param office
-   */
-  name(office: Office): string {
-    return  office.building + '' + office.floor + '' + office.num + '';
-  }
   /*********************************************************GET&SETTER*************************************************/
-
+  /////// stateFilter
   @Output('ChangeOffice')
   get change$() {
     return this._change$;
@@ -61,8 +56,16 @@ export class WindowOfficeComponent implements OnInit {
   change(ischange: boolean) {
     this._change$.emit(ischange);
   }
+  /////// stateFilter
   @Input()
   set office(o: Office) {
     this._office = o;
+  }
+  /**
+   * retourn le nom du bureaux
+   * @param office
+   */
+  name(office: Office): string {
+    return  office.building + '' + office.floor + '' + office.num + '';
   }
 }

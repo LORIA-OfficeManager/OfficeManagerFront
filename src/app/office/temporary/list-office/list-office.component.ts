@@ -7,15 +7,8 @@ import {Person} from '../../shared/interfaces/person';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import {PersonService} from '../../shared/services/person.service';
+import {StateFilter} from '../../shared/interfaces/state-filter';
 
-
-export interface StateFilter {
-  name: string;
-  floor: number;
-  building: string;
-  stateOffice: string;
-  dateFilter: boolean;
-}
 
 @Component({
   selector: 'ngx-test-list-office',
@@ -25,6 +18,14 @@ export interface StateFilter {
 })
 
 export class ListOfficeComponent implements OnInit {
+
+  // constante des Filtres
+  private _etat = 'etat';
+  private _batiment = 'batiment';
+  private _nom = 'nom';
+  private _person = 'person';
+  private _date = 'date';
+
   // fomulaire
   form: FormGroup;
   private _myControl = new FormControl();
@@ -32,12 +33,6 @@ export class ListOfficeComponent implements OnInit {
   options: Person[];
   // liste des personnes filtre
   private _filteredOptions: Observable<Person[]>;
-  // constante des Filtres
-  private _etat = 'etat';
-    private _batiment = 'batiment';
-  private _nom = 'nom';
-  private _person = 'person';
-  private _date = 'date';
   // etat des filtres
   private _stateFilter: StateFilter;
   // type de filtre
@@ -90,27 +85,6 @@ export class ListOfficeComponent implements OnInit {
           this._offices = _;
       });
   }
-  get myControl(): FormControl {
-    return this._myControl;
-  }
-
-  displayFn(user?: Person): string | undefined {
-    return user ? user.lastname.toUpperCase() : undefined;
-  }
-
-  private _filterPerso(name: string): Person[] {
-    const filterValue = name.toUpperCase();
-    return this.options.filter(option => option.lastname.toUpperCase().indexOf(filterValue) === 0);
-  }
-
-  /**
-   * trie les bureaux selon l'eatge et le batiment
-   * @param data
-   */
-  filterfloorBatiment(data: any) {
-    this._stateFilter.floor = data.floor;
-    this._stateFilter.building = data.building;
-  }
 
   /**
    * affiche ou cache la sidebar
@@ -121,13 +95,64 @@ export class ListOfficeComponent implements OnInit {
   }
 
   /**
-   * change de design
-   * @param design
+   * gere l'event du clavier
+   * @param event
    */
-  switchDesign(design: string) {
-    this._design = design;
+  onKey(event: any) {
+    this._filtreByOfficeName(event.target.value);
   }
 
+  /**
+   * test si c est une personne
+   * @param value
+   */
+  isNotAperson(value: Person): boolean {
+    let res = true;
+    if (value !== null) {
+      if (value.officeName !== undefined) {
+        res = false;
+      }
+    }
+    return res;
+  }
+
+  /**
+   * retourne la liste des bureau pour un temps t
+   * @param data
+   */
+  updateOfficeTimeT(data: any) {
+    this._serviceOffice.officeDate(data.date).subscribe(
+        (_: Office[]) => this._offices = _ ,
+    );
+  }
+  /***********************************************************Filter***************************************************/
+  searchperson(value: Person) {
+    this._filtreByOfficeName(value.officeName);
+  }
+  /**
+   * filtre par le nom du bureau
+   * @param name
+   * @private
+   */
+  private _filtreByOfficeName(name: String) {
+    if (name !== null) {
+      this._stateFilter.name = name.toLowerCase();
+      if (this._stateFilter.name.length > 0) {
+        this._stateFilter.building = this._stateFilter.name.charAt(0).toUpperCase();
+      } else {
+        this._stateFilter.building = 'none';
+      }
+      if (this._stateFilter.name.length > 1) {
+        this._stateFilter.floor = +this._stateFilter.name.charAt(1);
+      } else {
+        this._stateFilter.floor = -1;
+      }
+    } else {
+      // Permet d'afficher les bureaux du batiment NULL
+      // On veut juste afficher aucun bureau
+      this._stateFilter.building = 'NULL';
+    }
+  }
   /**
    * change de filtre
    * @param filtre
@@ -148,42 +173,70 @@ export class ListOfficeComponent implements OnInit {
       this._stateFilter.dateFilter = true;
     }
   }
+  private _filterPerso(name: string): Person[] {
+    const filterValue = name.toUpperCase();
+    return this.options.filter(option => option.lastname.toUpperCase().indexOf(filterValue) === 0);
+  }
 
   /**
-   * gere l'event du clavier
-   * @param event
+   * trie les bureaux selon l'eatge et le batiment
+   * @param data
    */
-  onKey(event: any) {
-    this._filtreByOfficeName(event.target.value);
-  }
-  private _filtreByOfficeName(name: String) {
-    if (name !== null) {
-      this._stateFilter.name = name.toLowerCase();
-      if (this._stateFilter.name.length > 0) {
-        this._stateFilter.building = this._stateFilter.name.charAt(0).toUpperCase();
-      } else {
-        this._stateFilter.building = 'none';
-      }
-      if (this._stateFilter.name.length > 1) {
-        this._stateFilter.floor = +this._stateFilter.name.charAt(1);
-      } else {
-        this._stateFilter.floor = -1;
-      }
-    } else {
-      // Permet d'afficher les bureaux du batiment NULL
-      // On veut juste afficher aucun bureau
-      this._stateFilter.building = 'NULL';
-    }
+  filterfloorBatiment(data: any) {
+    this._stateFilter.floor = data.floor;
+    this._stateFilter.building = data.building;
   }
   /*********************************************************GET&SETTER*************************************************/
+  /////// displayFn
+  displayFn(user?: Person): string | undefined {
+    return user ? user.lastname.toUpperCase() : undefined;
+  }
+  /////// myControl
+  get myControl(): FormControl {
+    return this._myControl;
+  }
+  /////// peopleAssign
   get filteredOptions(): Observable<Person[]> {
     return this._filteredOptions;
   }
+  /////// person
   get person(): string {
     return this._person;
   }
+  /////// reload
   get reload(): boolean {
     return this._reload;
+  }
+  /////// date
+  get date(): string {
+    return this._date;
+  }
+  /////// etat
+  get etat(): string {
+    return this._etat;
+  }
+  /////// batiment
+  get batiment(): string {
+    return this._batiment;
+  }
+  /////// nom
+  get nom(): string {
+    return this._nom;
+  }
+  /////// design
+  get design(): string {
+    return this._design;
+  }
+  /**
+   * change de design
+   * @param design
+   */
+  switchDesign(design: string) {
+    this._design = design;
+  }
+  /////// stateFilter
+  get stateFilter(): StateFilter {
+    return this._stateFilter;
   }
   /**
    * fltre les bureaux selon l'etat
@@ -192,31 +245,14 @@ export class ListOfficeComponent implements OnInit {
   filterState(state) {
     this._stateFilter.stateOffice = state;
   }
-  get date(): string {
-    return this._date;
-  }
-  get etat(): string {
-    return this._etat;
-  }
-  get batiment(): string {
-    return this._batiment;
-  }
-  get nom(): string {
-    return this._nom;
-  }
-  get design(): string {
-    return this._design;
-  }
-  get stateFilter(): StateFilter {
-    return this._stateFilter;
-  }
-  get offices(): Office[] {
-    return this._offices;
-  }
+  /////// filter
   get filter(): string {
     return this._filter;
   }
-
+  /////// offices
+  get offices(): Office[] {
+    return this._offices;
+  }
   setOffice(data: boolean) {
     if ( data ) {
       this._reload = true;
@@ -225,26 +261,6 @@ export class ListOfficeComponent implements OnInit {
         this._reload = false;
       });
     }
-  }
-
-  searchperson(value: Person) {
-    this._filtreByOfficeName(value.officeName);
-  }
-
-  isNotAperson(value: Person): boolean {
-    let res = true;
-    if (value !== null) {
-      if (value.officeName !== undefined) {
-        res = false;
-      }
-    }
-    return res;
-  }
-
-  updateOfficeTimeT(data: any) {
-    this._serviceOffice.officeDate(data.date).subscribe(
-        (_: Office[]) => this._offices = _ ,
-    );
   }
 }
 

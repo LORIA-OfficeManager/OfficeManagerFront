@@ -71,6 +71,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { DepartmentItemHeaderComponent } from './admin/department/department-item-header/department-item-header.component';
 import { DatePickerComponent } from './shared/components/date-picker/date-picker.component';
 import { CustomValidatorDirective } from './shared/validator/custom-validator.directive';
+import { CarouselComponent } from './shared/components/carousel/carousel.component';
 
 @NgModule({
     imports: [
@@ -149,6 +150,7 @@ import { CustomValidatorDirective } from './shared/validator/custom-validator.di
         DepartmentItemHeaderComponent,
         DatePickerComponent,
         CustomValidatorDirective,
+        CarouselComponent,
 
     ],
     providers: [

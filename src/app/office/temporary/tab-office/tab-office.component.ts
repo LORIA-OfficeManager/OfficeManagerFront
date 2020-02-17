@@ -50,33 +50,32 @@ export class TabOfficeComponent implements OnInit {
     sortData(sort: Sort) {
         const data = this._offices.slice();
         if (!sort.active || sort.direction === '') {
-          this._offices = data;
-          return;
+            this._offices = data;
+            return;
         }
         this._offices = data.sort((a, b) => {
-          const isAsc = sort.direction === 'asc';
-          switch (sort.active) {
-            case 'name':
-              let nameA = '' + a.num;
-              let nameB = '' + a.num;
-              if (a.num < 10) {
-                nameA = '0' + a.num;
-              }
-              if (b.num < 10) {
-                nameB = '0' + b.num;
-              }
-              return compare(a.floor + '' + nameA + '' + a.building ,
-                  b.floor + '' + nameB + '' + b.building, isAsc);
-            case 'size': return compare(a.size, b.size, isAsc);
-            case 'floor': return compare(a.floor, b.floor, isAsc);
-            case 'building': return compare(a.building, b.building, isAsc);
-            default: return 0;
-          }
+            const isAsc = sort.direction === 'asc';
+            switch (sort.active) {
+                case 'name':
+                    let nameA = '' + a.num;
+                    let nameB = '' + a.num;
+                    if (a.num < 10) {
+                        nameA = '0' + a.num;
+                    }
+                    if (b.num < 10) {
+                        nameB = '0' + b.num;
+                    }
+                    return compare(a.floor + '' + nameA + '' + a.building ,
+                        b.floor + '' + nameB + '' + b.building, isAsc);
+                case 'size': return compare(a.size, b.size, isAsc);
+                case 'occupation': return compare(this.people(a), this.people(b), isAsc);
+                default: return 0;
+            }
         });
     }
 
 
-  /*********************************************************GET&SETTER*************************************************/
+    /*******************************************************GET&SETTER*************************************************/
     @Output('ChangeOffice')
     get changeOffice$() {
         return this._changeOffice$;
@@ -86,7 +85,7 @@ export class TabOfficeComponent implements OnInit {
     }
     @Input()
     set offices(sortedDara: Office[]) {
-      this._offices = sortedDara;
+        this._offices = sortedDara;
     }
     @Input()
     set stateFilter(stateF: StateFilter) {
@@ -101,7 +100,7 @@ export class TabOfficeComponent implements OnInit {
      * @param office le bureau
      */
     people(office: Office) {
-        return office.occupation || 0;
+        return (office.occupation / office.size) * 100 ;
     }
 
     /**
@@ -133,5 +132,5 @@ export class TabOfficeComponent implements OnInit {
 }
 
 function compare(a: number | string, b: number | string, isAsc: boolean) {
-  return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
+    return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
 }

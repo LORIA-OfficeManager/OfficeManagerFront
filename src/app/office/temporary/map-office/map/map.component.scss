@@ -537,13 +537,17 @@ svg.filternone {
 .StrangerOfficenotFullOffice .office {
   fill: url('#pattern-notFullOffice');
 }
-.StrangerOfficeemptyOffice .office {
-  fill: url('#pattern-emptyOffice');
-}
-hr.one {
-  border: 0;
-  height: 2px;
-  background-image: linear-gradient(to right, #cc5d9a, rgba(0, 0, 0, 0));
+
+::ng-deep {
+  .nb-theme-default .StrangerOfficeemptyOffice .office {
+    fill: url('#pattern-emptyOfficeDefault');
+  }
+  .nb-theme-cosmic .StrangerOfficeemptyOffice .office {
+    fill: url('#pattern-emptyOfficeComsic');
+  }
+  .nb-theme-dark .StrangerOfficeemptyOffice .office {
+    fill: url('#pattern-emptyOfficeDark');
+  }
 }
 
 .show {}
@@ -553,10 +557,7 @@ hr.one {
   right: 0;
   margin-top: 0.5%;
 }
-.ligne {
-  position: absolute;
-  top: 35%;
-}
+
 .titleBuilding {
   z-index: 100;
   background-color: #edf1f7;
@@ -572,5 +573,4 @@ svg {
     stroke: #edf1f7;
   }
 }
-
 

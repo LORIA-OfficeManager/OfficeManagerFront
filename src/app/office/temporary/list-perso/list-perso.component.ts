@@ -37,6 +37,7 @@ export class ListPersoComponent implements OnInit {
     this.data = [];
     this.officeConversion = new Map<number, Office>();
     this.dataSource = dataSourceBuilder.create([]);
+    this.group = 'dep';
   }
 
   ngOnInit() {
@@ -48,12 +49,6 @@ export class ListPersoComponent implements OnInit {
     this.fetchedData.forEach(k => this.data[this.fetchedData.indexOf(k)] = ListPersoComponent.treeNodeConversion(k));
     this.dataSource = this.dataSourceBuilder.create(this.data);
     this.dataSorting(people);
-    // Array.from(people, j => j.officeId).filter(ListPersoComponent.onlyUnique)
-    //     .forEach(k => this.officeService.fetchOne(k).subscribe(p => this.asyncOfficeInit(k, p.office)));
-  }
-
-  asyncOfficeInit(id: number, office: Office) {
-    this.officeConversion.set(id, office);
   }
 
   dataSorting(people: Person[]): void {
@@ -107,13 +102,6 @@ export class ListPersoComponent implements OnInit {
   @Output('ChangeOffice')
   get changeOffice$() {
     return this._changeOffice$;
-  }
-  changeOffice(data: boolean) {
-    this._changeOffice$.emit(data);
-  }
-
-  getOffice(id: number): Office {
-    return this.officeConversion.get(id);
   }
 }
 

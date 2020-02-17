@@ -7,10 +7,6 @@
   color: white !important;
 }
 
-.titleHelpModal {
-  color: $color-active;
-  margin: 2% 0%;
-}
 .buttonHelpModal {
   position: fixed;
   bottom: 15px;
@@ -24,8 +20,8 @@
 .codeCouleur h5 {
   padding: 0% 2%;
 }
-::ng-deep nb-dialog-container {
-  width: 100%;
-  margin: 0% !important;
-  max-width: 100% !important;
-}
+//::ng-deep nb-dialog-container {
+//  width: 100%;
+//  margin: 0% !important;
+//  max-width: 100% !important;
+//}

@@ -1,5 +1,101 @@
 @import '~app/office/office.component';
 
+/*****************************************************CodeCol**********************************************************/
+
+::ng-deep {
+  .fullOffice {
+    background-color: $color-officeFull;
+  }
+  .moreThanFullOffice {
+    background-color: $color-officeMoreThanFull;
+  }
+  .notFullOffice {
+    background-color: $color-officeNoEmpty;
+  }
+  .emptyOffice {
+    background-color: $color-officeEmpty;
+  }
+  .nb-theme-default .StrangerOfficeemptyOffice {
+    background: repeating-linear-gradient(
+                    135deg,
+                    #edf1f7,
+                    #edf1f7 10px,
+                    #FFFF 10px,
+                    #FFFF 20px
+    );
+  }
+  .nb-theme-cosmic .StrangerOfficeemptyOffice {
+    background: repeating-linear-gradient(
+                    135deg,
+                    #1b1b38,
+                    #1b1b38 10px,
+                    #323259 10px,
+                    #323259 20px
+    );
+  }
+  .nb-theme-dark .StrangerOfficeemptyOffice {
+    background: repeating-linear-gradient(
+                    135deg,
+                    #151a30,
+                    #151a30 10px,
+                    #222b45 10px,
+                    #222b45 20px
+    );
+  }
+  .StrangerOfficenotFullOffice {
+    background: repeating-linear-gradient(
+                    135deg,
+                    #00C10C,
+                    #00C10C 10px,
+                    $color-officeNoEmpty 10px,
+                    $color-officeNoEmpty 20px
+    );
+  }
+  .StrangerOfficemoreThanFullOffice {
+    background: repeating-linear-gradient(
+                    135deg,
+                    #C10B00,
+                    #C10B00 10px,
+                    $color-officeMoreThanFull 10px,
+                    $color-officeMoreThanFull 20px
+    );
+  }
+  .StrangerOfficefullOffice {
+    background: repeating-linear-gradient(
+                    135deg,
+                    #C14900,
+                    #C14900 10px,
+                    $color-officeFull 10px,
+                    $color-officeFull 20px
+    );
+  }
+}
+
+
+/******************************************************/
+::ng-deep {
+  .activeFiltre, .activeFiltre h6 {
+    color: $color-active;
+    //text-align: center !important;
+  }
+
+  .inactiveFiltre {
+    //text-align: center !important;
+  }
+}
+
+/******************************************************hrOne***********************************************************/
+
+hr.one {
+  border: 0;
+  height: 2px;
+  background-image: linear-gradient(to right, #cc5d9a, rgba(0, 0, 0, 0));
+}
+.ligne {
+  position: absolute;
+  top: 35%;
+}
+/******************************************************FontH***********************************************************/
 @font-face {
   font-family: 'loria';
   src: url('//db.onlinewebfonts.com/t/907e10e57c4620ded2b921ab70676f36.eot');
@@ -24,6 +120,41 @@
     -webkit-text-fill-color: transparent;
     font-family: 'loria', Fallback, sans-serif;
     margin: auto;
+  }
+}
+::ng-deep .loriaBack {
+  p, h1 {
+    padding: 0;
+    font-size: 1.5rem;
+    height: 1.5rem;
+    white-space: nowrap;
+    text-decoration: none;
+    font-weight: 400;
+    background: -webkit-linear-gradient(0deg, #cc5d9a, #3eace0 100%);
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'loria', Fallback, sans-serif;
+    margin: auto;
+  }
+}
+
+/******************************************************Input***********************************************************/
+::ng-deep {
+  .nb-theme-cosmic {
+    .backInput {
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px #323259 !important;
+    }
+  }
+  .nb-theme-dark {
+    .backInput {
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px #222b45 !important;
+    }
+  }
+  .nb-theme-default {
+    .backInput {
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0), inset 0 0 0 100px #ffffff !important;
+    }
   }
 }
 /**************************************************Headerwindow********************************************************/
@@ -66,7 +197,7 @@
   }
 }
 
-/*************************************************ROW******************************************************************/
+/******************************************ROW/Footer******************************************************************/
 
 ::ng-deep {
   nb-layout-footer.OfficeManagerFooter {

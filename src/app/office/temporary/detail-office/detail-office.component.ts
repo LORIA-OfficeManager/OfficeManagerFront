@@ -117,6 +117,4 @@ export class DetailOfficeComponent implements OnInit {
         }
         return occupation;
     }
-
-    update() {}
 }

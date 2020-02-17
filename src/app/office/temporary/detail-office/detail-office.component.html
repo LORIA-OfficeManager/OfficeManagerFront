@@ -1,10 +1,10 @@
-<div class="row" style="max-height: 400px; max-width: 500px;">
+<div class="row detailOffice">
     <div class="col-md-12">
-        <div [ngClass]="'etatOffice '+( data.office.hasStranger | strangerPipe)+' '+(data.office.size | officePipe:data.office.occupation)"></div>
-        <h5  [ngClass]="'row col-12 '" style="margin: 1% auto;padding: 0;">
+        <div [ngClass]="'etatOffice '+( data.office.hasStranger | strangerPipe)+''+(data.office.size | officePipe:data.office.occupation)"></div>
+        <h5  [ngClass]="'row col-12 '">
             Information générale :
-            <ngx-dialog-update-office (submit)="update($event)" [officeName]="name()" [office]="data"
-                      style="float: right;cursor: pointer; margin: auto 0% auto auto"></ngx-dialog-update-office>
+            <ngx-dialog-update-office [officeName]="name()" [office]="data"
+                                      style="float: right; cursor: pointer; margin: auto 0 auto auto;"></ngx-dialog-update-office>
         </h5>
         <div class="row show-grid col-12">
             <div class="col-md-6">
@@ -20,24 +20,22 @@
                 <div>Taille : {{(data.office.occupation).toFixed(2)}}/{{data.office.size}}</div>
             </div>
         </div>
+        <h5 class="col-12">Personne affecté
+            <ngx-dialog-assignement (submit)="assignement($event)" [officename]="name()"
+                                    style="float: right; cursor: pointer;"></ngx-dialog-assignement>
+        </h5>
         <div class="row show-grid">
-            <div class="col-md-12 all" >
-                <div class="col-12 row">
-                    <h5 class="col-12 noPadding" style="margin: 1% auto;padding: 0;">Personne affecté
-                        <ngx-dialog-assignement (submit)="assignement($event)" [officename]="name()"
-                                                style="float: right;cursor: pointer"></ngx-dialog-assignement>
-                    </h5>
-                </div>
+            <div class="col-md-12 all">
                 <ul>
                     <li *ngFor="let person of data.persons" [ngClass]="(person | zombiePipe)+' row col-12' "
-                    style="margin: 0;">
-                        <span class="col-12" style="padding-left: 0 ">
-                            <i [ngClass]="'fas col-1 '+ ( person | StatusPipe )" style="padding-left: 0 "
+                        style="margin: 0; padding: 0;">
+                        <span class="col-12" style="padding: 0; ">
+                            <i [ngClass]="'fas col-1 '+ ( person | StatusPipe )" style="padding:0;"
                                [nbTooltipPlacement]="'end'"  nbTooltip="{{person.statusName}}"
                                nbTooltipClass="officeManagerTooltip"></i>
                             {{person.firstname}} {{person.lastname}}
                             <ngx-warning-popup (submit)="suppPersonne($event)" [person]="person"
-                            style="float: right"></ngx-warning-popup>
+                                               style="float: right; cursor: pointer;"></ngx-warning-popup>
                         </span>
                     </li>
                 </ul>

@@ -13,16 +13,19 @@
   position: fixed;
   bottom: 15px;
   right: 15px;
-  background-color: white;
+  background-color: white !important;
   z-index : 100;
-}
-.modalHeight {
-  max-height: 400px;
 }
 .codeCouleur h5 {
   padding: 0% 2%;
 }
 ::ng-deep {
+    nb-dialog-container {
+      width: 100% !important;
+      margin: 0 !important;
+      max-width: 50% !important;
+    }
+
   .nb-theme-default, .nb-theme-corporate {
     .helpModal nb-card-body {
       background-color: #edf1f7;
@@ -40,4 +43,27 @@
       background-color: #1b1b38;
     }
   }
+}
+//////////////////////////////////////////////big Screen
+@media screen and (min-width: 1800px) {
+  .modalHeight {
+    max-height: 500px !important;
+  }
+}
+//////////////////////////////////////////////screen
+@media screen and (min-width: 1200px) and (max-width: 1800px) {
+  .modalHeight {
+    max-height: 400px !important;
+  }
+}
+//////////////////////////////////////////////tablet
+@media screen and (min-width: 900px) and (max-width: 1200px) {
+
+}
+  //////////////////////////////////////////////phone
+@media screen and (max-width: 600px) {
+  .modalHeight {
+    max-height: 200px!important;
+  }
+
 }

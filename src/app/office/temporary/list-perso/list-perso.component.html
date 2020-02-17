@@ -6,9 +6,13 @@
 
   <nb-sidebar responsive  class="menu-sidebar start expanded" >
     <nb-card class="col-lg-12 filtre">
-      <nb-card-header style=" background-color: #2d8ac7;color: white!important;">
+      <nb-card-header>
         <div class="col-lg-12">
-          <h4><strong>{{'Filtre' | uppercase }}</strong></h4>
+          <a  style="margin: auto;text-align: center">
+            <div class="loriaBack">
+              <p>Filtre</p>
+            </div>
+          </a>
         </div>
       </nb-card-header>
         <div class="row show-grid" >
@@ -16,15 +20,15 @@
             <nb-actions size="medium" class="row">
               <nb-action style="cursor: pointer;" class="col-lg-12" (click)="setCategoryFilter('dep')"
                          [ngClass]="''+(group==='dep' ? 'activeFiltre' : 'inactiveFiltre')">
-                <div style="text-align: center" class="col-12">Département</div>
+                <div class="col-12">Département</div>
               </nb-action>
               <nb-action style="cursor: pointer;" class="col-lg-12" (click)="setCategoryFilter('sts')"
                          [ngClass]="''+(group==='sts' ? 'activeFiltre' : 'inactiveFiltre')">
-                <div style="text-align: center" class="col-12">Statut</div>
+                <div class="col-12">Statut</div>
               </nb-action>
               <nb-action style="cursor: pointer;" class="col-lg-12" (click)="setCategoryFilter('name')"
                          [ngClass]="''+(group==='name' ? 'activeFiltre' : 'inactiveFiltre')">
-                <div style="text-align: center" class="col-12">Nom</div>
+                <div class="col-12">Nom</div>
               </nb-action>
             </nb-actions>
           </div>
@@ -65,7 +69,7 @@
             <mat-dialog-content>
               <form>
                 <mat-form-field class="full-width">
-                  <input [nbFilterInput]="dataSource" matInput placeholder="Recherche" formControlName="search" name="search"/>
+                  <input class="backInput" [nbFilterInput]="dataSource" matInput placeholder="Nom" formControlName="search" name="search"/>
                 </mat-form-field>
               </form>
             </mat-dialog-content>

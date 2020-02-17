@@ -4,7 +4,7 @@
             <tr class="col-lg-12 row" style="padding: 0%;margin: 0%">
                 <td class="col-lg-6" style="padding: 0%">
                     <mat-form-field class="full-width" [class.mgb15]="form.get('date').dirty && form.get('date').invalid">
-                        <input matInput placeholder="Date" formControlName="date" required name="date"
+                        <input class="backInput" matInput placeholder="Date" formControlName="date" required name="date"
                                [nbDatepicker]="picker">
                         <nb-datepicker #picker [min]="min" [max]="max"></nb-datepicker>
                         <mat-error *ngIf="form.get('date').dirty && form.get('date').hasError('required')">

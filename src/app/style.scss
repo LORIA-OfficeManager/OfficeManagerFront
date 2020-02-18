@@ -85,15 +85,17 @@
 }
 
 /******************************************************hrOne***********************************************************/
+::ng-deep {
+  hr.one {
+    border: 0;
+    height: 2px;
+    background-image: linear-gradient(to right, #cc5d9a, rgba(0, 0, 0, 0));
+  }
 
-hr.one {
-  border: 0;
-  height: 2px;
-  background-image: linear-gradient(to right, #cc5d9a, rgba(0, 0, 0, 0));
-}
-.ligne {
-  position: absolute;
-  top: 35%;
+  .ligne {
+    position: absolute;
+    top: 35%;
+  }
 }
 /******************************************************FontH***********************************************************/
 @font-face {

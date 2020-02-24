@@ -1,0 +1,35 @@
+<mat-dialog-content>
+    <form novalidate [formGroup]="form">
+        <table class="full-width" cellspacing="0">
+            <tr class="col-lg-12 row" style="padding: 0%;margin: 0%">
+                <td class="col-lg-6" style="">
+                    <mat-form-field class="example-full-width">
+                        <input class="backInput" type="text" placeholder="Nom de la Personne" aria-label="Assignee"
+                               matInput [formControl]="myControl" [matAutocomplete]="auto">
+                        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                            <mat-option *ngFor="let option of offices | async" [value]="option">
+                                {{option.num | uppercase}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                    <mat-form-field class="full-width" [class.mgb15]="form.get('size').dirty && form.get('size').invalid">
+                        <mat-label>Message</mat-label>
+                        <textarea matInput style="width: 100%" placeholder="il y a une erreur"></textarea>
+                        <mat-error *ngIf="form.get('size').dirty && form.get('size').hasError('required')">
+                            La taille est <strong>required</strong>
+                        </mat-error>
+                        <mat-error *ngIf="form.get('size').dirty && form.get('size').hasError('min')">
+                            La taille doit être supèrieur à <strong>0</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </td>
+            </tr>
+        </table>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions style="padding: 0; margin: auto" class="col-12 row">
+    <button class="col-5" (click)="cancel()" style="margin: auto"
+            outline nbButton status="danger">Annuler</button>
+    <button class="col-5" (click)="submit(form.value)" [disabled]="form.invalid" style="margin: auto"
+            outline nbButton type="submit" >Valider</button>
+</mat-dialog-actions>

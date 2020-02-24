@@ -72,6 +72,8 @@ import { DepartmentItemHeaderComponent } from './admin/department/department-ite
 import { DatePickerComponent } from './shared/components/date-picker/date-picker.component';
 import { CustomValidatorDirective } from './shared/validator/custom-validator.directive';
 import { CarouselComponent } from './shared/components/carousel/carousel.component';
+import { ModalErrorComponent } from './temporary/modal-error/modal-error.component';
+import { FormOfficeErrorComponent } from './form/form-office-error/form-office-error.component';
 
 @NgModule({
     imports: [
@@ -151,7 +153,8 @@ import { CarouselComponent } from './shared/components/carousel/carousel.compone
         DatePickerComponent,
         CustomValidatorDirective,
         CarouselComponent,
-
+        ModalErrorComponent,
+        FormOfficeErrorComponent,
     ],
     providers: [
         OfficePipePipe,

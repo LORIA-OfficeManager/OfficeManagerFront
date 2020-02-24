@@ -1,0 +1,23 @@
+<ng-template #dialog let-data let-ref="dialogRef">
+    <nb-card class="helpModal">
+        <nb-card-header class="headerOfficeManager">Signaler une erreur<nb-icon style="float: right; cursor: pointer" (click)="ref.close()" icon="close-outline"></nb-icon> </nb-card-header>
+        <nb-card-body class="modalHeight" >
+            <nb-tabset class="col-12">
+                <nb-tab tabTitle="Bureau">
+                    <ngx-form-office-error></ngx-form-office-error>
+                </nb-tab>
+                <nb-tab tabTitle="Personne">
+                    <p>List of <strong>orders</strong>.</p>
+                </nb-tab>
+                <nb-tab tabTitle="Autres">
+                    <p>List of <strong>transactions</strong>.</p>
+                </nb-tab>
+            </nb-tabset>
+        </nb-card-body>
+        <nb-card-footer class="headerOfficeManager" style="padding: 0.2%;">
+        </nb-card-footer>
+    </nb-card>
+</ng-template>
+<button nbButton class="secondFixedButton" appearance="outline"
+        size="small" shape="round" (click)="open(dialog)" ><nb-icon icon="alert-triangle-outline"></nb-icon>
+</button>

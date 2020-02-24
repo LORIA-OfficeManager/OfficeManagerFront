@@ -46,8 +46,8 @@ h4 {
 
 ::ng-deep nb-dialog-container {
   width: 100%;
-  margin: auto !important;
-  max-width: 50% !important;
+  margin: 0 !important;
+  max-width: 100% !important;
 }
 
 .menu-sidebar {
@@ -134,5 +134,55 @@ h4 {
     text-shadow:
             0.25em 0 0 $color-second,
             0.5em 0 0 $color-second;
+  }
+}
+.fixedButton {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  z-index: 100;
+  .mainFixedButton {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    background-color: white !important;
+    z-index: 120;
+  }
+  .secondFixedButton {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    z-index: 100;
+  }
+  .firstFixedButton {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    z-index: 100;
+  }
+}
+.fixedButton:hover {
+  height: 75px !important;
+  width: 50px !important;
+  .mainFixedButton {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    background-color: white !important;
+    z-index: 120;
+    display: none;
+  }
+  .secondFixedButton {
+    position: fixed;
+    bottom: 55px;
+    right: 15px;
+    background-color: white !important;
+    z-index: 110;
+  }
+  .firstFixedButton {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    z-index: 100;
   }
 }

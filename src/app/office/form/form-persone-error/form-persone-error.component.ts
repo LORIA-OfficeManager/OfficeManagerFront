@@ -1,42 +1,43 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { Office } from '../../shared/interfaces/office';
-import { FormGroup, Validators, FormControl } from '@angular/forms';
-import { OfficeService } from '../../shared/services/office.service';
+import { Component, OnInit, EventEmitter, Output} from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {Person} from '../../shared/interfaces/person';
+import { PersonService } from '../../shared/services/person.service';
 
 @Component({
-  selector: 'ngx-form-office-error',
-  templateUrl: './form-office-error.component.html',
-  styleUrls: ['./form-office-error.component.scss'],
+  selector: 'ngx-form-persone-error',
+  templateUrl: './form-persone-error.component.html',
+  styleUrls: ['./form-persone-error.component.scss'],
 })
-export class FormOfficeErrorComponent implements OnInit {
-  get offices(): Office[] {
-    return this._offices;
-  }
-  myControl = new FormControl();
-  // private property to store cancel$ value
+export class FormPersoneErrorComponent implements OnInit  {
+  toppings = new FormControl();
+// private property to store cancel$ value
   private readonly _cancel$: EventEmitter<void>;
   // private property to store submit$ value
   private readonly _submit$: EventEmitter<any>;
   // private property to store form value
   private readonly _form: FormGroup;
-  private _offices: Office[];
+  private _people: Person[];
   /**
    * Constructor
    * @param _officeService
    */
-  constructor(private _serviceOffice: OfficeService) {
+  constructor(private _peopleService: PersonService) {
     this._submit$ = new EventEmitter<any>();
     this._cancel$ = new EventEmitter<void>();
     this._form = this._buildForm();
-    this._offices = [];
+    this._people = [];
+  }
+
+  get people(): Person[] {
+    return this._people;
   }
 
   /**
    * OnInit implementation
    */
   ngOnInit() {
-    this._serviceOffice.fecth().subscribe((_: Office[]) => {
-      this._offices = _;
+    this._peopleService.fecth().subscribe((_: Person[]) => {
+      this._people = _;
     });
   }
 
@@ -45,11 +46,11 @@ export class FormOfficeErrorComponent implements OnInit {
    */
   private _buildForm(): FormGroup {
     return new FormGroup({
-      office: new FormControl('', Validators.compose([
+      people: new FormControl('', Validators.compose([
         Validators.required,
       ])),
       message: new FormControl('', Validators.compose( [
-          Validators.required,
+        Validators.required,
       ])),
     });
   }
@@ -87,14 +88,13 @@ export class FormOfficeErrorComponent implements OnInit {
    * Function to emit event to submit form and person
    */
   submit(error: any) {
+    // console.log(this._form);
+    // console.log(this.toppings);
     // console.log(error);
     // this._model.size = office.size;
     // this._officeService.updateCapacity(this._model).subscribe(
     //     () => this._submit$.emit(office));
   }
 
-  name(office: Office): string {
-    return  office.building + '' + office.floor + '' + office.num ;
-  }
 
 }

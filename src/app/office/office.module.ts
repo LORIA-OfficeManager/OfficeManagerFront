@@ -74,6 +74,9 @@ import { CustomValidatorDirective } from './shared/validator/custom-validator.di
 import { CarouselComponent } from './shared/components/carousel/carousel.component';
 import { ModalErrorComponent } from './temporary/modal-error/modal-error.component';
 import { FormOfficeErrorComponent } from './form/form-office-error/form-office-error.component';
+import {MatSelectModule} from '@angular/material/select';
+import { FormPersoneErrorComponent } from './form/form-persone-error/form-persone-error.component';
+import { FormErrorComponent } from './form/form-error/form-error.component';
 
 @NgModule({
     imports: [
@@ -116,6 +119,7 @@ import { FormOfficeErrorComponent } from './form/form-office-error/form-office-e
         MatToolbarModule,
         MatAutocompleteModule,
         NbDatepickerModule,
+        MatSelectModule,
     ],
     declarations: [
         HomePageComponent,
@@ -155,6 +159,8 @@ import { FormOfficeErrorComponent } from './form/form-office-error/form-office-e
         CarouselComponent,
         ModalErrorComponent,
         FormOfficeErrorComponent,
+        FormPersoneErrorComponent,
+        FormErrorComponent,
     ],
     providers: [
         OfficePipePipe,

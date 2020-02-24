@@ -1,43 +1,32 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { Office } from '../../shared/interfaces/office';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
-import { OfficeService } from '../../shared/services/office.service';
 
 @Component({
-  selector: 'ngx-form-office-error',
-  templateUrl: './form-office-error.component.html',
-  styleUrls: ['./form-office-error.component.scss'],
+  selector: 'ngx-form-error',
+  templateUrl: './form-error.component.html',
+  styleUrls: ['./form-error.component.scss'],
 })
-export class FormOfficeErrorComponent implements OnInit {
-  get offices(): Office[] {
-    return this._offices;
-  }
-  myControl = new FormControl();
-  // private property to store cancel$ value
+export class FormErrorComponent implements OnInit {
+// private property to store cancel$ value
   private readonly _cancel$: EventEmitter<void>;
   // private property to store submit$ value
   private readonly _submit$: EventEmitter<any>;
   // private property to store form value
   private readonly _form: FormGroup;
-  private _offices: Office[];
   /**
    * Constructor
    * @param _officeService
    */
-  constructor(private _serviceOffice: OfficeService) {
+  constructor() {
     this._submit$ = new EventEmitter<any>();
     this._cancel$ = new EventEmitter<void>();
     this._form = this._buildForm();
-    this._offices = [];
   }
 
   /**
    * OnInit implementation
    */
   ngOnInit() {
-    this._serviceOffice.fecth().subscribe((_: Office[]) => {
-      this._offices = _;
-    });
   }
 
   /**
@@ -45,11 +34,8 @@ export class FormOfficeErrorComponent implements OnInit {
    */
   private _buildForm(): FormGroup {
     return new FormGroup({
-      office: new FormControl('', Validators.compose([
-        Validators.required,
-      ])),
       message: new FormControl('', Validators.compose( [
-          Validators.required,
+        Validators.required,
       ])),
     });
   }
@@ -87,14 +73,8 @@ export class FormOfficeErrorComponent implements OnInit {
    * Function to emit event to submit form and person
    */
   submit(error: any) {
-    // console.log(error);
-    // this._model.size = office.size;
-    // this._officeService.updateCapacity(this._model).subscribe(
-    //     () => this._submit$.emit(office));
+    // console.log(this._form);
   }
 
-  name(office: Office): string {
-    return  office.building + '' + office.floor + '' + office.num ;
-  }
 
 }

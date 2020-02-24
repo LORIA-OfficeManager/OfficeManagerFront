@@ -80,10 +80,10 @@ export class ListOfficeComponent implements OnInit {
               map(name => name ? this._filterPerso(name) : this.options.slice()),
           );
     });
-      this._reload = false;
-      this._serviceOffice.fecth().subscribe((_: Office[]) => {
-          this._offices = _;
-      });
+    this._reload = false;
+    this._serviceOffice.fecth().subscribe((_: Office[]) => {
+        this._offices = _;
+    });
   }
 
   /**

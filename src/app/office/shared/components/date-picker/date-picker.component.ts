@@ -84,7 +84,6 @@ export class DatePickerComponent implements OnInit {
    */
   submit(range: any) {
     range.date = Date.parse(range.date);
-    console.log(range);
     this._submit$.emit(range);
   }
   /**

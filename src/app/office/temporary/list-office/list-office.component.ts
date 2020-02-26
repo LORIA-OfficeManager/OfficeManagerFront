@@ -121,7 +121,6 @@ export class ListOfficeComponent implements OnInit {
    * @param data
    */
   updateOfficeTimeT(data: any) {
-    console.log(data);
     this._serviceOffice.officeDate(data.date).subscribe(
         (_: Office[]) => this._offices = _ ,
     );

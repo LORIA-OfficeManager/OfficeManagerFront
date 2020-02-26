@@ -2,7 +2,6 @@ import { Component, OnInit, EventEmitter, Output} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {Person} from '../../shared/interfaces/person';
 import { PersonService } from '../../shared/services/person.service';
-import {NbComponentStatus, NbGlobalPosition, NbToastrService} from '@nebular/theme';
 
 @Component({
   selector: 'ngx-form-persone-error',

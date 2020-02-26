@@ -147,6 +147,7 @@ h4 {
     right: 15px;
     background-color: white !important;
     z-index: 120;
+    border-width: 0.1rem !important;
   }
   .secondFixedButton {
     position: fixed;
@@ -171,6 +172,7 @@ h4 {
     background-color: white !important;
     z-index: 120;
     display: none;
+    border-width: 0.1rem !important;
   }
   .secondFixedButton {
     position: fixed;

@@ -73,8 +73,6 @@ export class FormErrorComponent implements OnInit {
    * Function to emit event to submit form and person
    */
   submit(error: any) {
-    // console.log(this._form);
+    this.submit$.emit({message : error.message});
   }
-
-
 }

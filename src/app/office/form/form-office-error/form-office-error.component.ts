@@ -87,10 +87,9 @@ export class FormOfficeErrorComponent implements OnInit {
    * Function to emit event to submit form and person
    */
   submit(error: any) {
-    // console.log(error);
-    // this._model.size = office.size;
-    // this._officeService.updateCapacity(this._model).subscribe(
-    //     () => this._submit$.emit(office));
+    let message = 'Une erreur a était détecté  pour le Bureau ' + this.name(error.office) + '\n\n';
+    message += error.message;
+    this.submit$.emit({message : message});
   }
 
   name(office: Office): string {

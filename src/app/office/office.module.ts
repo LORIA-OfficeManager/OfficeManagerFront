@@ -77,6 +77,7 @@ import { FormOfficeErrorComponent } from './form/form-office-error/form-office-e
 import {MatSelectModule} from '@angular/material/select';
 import { FormPersoneErrorComponent } from './form/form-persone-error/form-persone-error.component';
 import { FormErrorComponent } from './form/form-error/form-error.component';
+import {ReportErrorService} from './shared/services/reportError.service';
 
 @NgModule({
     imports: [
@@ -170,6 +171,7 @@ import { FormErrorComponent } from './form/form-error/form-error.component';
         StateOfficePipe,
         AutoCompletePipe,
         RoleProviderService,
+        ReportErrorService,
         SearchByNPipe,
         StatusPipe,
         AutoCompletePipeP,

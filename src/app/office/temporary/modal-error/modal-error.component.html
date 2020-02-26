@@ -4,13 +4,13 @@
         <nb-card-body class="modalHeight" >
             <nb-tabset class="col-12">
                 <nb-tab tabTitle="Bureau">
-                    <ngx-form-office-error></ngx-form-office-error>
+                    <ngx-form-office-error (submit)="submit($event)" (cancel)="ref.close()"></ngx-form-office-error>
                 </nb-tab>
                 <nb-tab tabTitle="Personne">
-                    <ngx-form-persone-error></ngx-form-persone-error>
+                    <ngx-form-persone-error (submit)="submit($event)" (cancel)="ref.close()"></ngx-form-persone-error>
                 </nb-tab>
                 <nb-tab tabTitle="Autres">
-                    <ngx-form-error></ngx-form-error>
+                    <ngx-form-error (submit)="submit($event)" (cancel)="ref.close()"></ngx-form-error>
                 </nb-tab>
             </nb-tabset>
         </nb-card-body>

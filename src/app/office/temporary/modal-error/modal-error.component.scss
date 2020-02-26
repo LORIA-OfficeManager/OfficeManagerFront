@@ -1,7 +1,9 @@
 @import '~app/office/office.component';
 @import '~app/office/temporary/map-office/map/map.component';
 /*************************************************Modal****************************************************************/
-
+.buttonHelpModal {
+  border-width: 0.1rem !important;
+}
 .titleHelpModal {
   color: $color-active;
   margin: 2% 0%;
@@ -91,4 +93,14 @@
       }
     }
   }
+  .nb-theme-default nb-toast.status-warning {
+    z-index: 100000000000;
+    background-color: rgba(193, 11, 0, 0.7) !important;
+    border-color: rgba(193, 11, 0, 0.7) !important;
+    color: white!important;
+    .icon-container {
+      color: rgba(193, 11, 0, 0.7) !important;
+    }
+  }
 }
+

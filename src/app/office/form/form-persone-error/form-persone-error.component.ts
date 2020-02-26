@@ -2,6 +2,7 @@ import { Component, OnInit, EventEmitter, Output} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {Person} from '../../shared/interfaces/person';
 import { PersonService } from '../../shared/services/person.service';
+import {NbComponentStatus, NbGlobalPosition, NbToastrService} from '@nebular/theme';
 
 @Component({
   selector: 'ngx-form-persone-error',
@@ -9,17 +10,17 @@ import { PersonService } from '../../shared/services/person.service';
   styleUrls: ['./form-persone-error.component.scss'],
 })
 export class FormPersoneErrorComponent implements OnInit  {
-  toppings = new FormControl();
 // private property to store cancel$ value
   private readonly _cancel$: EventEmitter<void>;
   // private property to store submit$ value
   private readonly _submit$: EventEmitter<any>;
   // private property to store form value
-  private readonly _form: FormGroup;
+  private _form: FormGroup;
   private _people: Person[];
   /**
    * Constructor
-   * @param _officeService
+   * @param _peopleService
+   * @param toastrService
    */
   constructor(private _peopleService: PersonService) {
     this._submit$ = new EventEmitter<any>();
@@ -88,13 +89,11 @@ export class FormPersoneErrorComponent implements OnInit  {
    * Function to emit event to submit form and person
    */
   submit(error: any) {
-    // console.log(this._form);
-    // console.log(this.toppings);
-    // console.log(error);
-    // this._model.size = office.size;
-    // this._officeService.updateCapacity(this._model).subscribe(
-    //     () => this._submit$.emit(office));
+    let message = 'Une erreur a était détecté  pour les personnes suivantes : \n';
+    for (const person of error.people) {
+        message += ' - ' + person.lastname.toUpperCase() + ' ' + person.firstname + '\n';
+    }
+    message += error.message;
+    this.submit$.emit({message : message});
   }
-
-
 }

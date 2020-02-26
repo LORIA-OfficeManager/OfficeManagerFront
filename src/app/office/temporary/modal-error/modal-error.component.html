@@ -18,6 +18,8 @@
         </nb-card-footer>
     </nb-card>
 </ng-template>
-<button nbButton class="secondFixedButton" appearance="outline"
-        size="small" shape="round" (click)="open(dialog)" ><nb-icon icon="alert-triangle-outline"></nb-icon>
+<button nbButton class="secondFixedButton buttonHelpModal" appearance="outline"
+        size="small" shape="round" (click)="open(dialog)"
+        [nbTooltipPlacement]="'start'" nbTooltip="Signaler une erreur" >
+    <nb-icon icon="alert-triangle-outline"></nb-icon>
 </button>

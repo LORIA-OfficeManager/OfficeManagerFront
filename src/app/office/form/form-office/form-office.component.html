@@ -3,7 +3,7 @@
         <table class="full-width" cellspacing="0">
             <tr class="col-lg-12 row" style="padding: 0%;margin: 0%">
                 <td class="col-lg-6" style="">
-                    <mat-form-field class="full-width" [class.mgb15]="form.get('size').dirty && form.get('size').invalid">
+                    <mat-form-field class="full-width " [class.mgb15]="form.get('size').dirty && form.get('size').invalid">
                         <input matInput type="number" placeholder="Taille" formControlName="size" minlength="1" required name="size" />
                         <mat-error *ngIf="form.get('size').dirty && form.get('size').hasError('required')">
                             La taille est <strong>required</strong>

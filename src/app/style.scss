@@ -19,36 +19,36 @@
     background: repeating-linear-gradient(
                     135deg,
                     #edf1f7,
-                    #edf1f7 10px,
-                    #ffff 10px,
-                    #ffff 20px
+                    #edf1f7 18px,
+                    #ffff 18px,
+                    #ffff 34px
     );
   }
   .nb-theme-cosmic .StrangerOfficeemptyOffice {
     background: repeating-linear-gradient(
                     135deg,
                     #1b1b38,
-                    #1b1b38 10px,
-                    #323259 10px,
-                    #323259 20px
+                    #1b1b38 18px,
+                    #323259 18px,
+                    #323259 34px
     );
   }
   .nb-theme-dark .StrangerOfficeemptyOffice {
     background: repeating-linear-gradient(
                     135deg,
                     #151a30,
-                    #151a30 10px,
-                    #222b45 10px,
-                    #222b45 20px
+                    #151a30 18px,
+                    #222b45 18px,
+                    #222b45 34px
     );
   }
   .StrangerOfficenotFullOffice {
     background: repeating-linear-gradient(
                     135deg,
                     #00c10c,
-                    #00c10c 10px,
-                    $color-officeNoEmpty 10px,
-                    $color-officeNoEmpty 20px
+                    #00c10c 18px,
+                    $color-officeNoEmpty 18px,
+                    $color-officeNoEmpty 34px
     );
   }
   .StrangerOfficemoreThanFullOffice {
@@ -64,9 +64,9 @@
     background: repeating-linear-gradient(
                     135deg,
                     #c14900,
-                    #c14900 10px,
-                    $color-officeFull 10px,
-                    $color-officeFull 20px
+                    #c14900 18px,
+                    $color-officeFull 18px,
+                    $color-officeFull 34px
     );
   }
 }

@@ -3,7 +3,7 @@
         <table class="full-width" cellspacing="0" style="width: 100%; margin: 0">
             <tr class="col-lg-12 row" style="padding: 0%;margin: 0%">
                 <td class="col-lg-12" style="">
-                    <mat-form-field [class.mgb15]="form.get('people').dirty && form.get('people').invalid">
+                    <mat-form-field class="col-lg-12" [class.mgb15]="form.get('people').dirty && form.get('people').invalid">
                         <mat-label>Personnes</mat-label>
                         <mat-select   formControlName="people" required multiple name="people">
                             <mat-select-trigger>
@@ -13,14 +13,14 @@
       </span>
                             </mat-select-trigger>
                             <mat-option *ngFor="let person of people" [value]="person">
-                                {{person.firstname}} {{person.lastname}}
+                                {{person.lastname | uppercase}} {{person.firstname}}
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
                     <mat-form-field class="full-width col-lg-12" [class.mgb15]="form.get('message').dirty && form.get('message').invalid">
                         <mat-label>Message</mat-label>
                         <textarea matInput  formControlName="message" required name="message"
-                                  style="width: 100%" placeholder="il y a une erreur"></textarea>
+                                  style="width: 100%;height: 80px!important;" placeholder="il y a une erreur"></textarea>
                         <mat-error *ngIf="form.get('message').dirty && form.get('message').hasError('required')">
                             La taille est <strong>required</strong>
                         </mat-error>

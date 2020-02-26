@@ -76,7 +76,7 @@
 ::ng-deep {
   .tabset {
     .tab:hover {
-      .tab-link:before {
+      .tab-link::before {
         background: #cc5d9a !important;
       }
       .tab-text {
@@ -85,7 +85,7 @@
     }
 
     .active {
-      .tab-link:before {
+      .tab-link::before {
         background: #cc5d9a !important;
       }
       .tab-text {

@@ -78,6 +78,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { FormPersoneErrorComponent } from './form/form-persone-error/form-persone-error.component';
 import { FormErrorComponent } from './form/form-error/form-error.component';
 import {ReportErrorService} from './shared/services/reportError.service';
+import { CompteComponent } from './admin/compte/compte.component';
 
 @NgModule({
     imports: [
@@ -162,6 +163,7 @@ import {ReportErrorService} from './shared/services/reportError.service';
         FormOfficeErrorComponent,
         FormPersoneErrorComponent,
         FormErrorComponent,
+        CompteComponent,
     ],
     providers: [
         OfficePipePipe,
@@ -175,6 +177,7 @@ import {ReportErrorService} from './shared/services/reportError.service';
         SearchByNPipe,
         StatusPipe,
         AutoCompletePipeP,
+        CustomValidatorDirective,
     ],
     entryComponents: [
         DialogAssignementComponent,

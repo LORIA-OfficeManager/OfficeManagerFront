@@ -16,6 +16,8 @@
                      [ngClass]="action === 'export' ? 'activeFiltre' : 'inactiveFiltre'"><h6>Export</h6></div>
                 <div class="menu-title" (click)="changeAction('department')"
                      [ngClass]="action === 'department' ? 'activeFiltre' : 'inactiveFiltre'"><h6>Département</h6></div>
+                <div class="menu-title"(click)="changeAction('compte')"
+                     [ngClass]="action === 'compte' ? 'activeFiltre' : 'inactiveFiltre'"><h6>Compte</h6></div>
             </nb-card-body>
         </nb-card>
     </nb-sidebar>
@@ -47,6 +49,15 @@
                         </div>
                     </div>
                     <ngx-department></ngx-department>
+                </div>
+                <div *ngSwitchCase="'compte'" [ngClass]="action === 'compte' ? 'activeFiltre' : ''">
+                    <div class="row col-12">
+                        <h1 class="active titleAction" >Créer un Compte </h1>
+                        <div class="row col-12 ligne">
+                            <hr class="one col-lg-12" >
+                        </div>
+                    </div>
+                    <ngx-compte></ngx-compte>
                 </div>
             </div>
         </div>

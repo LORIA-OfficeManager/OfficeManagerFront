@@ -25,7 +25,7 @@
            name="email"
            id="input-email"
            pattern="([a-z]+)\.([a-z]+)@loria.fr"
-           placeholder="firstname.lastname@loria.fr"
+           placeholder="prenom.nom@loria.fr"
            autofocus
            [status]="email.dirty ? (email.invalid  ? 'danger' : 'success') : ''"
            [required]="getConfigValue('forms.validation.email.required')"

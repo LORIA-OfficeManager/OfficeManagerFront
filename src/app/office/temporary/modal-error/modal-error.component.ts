@@ -13,6 +13,7 @@ export class ModalErrorComponent implements OnInit {
    * construtor
    * @param dialogService
    * @param toastrService
+   * @param reportErrorService
    */
   constructor(private dialogService: NbDialogService, private toastrService: NbToastrService,
               private reportErrorService: ReportErrorService) {}

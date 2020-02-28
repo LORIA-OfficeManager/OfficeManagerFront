@@ -28,6 +28,7 @@ export const environment = {
       oneDepartment: '/department/:id',
       updateCapacity: '/office/capacity',
       reportError: '/reportError',
+      createUser: '/user',
     },
   },
 };

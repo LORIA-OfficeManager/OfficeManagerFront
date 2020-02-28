@@ -1,6 +1,8 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {CustomValidatorDirective} from '../../shared/validator/custom-validator.directive';
+import {UserService} from '../../shared/services/user.service';
+import {NbComponentStatus, NbToastrService} from '@nebular/theme';
 
 @Component({
   selector: 'ngx-form-compte',
@@ -8,20 +10,18 @@ import {CustomValidatorDirective} from '../../shared/validator/custom-validator.
   styleUrls: ['./FormCompte.component.scss'],
 })
 export class FormCompteComponent implements OnInit {
-  // private property to store cancel$ value
-  private readonly _cancel$: EventEmitter<void>;
-  // private property to store submit$ value
-  private readonly _submit$: EventEmitter<any>;
   // private property to store form value
-  private readonly _form: FormGroup;
+  private _form: FormGroup;
 
   /**
    * Constructor
    * @param formBuilder
+   * @param _userService
+   * @param toastrService
    */
-  constructor(private formBuilder: FormBuilder) {
-    this._submit$ = new EventEmitter<any>();
-    this._cancel$ = new EventEmitter<void>();
+  constructor(private formBuilder: FormBuilder,
+              private _userService: UserService,
+              private toastrService: NbToastrService) {
     this._form = this._buildForm();
   }
 
@@ -59,33 +59,31 @@ export class FormCompteComponent implements OnInit {
   get form(): FormGroup {
     return this._form;
   }
-
-  /**
-   * Returns private property _cancel$
-   */
-  @Output('cancel')
-  get cancel$(): EventEmitter<void> {
-    return this._cancel$;
-  }
   /**
    * Function to emit event to cancel process
    */
   cancel() {
-    this._cancel$.emit();
+    this._form = this._buildForm();
   }
 
-  /**
-   * Returns private property _submit$
-   */
-  @Output('submit')
-  get submit$(): EventEmitter<any> {
-    return this._submit$;
-  }
   /**
    * Function to emit event to submit form and person
    */
-  submit(error: any) {
-    this.submit$.emit({message : error.message});
+  submit(user: any) {
+    this._userService.createUser(user).subscribe(
+        (_) =>  this.showToastSuc('success', 'bottom-end'),
+        (_) =>  this.showToastErr('warning', 'bottom-end'),
+    );
   }
 
+    showToastSuc(status: NbComponentStatus, position) {
+        this.toastrService.show(`L'utilisateur a été créé`,
+            `Success`,
+            { status, position, limit: 2});
+    }
+    showToastErr(status: NbComponentStatus, position) {
+        this.toastrService.show(` L'utilisateur n'a pas été créé`,
+            `Erreur`,
+            { status, position, limit: 2});
+    }
 }

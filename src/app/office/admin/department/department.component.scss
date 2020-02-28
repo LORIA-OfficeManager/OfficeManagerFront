@@ -17,30 +17,12 @@
   margin: 2px auto;
 
 }
-
+.formDep {
+  padding: 0!important;
+}
 .new-department {
-
   button {
+    margin-top: 15px;
     float: right;
-  }
-
-  input {
-    border: 1px lightgrey solid;
-    border-radius: 5px;
-    height: 100%;
-    margin: 0;
-    padding: 2px 4px;
-
-    &::-webkit-input-placeholder { /* Edge */
-      color: lightgrey;
-    }
-
-    &:-ms-input-placeholder { /* Internet Explorer 10-11 */
-      color: lightgrey;
-    }
-
-    &::placeholder {
-      color: lightgrey;
-    }
   }
 }

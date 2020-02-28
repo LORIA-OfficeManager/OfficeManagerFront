@@ -1,4 +1,10 @@
-<ngx-modal-help></ngx-modal-help>
+<div class="fixedButton">
+  <button nbButton class="mainFixedButton" appearance="outline"
+          size="small" shape="round"><nb-icon icon="menu-outline"></nb-icon>
+  </button>
+  <ngx-modal-help class="firstFixedButton"></ngx-modal-help>
+  <ngx-modal-error class="secondFixedButton"></ngx-modal-error>
+</div>
 <nb-layout>
   <nb-layout-header fixed>
     <ngx-office-header></ngx-office-header>
@@ -102,7 +108,6 @@
             </th>
             <td nbTreeGridCell *nbTreeGridCellDef="let row">
               {{row.data[customColumn]}}
-<!--              <ngx-window-office style="position: absolute" (ChangeOffice)="changeOffice($event)" [office]="getOffice(row.data['officeId'])"></ngx-window-office>-->
             </td>
           </ng-container>
 

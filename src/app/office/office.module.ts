@@ -78,7 +78,8 @@ import {MatSelectModule} from '@angular/material/select';
 import { FormPersoneErrorComponent } from './form/form-persone-error/form-persone-error.component';
 import { FormErrorComponent } from './form/form-error/form-error.component';
 import {ReportErrorService} from './shared/services/reportError.service';
-import { CompteComponent } from './admin/compte/compte.component';
+import { FormCompteComponent } from './admin/FormCompte/formCompte.component';
+import {CompteComponent} from './admin/compte/compte.component';
 
 @NgModule({
     imports: [
@@ -163,6 +164,7 @@ import { CompteComponent } from './admin/compte/compte.component';
         FormOfficeErrorComponent,
         FormPersoneErrorComponent,
         FormErrorComponent,
+        FormCompteComponent,
         CompteComponent,
     ],
     providers: [

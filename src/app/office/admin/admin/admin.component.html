@@ -6,7 +6,11 @@
         <nb-card class="col-lg-12 filtre">
             <nb-card-header>
                 <div class="col-lg-12">
-                    <h4><strong>{{'Menu' | uppercase }}</strong></h4>
+                    <a  style="margin: auto; text-align: center;">
+                        <div class="loriaBack">
+                            <p>Menu</p>
+                        </div>
+                    </a>
                 </div>
             </nb-card-header>
             <nb-card-body>
@@ -52,12 +56,12 @@
                 </div>
                 <div *ngSwitchCase="'compte'" [ngClass]="action === 'compte' ? 'activeFiltre' : ''">
                     <div class="row col-12">
-                        <h1 class="active titleAction" >Créer un Compte </h1>
+                        <h1 class="active titleAction" >Compte </h1>
                         <div class="row col-12 ligne">
                             <hr class="one col-lg-12" >
                         </div>
                     </div>
-                    <ngx-compte></ngx-compte>
+                        <ngx-compte></ngx-compte>
                 </div>
             </div>
         </div>

@@ -34,6 +34,10 @@ export class DepartmentComponent implements OnInit {
     return this._form;
   }
 
+  get formValue() {
+    return this._form.get('name').value;
+  }
+
   delete(id: number): void {
 
     this._departmentService.delete(id)

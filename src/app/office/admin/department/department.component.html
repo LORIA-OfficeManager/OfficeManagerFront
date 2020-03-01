@@ -9,7 +9,7 @@
                            style="width: 100%;" placeholder="Nouveau Département"/>
                 </mat-form-field>
 <!--                <input matInput ngModel type="text" formControlName="name" name="name" placeholder="Nouveau Département">-->
-                <button type="submit" nbButton (click)="create(form.get('name').value)" size="tiny"><nb-icon icon="checkmark-outline"></nb-icon></button>
+                <button type="submit" nbButton (click)="create(formValue)" size="tiny"><nb-icon icon="checkmark-outline"></nb-icon></button>
             </form>
         </nb-list-item>
         <nb-list-item *ngFor="let department of departments" >

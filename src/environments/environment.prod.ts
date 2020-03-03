@@ -22,8 +22,10 @@ export const environment = {
       allDepartment: '/department',
       oneDepartment: '/department/:id',
       updateCapacity: '/office/capacity',
+      download: '/office/download',
       reportError: '/reportError',
       createUser: '/user',
+      export: '/export',
     },
   },
 };

@@ -1,4 +1,3 @@
-
 <mat-dialog-content>
     <form novalidate [formGroup]="form">
         <table class="full-width" cellspacing="0" style="width: 100%; margin: 0;">
@@ -11,20 +10,20 @@
                                   style="width: 100%;" placeholder="prenom.nom@loria.fr"
                                pattern="([a-z]+)\.([a-z]+)@loria.fr"/>
                         <mat-error *ngIf="form.get('email').dirty && form.get('email').hasError('required')">
-                            L'Address mail est <strong>required</strong>
+                            L'address mail est <strong>requis</strong>
                         </mat-error>
                         <mat-error *ngIf="form.get('email').dirty && !form.get('email').hasError('required')
                         && form.get('email').hasError('loriaEmail')">
-                             email est incorrecte <strong>(ex: prenom.nom@loria.fr)</strong>
+                             L'email est incorrecte <strong>(ex: prenom.nom@loria.fr)</strong>
                         </mat-error>
                     </mat-form-field>
                     <mat-form-field class="full-width offset-1 col-lg-10"
                                     [class.mgb15]="form.get('password').dirty && form.get('password').invalid">
                         <mat-label>Mot de passe</mat-label>
                         <input class="backInput" type="password" matInput  formControlName="password" required name="password"
-                               style="width: 100%;" placeholder="il y a une erreur"/>
+                               style="width: 100%;" placeholder="password"/>
                         <mat-error *ngIf="form.get('password').dirty && form.get('password').hasError('required')">
-                            Le mot de passe est <strong>required</strong>
+                            Le mot de passe est <strong>requis</strong>
                         </mat-error>
                     </mat-form-field>
                     <div class="validatorPassword full-width offset-1 col-lg-10"
@@ -64,7 +63,7 @@
                                     [class.mgb15]="form.get('confpassword').dirty && form.get('confpassword').invalid">
                         <mat-label>Confirmer le Mot de passe</mat-label>
                         <input class="backInput" type="password" matInput  formControlName="confpassword" required name="confpassword"
-                               style="width: 100%;" placeholder="il y a une erreur"/>
+                               style="width: 100%;" placeholder="password"/>
                         <mat-error *ngIf="form.get('confpassword').dirty && form.get('confpassword').hasError('required')">
                             La confirmation du mot de passe est <strong>obligatoire</strong>
                         </mat-error>

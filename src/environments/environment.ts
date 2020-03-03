@@ -29,6 +29,7 @@ export const environment = {
       updateCapacity: '/office/capacity',
       reportError: '/reportError',
       createUser: '/user',
+      download: '/office/download',
     },
   },
 };

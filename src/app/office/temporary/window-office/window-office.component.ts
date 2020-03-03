@@ -14,7 +14,7 @@ export class WindowOfficeComponent implements OnInit {
   // bureau
   private _office: Office;
   private _change$: EventEmitter<boolean>;
-  @ViewChild('contentTemplate', { static: false }) contentTemplate: TemplateRef<any>;
+  // @ViewChild('contentTemplate', { static: false }) contentTemplate: TemplateRef<any>;
   /**
    * constructor
    * @param windowService

@@ -2,6 +2,11 @@
 
 /*****************************************************CodeCol**********************************************************/
 
+.btnOfficeM {
+  background-color: rgba(51, 102, 255, 0.08) !important;
+  border-color: #3eace0 !important;
+  color: #3eace0 !important;
+}
 ::ng-deep {
   .fullOffice {
     background-color: $color-officeFull;

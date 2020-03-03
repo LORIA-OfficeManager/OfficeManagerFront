@@ -34,7 +34,7 @@
                                [nbTooltipPlacement]="'end'"  nbTooltip="{{person.statusName}}"
                                nbTooltipClass="officeManagerTooltip"></i>
                             {{person.firstname}} {{person.lastname}}
-                            <ngx-warning-popup (submit)="suppPersonne($event)" [person]="person"
+                            <ngx-warning-popup (submit)="suppPersonne($event)" [icon]="'minus'" [message]="message(person)" [object]="person"
                                                style="float: right; cursor: pointer;"></ngx-warning-popup>
                         </span>
                     </li>

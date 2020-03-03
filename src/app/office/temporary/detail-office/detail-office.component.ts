@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {NbDialogService, NbWindowRef} from '@nebular/theme';
+import {Component, OnInit, TemplateRef} from '@angular/core';
+import {NbDialogRef, NbDialogService, NbWindowRef} from '@nebular/theme';
 import {WarningPopupComponent} from '../../shared/components/warning-popup/warning-popup.component';
 import {Person} from '../../shared/interfaces/person';
 import {PersonService} from '../../shared/services/person.service';
@@ -19,11 +19,12 @@ export class DetailOfficeComponent implements OnInit {
     /**
      * constructor
      * @param windowRef
-     * @param dialogService
+     * @param _dialogService
      * @param _peopleService
      * @param _pipeZombie
+     * @param dialogRef
      */
-    constructor(public windowRef: NbWindowRef, private dialogService: NbDialogService,
+    constructor(public windowRef: NbWindowRef, private _dialogService: NbDialogService,
               private _peopleService: PersonService, private _pipeZombie: ZombiePipe) {
         this._data = windowRef.config.context;
     }
@@ -46,11 +47,11 @@ export class DetailOfficeComponent implements OnInit {
     // }
     /**
      * ouvre la modal qui permet de supprimer une personne
-     * @param id
+     * @param p
      */
-    open(id: number) {
-      this.dialogService.open(WarningPopupComponent, { context: 'this is some additional data passed to dialog' })
-        .onClose.subscribe(name => name && (this.data.persons = this.data.persons.filter(value => value !== id)));
+    open(p: Person) {
+      this._dialogService.open(WarningPopupComponent, {context: this.message(p) })
+        .onClose.subscribe(_ => this.suppPersonne(p));
     }
 
     /**
@@ -142,5 +143,10 @@ export class DetailOfficeComponent implements OnInit {
                 break;
         }
         return occupation;
+    }
+
+    message(person: any): string {
+        return 'êtes-vous sûr de vouloir <strong>désaffecter</strong> ' + person.firstname + ' ' + person.lastname +
+            ' du bureaux ?';
     }
 }

@@ -8,11 +8,13 @@ ENV PATH /app/node_modules/.bin:$PATH
 
 # install and cache app dependencies
 COPY package.json /app/package.json
-RUN npm install -g @angular/cli
-RUN npm install
-RUN npm fund
+RUN npm install -g npm@latest
+RUN npm install -g yarn
+RUN yarn global add @angular/cli
+RUN ng config —global cli.packageManager yarn
+RUN yarn install
 
 COPY . /app
 
 # start app
-ENTRYPOINT ng serve --host 0.0.0.0 --port 50000
+ENTRYPOINT ["ng", "serve", "--host 0.0.0.0", "--port 50000"];

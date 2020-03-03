@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { NbWindowService} from '@nebular/theme';
 import {Office} from '../../shared/interfaces/office';
 import {OfficeDetailService} from '../../shared/services/office-detail.service';
@@ -14,7 +14,7 @@ export class WindowOfficeComponent implements OnInit {
   // bureau
   private _office: Office;
   private _change$: EventEmitter<boolean>;
-  @ViewChild('contentTemplate', { static: false }) contentTemplate: TemplateRef<any>;
+  // @ViewChild('contentTemplate', { static: false }) contentTemplate: TemplateRef<any>;
   /**
    * constructor
    * @param windowService

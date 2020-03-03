@@ -167,7 +167,7 @@ export class StatusPipe implements PipeTransform {
    */
   transform(p: Person): string {
     const res = p.statusName;
-      if (res === 'Défaut') {
+      if (res === 'Enseignant-chercheur') {
         return 'fa-chalkboard-teacher';
       } else {
         if (res ===  'Doctorant') {

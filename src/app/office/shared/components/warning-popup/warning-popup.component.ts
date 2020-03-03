@@ -8,10 +8,12 @@ import { NbDialogService} from '@nebular/theme';
 })
 export class WarningPopupComponent implements OnInit {
     private _submit$: EventEmitter<any>;
-    private _person: any;
+    private _obeject: any;
+    private _message: String;
+    private _icon: String;
     constructor(private dialogService: NbDialogService) {
       this._submit$ = new EventEmitter<any>();
-      this.person = {} as any;
+      this._obeject = {} as any;
     }
 
     /**
@@ -25,12 +27,26 @@ export class WarningPopupComponent implements OnInit {
      * @param dialog
      */
     open(dialog: TemplateRef<any>) {
-    this.dialogService.open(dialog);
+        this.dialogService.open(dialog);
+    }
+    @Input()
+    set message(_: String) {
+        this._message = _;
+    }
+    get message(): String {
+        return this._message;
+    }
+    @Input()
+    set icon(_: String) {
+        this._icon = _;
+    }
+    get icon(): String {
+        return this._icon;
     }
 
     @Input()
-    set person(_: any) {
-      this._person = _;
+    set object(_: any) {
+      this._obeject = _;
     }
     @Output('submit')
     get submit$() {
@@ -40,13 +56,13 @@ export class WarningPopupComponent implements OnInit {
      * emet l'evenement
      */
     submit() {
-        this._submit$.emit(this._person);
+        this._submit$.emit(this._obeject);
     }
 
     /**
      *
      */
-    get person(): any {
-        return this._person;
+    get object(): any {
+        return this._obeject;
     }
 }

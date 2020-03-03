@@ -55,7 +55,8 @@
                     <mat-dialog-content>
                         <form [formGroup]="form">
                             <mat-form-field class="full-width">
-                                <input class="backInput"  (keyup)="onKey($event)" matInput placeholder="Nom du bureau" formControlName="search" name="seacrh" />
+                                <input class="backInput"  (keyup)="onKey($event)" matInput placeholder="Nom du bureau"
+                                       formControlName="search" name="seacrh" />
                             </mat-form-field>
                         </form>
                     </mat-dialog-content>
@@ -77,6 +78,7 @@
                             <span class="errorSearchPersone" *ngIf="isNotAperson(myControl.value)">Vous devez choisir une Personne</span>
                             <button style="float: right" [disabled]="isNotAperson(myControl.value)"
                                     (click)="searchperson(myControl.value)"
+                                    class="btnOfficeM"
                                     outline nbButton status="primary">Rechercher</button>
                         </form>
                     </mat-dialog-content>

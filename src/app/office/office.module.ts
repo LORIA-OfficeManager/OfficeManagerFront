@@ -80,6 +80,7 @@ import { FormErrorComponent } from './form/form-error/form-error.component';
 import {ReportErrorService} from './shared/services/reportError.service';
 import { FormCompteComponent } from './admin/FormCompte/formCompte.component';
 import {CompteComponent} from './admin/compte/compte.component';
+import { TeamComponent } from './admin/department/team/team.component';
 
 @NgModule({
     imports: [
@@ -166,6 +167,7 @@ import {CompteComponent} from './admin/compte/compte.component';
         FormErrorComponent,
         FormCompteComponent,
         CompteComponent,
+        TeamComponent,
     ],
     providers: [
         OfficePipePipe,

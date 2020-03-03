@@ -57,4 +57,8 @@ export class DepartmentItemComponent implements OnInit {
   get state() {
     return this._state;
   }
+
+  teamsIsEmpty(): boolean {
+    return !this._department.teams || this._department.teams.length < 1;
+  }
 }

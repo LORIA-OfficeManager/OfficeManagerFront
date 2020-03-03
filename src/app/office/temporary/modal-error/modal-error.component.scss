@@ -67,8 +67,8 @@
 //////////////////////////////////////////////phone
 @media screen and (max-width: 600px) {
   .modalHeight {
-    max-height: 200px !important;
-    width: 200px !important;
+    max-height: 300px !important;
+    width: 500px !important;
   }
 }
 
@@ -93,14 +93,6 @@
       }
     }
   }
-  .nb-theme-default nb-toast.status-warning {
-    z-index: 100000000000;
-    background-color: rgba(193, 11, 0, 0.7) !important;
-    border-color: rgba(193, 11, 0, 0.7) !important;
-    color: white!important;
-    .icon-container {
-      color: rgba(193, 11, 0, 0.7) !important;
-    }
-  }
+
 }
 

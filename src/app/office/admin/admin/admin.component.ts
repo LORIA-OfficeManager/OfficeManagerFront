@@ -2,7 +2,6 @@ import {AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, View
 import {OfficeService} from '../../shared/services/office.service';
 import {Log} from '../../shared/interfaces/log';
 
-
 @Component({
   selector: 'ngx-admin',
   templateUrl: './admin.component.html',
@@ -26,6 +25,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
   /**
    * constructor
    * @param _officeService service des bureaux
+   * @param fileService
    */
   constructor( private _officeService: OfficeService) {
     this._action = 'import';

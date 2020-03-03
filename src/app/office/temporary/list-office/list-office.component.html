@@ -99,7 +99,8 @@
                     <div class="col-lg-12 gallery noPadding" >
                         <i class=" fa-2x fas fa-table" style="float: right;margin-left: 2%;cursor: pointer"
                            (click)="switchDesign('tab')" [ngClass]="' '+(design==='tab' ? 'activeFiltre' : 'inactiveFiltre')"></i>
-                        <i [nbTooltipPlacement]="'start'" nbTooltip="Afficher les bureaux sous form de plan" class=" fa-2x fas fa-map-marked-alt" style="float: right;margin-left: 2%;cursor: pointer"
+                        <i [nbTooltipPlacement]="'start'" nbTooltip="Afficher les bureaux sous form de plan"
+                           nbTooltipClass="officeManagerTooltip" class=" fa-2x fas fa-map-marked-alt" style="float: right;margin-left: 2%;cursor: pointer"
                            (click)="switchDesign('map')" [ngClass]="' '+(design==='map' ? 'activeFiltre' : 'inactiveFiltre')"></i>
                     </div>
                 </div>

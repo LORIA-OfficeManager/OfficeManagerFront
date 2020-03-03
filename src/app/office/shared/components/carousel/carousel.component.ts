@@ -7,8 +7,8 @@ import {animate, style, transition, trigger} from '@angular/animations';
   styleUrls: ['./carousel.component.scss'],
   animations: [
     trigger('fade', [
-      transition('void => *', [style({ opacity: 0 }), animate('250ms', style({ opacity: 1 }))]),
-      transition('* => void', [style({ opacity: 1 }), animate('250ms', style({ opacity: 0 }))]),
+      transition('void => *', [style({ opacity: 0 }), animate('200ms', style({ opacity: 1 }))]),
+      transition('* => void', [style({ opacity: 1 }), animate('300ms', style({ opacity: 0 }))]),
     ]),
   ],
 })

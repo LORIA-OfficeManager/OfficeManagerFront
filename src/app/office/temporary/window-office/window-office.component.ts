@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { NbWindowService} from '@nebular/theme';
 import {Office} from '../../shared/interfaces/office';
 import {OfficeDetailService} from '../../shared/services/office-detail.service';

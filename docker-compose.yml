@@ -12,9 +12,3 @@ services:
       - '/app/node_modules'
     ports:
       - '50000:50000'
-    networks: 
-      default:
-networks: 
-  default:
-    external: 
-      name: officemanager-back_office-manager-bridge

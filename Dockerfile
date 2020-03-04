@@ -5,6 +5,7 @@ WORKDIR /app
 
 # install and cache app dependencies
 COPY package.json .
+RUN npm install -g npm@latest
 RUN yarn install
 
 COPY . .

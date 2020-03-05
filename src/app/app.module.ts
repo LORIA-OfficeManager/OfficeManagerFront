@@ -20,13 +20,14 @@ import {
   NbToastrModule,
   NbWindowModule,
 } from '@nebular/theme';
-import {NbAuthModule, NbDummyAuthStrategy} from '@nebular/auth';
+import {NbAuthJWTToken, NbAuthModule, NbPasswordAuthStrategy} from '@nebular/auth';
 import {NbRoleProvider, NbSecurityModule} from '@nebular/security';
 import {RoleProviderService} from './office/shared/services/role-provider.service';
 import {DevGuardService} from './office/shared/services/guards/dev-guard.service';
 import {UserGuardService} from './office/shared/services/guards/user-guard.service';
 import {GuestGuardService} from './office/shared/services/guards/guest-guard.service';
 import {LeaderGuardService} from './office/shared/services/guards/leader-guard.service';
+import {baseUrl, environment} from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
@@ -40,9 +41,20 @@ import {LeaderGuardService} from './office/shared/services/guards/leader-guard.s
     NbAuthModule.forRoot({
       strategies: [
         // TODO: Update this when backend auth works.
-        NbDummyAuthStrategy.setup({
-          name: 'dummy',
-        }),
+          NbPasswordAuthStrategy.setup({
+            name: 'username',
+            token: {
+              class: NbAuthJWTToken,
+              // this parameter tells where to look for the token
+            },
+
+            baseEndpoint: baseUrl(),
+            login: {
+                  // ...
+                  endpoint: 'login',
+                  method: 'post',
+              },
+          }),
       ],
       forms: {},
     }),

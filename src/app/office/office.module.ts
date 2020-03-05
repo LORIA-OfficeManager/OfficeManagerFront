@@ -21,7 +21,7 @@ import {
     NbSearchModule,
     NbSelectModule,
     NbSidebarModule,
-    NbTabsetModule,
+    NbTabsetModule, NbToggleModule,
     NbTooltipModule,
     NbTreeGridModule,
     NbUserModule,
@@ -126,6 +126,7 @@ import {MatRadioModule} from '@angular/material/radio';
         NbDatepickerModule,
         MatSelectModule,
         MatRadioModule,
+        NbToggleModule,
     ],
     declarations: [
         HomePageComponent,

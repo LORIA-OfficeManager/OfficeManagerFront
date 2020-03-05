@@ -28,6 +28,7 @@ export class ImportService {
   import(importData: any): Observable<any> {
     const formData = new FormData();
     formData.append('file', importData.file[0]);
+    formData.append('wipe', importData.wipe);
     return 'affectation' === importData.import ? this._http.post( this._backendURL.importPerson, formData) :
         this._http.post( this._backendURL.importOffice, formData);
   }

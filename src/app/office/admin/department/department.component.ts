@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Department} from '../../shared/interfaces/department';
 import {DepartmentService} from '../../shared/services/department.service';
-import {filter, flatMap} from 'rxjs/operators';
+import {flatMap} from 'rxjs/operators';
 import {FormControl, FormGroup} from '@angular/forms';
 import {NbComponentStatus, NbToastrService} from '@nebular/theme';
 

@@ -71,7 +71,6 @@ export class FormCompteComponent implements OnInit {
    * Function to emit event to submit form and person
    */
   submit(user: any) {
-    console.log(user);
     this._userService.createUser(user).subscribe(
         (_) =>  this.showToastSuc('success', 'bottom-end'),
         (_) =>  this.showToastErr('warning', 'bottom-end'),

@@ -81,6 +81,7 @@ import {ReportErrorService} from './shared/services/reportError.service';
 import { FormCompteComponent } from './admin/FormCompte/formCompte.component';
 import {CompteComponent} from './admin/compte/compte.component';
 import { TeamComponent } from './admin/department/team/team.component';
+import {MatRadioModule} from "@angular/material/radio";
 
 @NgModule({
     imports: [
@@ -124,6 +125,7 @@ import { TeamComponent } from './admin/department/team/team.component';
         MatAutocompleteModule,
         NbDatepickerModule,
         MatSelectModule,
+        MatRadioModule,
     ],
     declarations: [
         HomePageComponent,

@@ -24,8 +24,11 @@ export const environment = {
       updateCapacity: '/office/capacity',
       download: '/office/download',
       reportError: '/reportError',
-      createUser: '/user',
+      createUser: '/users/signUp',
       export: '/export',
+      createTeam: '/department/:id/teams',
+      deleteTeam: '/department/:id/teams/:idT',
+      updateTeam: '/department/:id/teams/:idT',
     },
   },
 };

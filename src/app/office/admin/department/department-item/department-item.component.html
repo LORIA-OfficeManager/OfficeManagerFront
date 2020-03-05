@@ -6,7 +6,7 @@
 
     <div class="accordion-body" *ngIf="state === 'expanded'">
         <div class="info" *ngIf="teamsIsEmpty()">Aucune équipe n'est affectée à ce département</div>
-        <ngx-team *ngIf="!teamsIsEmpty()" [teams]="department.teams"></ngx-team>
+        <ngx-team *ngIf="!teamsIsEmpty()" [department]="department" [teams]="department.teams"></ngx-team>
     </div>
 </div>
 

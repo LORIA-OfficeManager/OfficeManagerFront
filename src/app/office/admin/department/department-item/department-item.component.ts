@@ -8,6 +8,7 @@ import {Department} from '../../../shared/interfaces/department';
 })
 export class DepartmentItemComponent implements OnInit {
   private _department: Department;
+  private _oldDepartment: Department;
   private readonly _delete$: EventEmitter<number>;
   private readonly _update$: EventEmitter<Department>;
 
@@ -25,6 +26,7 @@ export class DepartmentItemComponent implements OnInit {
   @Input()
   set department(department: Department) {
     this._department = department;
+    this._oldDepartment = department;
   }
 
   @Output('delete')
@@ -44,6 +46,7 @@ export class DepartmentItemComponent implements OnInit {
   update(val: string): void {
       this._department.name = val;
       this._update$.emit(this._department);
+      this._department.name = this._oldDepartment.name;
   }
 
   delete(): void {

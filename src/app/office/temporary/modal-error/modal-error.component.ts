@@ -39,12 +39,12 @@ export class ModalErrorComponent implements OnInit {
   }
 
   showToastSuc(status: NbComponentStatus, position) {
-    this.toastrService.show(` un  email a etait envoyé a un administrateur`,
-        `L'erreur a etait notifié`,
+    this.toastrService.show(` Un email a été envoyé à un administrateur`,
+        `L'erreur a été notifié`,
         { status, position, limit: 2});
   }
   showToastErr(status: NbComponentStatus, position) {
-    this.toastrService.show(` le mail n'a pas pu etre envoyé `,
+    this.toastrService.show(` le mail n'a pas pu être envoyé `,
         `Une erreur est survenu lors du traitement`,
         { status, position, limit: 2});
   }

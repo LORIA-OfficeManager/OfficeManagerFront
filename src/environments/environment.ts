@@ -28,8 +28,11 @@ export const environment = {
       oneDepartment: '/department/:id',
       updateCapacity: '/office/capacity',
       reportError: '/reportError',
-      createUser: '/user',
+      createUser: '/users/signUp',
       download: '/office/download',
+      createTeam: '/department/:id/teams',
+      deleteTeam: '/department/:id/teams/:idT',
+      updateTeam: '/department/:id/teams/:idT',
     },
   },
 };

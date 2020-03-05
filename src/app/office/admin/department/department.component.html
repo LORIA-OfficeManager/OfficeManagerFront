@@ -12,8 +12,8 @@
                 <button type="submit" nbButton (click)="create(formValue)" size="tiny"><nb-icon icon="checkmark-outline"></nb-icon></button>
             </form>
         </nb-list-item>
-        <nb-list-item *ngFor="let department of departments" >
-            <ngx-department-item (delete)="delete($event)" (update)="update($event)" [department]="department"></ngx-department-item>
+        <nb-list-item *ngFor="let department of departments;index as i" >
+            <ngx-department-item  (delete)="delete($event)" (update)="update(i, $event)" [department]="department"></ngx-department-item>
         </nb-list-item>
 
         <nb-list-item *ngIf="isEmpty()">

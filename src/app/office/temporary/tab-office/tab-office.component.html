@@ -2,7 +2,7 @@
     <tr>
         <th mat-sort-header="name" class="borderSimpleL">Nom</th>
         <th mat-sort-header="size" class="borderSimpleL">Capacité Max</th>
-        <th mat-sort-header="occupation" class="borderSimpleL borderSimpleR">Pourcentage</th>
+        <th mat-sort-header="occupation" class="borderSimpleL borderSimpleR">Pourcentage d'occupation</th>
     </tr>
     <tr *ngFor="let office of ((offices | BuildingFloorPipe: stateFilter.floor: stateFilter.building)
     | StateOfficePipe: stateFilter.stateOffice) | AutoCompletePipe:stateFilter.name ; let index = index" [className]=" index % 2 ===1 ? 'rowBack' : 'rowNormal' ">

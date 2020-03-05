@@ -1,4 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'ngx-import',
@@ -7,9 +8,10 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 })
 export class ImportComponent implements OnInit {
   // envoie les  fichiers au component principale
-  private _import$: EventEmitter<any[]>;
+  private _import$: EventEmitter<any>;
   // tableau des fichiers dans le drag and drop
   private _files: any[];
+  private readonly _form: FormGroup;
 
   /**
    * constructor
@@ -17,6 +19,7 @@ export class ImportComponent implements OnInit {
   constructor() {
     this._import$ = new EventEmitter<any[]>();
     this._files = [];
+    this._form = this._buildForm();
   }
 
   ngOnInit() {
@@ -40,9 +43,24 @@ export class ImportComponent implements OnInit {
   deleteAttachment(index) {
     this._files.splice(index, 1);
   }
+  /**
+   * Function to build our form
+   */
+  private _buildForm(): FormGroup {
+    return new FormGroup({
+      import: new FormControl('affectation', Validators.compose([
+        Validators.required,
+      ])),
+    });
+  }
 
   /*********************************************************GET&SETTER*************************************************/
-
+  /**
+   * Returns private property _form
+   */
+  get form(): FormGroup {
+    return this._form;
+  }
   get files(): any[] {
     return this._files;
   }
@@ -54,6 +72,6 @@ export class ImportComponent implements OnInit {
    * emet l'evenement
    */
   import() {
-    this._import$.emit(this._files);
+    this._import$.emit({ file : this._files , import: this._form.get('import').value});
   }
 }

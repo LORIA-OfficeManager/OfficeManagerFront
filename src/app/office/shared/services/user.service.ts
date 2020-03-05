@@ -25,15 +25,18 @@ export class UserService {
     Object.keys(environment.backend.endpoints).forEach(k => this._backendURL[ k ] = `${baseUrl}${environment.backend.endpoints[ k ]}`);
   }
 
-  createUser(user: String): Observable<any> {
-    return this._http.post(
+  createUser(user: any): Observable<any> {
+    return this._http.post<any>(
         this._backendURL.createUser,
-        {user: user},
+        {username: user.username},
         this._options(),
     );
   }
 
   private _options(headerList: object = {}): any {
-    return { headers: new HttpHeaders(Object.assign({ 'Content-Type': 'application/json' }, headerList)) };
+    return { headers: new HttpHeaders(Object.assign({
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      }, headerList)) };
   }
 }

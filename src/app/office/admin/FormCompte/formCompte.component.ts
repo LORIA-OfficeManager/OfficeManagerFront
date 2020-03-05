@@ -33,7 +33,7 @@ export class FormCompteComponent implements OnInit {
    */
   private _buildForm(): FormGroup {
     return this.formBuilder.group({
-      email: new FormControl('', Validators.compose( [
+      username: new FormControl('', Validators.compose( [
         Validators.required,
         CustomValidatorDirective.loriaEmail,
       ])),
@@ -48,6 +48,7 @@ export class FormCompteComponent implements OnInit {
       confpassword: new FormControl('', Validators.compose( [
         Validators.required,
       ])),
+      role: new FormControl('user'),
     }, {
       validator: CustomValidatorDirective.MustMatch('password', 'confpassword'),
     });
@@ -70,6 +71,7 @@ export class FormCompteComponent implements OnInit {
    * Function to emit event to submit form and person
    */
   submit(user: any) {
+    console.log(user);
     this._userService.createUser(user).subscribe(
         (_) =>  this.showToastSuc('success', 'bottom-end'),
         (_) =>  this.showToastErr('warning', 'bottom-end'),

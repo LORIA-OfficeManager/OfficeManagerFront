@@ -47,7 +47,7 @@
                 </div>
                 <div *ngSwitchCase="'department'" [ngClass]="action === 'department' ? 'activeFiltre' : ''">
                     <div class="row col-12">
-                        <h1 class="active titleAction" >Department </h1>
+                        <h1 class="active titleAction" >Département </h1>
                         <div class="row col-12 ligne">
                             <hr class="one col-lg-12" >
                         </div>
@@ -61,7 +61,7 @@
                             <hr class="one col-lg-12" >
                         </div>
                     </div>
-                        <ngx-compte></ngx-compte>
+                    <ngx-compte></ngx-compte>
                 </div>
             </div>
         </div>
@@ -69,7 +69,7 @@
     <nb-layout-footer class="footerInfo">
         <nb-card class="noMargin full-width">
             <nb-card-header class=" footerNav" [ngSwitch]="showInfo">
-                Infos
+                Log
                 <nb-icon icon="minus" class="footerNavIcon" (click)="toggle()" *ngSwitchCase="'show'"></nb-icon>
                 <nb-icon icon="plus" class="footerNavIcon" (click)="toggle()" *ngSwitchCase="'hide'"></nb-icon>
             </nb-card-header>

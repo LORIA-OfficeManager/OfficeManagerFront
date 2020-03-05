@@ -3,7 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../../../environments/environment';
 import {Observable} from 'rxjs';
 import {defaultIfEmpty, filter, map} from 'rxjs/operators';
-import {Department} from '../interfaces/department';
+import {Department, Team} from '../interfaces/department';
 
 @Injectable({
   providedIn: 'root',
@@ -57,6 +57,32 @@ export class DepartmentService {
         this._options(),
     );
   }
+
+  createTeams(name: String, id: number): Observable<any> {
+    return this._http.post(
+        this._backendURL.createTeam.replace(':id', '' + id),
+        {name: name},
+        this._options(),
+    );
+  }
+
+  deleteTeams(id: number, idT: number): Observable<number> {
+    return this._http.delete(this._backendURL.deleteTeam.replace(':id', '' + id)
+        .replace(':idT', '' + idT))
+        .pipe(
+            map( _ => id),
+        );
+  }
+
+  updateTeam(id: number, idT: number, data: string): Observable<any> {
+    return this._http.put<Team>(
+        this._backendURL.updateTeam.replace(':id', '' + id)
+            .replace(':idT', '' + idT),
+        {name: data},
+        this._options(),
+    );
+  }
+
 
   private _options(headerList: object = {}): any {
     return { headers: new HttpHeaders(Object.assign({ 'Content-Type': 'application/json' }, headerList)) };

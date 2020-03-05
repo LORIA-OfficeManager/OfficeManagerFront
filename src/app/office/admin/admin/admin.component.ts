@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
-import {OfficeService} from '../../shared/services/office.service';
 import {Log} from '../../shared/interfaces/log';
+import {ImportService} from '../../shared/services/import.service';
 
 @Component({
   selector: 'ngx-admin',
@@ -13,7 +13,6 @@ export class AdminComponent implements OnInit, AfterViewInit {
   @ViewChildren('item') itemElements: QueryList<any>;
   private scrollContainer: any;
   private isNearBottom = true;
-
   // string qui definie l'action selectionne encours
   private _action: string;
   // string qui definie l'affichage ou non des infos d'execution de actions
@@ -24,10 +23,9 @@ export class AdminComponent implements OnInit, AfterViewInit {
 
   /**
    * constructor
-   * @param _officeService service des bureaux
-   * @param fileService
+   * @param _importService
    */
-  constructor( private _officeService: OfficeService) {
+  constructor( private _importService: ImportService) {
     this._action = 'import';
     this._showInfo = 'show';
     this._logs = [];
@@ -67,7 +65,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
    * @param files
    */
   import(files: any) {
-    this._officeService.import(files).subscribe(
+    this._importService.import(files).subscribe(
         _ => this._logs.push({
           title : _.type,
           text: '\n' + _.text,

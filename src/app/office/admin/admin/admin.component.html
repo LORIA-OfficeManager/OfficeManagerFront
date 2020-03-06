@@ -44,6 +44,7 @@
                             <hr class="one col-lg-12" >
                         </div>
                     </div>
+                    <ngx-export (export)="export()"></ngx-export>
                 </div>
                 <div *ngSwitchCase="'department'" [ngClass]="action === 'department' ? 'activeFiltre' : ''">
                     <div class="row col-12">

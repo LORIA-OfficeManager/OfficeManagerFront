@@ -61,7 +61,7 @@ import { AdminComponent } from './admin/admin/admin.component';
 import { DragAndDropDirective } from './admin/drag-and-drop.directive';
 import { ImportComponent } from './admin/import/import.component';
 import {MatButtonModule} from '@angular/material/button';
-import {AuthModule} from './auth/auth.module';
+import {AuthModule} from './admin/auth/auth.module';
 import { DepartmentComponent } from './admin/department/department.component';
 import { DepartmentItemComponent } from './admin/department/department-item/department-item.component';
 import { DialogUpdateOfficeComponent } from './temporary/dialog-update-office/dialog-update-office.component';
@@ -82,6 +82,8 @@ import { FormCompteComponent } from './admin/FormCompte/formCompte.component';
 import {CompteComponent} from './admin/compte/compte.component';
 import { TeamComponent } from './admin/department/team/team.component';
 import {MatRadioModule} from '@angular/material/radio';
+import {ExportComponent} from './admin/export/export.component';
+import {ExportService} from './shared/services/export.service';
 
 @NgModule({
     imports: [
@@ -170,6 +172,7 @@ import {MatRadioModule} from '@angular/material/radio';
         FormCompteComponent,
         CompteComponent,
         TeamComponent,
+        ExportComponent,
     ],
     providers: [
         OfficePipePipe,
@@ -184,6 +187,7 @@ import {MatRadioModule} from '@angular/material/radio';
         StatusPipe,
         AutoCompletePipeP,
         CustomValidatorDirective,
+        ExportService,
     ],
     entryComponents: [
         DialogAssignementComponent,

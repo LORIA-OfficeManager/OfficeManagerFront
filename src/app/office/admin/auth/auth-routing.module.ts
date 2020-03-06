@@ -4,8 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import {NbAuthComponent} from '@nebular/auth';
 import {LoginComponent} from './login/login.component';
 import {LogoutComponent} from './logout/logout.component';
-import {UserGuardService} from '../shared/services/guards/user-guard.service';
-import {GuestGuardService} from '../shared/services/guards/guest-guard.service';
+import {UserGuardService} from '../../shared/services/guards/user-guard.service';
+import {GuestGuardService} from '../../shared/services/guards/guest-guard.service';
 
 export const routes: Routes = [
   {

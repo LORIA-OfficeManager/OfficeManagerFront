@@ -25,7 +25,7 @@ export const environment = {
       download: '/office/download',
       reportError: '/reportError',
       createUser: '/users/signUp',
-      export: '/export',
+      exportAssignment: '/assignment/export',
       createTeam: '/department/:id/teams',
       deleteTeam: '/department/:id/teams/:idT',
       updateTeam: '/department/:id/teams/:idT',

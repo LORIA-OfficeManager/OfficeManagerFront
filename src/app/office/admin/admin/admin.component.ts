@@ -1,6 +1,7 @@
 import {AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import {Log} from '../../shared/interfaces/log';
 import {ImportService} from '../../shared/services/import.service';
+import {ExportService} from '../../shared/services/export.service';
 
 @Component({
   selector: 'ngx-admin',
@@ -20,12 +21,11 @@ export class AdminComponent implements OnInit, AfterViewInit {
   // log
   private _logs: Log[];
 
-
   /**
    * constructor
    * @param _importService
    */
-  constructor( private _importService: ImportService) {
+  constructor( private _importService: ImportService, private _exportService: ExportService) {
     this._action = 'import';
     this._showInfo = 'show';
     this._logs = [];
@@ -77,6 +77,21 @@ export class AdminComponent implements OnInit, AfterViewInit {
           class: 'errorImport',
         }),
         () => this.onItemElementsChanged(),
+    );
+  }
+
+  /**
+   * export les affectations
+   * aucun param
+   */
+  export() {
+    this._exportService.export().subscribe(
+        _ => this._logs.push(),
+        _ => this._logs.push({
+          title: _.type,
+          text: '' + _.message + '\n' + _.error.error + '\n',
+          class: 'errorExport',
+        }),
     );
   }
 

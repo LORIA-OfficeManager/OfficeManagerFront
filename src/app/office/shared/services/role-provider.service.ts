@@ -9,12 +9,14 @@ import {Roles} from '../interfaces/roles';
 @Injectable()
 export class RoleProviderService implements NbRoleProvider {
 
+    private token: NbAuthJWTToken;
     user = {};
 
-  constructor(private authService: NbAuthService) {
+    constructor(private authService: NbAuthService) {
       this.authService.onTokenChange()
           .subscribe((token: NbAuthJWTToken) => {
               if (token.isValid()) {
+                  this.token = token;
                   this.user = token.getPayload();
                   // here we receive a payload from the token and assigns it to our `user` variable
               }
@@ -29,6 +31,10 @@ export class RoleProviderService implements NbRoleProvider {
           return token.isValid() ? token.getPayload().role : Roles.guest;
         }),
       );
+  }
+
+  getToken(): NbAuthJWTToken {
+      return this.token;
   }
 
 }

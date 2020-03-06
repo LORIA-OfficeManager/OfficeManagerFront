@@ -1,0 +1,86 @@
+<h1 id="title" class="title">CONNEXION</h1>
+
+<nb-alert *ngIf="showMessages.error && errors?.length && !submitted" outline="danger" role="alert">
+  <p class="alert-title"><b>Oh snap!</b></p>
+  <ul class="alert-message-list">
+    <li *ngFor="let error of errors" class="alert-message">{{ error }}</li>
+  </ul>
+</nb-alert>
+
+<nb-alert *ngIf="showMessages.success && messages?.length && !submitted" outline="success" role="alert">
+  <p class="alert-title"><b>Hooray!</b></p>
+  <ul class="alert-message-list">
+    <li *ngFor="let message of messages" class="alert-message">{{ message }}</li>
+  </ul>
+</nb-alert>
+
+<form (ngSubmit)="login()" #form="ngForm" aria-labelledby="title">
+
+  <div class="form-control-group marginForm">
+    <label class="label" for="input-username">Adresse email :</label>
+    <input nbInput
+           fullWidth
+           [(ngModel)]="user.username"
+           #username="ngModel"
+           name="username"
+           id="input-username"
+           pattern="([a-z]+)\.([a-z]+)@loria.fr"
+           placeholder="firstname.lastname@loria.fr"
+           autofocus
+           [status]="username.dirty ? (username.invalid  ? 'danger' : 'success') : ''"
+           [required]="getConfigValue('forms.validation.username.required')"
+           [attr.aria-invalid]="username.invalid && username.touched ? true : null">
+    <ng-container *ngIf="username.invalid && username.touched">
+      <p class="caption status-danger" *ngIf="username.errors?.required">
+        L'email est requis !
+      </p>
+      <p class="caption status-danger" *ngIf="username.errors?.pattern">
+        L'email doit être de la forme requise
+      </p>
+    </ng-container>
+  </div>
+
+  <div class="form-control-group marginForm">
+    <label class="label" for="input-password">Mot de Passe :</label>
+    <input nbInput
+           fullWidth
+           [(ngModel)]="user.password"
+           #password="ngModel"
+           name="password"
+           type="password"
+           id="input-password"
+           placeholder="Mot de Passe"
+           [status]="password.dirty ? (password.invalid  ? 'danger' : 'success') : ''"
+           [required]="getConfigValue('forms.validation.password.required')"
+           [minlength]="getConfigValue('forms.validation.password.minLength')"
+           [maxlength]="getConfigValue('forms.validation.password.maxLength')"
+           [attr.aria-invalid]="password.invalid && password.touched ? true : null">
+    <ng-container *ngIf="password.invalid && password.touched ">
+      <p class="caption status-danger" *ngIf="password.errors?.required">
+        Le mot de passe est requis !
+      </p>
+      <p class="caption status-danger" *ngIf="(password.errors?.minlength || password.errors?.maxlength)">
+        Le mot de passe doit contenir entre
+        {{ getConfigValue('forms.validation.password.minLength') }}
+        et {{ getConfigValue('forms.validation.password.maxLength') }}
+        caractères
+      </p>
+    </ng-container>
+  </div>
+
+  <div class="form-control-group accept-group marginForm">
+    <nb-checkbox name="rememberMe" [(ngModel)]="user.rememberMe" *ngIf="rememberMe">Rester connecté</nb-checkbox>
+  </div>
+
+  <button nbButton
+          fullWidth
+          status="info"
+          [disabled]="submitted || !form.valid"
+          [class.btn-pulse]="submitted">
+          Se connecter
+  </button>
+  <div class="footer">
+    <a class="forgot-password" routerLink="../request-password">Mot de Passe oublié ?</a>
+  </div>
+</form>
+

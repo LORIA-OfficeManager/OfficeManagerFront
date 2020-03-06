@@ -32,3 +32,22 @@ export const environment = {
     },
   },
 };
+
+
+export function baseUrl() {
+
+  // build backend base url
+  let url = `${environment.backend.protocol}://${environment.backend.host}`;
+  if (environment.backend.port) {
+    url += `:${environment.backend.port}`;
+  }
+  return url;
+}
+
+export function endpoints() {
+  const backends = {};
+  // build all backend urls
+  Object.keys(environment.backend.endpoints).forEach(
+      k => backends[ k ] = `${baseUrl()}${environment.backend.endpoints[ k ]}`);
+  return backends;
+}

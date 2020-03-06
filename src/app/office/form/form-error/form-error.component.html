@@ -6,7 +6,7 @@
                     <mat-form-field class="full-width col-lg-12" [class.mgb15]="form.get('message').dirty && form.get('message').invalid">
                         <mat-label>Message</mat-label>
                         <textarea matInput  formControlName="message" required name="message"
-                                  style="width: 100%;height: 80px" placeholder="il y a une erreur"></textarea>
+                                  style="width: 100%;height: 80px" placeholder="Description de l'erreur ou du bug"></textarea>
                         <mat-error *ngIf="form.get('message').dirty && form.get('message').hasError('required')">
                             La taille est <strong>required</strong>
                         </mat-error>

@@ -21,6 +21,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
   private _showInfo: string;
   // log
   private _logs: Log[];
+  reload: boolean;
 
   /**
    * constructor
@@ -33,6 +34,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
     this._action = 'import';
     this._showInfo = 'show';
     this._logs = [];
+    this.reload = false;
   }
 
   /**
@@ -69,18 +71,28 @@ export class AdminComponent implements OnInit, AfterViewInit {
    * @param files
    */
   import(files: any) {
+      this.reload = true;
+      // on est oblige de desactiver reload dans next et error et non dans complete car cela ne marche pas
     this._importService.import(files).subscribe(
-        _ => this._logs.push({
+        _ => {
+            this._logs.push({
           title : _.type,
           text: '\n\n' + _.message,
           class: '',
-        }),
-        _ =>  this._logs.push({
-          title : 'Import ' + _.name + ' : ',
-          text: '' + _.message + '\n' + _.error.error + '\n',
-          class: 'errorImport',
-        }),
-        () => this.onItemElementsChanged(),
+        });
+            this.reload = false;
+        },
+        _ =>  {
+            this._logs.push({
+              title : 'Import ' + _.name + ' : ',
+              text: '' + _.message + '\n' + _.error.error + '\n',
+              class: 'errorImport',
+            });
+            this.reload = false;
+        },
+        () => {
+            this.onItemElementsChanged();
+            },
     );
   }
 

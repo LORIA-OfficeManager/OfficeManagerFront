@@ -26,6 +26,9 @@
         </nb-card>
     </nb-sidebar>
     <nb-layout-column class="row">
+        <div class="loader" *ngIf="reload">
+            <h1>LOADING <span class="bullets">.</span></h1>
+        </div>
         <div class="col-md-12 noPadding">
             <div  class="colored-column-basic col-12 noPadding" [ngSwitch]="action">
                 <div *ngSwitchCase="'import'" [ngClass]="action === 'import' ? 'activeFiltre' : ''">

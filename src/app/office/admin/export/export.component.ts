@@ -1,6 +1,4 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {NbToastrService} from '@nebular/theme';
-
 
 @Component({
   selector: 'ngx-export',

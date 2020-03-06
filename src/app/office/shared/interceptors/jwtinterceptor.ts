@@ -1,8 +1,8 @@
-import { Inject, Injectable, Injector } from '@angular/core';
+import { Injectable, Injector } from '@angular/core';
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import {NB_AUTH_TOKEN_INTERCEPTOR_FILTER, NbAuthService, NbAuthToken} from '@nebular/auth';
+import { NbAuthService, NbAuthToken} from '@nebular/auth';
 
 @Injectable({providedIn: 'root'})
 export class JWTInterceptor implements HttpInterceptor {

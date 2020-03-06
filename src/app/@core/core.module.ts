@@ -1,7 +1,6 @@
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
-  NbAuthJWTInterceptor,
   NbAuthJWTToken,
   NbAuthModule,
   NbPasswordAuthStrategy,
@@ -59,24 +58,6 @@ import {baseUrl} from '../../environments/environment';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {RoleProviderService} from '../office/shared/services/role-provider.service';
 import {JWTInterceptor} from '../office/shared/interceptors/jwtinterceptor';
-
-const socialLinks = [
-  {
-    url: 'https://github.com/akveo/nebular',
-    target: '_blank',
-    icon: 'github',
-  },
-  {
-    url: 'https://www.facebook.com/akveo/',
-    target: '_blank',
-    icon: 'facebook',
-  },
-  {
-    url: 'https://twitter.com/akveo_inc',
-    target: '_blank',
-    icon: 'twitter',
-  },
-];
 
 const DATA_SERVICES = [
   { provide: UserData, useClass: UserService },

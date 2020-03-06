@@ -6,7 +6,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
 import { CoreModule } from './@core/core.module';
 import { ThemeModule } from './@theme/theme.module';
 import { AppComponent } from './app.component';
@@ -26,7 +26,6 @@ import {DevGuardService} from './office/shared/services/guards/dev-guard.service
 import {UserGuardService} from './office/shared/services/guards/user-guard.service';
 import {GuestGuardService} from './office/shared/services/guards/guest-guard.service';
 import {LeaderGuardService} from './office/shared/services/guards/leader-guard.service';
-import {NbAuthJWTInterceptor} from '@nebular/auth';
 
 @NgModule({
   declarations: [AppComponent],

@@ -29,14 +29,18 @@
             <tr class="col-lg-12 row" style="padding: 0%;margin: 0%">
                 <td class="col-lg-12" style="">
                     <form novalidate [formGroup]="form">
-                        <nb-select placeholder="Select Showcase" formControlName="import" required name="import">
+                        <nb-select placeholder="Select Showcase" formControlName="import" name="import">
                             <nb-option value="affectation" (select)="true">Affectation</nb-option>
                             <nb-option value="bureau">Bureau</nb-option>
                         </nb-select>
+                        <button nbButton [disabled]="files.length ===0" (click)="import()">
+                            Importer
+                        </button>
                     </form>
-                    <button nbButton [disabled]="files.length ===0" (click)="import()">
-                        Importer
-                    </button>
+                    <nb-toggle formControlName="wipe" name="wipe"
+                               *ngIf="form.get('import').value === 'affectation'" status="primary" [checked]="true">
+                        Écrase l'ancien fichier
+                    </nb-toggle>
                 </td>
             </tr>
         </table>

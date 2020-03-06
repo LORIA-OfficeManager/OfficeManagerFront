@@ -21,7 +21,7 @@ import {
     NbSearchModule,
     NbSelectModule,
     NbSidebarModule,
-    NbTabsetModule,
+    NbTabsetModule, NbToggleModule,
     NbTooltipModule,
     NbTreeGridModule,
     NbUserModule,
@@ -128,6 +128,7 @@ import {ExportService} from './shared/services/export.service';
         NbDatepickerModule,
         MatSelectModule,
         MatRadioModule,
+        NbToggleModule,
     ],
     declarations: [
         HomePageComponent,

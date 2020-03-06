@@ -1,5 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'ngx-import',
@@ -48,9 +48,8 @@ export class ImportComponent implements OnInit {
    */
   private _buildForm(): FormGroup {
     return new FormGroup({
-      import: new FormControl('affectation', Validators.compose([
-        Validators.required,
-      ])),
+      import: new FormControl('affectation'),
+      wipe: new FormControl(true),
     });
   }
 
@@ -72,6 +71,10 @@ export class ImportComponent implements OnInit {
    * emet l'evenement
    */
   import() {
-    this._import$.emit({ file : this._files , import: this._form.get('import').value});
+    this._import$.emit({
+      file : this._files ,
+      import: this._form.get('import').value,
+      wipe: this._form.get('import').value === 'affectation' ? this._form.get('wipe').value : false,
+    });
   }
 }

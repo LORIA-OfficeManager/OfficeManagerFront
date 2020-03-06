@@ -16,7 +16,7 @@ export class LogoutComponent implements OnInit {
               @Inject(NB_AUTH_OPTIONS) protected options = {},
               protected router: Router) {
     this.redirectDelay = this.getConfigValue('forms.logout.redirectDelay');
-    this.strategy = this.getConfigValue('forms.logout.strategy');
+    this.strategy = 'username';
   }
 
   ngOnInit(): void {

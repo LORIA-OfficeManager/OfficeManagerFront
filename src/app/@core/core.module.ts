@@ -1,8 +1,12 @@
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {NbAuthJWTToken, NbAuthModule, NbDummyAuthStrategy, NbPasswordAuthStrategy} from '@nebular/auth';
+import {
+  NbAuthJWTInterceptor,
+  NbAuthJWTToken,
+  NbAuthModule,
+  NbPasswordAuthStrategy,
+} from '@nebular/auth';
 import { NbSecurityModule, NbRoleProvider } from '@nebular/security';
-import { of as observableOf } from 'rxjs';
 
 import { throwIfAlreadyLoaded } from './module-import-guard';
 import {
@@ -52,6 +56,9 @@ import { VisitorsAnalyticsService } from './mock/visitors-analytics.service';
 import { SecurityCamerasService } from './mock/security-cameras.service';
 import { MockDataModule } from './mock/mock-data.module';
 import {baseUrl} from '../../environments/environment';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {RoleProviderService} from '../office/shared/services/role-provider.service';
+import {JWTInterceptor} from '../office/shared/interceptors/jwtinterceptor';
 
 const socialLinks = [
   {
@@ -92,14 +99,6 @@ const DATA_SERVICES = [
   { provide: VisitorsAnalyticsData, useClass: VisitorsAnalyticsService },
   { provide: SecurityCamerasData, useClass: SecurityCamerasService },
 ];
-
-export class NbSimpleRoleProvider extends NbRoleProvider {
-  getRole() {
-    // here you could provide any role based on any auth flow
-    return observableOf('guest');
-  }
-}
-
 export const NB_CORE_PROVIDERS = [
   ...MockDataModule.forRoot().providers,
   ...DATA_SERVICES,
@@ -107,52 +106,53 @@ export const NB_CORE_PROVIDERS = [
     strategies: [
       // TODO: Update this when backend auth works.
       NbPasswordAuthStrategy.setup({
-        name: 'email',
-        token: {
-          class: NbAuthJWTToken,
-          key: 'Authorization', // this parameter tells where to look for the token
-        },
-
+        name: 'username',
         baseEndpoint: baseUrl(),
-        login: {
-          // ...
-          endpoint: 'office',
+        token : {
+          key: 'token',
+          class: NbAuthJWTToken,
+        },
+        login : {
+          alwaysFail: false,
+          endpoint: '/login',
           method: 'post',
+          requireValidToken: false,
           redirect: {
-            success: '/',
+            success: 'officeManager/Office',
             failure: null,
           },
-          defaultErrors: ['Email/Password combination is not correct, please try again.'],
+          defaultErrors: ['Login/Email combination is not correct, please try again.'],
           defaultMessages: ['You have been successfully logged in.'],
         },
-        errors: {
-          // Override the getter of errors functions
-          // res: is the HttpResponse that you get from your backend
-          getter: (module, res, options) => {
-            return res.error ? res.error.message : options[module].defaultErrors;
+          logout : {
+            endpoint: '',
           },
-        },
       }),
     ],
     forms: {},
   }).providers,
+  {
+    provide: HTTP_INTERCEPTORS, useClass: JWTInterceptor, multi: true,
+  },
 
   NbSecurityModule.forRoot({
     accessControl: {
       guest: {
-        view: '*',
+        view: 'login',
       },
       user: {
         parent: 'guest',
-        create: '*',
-        edit: '*',
-        remove: '*',
+        view: 'logout',
+      },
+      admin: {
+        parent: 'user',
+        view: '*',
       },
     },
   }).providers,
 
   {
-    provide: NbRoleProvider, useClass: NbSimpleRoleProvider,
+    provide: NbRoleProvider, useClass: RoleProviderService,
   },
   AnalyticsService,
   LayoutService,

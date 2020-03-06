@@ -8,6 +8,7 @@ import {NbLoginComponent} from '@nebular/auth';
 })
 export class LoginComponent extends NbLoginComponent implements OnInit {
   ngOnInit(): void {
+    this.strategy = 'username';
   }
 
 }

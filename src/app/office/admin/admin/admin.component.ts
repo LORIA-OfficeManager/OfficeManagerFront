@@ -2,6 +2,7 @@ import {AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, View
 import {Log} from '../../shared/interfaces/log';
 import {ImportService} from '../../shared/services/import.service';
 import {ExportService} from '../../shared/services/export.service';
+import {NbComponentStatus, NbToastrService} from '@nebular/theme';
 
 @Component({
   selector: 'ngx-admin',
@@ -24,8 +25,11 @@ export class AdminComponent implements OnInit, AfterViewInit {
   /**
    * constructor
    * @param _importService
+   * @param _exportService
+   * @param _toastrService
    */
-  constructor( private _importService: ImportService, private _exportService: ExportService) {
+  constructor( private _importService: ImportService, private _exportService: ExportService,
+               private _toastrService: NbToastrService) {
     this._action = 'import';
     this._showInfo = 'show';
     this._logs = [];
@@ -86,12 +90,16 @@ export class AdminComponent implements OnInit, AfterViewInit {
    */
   export() {
     this._exportService.export().subscribe(
-        _ => this._logs.push(),
-        _ => this._logs.push({
+        _ => this.showToastSuc('success', 'bottom-end', 'Le fichier a été exporté ' +
+            'dans le dossier téléchargement'),
+        _ => { this.showToastErr('warning', 'bottom-end',
+            `Le fichier n'a pas été exporté`);
+            this._logs.push({
           title: _.type,
           text: '' + _.message + '\n' + _.error.error + '\n',
           class: 'errorExport',
-        }),
+        });
+        },
     );
   }
 
@@ -130,6 +138,16 @@ export class AdminComponent implements OnInit, AfterViewInit {
 
   scrolled(event: any): void {
     this.isNearBottom = this.isUserNearBottom();
+  }
+  showToastSuc(status: NbComponentStatus, position, message: string) {
+    this._toastrService.show(message,
+        `Succès`,
+        { status, position, limit: 2, destroyByClick: true, duration : 0});
+  }
+  showToastErr(status: NbComponentStatus, position, message: string) {
+    this._toastrService.show(message,
+        `Erreur`,
+        { status, position, limit: 2, destroyByClick: true, duration : 0});
   }
 
   /*********************************************************GET&SETTER*************************************************/

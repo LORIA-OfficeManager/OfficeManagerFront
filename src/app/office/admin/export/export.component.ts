@@ -1,10 +1,12 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {NbToastrService} from '@nebular/theme';
 
 
 @Component({
   selector: 'ngx-export',
   templateUrl: './export.component.html',
-  styleUrls: ['./export.component.scss'],
+  styleUrls: ['./export.component.scss',
+  '../import/import.component.scss'],
 })
 export class ExportComponent implements OnInit {
 

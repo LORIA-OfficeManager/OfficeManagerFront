@@ -41,20 +41,20 @@ import {baseUrl} from '../environments/environment';
     NbAuthModule.forRoot({
       strategies: [
         // TODO: Update this when backend auth works.
-          NbPasswordAuthStrategy.setup({
-            name: 'username',
-            token: {
-              class: NbAuthJWTToken,
-              // this parameter tells where to look for the token
-            },
+        NbPasswordAuthStrategy.setup({
+          name: 'username',
+          token: {
+            class: NbAuthJWTToken,
+            // this parameter tells where to look for the token
+          },
 
-            baseEndpoint: baseUrl(),
-            login: {
-                  // ...
-                  endpoint: 'login',
-                  method: 'post',
-              },
-          }),
+          baseEndpoint: baseUrl(),
+          login: {
+            // ...
+            endpoint: 'login',
+            method: 'post',
+          },
+        }),
       ],
       forms: {},
     }),

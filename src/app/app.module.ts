@@ -27,7 +27,6 @@ import {DevGuardService} from './office/shared/services/guards/dev-guard.service
 import {UserGuardService} from './office/shared/services/guards/user-guard.service';
 import {GuestGuardService} from './office/shared/services/guards/guest-guard.service';
 import {LeaderGuardService} from './office/shared/services/guards/leader-guard.service';
-import { ExportComponent } from './office/admin/export/export.component';
 
 @NgModule({
   declarations: [AppComponent],

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import {Observable, of} from 'rxjs';
-import {OfficeDetail, OFFICESDETAIL} from '../interfaces/officeDetail';
-// import {filter, map} from 'rxjs/operators';
+import {Observable} from 'rxjs';
+import {OfficeDetail} from '../interfaces/officeDetail';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../../environments/environment.prod';
 

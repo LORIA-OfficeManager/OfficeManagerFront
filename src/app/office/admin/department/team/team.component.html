@@ -16,7 +16,7 @@
             </li>
             <li *ngFor="let team of teams;index as i">
                 <ngx-department-item-header class="department-item-header"  (delete)="delete(team)"
-                                            (update)="update(i,department.id, team, $event)" [department]="team.name"
+                                            (update)="update(i,department.id, team, $event)" [object]="team.name"
                                             [canUpdate] ="team.name !== department.name"></ngx-department-item-header>
             </li>
         </ul>

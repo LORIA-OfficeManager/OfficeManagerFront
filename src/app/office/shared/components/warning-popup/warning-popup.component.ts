@@ -23,11 +23,29 @@ export class WarningPopupComponent implements OnInit {
     }
 
     /**
-     *
+     * ouvre la dialog
      * @param dialog
      */
     open(dialog: TemplateRef<any>) {
         this.dialogService.open(dialog);
+    }
+    /*********************************************************EVENT****************************************************/
+    @Output('submit')
+    get submit$() {
+        return this._submit$;
+    }
+    /**
+     * emet l'evenement
+     */
+    submit() {
+        this._submit$.emit(this._obeject);
+    }
+    /*******************************************************GET&SETTER*************************************************/
+    /**
+     *
+     */
+    get object(): any {
+        return this._obeject;
     }
     @Input()
     set message(_: String) {
@@ -43,26 +61,8 @@ export class WarningPopupComponent implements OnInit {
     get icon(): String {
         return this._icon;
     }
-
     @Input()
     set object(_: any) {
-      this._obeject = _;
-    }
-    @Output('submit')
-    get submit$() {
-        return this._submit$;
-    }
-    /**
-     * emet l'evenement
-     */
-    submit() {
-        this._submit$.emit(this._obeject);
-    }
-
-    /**
-     *
-     */
-    get object(): any {
-        return this._obeject;
+        this._obeject = _;
     }
 }

@@ -1,16 +1,16 @@
 <div *ngIf="mode === 'vue'" style="margin-bottom: 1.1%" class="department-item-header vue-mode">
-    <div class="item-name"><p *ngIf="mode !== 'edit'">{{oldDepartment}}</p></div>
+    <div class="item-name"><p *ngIf="mode !== 'edit'">{{oldObject}}</p></div>
     <button nbButton size="tiny" *ngIf="!canUpdate" [disabled]="!canUpdate" status="danger" ghost >
         <nb-icon icon="close-outline"></nb-icon>
     </button>
     <button nbButton size="tiny" *ngIf="canUpdate" status="danger" ghost >
-        <ngx-warning-popup (submit)="delete()" [icon]="'close-outline'" [message]="message()" [object]="department"
+        <ngx-warning-popup (submit)="delete()" [icon]="'close-outline'" [message]="message()" [object]="object"
                        style="float: right; cursor: pointer;"></ngx-warning-popup>
     </button>
     <button nbButton size="tiny" [disabled]="!canUpdate" (click)="editMode()"><nb-icon icon="edit-outline"></nb-icon></button>
 </div>
 <div *ngIf="mode === 'edit'" style="margin-bottom: 1.5%" class="department-item-header edit-mode">
-    <input type="text" #box [disabled]="!canUpdate" (keyup.enter)="update(box.value)" value="{{department}}">
+    <input type="text" #box [disabled]="!canUpdate" (keyup.enter)="update(box.value)" value="{{object}}">
     <button nbButton ghost size="tiny" (click)="cancel()"><nb-icon icon="slash-outline"></nb-icon></button>
     <button nbButton size="tiny" (click)="update(box.value)"><nb-icon icon="checkmark-outline"></nb-icon></button>
 </div>

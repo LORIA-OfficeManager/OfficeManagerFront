@@ -2,6 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 import {Office} from '../interfaces/office';
 import {Person} from '../interfaces/person';
 
+/**************************************************OfficePipePipe******************************************************/
 @Pipe({
   name: 'officePipe',
 })
@@ -28,6 +29,9 @@ export class OfficePipePipe implements PipeTransform {
     }
   }
 }
+
+
+/****************************************************StrangerPipe******************************************************/
 @Pipe({
   name: 'strangerPipe',
 })
@@ -41,6 +45,8 @@ export class StrangerPipe implements PipeTransform {
     return hasStranger ? 'StrangerOffice' : '';
   }
 }
+
+/****************************************************ZombiePipe********************************************************/
 @Pipe({
   name: 'zombiePipe',
 })
@@ -55,6 +61,9 @@ export class ZombiePipe implements PipeTransform {
     return ( person.endDateContract < now || person.startDateContract > now ) ? 'Stranger' : '';
   }
 }
+
+
+/***********************************************BuildingFloorPipe******************************************************/
 @Pipe({
   name: 'BuildingFloorPipe',
 })
@@ -76,6 +85,8 @@ export class BuildingFloorPipe implements PipeTransform {
   }
 }
 
+
+/*************************************************StateOfficePipe******************************************************/
 @Pipe({
   name: 'StateOfficePipe',
 })
@@ -99,13 +110,12 @@ export class StateOfficePipe implements PipeTransform {
   }
 }
 
+
+/************************************************AutoCompletePipe******************************************************/
 @Pipe({
   name: 'AutoCompletePipe',
 })
 export class AutoCompletePipe implements PipeTransform {
-  /**
-   * @param o
-   */
   constructor ()  {}
   /**
    * definie la class a retourner au bureau pour representer son etat
@@ -125,13 +135,12 @@ export class AutoCompletePipe implements PipeTransform {
     return  office.building + '' + office.floor + '' + office.num ;
   }
 }
+
+/***************************************************SearchByNPipe******************************************************/
 @Pipe({
   name: 'SearchByNPipe',
 })
 export class SearchByNPipe implements PipeTransform {
-  /**
-   * @param o
-   */
   constructor() {
   }
 
@@ -144,19 +153,14 @@ export class SearchByNPipe implements PipeTransform {
   transform(oName: string, search: string): string {
     return oName.toLowerCase().indexOf(search) === 0 ? 'officeHover' : 'hide';
   }
-
-  /**
-   * retourne le nom du bureau
-   * @param office
-   */
 }
+
+
+/******************************************************StatusPipe******************************************************/
 @Pipe({
   name: 'StatusPipe',
 })
 export class StatusPipe implements PipeTransform {
-  /**
-   * @param _zombieP
-   */
   constructor() {
   }
 
@@ -177,21 +181,16 @@ export class StatusPipe implements PipeTransform {
         }
       }
   }
-
-  /**
-   * retourne le nom du bureau
-   * @param office
-   */
 }
 
 
+/*************************************************AutoCompletePipeP****************************************************/
 @Pipe({
   name: 'AutoCompletePipeP',
 })
 export class AutoCompletePipeP implements PipeTransform {
   constructor() {
   }
-
   /**
    * definie la class a retourner au bureau pour representer son etat
    * @return la class qui definie l'etat du bureau

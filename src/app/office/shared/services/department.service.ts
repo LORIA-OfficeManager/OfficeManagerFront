@@ -9,12 +9,14 @@ import {Department, Team} from '../interfaces/department';
   providedIn: 'root',
 })
 export class DepartmentService {
-
+  // regroupe tous les url
   private readonly _backendURL: any;
 
-  constructor(
-      private _http: HttpClient,
-  ) {
+  /**
+   * constructor
+   * @param _http
+   */
+  constructor(private _http: HttpClient) {
     this._backendURL = {};
 
     // build backend base url
@@ -27,6 +29,9 @@ export class DepartmentService {
     Object.keys(environment.backend.endpoints).forEach(k => this._backendURL[ k ] = `${baseUrl}${environment.backend.endpoints[ k ]}`);
   }
 
+  /**
+   * retourne tous les departements
+   */
   fetch(): Observable<Department[]> {
     return this._http.get<Department[]>(this._backendURL.allDepartment)
         .pipe(
@@ -35,6 +40,10 @@ export class DepartmentService {
         );
   }
 
+  /**
+   * modifier le departement
+   * @param d departement
+   */
   update(d: Department): Observable<any> {
     return this._http.put<Department>(
         this._backendURL.oneDepartment.replace(':id', '' + d.id),
@@ -43,6 +52,10 @@ export class DepartmentService {
     );
   }
 
+  /**
+   * delete le departement
+   * @param id
+   */
   delete(id: number): Observable<number> {
     return this._http.delete(this._backendURL.oneDepartment.replace(':id', '' + id))
         .pipe(
@@ -50,6 +63,10 @@ export class DepartmentService {
         );
   }
 
+  /**
+   * creer le departement
+   * @param name
+   */
   create(name: String): Observable<any> {
     return this._http.post(
         this._backendURL.allDepartment,
@@ -58,6 +75,11 @@ export class DepartmentService {
     );
   }
 
+  /**
+   * creer une equipe
+   * @param name
+   * @param id
+   */
   createTeams(name: String, id: number): Observable<any> {
     return this._http.post(
         this._backendURL.createTeam.replace(':id', '' + id),
@@ -66,6 +88,11 @@ export class DepartmentService {
     );
   }
 
+  /**
+   * delete une teams
+   * @param id
+   * @param idT
+   */
   deleteTeams(id: number, idT: number): Observable<number> {
     return this._http.delete(this._backendURL.deleteTeam.replace(':id', '' + id)
         .replace(':idT', '' + idT))
@@ -74,6 +101,12 @@ export class DepartmentService {
         );
   }
 
+  /**
+   * modifie une team
+   * @param id
+   * @param idT
+   * @param data
+   */
   updateTeam(id: number, idT: number, data: string): Observable<any> {
     return this._http.put<Team>(
         this._backendURL.updateTeam.replace(':id', '' + id)
@@ -83,7 +116,11 @@ export class DepartmentService {
     );
   }
 
-
+  /**
+   * header
+   * @param headerList
+   * @private
+   */
   private _options(headerList: object = {}): any {
     return { headers: new HttpHeaders(Object.assign({ 'Content-Type': 'application/json' }, headerList)) };
   }

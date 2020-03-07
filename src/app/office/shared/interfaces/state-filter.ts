@@ -1,7 +1,7 @@
 export interface StateFilter {
-    name: string;
-    floor: number;
-    building: string;
-    stateOffice: string;
-    dateFilter: boolean;
+    name: string; // num bureau
+    floor: number; // etage
+    building: string; // batiment
+    stateOffice: string; // etat du bureau
+    dateFilter: boolean; // date
 }

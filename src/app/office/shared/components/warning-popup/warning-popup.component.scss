@@ -3,33 +3,28 @@
 /*************************************************Modal****************************************************************/
 
 .headerOfficeManager {
-  background-color: $color-officeMoreThanFull !important;
-  color: white !important;
+    background-color: $color-officeMoreThanFull !important;
+    color: white !important;
 }
 
 .buttonHelpModal {
-  position: fixed;
-  bottom: 15px;
-  right: 15px;
-  background-color: white;
-  z-index : 100;
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    background-color: white;
+    z-index : 100;
 }
 .modalHeight {
-  max-height: 400px;
+    max-height: 400px;
 }
 .codeCouleur h5 {
-  padding: 0% 2%;
+    padding: 0% 2%;
 }
-//::ng-deep nb-dialog-container {
-//  width: 100%;
-//  margin: 0% !important;
-//  max-width: 100% !important;
-//}
 ng-template {
-  nb-icon {
-    color: white;
-  }
+    nb-icon {
+        color: white;
+    }
 }
 nb-icon {
-  color: #ff3d70;
+    color: #ff3d70;
 }

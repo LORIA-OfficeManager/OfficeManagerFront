@@ -1,28 +1,28 @@
 .department-list-container {
-  margin: auto auto 34px;
+    margin: auto auto 34px;
 }
 
 @media screen and (max-width: 575px) {
-  .department-list-container {
-    width: 90%;
-  }
+    .department-list-container {
+        width: 90%;
+    }
 }
 
 .list-item {
-  display: block;
+    display: block;
 }
 
 .info {
-  color: #9e9e9e;
-  margin: 2px auto;
+    color: #9e9e9e;
+    margin: 2px auto;
 
 }
 .formDep {
-  padding: 0!important;
+    padding: 0!important;
 }
 .new-department {
-  button {
-    margin-top: 15px;
-    float: right;
-  }
+    button {
+        margin-top: 15px;
+        float: right;
+    }
 }

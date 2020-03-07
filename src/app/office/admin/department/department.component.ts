@@ -28,73 +28,86 @@ export class DepartmentComponent implements OnInit {
         });
     }
 
-  ngOnInit() {
-    this._departmentService.fetch().subscribe(_ => this._departments = _);
+    /**
+     * ngOnInit
+     */
+    ngOnInit() {
+        this._departmentService.fetch().subscribe(_ => this._departments = _);
 
-  }
+    }
 
-  delete(id: number): void {
-    this._departmentService.delete(id)
+    /**
+     * delete le departement
+     * @param id
+     */
+    delete(id: number): void {
+        this._departmentService.delete(id)
         .subscribe((_) => {
-          this._departments = this._departments.filter( (__) =>  __.id !== id);
-          this.showToastSuc('success', 'bottom-end', 'Le département a été supprimé');
+            this._departments = this._departments.filter( (__) =>  __.id !== id);
+            this.showToastSuc('success', 'bottom-end', 'Le département a été supprimé');
         },
             () => this.showToastErr('warning', 'bottom-end',
                 `Le département n'a pas été supprimé`),
         );
-  }
-
-  update(i: number, dep: Department): void {
-    this._departmentService.update(dep).subscribe(
-        (_) =>  {
-          this._departments[i] = _;
-          this.showToastSuc('success', 'bottom-end', 'Le département a été modifié');
-          },
-        () => {
-          this._departmentService.fetch().subscribe((_) => this._departments = _);
-          this.showToastErr('warning', 'bottom-end',
-              `Le départment n'a pas été créé`);
-        },
-    );
-  }
-
-  create(name: String): void {
-    this._form.reset();
-    if (name.trim() !== '') {
-      this._departmentService.create(name)
-          .pipe(
-              flatMap( _ => this._departmentService.fetch()),
-          )
-          .subscribe(
-              (_) => {
-                    this._departments = _;
-                    this.showToastSuc('success', 'bottom-end', 'Le département a été créé');
-              },
-              () => this.showToastErr('warning', 'bottom-end',
-                  `Le département n'a pas été créé`),
-          );
     }
 
-  }
+    /**
+     * update le departement
+     * @param i
+     * @param dep
+     */
+    update(i: number, dep: Department): void {
+        this._departmentService.update(dep).subscribe(
+        (_) =>  {
+            this._departments[i] = _;
+            this.showToastSuc('success', 'bottom-end', 'Le département a été modifié');
+            },
+        () => {
+            this._departmentService.fetch().subscribe((_) => this._departments = _);
+            this.showToastErr('warning', 'bottom-end',
+                `Le départment n'a pas été créé`);
+            },
+            );
+    }
 
-  isEmpty(): boolean {
-    return this._departments.length === 0 ;
-  }
+    /**
+     * create le departement
+     * @param name
+     */
+    create(name: String): void {
+        this._form.reset();
+        if (name.trim() !== '') {
+            this._departmentService.create(name)
+                .pipe(
+                    flatMap( _ => this._departmentService.fetch()),
+                    )
+                .subscribe(
+                    (_) => {
+                        this._departments = _;
+                        this.showToastSuc('success', 'bottom-end', 'Le département a été créé');
+                        },
+                    () => this.showToastErr('warning', 'bottom-end',
+                        `Le département n'a pas été créé`),
+                    );
+        }
 
-  showToastSuc(status: NbComponentStatus, position, message: string) {
-    this._toastrService.show(message,
-        `Succès`,
-        { status, position, limit: 2});
-  }
-  showToastErr(status: NbComponentStatus, position, message: string) {
-    this._toastrService.show(message,
-        `Erreur`,
-        { status, position, limit: 2});
-  }
-  /*********************************************************GET&SETTER*************************************************/
-  get departments(): Department[] {
-      return this._departments;
-  }
+    }
+    /*********************************************************Toast****************************************************/
+    showToastSuc(status: NbComponentStatus, position, message: string) {
+        this._toastrService.show(message,
+            `Succès`,
+            { status, position, limit: 2});
+    }
+    showToastErr(status: NbComponentStatus, position, message: string) {
+        this._toastrService.show(message,
+            `Erreur`,
+            { status, position, limit: 2});
+    }
+    /*********************************************************EVENT****************************************************/
+    /*******************************************************GET&SETTER*************************************************/
+    get departments(): Department[] {
+          return this._departments;
+    }
 
     get form() {
         return this._form;
@@ -102,5 +115,8 @@ export class DepartmentComponent implements OnInit {
 
     get formValue() {
         return this._form.get('name').value;
+    }
+    isEmpty(): boolean {
+        return this._departments.length === 0 ;
     }
 }

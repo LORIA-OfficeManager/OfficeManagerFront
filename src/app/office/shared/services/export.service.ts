@@ -8,8 +8,13 @@ import {Injectable} from '@angular/core';
     providedIn: 'root',
 })
 export class ExportService {
+    // regroupe tous les url
     private readonly _backendURL: any;
 
+    /**
+     * constructor
+     * @param _http
+     */
     constructor(private _http: HttpClient) {
         this._backendURL = {};
         // build backend base url
@@ -22,6 +27,9 @@ export class ExportService {
 
     }
 
+    /**
+     * export les donnees
+     */
     export(): Observable<any> {
        return this._http.get(this._backendURL.exportAssignment);
     }

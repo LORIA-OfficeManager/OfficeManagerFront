@@ -1,10 +1,10 @@
 export interface Department {
-    id: number;
-    name: string;
-    teams: Team[];
+    id: number; // id
+    name: string; // nom
+    teams: Team[]; // equipes
 }
 
 export interface Team {
-    id: number;
-    name: string;
+    id: number; // id
+    name: string; // nom
 }

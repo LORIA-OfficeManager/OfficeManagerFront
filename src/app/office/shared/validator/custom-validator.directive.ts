@@ -4,47 +4,67 @@ import {FormControl, FormGroup} from '@angular/forms';
   selector: '[ngxCustomValidator]',
 })
 export class CustomValidatorDirective {
-  // Not working
-  static timeValidator(formGroupValues: FormGroup): any {
-    if (formGroupValues.value !== undefined) {
-      const deb = Date.parse(formGroupValues.value.dateDeb);
-      const fin = Date.parse(formGroupValues.value.dateFin);
-      return deb < fin ? null :  {mismatch: true};
-    } else {
-      return null;
-    }
-  }
-
+  /**
+   * email validator
+   * @param control
+   */
   static loriaEmail(control: FormControl) {
     // returns control
     return /^\w+\.\w+@loria\.fr$/.test(control.value) ? null : {
       loriaEmail: true,
     };
   }
+
+  /**
+   * validator qui determine s'il y a un entier dans la chaine
+   * @param control
+   */
   static hasNumber(control: FormControl) {
     // returns control
     return /\d/.test(control.value) ? null : {
       hasNumber: true,
     };
   }
+
+  /**
+   * Validator qui determine s'il y a une Majuscule dans la chaine
+   * @param control
+   */
   static hasCapital(control: FormControl) {
     // returns control
     return /[A-Z]/.test(control.value) ? null : {
       hasCapital: true,
     };
   }
+
+  /**
+   * Validator qui determine s'il y a une Minuscule dans la chaine
+   * @param control
+   */
   static hasMinuscule(control: FormControl) {
     // returns control
     return /[a-z]/.test(control.value) ? null : {
       hasMinuscule: true,
     };
   }
+
+  /**
+   * Validator qui determine s'il y a une caractere speciale dans la chaine
+   * @param control
+   */
   static hasSpecial(control: FormControl) {
     // returns control
     return /\W/.test(control.value) ? null : {
       hasSpecial: true,
     };
   }
+
+  /**
+   * Validator qui determine si les chaine sont equivalente
+   * @param controlName
+   * @param matchingControlName
+   * @constructor
+   */
   static MustMatch(controlName: string, matchingControlName: string) {
     return (formGroup: FormGroup) => {
       const control = formGroup.controls[controlName];

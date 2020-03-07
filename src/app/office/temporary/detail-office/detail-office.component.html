@@ -3,7 +3,7 @@
         <div [ngClass]="'etatOffice '+( data.office.hasStranger | strangerPipe)+''+(data.office.size | officePipe:data.office.occupation)"></div>
         <h5  [ngClass]="'row col-12 '">
             Information générale :
-            <ngx-dialog-update-office [officeName]="name()" [office]="data"
+            <ngx-dialog-update-office *nbIsGranted="['view','admin']" [officeName]="name()" [office]="data"
                                       style="float: right; cursor: pointer; margin: auto 0 auto auto;"></ngx-dialog-update-office>
         </h5>
         <div class="row show-grid col-12">
@@ -21,7 +21,7 @@
             </div>
         </div>
         <h5 class="col-12">Personne affecté
-            <ngx-dialog-assignement (submit)="assignement($event)" [officename]="name()"
+            <ngx-dialog-assignement *nbIsGranted="['view','admin']" (submit)="assignement($event)" [officename]="name()"
                                     style="float: right; cursor: pointer;"></ngx-dialog-assignement>
         </h5>
         <div class="row show-grid">
@@ -34,7 +34,7 @@
                                [nbTooltipPlacement]="'end'"  nbTooltip="{{person.statusName}}"
                                nbTooltipClass="officeManagerTooltip"></i>
                             {{person.firstname}} {{person.lastname}}
-                            <ngx-warning-popup (submit)="suppPersonne($event)" [icon]="'minus'" [message]="message(person)" [object]="person"
+                            <ngx-warning-popup *nbIsGranted="['view','admin']" (submit)="suppPersonne($event)" [icon]="'minus'" [message]="message(person)" [object]="person"
                                                style="float: right; cursor: pointer;"></ngx-warning-popup>
                         </span>
                     </li>

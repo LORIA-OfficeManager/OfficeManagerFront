@@ -102,8 +102,17 @@ export class AdminComponent implements OnInit, AfterViewInit {
    */
   export() {
     this._exportService.export().subscribe(
-        _ => this.showToastSuc('success', 'bottom-end', 'Le fichier a été exporté ' +
-            'dans le dossier téléchargement'),
+        _ => { this.showToastSuc('success', 'bottom-end', 'Le fichier a été exporté ' +
+            'dans le dossier téléchargement');
+          this._logs.push({
+            title : 'Export affectation',
+            text: '\n' +
+                    '**********************************************************\n' +
+                    'Le fichier a été exporté dans le dossier téléchargement\n' +
+                    '**********************************************************\n',
+            class: '',
+          });
+        },
         _ => { this.showToastErr('warning', 'bottom-end',
             `Le fichier n'a pas été exporté`);
             this._logs.push({

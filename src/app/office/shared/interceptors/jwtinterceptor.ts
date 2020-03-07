@@ -1,8 +1,8 @@
-import { Injectable, Injector } from '@angular/core';
+import { Injectable, Injector} from '@angular/core';
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { NbAuthService, NbAuthToken} from '@nebular/auth';
+import {NbAuthService, NbAuthToken} from '@nebular/auth';
 
 @Injectable({providedIn: 'root'})
 export class JWTInterceptor implements HttpInterceptor {
@@ -23,6 +23,10 @@ export class JWTInterceptor implements HttpInterceptor {
                                     req = req.clone({
                                         setHeaders: {
                                             Authorization: JWT,
+                                            // 'Access-Control-Allow-Origin': 'http://localhost:4200',
+                                            // 'Access-Control-Allow-Credentials': 'true',
+                                            // // 'Access-Control-Allow-Methods': 'PUT,POST,GET,DELETE,OPTIONS',
+                                            // // 'Access-Control-Allow-Headers' : 'Origin, Content-Type, Accept',
                                         },
                                     });
                                     return next.handle(req);
@@ -41,6 +45,7 @@ export class JWTInterceptor implements HttpInterceptor {
     protected get authService(): NbAuthService {
         return this.injector.get(NbAuthService);
     }
+
 
     private filter(req: HttpRequest<any>): boolean {
         return false;

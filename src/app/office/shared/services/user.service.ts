@@ -28,7 +28,10 @@ export class UserService {
   createUser(user: any): Observable<any> {
     return this._http.post<any>(
         this._backendURL.createUser,
-        {username: user.username},
+        {username: user.username,
+          password : user.password,
+          role: user.role,
+            },
         this._options(),
     );
   }

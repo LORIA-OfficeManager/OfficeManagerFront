@@ -17,6 +17,9 @@ export const environment = {
     endpoints: {
       allOffice: '/office',
       oneOffice: '/office/:id',
+<<<<<<< HEAD
+=======
+>>>>>>> dev
       importOffice: '/import/office',
       importPerson: '/import/person',
       allPeople: '/people',
@@ -26,6 +29,9 @@ export const environment = {
       allDepartment: '/department',
       oneDepartment: '/department/:id',
       updateCapacity: '/office/capacity',
+<<<<<<< HEAD
+=======
+>>>>>>> dev
     },
   },
 };

@@ -4,13 +4,13 @@ export interface Person {
     lastname: string; // nom de famille de la personne
     dateStart?: string; // date d'arrivé
     dateEnd?: string; // date de depart
-    startDateAffectation?: string;
-    endDateAffectation?: string;
-    startDateContract?: string;
-    endDateContract?: string;
-    statusName: string;
-    teamName: string;
-    officeId: number;
-    officeName: string;
-    departmentName: string;
+    startDateAffectation?: string; // date de debut d'affectation
+    endDateAffectation?: string; // date de fin d'affectation
+    startDateContract?: string; // date de debut contrat
+    endDateContract?: string; // date de fin contrat
+    statusName: string; // status
+    teamName: string; // equipe
+    officeId: number; // id bureau
+    officeName: string; // nom bureau
+    departmentName: string; // nom departement
 }

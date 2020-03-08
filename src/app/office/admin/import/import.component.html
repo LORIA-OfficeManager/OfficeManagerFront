@@ -1,4 +1,5 @@
 <div class="module-border-wrap">
+
     <div class="uploadfilecontainer row "  ngxDragAndDrop (onFileDropped)="uploadFile($event)">
         <button class="addFile" mat-fab (click)="fileInput.click()">
             <nb-icon icon="plus"></nb-icon>
@@ -23,8 +24,26 @@
     </div>
 </div>
 <div class="col-12 importButton">
-    <button nbButton [disabled]="files.length ===0" (click)="import()">
-        Importer
-    </button>
+    <form novalidate [formGroup]="form">
+        <table class="full-width" cellspacing="0" style="width: 100%; margin: 0">
+            <tr class="col-lg-12 row" style="padding: 0%;margin: 0%">
+                <td class="col-lg-12" style="">
+                    <form novalidate [formGroup]="form">
+                        <nb-select placeholder="Select Showcase" formControlName="import" name="import">
+                            <nb-option value="affectation" (select)="true">Affectation</nb-option>
+                            <nb-option value="bureau">Bureau</nb-option>
+                        </nb-select>
+                        <button nbButton [disabled]="files.length ===0" (click)="import()">
+                            Importer
+                        </button>
+                    </form>
+                    <nb-toggle formControlName="wipe" name="wipe"
+                               *ngIf="form.get('import').value === 'affectation'" status="primary" [checked]="true">
+                        Écrase l'ancien fichier
+                    </nb-toggle>
+                </td>
+            </tr>
+        </table>
+    </form>
 </div>
 

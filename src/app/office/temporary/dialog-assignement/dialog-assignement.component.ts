@@ -10,14 +10,15 @@ import {Person} from '../../shared/interfaces/person';
   styleUrls: ['./dialog-assignement.component.scss'],
 })
 export class DialogAssignementComponent implements OnInit {
+  // nom du bureau
   private _officename: string;
   // chaine recherche
   private _search: string;
   // jeu de donnee
   private _people: Person[];
-  //
+  // persone assigne
   private _peopleAssign: Person[];
-  //
+  // event
   private _submit$: EventEmitter<Person[]>;
   // fomulaire
   form: FormGroup;
@@ -38,23 +39,10 @@ export class DialogAssignementComponent implements OnInit {
     this._submit$ = new EventEmitter<Person[]>();
   }
 
-  get people(): Person[] {
-    return this._people;
-  }
-  get peopleAssign(): Person[] {
-    return this._peopleAssign;
-  }
-
-  @Input()
-  set officename(officeN: string) {
-    this._officename = officeN;
-  }
-
   /**
    *
    */
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   /**
    * Ouvrir le dialog
@@ -76,44 +64,79 @@ export class DialogAssignementComponent implements OnInit {
     this._search = event.target.value.toLowerCase();
   }
 
-  /*******************************************************GET&SETTER*************************************************/
-
-  get search(): string {
-    return this._search;
-  }
-
-  isAssign(person: Person) {
-      return this._peopleAssign.filter((_) => _.id === person.id).length > 0;
-  }
-  peopleNotAssign(): Person[] {
-    return this._people.filter( (_: Person) => !this.isAssign(_));
-  }
+  /**
+   * affecte une personne
+   * @param person
+   */
   add(person: any) {
     this._peopleAssign.push(person);
   }
+
+  /**
+   * desaffect une personne
+   * @param person
+   */
   supp(person: any) {
     this._peopleAssign = this._peopleAssign.filter( (_: Person) => _.id !== person.id );
   }
-
-  get officename(): string {
-    return this._officename;
-  }
-  @Output('submit')
-  get sumbit$() {
-      return this._submit$;
-  }
-  submit() {
-      this._submit$.emit(this._peopleAssign);
-  }
-
   /**
    * lors de l'annulation on reprend les data de base
    */
   startData() {
     this._peopleAssign = this._people.filter((__: Person) => __.officeName === this._officename) ;
   }
+
+  /**
+   * modifier le bureau
+   * @param ref
+   */
   modifier(ref) {
-      this.submit();
-      ref.close();
+    this.submit();
+    ref.close();
+  }
+
+  /**
+   * test si une personne est assigne
+   * @param person
+   */
+  isAssign(person: Person) {
+    return this._peopleAssign.filter((_) => _.id === person.id).length > 0;
+  }
+
+  /**
+   * retourne les personne non assigne
+   */
+  peopleNotAssign(): Person[] {
+    return this._people.filter( (_: Person) => !this.isAssign(_));
+  }
+
+  /*******************************************************GET&SETTER*************************************************/
+  /////// people
+  get people(): Person[] {
+    return this._people;
+  }
+  /////// peopleAssign
+  get peopleAssign(): Person[] {
+    return this._peopleAssign;
+  }
+  /////// search
+  get search(): string {
+    return this._search;
+  }
+  /////// officename
+  @Input()
+  set officename(officeN: string) {
+    this._officename = officeN;
+  }
+  get officename(): string {
+    return this._officename;
+  }
+  /////// submit
+  @Output('submit')
+  get sumbit$() {
+      return this._submit$;
+  }
+  submit() {
+      this._submit$.emit(this._peopleAssign);
   }
 }

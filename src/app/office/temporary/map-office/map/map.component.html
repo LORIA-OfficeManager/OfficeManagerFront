@@ -18,30 +18,44 @@
             <pattern id="pattern-fullOffice"
                      width="12" height="12"
                      patternUnits="userSpaceOnUse"
-                     patternTransform="rotate(135)">
-                <rect width="12" height="12" stroke-width="0" style="fill:rgba(193, 73, 0, 0.7);" />
-                <rect width="6" height="12" stroke-width="0" transform="translate(0,0)" style="fill: rgba(193, 0, 190, 0.7)!important;"></rect>
+                     patternTransform="rotate(45)">
+                <rect width="12" height="12" stroke-width="0" style="fill:rgba(193, 73, 0, 0.6);" />
+                <rect width="6" height="12" stroke-width="0" transform="translate(0,0)" style="fill: rgba(193, 73, 0, 1)!important;"></rect>
             </pattern>
             <pattern id="pattern-moreThanFullOffice"
                      width="12" height="12"
                      patternUnits="userSpaceOnUse"
-                     patternTransform="rotate(135)">
-                <rect width="12" height="12" stroke-width="0" style="fill:rgba(193, 11, 0, 0.7)!important;" />
-                <rect width="6" height="12" stroke-width="0" transform="translate(0,0)" style="fill: rgba(193, 0, 190, 0.7)!important;"></rect>
+                     patternTransform="rotate(45)">
+                <rect width="12" height="12" stroke-width="0" style="fill:rgba(193, 11, 0, 0.6)!important;" />
+                <rect width="6" height="12" stroke-width="0" transform="translate(0,0)" style="fill: rgba(193, 11, 0, 1)!important;"></rect>
             </pattern>
             <pattern id="pattern-notFullOffice"
                      width="12" height="12"
                      patternUnits="userSpaceOnUse"
-                     patternTransform="rotate(135)">
-                <rect width="12" height="12" stroke-width="0" style="fill:rgba(0, 193, 12, 0.7)!important;" />
-                <rect width="6" height="12" stroke-width="0" transform="translate(0,0)" style="fill: rgba(193, 0, 190, 0.7)!important;"></rect>
+                     patternTransform="rotate(45)">
+                <rect width="12" height="12" stroke-width="0" style="fill:rgba(0, 193, 12, 0.6)!important;" />
+                <rect width="6" height="12" stroke-width="0" transform="translate(0,0)" style="fill:rgba(0, 193, 12, 1)!important;"></rect>
             </pattern>
-            <pattern id="pattern-emptyOffice"
+            <pattern id="pattern-emptyOfficeDefault"
                      width="12" height="12"
                      patternUnits="userSpaceOnUse"
-                     patternTransform="rotate(135)">
-                <rect width="12" height="12" stroke-width="0" style="fill:transparent!important;" />
-                <rect width="6" height="12" stroke-width="0" transform="translate(0,0)" style="fill: rgba(193, 0, 190, 0.7)!important;"></rect>
+                     patternTransform="rotate(45)">
+                <rect width="12" height="12" stroke-width="0" style="fill:rgba(237,241,247,0.7)!important;" />
+                <rect width="6" height="12" stroke-width="0" transform="translate(0,0)" style="fill: rgba(255,255,255,0.7)!important;"></rect>
+            </pattern>
+            <pattern id="pattern-emptyOfficeComsic"
+                     width="12" height="12"
+                     patternUnits="userSpaceOnUse"
+                     patternTransform="rotate(45)">
+                <rect width="12" height="12" stroke-width="0" style="fill:rgba(27,27,56,0.7)!important;" />
+                <rect width="6" height="12" stroke-width="0" transform="translate(0,0)" style="fill: rgba(50,50,89,0.7)!important;"></rect>
+            </pattern>
+            <pattern id="pattern-emptyOfficeDark"
+                     width="12" height="12"
+                     patternUnits="userSpaceOnUse"
+                     patternTransform="rotate(45)">
+                <rect width="12" height="12" stroke-width="0" style="fill:rgba(21,26,48,0.7)!important;" />
+                <rect width="6" height="12" stroke-width="0" transform="translate(0,0)" style="fill: rgba(34,43,69,0.7)!important;"></rect>
             </pattern>
             <mask id="mask-stripe">
                 <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-stripe)" />
@@ -1486,7 +1500,7 @@
                           font-size="18" id="svg_146" y="362.25" x="128.2" fill-opacity="null" stroke-opacity="null"
                           stroke-width="0" stroke="#000" fill="#000000">B270</text>
                 </g>
-                <g [ngClass]="('B268' | SearchByNPipe:stateFilter.name)" (click)="openWindow('B268')">
+                <g [ngClass]="('B268' | SearchByNPipe:stateFilter.name)+' '+( findoffice('B268').hasStranger | strangerPipe)+''+(findoffice('B268').size | officePipe:findoffice('B268').occupation)" (click)="openWindow('B268')">
                     <path [ngClass]="'B268 office'" fill="#ffffff" stroke-width="0"  opacity="1" d="m182.13282,350.25c0,0 20.26368,14.46415 20.1172,14.46415c-0.14648,0 -35.7422,48.78585 -35.7422,48.78585c0,0 -7.56836,-5.88372 -7.71485,-5.88372c-0.14648,0 -9.375,-6.86434 -9.52149,-6.86434c-0.14648,0 -5.71289,-4.65795 -5.85938,-4.65795c-0.14648,0 -3.51563,-3.43217 -3.66211,-3.43217c-0.14648,0 42.38283,-42.41182 42.38283,-42.41182z" id="svg_94" stroke="#000"/>
                     <text style="cursor: move;"
                           transform="rotate(-50.962913513183594 172.41406250000014,380.25000000000006) "

@@ -1,0 +1,17 @@
+<div class="module-border-wrap">
+    <div class="uploadfilecontainer row "  ngxDragAndDrop >
+        <input hidden type="file"
+               accept="application/vnd.ms-excel , application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+        <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+            <div class="fileImport col-lg-12">
+                <div class="fileTilte overflow-ellipsis">OfficeAssignments</div>
+                <button mat-mini-fab [nbTooltipPlacement]="'start'"
+                        nbTooltip="exporter le fichier" nbTooltipClass="officeManagerTooltip"
+                        (click)="export()" class="button-sup">
+                    <nb-icon icon="cloud-download-outline"></nb-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+

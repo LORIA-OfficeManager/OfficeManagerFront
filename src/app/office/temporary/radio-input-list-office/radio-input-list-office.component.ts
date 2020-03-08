@@ -23,7 +23,12 @@ export class RadioInputListOfficeComponent implements OnInit {
   /**
    * onInit
    */
-  ngOnInit() {
+  ngOnInit() {}
+  /*********************************************************GET&SETTER*************************************************/
+  /////// filterfloor
+  @Output('filterFloor')
+  get filterfloor$() {
+    return this._filterfloor$;
   }
   /**
    * emet l'evenement
@@ -32,11 +37,7 @@ export class RadioInputListOfficeComponent implements OnInit {
   filterfloor(floor: any) {
     this._filterfloor$.emit(floor);
   }
-  /*********************************************************GET&SETTER*************************************************/
-  @Output('filterFloor')
-  get filterfloor$() {
-    return this._filterfloor$;
-  }
+  /////// floor
   get floor(): any[] {
     return this._floor;
   }

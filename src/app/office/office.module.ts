@@ -7,9 +7,25 @@ import {
     NbAccordionModule,
     NbActionsModule,
     NbButtonModule,
-    NbCardModule, NbCheckboxModule, NbContextMenuModule, NbDialogModule, NbIconModule, NbInputModule,
-    NbLayoutModule, NbListModule, NbPopoverModule, NbRadioModule, NbSearchModule, NbSelectModule,
-    NbSidebarModule, NbTabsetModule, NbTooltipModule, NbTreeGridModule, NbUserModule, NbWindowModule,
+    NbCardModule,
+    NbCheckboxModule,
+    NbContextMenuModule,
+    NbDatepickerModule,
+    NbDialogModule,
+    NbIconModule,
+    NbInputModule,
+    NbLayoutModule,
+    NbListModule,
+    NbPopoverModule,
+    NbRadioModule,
+    NbSearchModule,
+    NbSelectModule,
+    NbSidebarModule,
+    NbTabsetModule, NbToggleModule,
+    NbTooltipModule,
+    NbTreeGridModule,
+    NbUserModule,
+    NbWindowModule,
 } from '@nebular/theme';
 import { ListOfficeComponent } from './temporary/list-office/list-office.component';
 import { SideBarListBuildingComponent} from './temporary/side-bar-list-building/side-bar-list-building.component';
@@ -45,7 +61,7 @@ import { AdminComponent } from './admin/admin/admin.component';
 import { DragAndDropDirective } from './admin/drag-and-drop.directive';
 import { ImportComponent } from './admin/import/import.component';
 import {MatButtonModule} from '@angular/material/button';
-import {AuthModule} from './auth/auth.module';
+import {AuthModule} from './admin/auth/auth.module';
 import { DepartmentComponent } from './admin/department/department.component';
 import { DepartmentItemComponent } from './admin/department/department-item/department-item.component';
 import { DialogUpdateOfficeComponent } from './temporary/dialog-update-office/dialog-update-office.component';
@@ -53,6 +69,21 @@ import { FormOfficeComponent } from './form/form-office/form-office.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { DepartmentItemHeaderComponent } from './admin/department/department-item-header/department-item-header.component';
+import { DatePickerComponent } from './shared/components/date-picker/date-picker.component';
+import { CustomValidatorDirective } from './shared/validator/custom-validator.directive';
+import { CarouselComponent } from './shared/components/carousel/carousel.component';
+import { ModalErrorComponent } from './temporary/modal-error/modal-error.component';
+import { FormOfficeErrorComponent } from './form/form-office-error/form-office-error.component';
+import {MatSelectModule} from '@angular/material/select';
+import { FormPersoneErrorComponent } from './form/form-persone-error/form-persone-error.component';
+import { FormErrorComponent } from './form/form-error/form-error.component';
+import {ReportErrorService} from './shared/services/reportError.service';
+import { FormCompteComponent } from './admin/FormCompte/formCompte.component';
+import {CompteComponent} from './admin/compte/compte.component';
+import { TeamComponent } from './admin/department/team/team.component';
+import {MatRadioModule} from '@angular/material/radio';
+import {ExportComponent} from './admin/export/export.component';
+import {ExportService} from './shared/services/export.service';
 
 @NgModule({
     imports: [
@@ -94,6 +125,10 @@ import { DepartmentItemHeaderComponent } from './admin/department/department-ite
         NbListModule,
         MatToolbarModule,
         MatAutocompleteModule,
+        NbDatepickerModule,
+        MatSelectModule,
+        MatRadioModule,
+        NbToggleModule,
     ],
     declarations: [
         HomePageComponent,
@@ -128,7 +163,17 @@ import { DepartmentItemHeaderComponent } from './admin/department/department-ite
         DialogUpdateOfficeComponent,
         FormOfficeComponent,
         DepartmentItemHeaderComponent,
-
+        DatePickerComponent,
+        CustomValidatorDirective,
+        CarouselComponent,
+        ModalErrorComponent,
+        FormOfficeErrorComponent,
+        FormPersoneErrorComponent,
+        FormErrorComponent,
+        FormCompteComponent,
+        CompteComponent,
+        TeamComponent,
+        ExportComponent,
     ],
     providers: [
         OfficePipePipe,
@@ -138,9 +183,12 @@ import { DepartmentItemHeaderComponent } from './admin/department/department-ite
         StateOfficePipe,
         AutoCompletePipe,
         RoleProviderService,
+        ReportErrorService,
         SearchByNPipe,
         StatusPipe,
         AutoCompletePipeP,
+        CustomValidatorDirective,
+        ExportService,
     ],
     entryComponents: [
         DialogAssignementComponent,

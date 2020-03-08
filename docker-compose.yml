@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
 
-  example:
+  angular:
     container_name: office_managaer_front
     build:
       context: .
@@ -11,4 +11,4 @@ services:
       - '.:/app'
       - '/app/node_modules'
     ports:
-      - '4201:4200'
+      - '50000:4200'

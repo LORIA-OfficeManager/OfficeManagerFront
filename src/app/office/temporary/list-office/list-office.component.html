@@ -1,13 +1,23 @@
-<ngx-modal-help></ngx-modal-help>
+<div class="fixedButton">
+    <button nbButton class="mainFixedButton" appearance="outline"
+            size="small" shape="round"><nb-icon icon="menu-outline"></nb-icon>
+    </button>
+    <ngx-modal-help class="firstFixedButton"></ngx-modal-help>
+    <ngx-modal-error class="secondFixedButton"></ngx-modal-error>
+</div>
 <nb-layout>
     <nb-layout-header fixed>
       <ngx-office-header></ngx-office-header>
     </nb-layout-header>
     <nb-sidebar responsive  class="menu-sidebar start expanded" >
         <nb-card class="col-lg-12 filtre">
-            <nb-card-header style=" background-color: #2d8ac7;color: white!important;">
+            <nb-card-header >
                 <div class="col-lg-12">
-                    <h4><strong>{{'Filtre' | uppercase }}</strong></h4>
+                    <a  style="margin: auto; text-align: center;">
+                        <div class="loriaBack">
+                            <p>Filtre</p>
+                        </div>
+                    </a>
                 </div>
             </nb-card-header>
             <div class="row show-grid" >
@@ -15,19 +25,23 @@
                     <nb-actions size="medium" class="row">
                         <nb-action style="cursor: pointer;" class="col-lg-12" (click)="switchFilter('batiment')"
                                    [ngClass]="' '+(filter==='batiment' ? 'activeFiltre' : 'inactiveFiltre')">
-                            <div style="text-align: center" class="col-12">Bâtiment</div>
+                            <div class="col-12">Bâtiment</div>
                         </nb-action>
                         <nb-action style="cursor: pointer;" class="col-lg-12" (click)="switchFilter('etat')"
                                    [ngClass]="''+(filter==='etat' ? 'activeFiltre' : 'inactiveFiltre')">
-                            <div style="text-align: center" class="col-12">État</div>
+                            <div class="col-12">État</div>
                         </nb-action>
                         <nb-action style="cursor: pointer;" class="col-lg-12" (click)="switchFilter('nom')"
                                    [ngClass]="' '+(filter==='nom' ? 'activeFiltre' : 'inactiveFiltre')">
-                            <div style="text-align: center" class="col-12">Nom</div>
+                            <div class="col-12">Nom</div>
                         </nb-action>
                         <nb-action style="cursor: pointer;" class="col-lg-12" (click)="switchFilter('person')"
-                                   [ngClass]="' '+(filter==='peson' ? 'activeFiltre' : 'inactiveFiltre')">
-                            <div style="text-align: center" class="col-12">Personne</div>
+                                   [ngClass]="' '+(filter==='person' ? 'activeFiltre' : 'inactiveFiltre')">
+                            <div class="col-12">Personne</div>
+                        </nb-action>
+                        <nb-action style="cursor: pointer;" class="col-lg-12" (click)="switchFilter('date')"
+                                   [ngClass]="' '+(filter==='date' ? 'activeFiltre' : 'inactiveFiltre')">
+                            <div class="col-12">Date</div>
                         </nb-action>
                     </nb-actions>
                 </div>
@@ -41,7 +55,8 @@
                     <mat-dialog-content>
                         <form [formGroup]="form">
                             <mat-form-field class="full-width">
-                                <input  (keyup)="onKey($event)" matInput placeholder="Nom du bureau" formControlName="search" name="seacrh" />
+                                <input class="backInput"  (keyup)="onKey($event)" matInput placeholder="Nom du bureau"
+                                       formControlName="search" name="seacrh" />
                             </mat-form-field>
                         </form>
                     </mat-dialog-content>
@@ -52,7 +67,7 @@
                     <mat-dialog-content>
                         <form class="example-form">
                             <mat-form-field class="example-full-width">
-                                <input type="text" placeholder="Nom de la Personne" aria-label="Assignee"
+                                <input class="backInput" type="text" placeholder="Nom de la Personne" aria-label="Assignee"
                                        matInput [formControl]="myControl" [matAutocomplete]="auto">
                                 <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
                                     <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
@@ -63,9 +78,15 @@
                             <span class="errorSearchPersone" *ngIf="isNotAperson(myControl.value)">Vous devez choisir une Personne</span>
                             <button style="float: right" [disabled]="isNotAperson(myControl.value)"
                                     (click)="searchperson(myControl.value)"
+                                    class="btnOfficeM"
                                     outline nbButton status="primary">Rechercher</button>
                         </form>
                     </mat-dialog-content>
+                </nb-card-body>
+            </nb-card>
+            <nb-card *ngSwitchCase="date">
+                <nb-card-body>
+                    <ngx-date-picker  (submit)="updateOfficeTimeT($event)"></ngx-date-picker>
                 </nb-card-body>
             </nb-card>
         </div>
@@ -80,7 +101,8 @@
                     <div class="col-lg-12 gallery noPadding" >
                         <i class=" fa-2x fas fa-table" style="float: right;margin-left: 2%;cursor: pointer"
                            (click)="switchDesign('tab')" [ngClass]="' '+(design==='tab' ? 'activeFiltre' : 'inactiveFiltre')"></i>
-                        <i [nbTooltipPlacement]="'start'" nbTooltip="Afficher les bureaux sous form de plan" class=" fa-2x fas fa-map-marked-alt" style="float: right;margin-left: 2%;cursor: pointer"
+                        <i [nbTooltipPlacement]="'start'" nbTooltip="Afficher les bureaux sous form de plan"
+                           nbTooltipClass="officeManagerTooltip" class=" fa-2x fas fa-map-marked-alt" style="float: right;margin-left: 2%;cursor: pointer"
                            (click)="switchDesign('map')" [ngClass]="' '+(design==='map' ? 'activeFiltre' : 'inactiveFiltre')"></i>
                     </div>
                 </div>

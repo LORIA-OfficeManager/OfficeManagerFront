@@ -7,5 +7,3 @@ export interface Office {
     occupation: number; // nombre de personne dans le bureau
     hasStranger: boolean; // indique s'il y a un intru
 }
-
-export const OFFICES = [];

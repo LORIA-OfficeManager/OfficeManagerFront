@@ -7,14 +7,8 @@ import {Person} from '../../shared/interfaces/person';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import {PersonService} from '../../shared/services/person.service';
+import {StateFilter} from '../../shared/interfaces/state-filter';
 
-
-export interface StateFilter {
-  name: string;
-  floor: number;
-  building: string;
-  stateOffice: string;
-}
 
 @Component({
   selector: 'ngx-test-list-office',
@@ -24,38 +18,21 @@ export interface StateFilter {
 })
 
 export class ListOfficeComponent implements OnInit {
-  get filteredOptions(): Observable<Person[]> {
-    return this._filteredOptions;
-  }
-  get person(): string {
-    return this._person;
-  }
-  private _person: string;
-  get reload(): boolean {
-    return this._reload;
-  }
+
+  // constante des Filtres
+  private _etat = 'etat';
+  private _batiment = 'batiment';
+  private _nom = 'nom';
+  private _person = 'person';
+  private _date = 'date';
+
   // fomulaire
   form: FormGroup;
   private _myControl = new FormControl();
+  // liste des personnes
   options: Person[];
-  get myControl(): FormControl {
-    return this._myControl;
-  }
+  // liste des personnes filtre
   private _filteredOptions: Observable<Person[]>;
-
-  displayFn(user?: Person): string | undefined {
-    return user ? user.lastname.toUpperCase() : undefined;
-  }
-
-  private _filterPerso(name: string): Person[] {
-    const filterValue = name.toUpperCase();
-    return this.options.filter(option => option.lastname.toUpperCase().indexOf(filterValue) === 0);
-  }
-
-// constante
-  private _etat: string;
-  private _batiment: string;
-  private _nom: string;
   // etat des filtres
   private _stateFilter: StateFilter;
   // type de filtre
@@ -80,15 +57,12 @@ export class ListOfficeComponent implements OnInit {
     this._offices = [];
     this._filter = 'batiment';
     this._design = 'tab';
-    this._etat = 'etat';
-    this._batiment = 'batiment';
-    this._nom = 'nom';
-    this._person = 'person';
     this._stateFilter = {
       name : '',
       floor : -1,
       building : 'none',
       stateOffice: 'none',
+      dateFilter: false,
     };
     this._reload = true;
   }
@@ -106,19 +80,10 @@ export class ListOfficeComponent implements OnInit {
               map(name => name ? this._filterPerso(name) : this.options.slice()),
           );
     });
-      this._reload = false;
-      this._serviceOffice.fecth().subscribe((_: Office[]) => {
-          this._offices = _;
-      });
-  }
-
-  /**
-   * trie les bureaux selon l'eatge et le batiment
-   * @param data
-   */
-  filterfloorBatiment(data: any) {
-    this._stateFilter.floor = data.floor;
-    this._stateFilter.building = data.building;
+    this._reload = false;
+    this._serviceOffice.fecth().subscribe((_: Office[]) => {
+        this._offices = _;
+    });
   }
 
   /**
@@ -130,34 +95,45 @@ export class ListOfficeComponent implements OnInit {
   }
 
   /**
-   * change de design
-   * @param design
-   */
-  switchDesign(design: string) {
-    this._design = design;
-  }
-
-  /**
-   * change de filtre
-   * @param filtre
-   */
-  switchFilter(filtre: string) {
-    this._filter = filtre;
-    this._stateFilter = {
-      name: '',
-      floor: -1,
-      building: 'none',
-      stateOffice: 'none',
-    };
-  }
-
-  /**
    * gere l'event du clavier
    * @param event
    */
   onKey(event: any) {
     this._filtreByOfficeName(event.target.value);
   }
+
+  /**
+   * test si c est une personne
+   * @param value
+   */
+  isNotAperson(value: Person): boolean {
+    let res = true;
+    if (value !== null) {
+      if (value.officeName !== undefined) {
+        res = false;
+      }
+    }
+    return res;
+  }
+
+  /**
+   * retourne la liste des bureau pour un temps t
+   * @param data
+   */
+  updateOfficeTimeT(data: any) {
+    this._serviceOffice.officeDate(data.date).subscribe(
+        (_: Office[]) => this._offices = _ ,
+    );
+  }
+  /***********************************************************Filter***************************************************/
+  searchperson(value: Person) {
+    this._filtreByOfficeName(value.officeName);
+  }
+  /**
+   * filtre par le nom du bureau
+   * @param name
+   * @private
+   */
   private _filtreByOfficeName(name: String) {
     if (name !== null) {
       this._stateFilter.name = name.toLowerCase();
@@ -177,8 +153,91 @@ export class ListOfficeComponent implements OnInit {
       this._stateFilter.building = 'NULL';
     }
   }
-  /*********************************************************GET&SETTER*************************************************/
+  /**
+   * change de filtre
+   * @param filtre
+   */
+  switchFilter(filtre: string) {
+    if (this._filter === 'date' && this._filter !== filtre ) {
+      this.setOffice(true);
+    }
+    this._filter = filtre;
+    this._stateFilter = {
+      name: '',
+      floor: -1,
+      building: 'none',
+      stateOffice: 'none',
+      dateFilter: false,
+    };
+    if (filtre === 'date') {
+      this._stateFilter.dateFilter = true;
+    }
+  }
+  private _filterPerso(name: string): Person[] {
+    const filterValue = name.toUpperCase();
+    return this.options.filter(option => option.lastname.toUpperCase().indexOf(filterValue) === 0);
+  }
 
+  /**
+   * trie les bureaux selon l'eatge et le batiment
+   * @param data
+   */
+  filterfloorBatiment(data: any) {
+    this._stateFilter.floor = data.floor;
+    this._stateFilter.building = data.building;
+  }
+  /*********************************************************GET&SETTER*************************************************/
+  /////// displayFn
+  displayFn(user?: Person): string | undefined {
+    return user ? user.lastname.toUpperCase() : undefined;
+  }
+  /////// myControl
+  get myControl(): FormControl {
+    return this._myControl;
+  }
+  /////// peopleAssign
+  get filteredOptions(): Observable<Person[]> {
+    return this._filteredOptions;
+  }
+  /////// person
+  get person(): string {
+    return this._person;
+  }
+  /////// reload
+  get reload(): boolean {
+    return this._reload;
+  }
+  /////// date
+  get date(): string {
+    return this._date;
+  }
+  /////// etat
+  get etat(): string {
+    return this._etat;
+  }
+  /////// batiment
+  get batiment(): string {
+    return this._batiment;
+  }
+  /////// nom
+  get nom(): string {
+    return this._nom;
+  }
+  /////// design
+  get design(): string {
+    return this._design;
+  }
+  /**
+   * change de design
+   * @param design
+   */
+  switchDesign(design: string) {
+    this._design = design;
+  }
+  /////// stateFilter
+  get stateFilter(): StateFilter {
+    return this._stateFilter;
+  }
   /**
    * fltre les bureaux selon l'etat
    * @param state
@@ -186,29 +245,14 @@ export class ListOfficeComponent implements OnInit {
   filterState(state) {
     this._stateFilter.stateOffice = state;
   }
-
-  get etat(): string {
-    return this._etat;
-  }
-  get batiment(): string {
-    return this._batiment;
-  }
-  get nom(): string {
-    return this._nom;
-  }
-  get design(): string {
-    return this._design;
-  }
-  get stateFilter(): StateFilter {
-    return this._stateFilter;
-  }
-  get offices(): Office[] {
-    return this._offices;
-  }
+  /////// filter
   get filter(): string {
     return this._filter;
   }
-
+  /////// offices
+  get offices(): Office[] {
+    return this._offices;
+  }
   setOffice(data: boolean) {
     if ( data ) {
       this._reload = true;
@@ -217,20 +261,6 @@ export class ListOfficeComponent implements OnInit {
         this._reload = false;
       });
     }
-  }
-
-  searchperson(value: Person) {
-    this._filtreByOfficeName(value.officeName);
-  }
-
-  isNotAperson(value: Person): boolean {
-    let res = true;
-    if (value !== null) {
-      if (value.officeName !== undefined) {
-        res = false;
-      }
-    }
-    return res;
   }
 }
 

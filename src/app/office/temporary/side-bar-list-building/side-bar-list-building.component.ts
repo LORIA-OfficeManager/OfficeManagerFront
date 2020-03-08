@@ -46,11 +46,12 @@ export class SideBarListBuildingComponent implements OnInit {
   ngOnInit() {
   }
 
+  /*********************************************************GET&SETTER*************************************************/
+  /////// filterfloorBatiment
   @Output('filterfloorBatiment')
   get filterfloorBatiment$() {
     return this._filterfloorBatiment$;
   }
-  /*********************************************************GET&SETTER*************************************************/
   /**
    * emet l'evenement
    * @param floor etage

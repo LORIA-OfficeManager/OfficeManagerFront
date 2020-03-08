@@ -1,14 +1,19 @@
-<nb-card class="department-list-container">
+<nb-card class="col-lg-10 department-list-container">
 
     <nb-list>
-        <nb-list-item>
+        <nb-list-item class="formDep">
             <form [formGroup] =  "form" class="new-department">
-                <input ngModel type="text" formControlName="name" name="name" placeholder="Nouveau Département">
-                <button type="submit" nbButton (click)="create(form.get('name').value)" size="tiny"><nb-icon icon="checkmark-outline"></nb-icon></button>
+                <mat-form-field class="col-lg-4">
+                    <mat-label>Nouveau Département</mat-label>
+                    <input class="backInput" type="text" matInput  formControlName="name" required name="name"
+                           style="width: 100%;" placeholder="Nouveau Département"/>
+                </mat-form-field>
+<!--                <input matInput ngModel type="text" formControlName="name" name="name" placeholder="Nouveau Département">-->
+                <button type="submit" nbButton (click)="create(formValue)" size="tiny"><nb-icon icon="checkmark-outline"></nb-icon></button>
             </form>
         </nb-list-item>
-        <nb-list-item *ngFor="let department of departments" >
-            <ngx-department-item (delete)="delete($event)" (update)="update($event)" [department]="department"></ngx-department-item>
+        <nb-list-item *ngFor="let department of departments;index as i" >
+            <ngx-department-item  (delete)="delete($event)" (update)="update(i, $event)" [department]="department"></ngx-department-item>
         </nb-list-item>
 
         <nb-list-item *ngIf="isEmpty()">

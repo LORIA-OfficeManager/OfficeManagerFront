@@ -8,19 +8,16 @@ import {NbDialogService} from '@nebular/theme';
   '../list-office/list-office.component.scss'],
 })
 export class ModalHelpComponent implements OnInit {
-
   /**
    * construtor
    * @param dialogService
    */
-  constructor(private dialogService: NbDialogService) {
-  }
+  constructor(private dialogService: NbDialogService) {}
 
   /**
-   *
+   * Init
    */
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   /**
    * ouvre la dialog
@@ -29,5 +26,4 @@ export class ModalHelpComponent implements OnInit {
   open(dialog: TemplateRef<any>) {
     this.dialogService.open(dialog, {context: 'this is some additional data passed to dialog'});
   }
-
 }

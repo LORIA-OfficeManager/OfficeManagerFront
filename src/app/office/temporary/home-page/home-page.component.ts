@@ -39,6 +39,7 @@ export class HomePageComponent implements OnInit {
   }
 
   /*******************************************************GET&SETTER*************************************************/
+  /////// user
   get user() {
     return this.puser;
   }

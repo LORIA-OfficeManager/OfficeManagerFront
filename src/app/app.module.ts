@@ -6,7 +6,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
 import { CoreModule } from './@core/core.module';
 import { ThemeModule } from './@theme/theme.module';
 import { AppComponent } from './app.component';
@@ -20,7 +20,6 @@ import {
   NbToastrModule,
   NbWindowModule,
 } from '@nebular/theme';
-import {NbAuthModule, NbDummyAuthStrategy} from '@nebular/auth';
 import {NbRoleProvider, NbSecurityModule} from '@nebular/security';
 import {RoleProviderService} from './office/shared/services/role-provider.service';
 import {DevGuardService} from './office/shared/services/guards/dev-guard.service';
@@ -37,15 +36,6 @@ import {LeaderGuardService} from './office/shared/services/guards/leader-guard.s
     AppRoutingModule,
 
     ThemeModule.forRoot(),
-    NbAuthModule.forRoot({
-      strategies: [
-        // TODO: Update this when backend auth works.
-        NbDummyAuthStrategy.setup({
-          name: 'dummy',
-        }),
-      ],
-      forms: {},
-    }),
     NbSecurityModule.forRoot(),
     NbSidebarModule.forRoot(),
     NbMenuModule.forRoot(),

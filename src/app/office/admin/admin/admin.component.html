@@ -6,20 +6,29 @@
         <nb-card class="col-lg-12 filtre">
             <nb-card-header>
                 <div class="col-lg-12">
-                    <h4><strong>{{'Menu' | uppercase }}</strong></h4>
+                    <a style="margin: auto; text-align: center;">
+                        <div class="loriaBack">
+                            <p>Menu</p>
+                        </div>
+                    </a>
                 </div>
             </nb-card-header>
             <nb-card-body>
                 <div class="menu-title" (click)="changeAction('import')"
-                     [ngClass]="action === 'import' ? 'activeFiltre' : ''"><h6>Import</h6></div>
+                     [ngClass]="action === 'import' ? 'activeFiltre' : 'inactiveFiltre'"><h6>Import</h6></div>
                 <div class="menu-title"(click)="changeAction('export')"
-                     [ngClass]="action === 'export' ? 'activeFiltre' : ''"><h6>Export</h6></div>
+                     [ngClass]="action === 'export' ? 'activeFiltre' : 'inactiveFiltre'"><h6>Export</h6></div>
                 <div class="menu-title" (click)="changeAction('department')"
-                     [ngClass]="action === 'department' ? 'activeFiltre' : ''"><h6>Département</h6></div>
+                     [ngClass]="action === 'department' ? 'activeFiltre' : 'inactiveFiltre'"><h6>Département</h6></div>
+                <div class="menu-title"(click)="changeAction('compte')"
+                     [ngClass]="action === 'compte' ? 'activeFiltre' : 'inactiveFiltre'"><h6>Compte</h6></div>
             </nb-card-body>
         </nb-card>
     </nb-sidebar>
     <nb-layout-column class="row">
+        <div class="loader" *ngIf="reload">
+            <h1>LOADING <span class="bullets">.</span></h1>
+        </div>
         <div class="col-md-12 noPadding">
             <div  class="colored-column-basic col-12 noPadding" [ngSwitch]="action">
                 <div *ngSwitchCase="'import'" [ngClass]="action === 'import' ? 'activeFiltre' : ''">
@@ -38,15 +47,25 @@
                             <hr class="one col-lg-12" >
                         </div>
                     </div>
+                    <ngx-export (export)="export()"></ngx-export>
                 </div>
                 <div *ngSwitchCase="'department'" [ngClass]="action === 'department' ? 'activeFiltre' : ''">
                     <div class="row col-12">
-                        <h1 class="active titleAction" >Department </h1>
+                        <h1 class="active titleAction" >Département </h1>
                         <div class="row col-12 ligne">
                             <hr class="one col-lg-12" >
                         </div>
                     </div>
                     <ngx-department></ngx-department>
+                </div>
+                <div *ngSwitchCase="'compte'" [ngClass]="action === 'compte' ? 'activeFiltre' : ''">
+                    <div class="row col-12">
+                        <h1 class="active titleAction" >Compte </h1>
+                        <div class="row col-12 ligne">
+                            <hr class="one col-lg-12" >
+                        </div>
+                    </div>
+                    <ngx-compte></ngx-compte>
                 </div>
             </div>
         </div>
@@ -54,7 +73,7 @@
     <nb-layout-footer class="footerInfo">
         <nb-card class="noMargin full-width">
             <nb-card-header class=" footerNav" [ngSwitch]="showInfo">
-                Infos
+                Log
                 <nb-icon icon="minus" class="footerNavIcon" (click)="toggle()" *ngSwitchCase="'show'"></nb-icon>
                 <nb-icon icon="plus" class="footerNavIcon" (click)="toggle()" *ngSwitchCase="'hide'"></nb-icon>
             </nb-card-header>

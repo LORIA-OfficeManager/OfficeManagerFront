@@ -30,7 +30,7 @@ const routes: Routes = [{
     },
     {
       path: 'auth',
-      loadChildren: () => import('app/office/auth/auth.module')
+      loadChildren: () => import('app/office/admin/auth/auth.module')
         .then(m => m.AuthModule),
     },
     {

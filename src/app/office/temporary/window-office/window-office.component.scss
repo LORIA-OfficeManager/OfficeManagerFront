@@ -3,27 +3,6 @@
 @import '~app/office/office.component';
 @import '../../../@theme/styles/themes';
 
-/**************************************************CodeCouleur********************************************************/
-.fullOffice {
-  background-color: $color-officeFull;
-}
-.moreThanFullOffice {
-  background-color: $color-officeMoreThanFull;
-}
-.notFullOffice {
-  background-color: $color-officeNoEmpty;
-}
-.emptyOffice {
-  background-color: $color-officeEmpty;
-}
-.StrangerOffice {
-  background-image: linear-gradient(45deg, rgba(238, 97, 125, 0) 25%,
-    $color-officeStrnager 25%, $color-officeStrnager 50%,
-          rgba(238, 97, 125, 0) 50%, rgba(238, 97, 125, 0) 75%,
-    $color-officeStrnager 25%, $color-officeStrnager 100%);
-  background-size: 56.57px 56.57px;
-}
-
 /**************************************************composantWindow*****************************************************/
 
 .color nb-card {

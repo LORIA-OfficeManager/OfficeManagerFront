@@ -12,15 +12,15 @@
   </nb-select>
 </div>
 
-<div class="header-container">
+<div class="header-container ">
   <nb-actions size="small" *nbIsGranted="['view', 'logout']">
     <nb-action class="control-item" (click)="goOffice()" >Bureaux</nb-action>
     <nb-action class="control-item" (click)="goPeople()">Personnes</nb-action>
-    <nb-action class="control-item" (click)="goAdmin()"
+    <nb-action class="control-item" (click)="goAdmin()" *nbIsGranted="['view','admin']"
                icon="settings-2"  nbTooltip="Admin" nbTooltipPlacement="bottom">
     </nb-action>
-    <nb-action class="control-item" icon="person-outline"  nbTooltip="Votre compte"
-               nbTooltipPlacement="bottom"></nb-action>
+<!--    <nb-action class="control-item" icon="person-outline"  nbTooltip="Votre compte"-->
+<!--               nbTooltipPlacement="bottom"></nb-action>-->
     <nb-action class="control-item" (click)="disconnect()">
       <nb-icon icon="log-out-outline" status="danger"
                [nbTooltipPlacement]="'start'" nbTooltip="Se déconnecter" nbTooltipStatus="danger">

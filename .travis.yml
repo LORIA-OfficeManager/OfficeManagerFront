@@ -13,15 +13,11 @@ before_deploy:
 - eval "$(ssh-agent -s)"
 - chmod 600 /tmp/deploy_rsa
 - ssh-add /tmp/deploy_rsa
-before_install:
- - npm install -g @angular/cli
- - npm install
- - npm update
-script:
- - echo "npm test temporarily disabled"
 install:
-- docker network create officemanager-back_office-manager-bridge
-- docker-compose up -d --build
+- yarn install
+script:
+- echo "yarn test temporarily disabled"
+- yarn run build:prod
 deploy:
   provider: script
   skip_cleanup: true

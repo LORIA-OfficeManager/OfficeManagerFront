@@ -17,7 +17,7 @@ install:
 - yarn install
 script:
 - echo "yarn test temporarily disabled"
-- yarn run build:prod
+- yarn run build:prod --buildOptimizer=false --aot=false
 deploy:
   provider: script
   skip_cleanup: true

@@ -2,14 +2,14 @@
     <nb-card class="helpModal">
         <nb-card-header class="headerOfficeManager">
             Ajouter des personnes au bureaux {{officename}}
-            <nb-icon style="float: right; cursor: pointer" (click)="ref.close();startData()" icon="close-outline"></nb-icon>
+            <nb-icon class="iconClick" (click)="ref.close();startData()" icon="close-outline"></nb-icon>
         </nb-card-header>
         <nb-card-body class="modalHeight">
             <h6>Personne affecté au bureaux {{officename}}</h6>
             <span style="margin: auto" *ngIf="peopleAssign.length === 0"> Ce bureaux est vide</span>
             <ul>
                 <li *ngFor="let person of peopleAssign" [ngClass]="(person | zombiePipe)"> {{person.lastname}} {{person.firstname}}
-                    <nb-icon icon="minus" style="float: right;cursor: pointer" (click)="supp(person)"></nb-icon>
+                    <nb-icon icon="minus" class="iconClick" (click)="supp(person)"></nb-icon>
                 </li>
             </ul>
             <h6>Personne non affecté à ce bureaux</h6>

@@ -4,7 +4,8 @@
         <h5  [ngClass]="'row col-12 '">
             Information générale :
             <ngx-dialog-update-office *nbIsGranted="['view','admin']" [officeName]="name()" [office]="data"
-                                      style="float: right; cursor: pointer; margin: auto 0 auto auto;"></ngx-dialog-update-office>
+                                      class="iconClick" style="margin: auto 0 auto auto;">
+            </ngx-dialog-update-office>
         </h5>
         <div class="row show-grid col-12">
             <div class="col-md-6">
@@ -22,20 +23,22 @@
         </div>
         <h5 class="col-12">Personne affecté
             <ngx-dialog-assignement *nbIsGranted="['view','admin']" (submit)="assignement($event)" [officename]="name()"
-                                    style="float: right; cursor: pointer;"></ngx-dialog-assignement>
+                                   class="iconClick">
+            </ngx-dialog-assignement>
         </h5>
         <div class="row show-grid">
             <div class="col-md-12 all">
                 <ul>
                     <li *ngFor="let person of data.persons" [ngClass]="(person | zombiePipe)+' row col-12' "
-                        style="margin: 0; padding: 0;">
-                        <span class="col-12" style="padding: 0; ">
-                            <i [ngClass]="'fas col-1 '+ ( person | StatusPipe )" style="padding:0;"
+                        class="noPadMarg">
+                        <span class="col-12 noPadding">
+                            <i [ngClass]="'noPadding fas col-1 '+ ( person | StatusPipe )"
                                [nbTooltipPlacement]="'end'"  nbTooltip="{{person.statusName}}"
                                nbTooltipClass="officeManagerTooltip"></i>
                             {{person.firstname}} {{person.lastname}}
-                            <ngx-warning-popup *nbIsGranted="['view','admin']" (submit)="suppPersonne($event)" [icon]="'minus'" [message]="message(person)" [object]="person"
-                                               style="float: right; cursor: pointer;"></ngx-warning-popup>
+                            <ngx-warning-popup *nbIsGranted="['view','admin']" (submit)="suppPersonne($event)"
+                                               [icon]="'minus'" [message]="message(person)" [object]="person"
+                                               class="iconClick"></ngx-warning-popup>
                         </span>
                     </li>
                 </ul>

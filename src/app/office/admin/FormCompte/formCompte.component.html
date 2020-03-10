@@ -1,13 +1,13 @@
 <mat-dialog-content>
     <form novalidate [formGroup]="form">
-        <table class="full-width" cellspacing="0" style="width: 100%; margin: 0;">
-            <tr class="col-lg-12 row" style="padding: 0%; margin: 0%;">
-                <td class="col-lg-12" style="">
+        <table class="fullWidth noMargin" cellspacing="0">
+            <tr class="col-lg-12 row noPadMarg">
+                <td class="col-lg-12">
                     <mat-form-field class="full-width  offset-1 col-lg-10"
                                     [class.mgb15]="form.get('username').dirty && form.get('username').invalid">
                         <mat-label>Address mail</mat-label>
-                        <input class="backInput" type="email" matInput  formControlName="username" required name="username"
-                                  style="width: 100%;" placeholder="prenom.nom@loria.fr"
+                        <input class="backInput fullWidth" type="email" matInput  formControlName="username" required name="username"
+                               placeholder="prenom.nom@loria.fr"
                                pattern="([a-z]+)\.([a-z]+)@loria.fr"/>
                         <mat-error *ngIf="form.get('username').dirty && form.get('username').hasError('required')">
                             L'address mail est <strong>requis</strong>
@@ -20,8 +20,8 @@
                     <mat-form-field class="full-width offset-1 col-lg-10"
                                     [class.mgb15]="form.get('password').dirty && form.get('password').invalid">
                         <mat-label>Mot de passe</mat-label>
-                        <input class="backInput" type="password" matInput  formControlName="password" required name="password"
-                               style="width: 100%;" placeholder="password"/>
+                        <input class="backInput fullWidth" type="password" matInput  formControlName="password" required name="password"
+                               placeholder="password"/>
                         <mat-error *ngIf="form.get('password').dirty && form.get('password').hasError('required')">
                             Le mot de passe est <strong>requis</strong>
                         </mat-error>
@@ -62,8 +62,8 @@
                     <mat-form-field class="full-width offset-1 col-lg-10"
                                     [class.mgb15]="form.get('confpassword').dirty && form.get('confpassword').invalid">
                         <mat-label>Confirmer le Mot de passe</mat-label>
-                        <input class="backInput" type="password" matInput  formControlName="confpassword" required name="confpassword"
-                               style="width: 100%;" placeholder="password"/>
+                        <input class="backInput fullWidth" type="password" matInput  formControlName="confpassword" required name="confpassword"
+                               placeholder="password"/>
                         <mat-error *ngIf="form.get('confpassword').dirty && form.get('confpassword').hasError('required')">
                             La confirmation du mot de passe est <strong>obligatoire</strong>
                         </mat-error>
@@ -87,7 +87,7 @@
         </table>
     </form>
 </mat-dialog-content>
-<mat-dialog-actions style="padding: 0;margin: 2% auto 2% auto;" class="col-12 row">
+<mat-dialog-actions style="margin: 2% auto 2% auto;" class="col-12 row noPadding">
     <button class="col-3" (click)="cancel()" style="margin: 0 2% 0 auto;"
             outline nbButton status="danger">Annuler</button>
     <button class="col-3" (click)="submit(form.value)" [disabled]="form.invalid" style="margin: 0 auto 0 2%;"

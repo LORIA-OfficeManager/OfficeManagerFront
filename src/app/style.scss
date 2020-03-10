@@ -8,6 +8,29 @@
   color: #3eace0 !important;
 }
 ::ng-deep {
+  .fullWidth {
+    width: 100% !important;
+  }
+  .iconClick {
+    float: right;
+    cursor: pointer;
+  }
+  .Cursorpointer {
+    cursor: pointer;
+  }
+  ngx-warning-popup {
+    float: right;
+    cursor: pointer;
+  }
+  .noPadding {
+    padding: 0;
+  }
+  .noMargin {
+    padding: 0;
+  }
+  .noPadMarg {
+    padding: 0;
+  }
   .fullOffice {
     background-color: $color-officeFull;
   }

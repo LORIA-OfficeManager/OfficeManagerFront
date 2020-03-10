@@ -11,18 +11,18 @@ $color-second: #cc5d9a;
 
 /********************************************************UTILS*********************************************************/
 .noPadding {
-  padding: 0 !important;
+    padding: 0 !important;
 }
 .noMargin {
-  margin: 0 !important;
+    margin: 0 !important;
 }
 /**
  * Permet d'adapter un text dans une div et s il est trop grand.
  * Il n'est pas entierement afficher il y aura ... a la fin
  */
 .overflow-ellipsis {
-  /* Nécessaires pour text-overflow */
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    /* Nécessaires pour text-overflow */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

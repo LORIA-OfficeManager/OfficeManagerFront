@@ -1,0 +1,65 @@
+@import '../../office.component';
+@import '../../listData/officeView/map-office/map/map.component';
+/*************************************************Modal****************************************************************/
+
+.titleHelpModal {
+  color: $color-active;
+  margin: 2% 0;
+}
+.stanger {
+  color: rgba(193, 11, 0, 0.7);
+}
+.buttonHelpModal {
+  background-color: white !important;
+}
+.codeCouleur h5 {
+  padding: 0 2%;
+}
+::ng-deep {
+  .nb-theme-default, .nb-theme-corporate {
+    .helpModal nb-card-body {
+      background-color: #edf1f7;
+    }
+  }
+
+  .nb-theme-dark {
+    .helpModal nb-card-body {
+      background-color:  #151a30;
+    }
+  }
+
+  .nb-theme-cosmic {
+    .helpModal nb-card-body {
+      background-color: #1b1b38;
+    }
+  }
+}
+//////////////////////////////////////////////big Screen
+@media screen and (min-width: 1800px) {
+  .modalHeight {
+    max-height: 500px !important;
+    width: 800px!important;
+  }
+}
+//////////////////////////////////////////////screen
+@media screen and (min-width: 1200px) and (max-width: 1800px) {
+  .modalHeight {
+    max-height: 400px !important;
+    width: 700px!important;
+  }
+}
+//////////////////////////////////////////////tablet
+@media screen and (min-width: 900px) and (max-width: 1200px) {
+  .modalHeight {
+  }
+}
+//////////////////////////////////////////////phone
+@media screen and (min-width: 600px) and (max-width: 900px) {
+  .modalHeight {
+    max-height: 300px !important;
+    width: 500px !important;
+  }
+}
+.buttonHelpModal {
+  border-width: 0.1rem !important;
+}

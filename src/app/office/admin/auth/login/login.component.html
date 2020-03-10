@@ -1,7 +1,7 @@
 <h1 id="title" class="title">CONNEXION</h1>
 
 <nb-alert *ngIf="showMessages.error && errors?.length && !submitted" outline="danger" role="alert">
-  <p class="alert-title"><b>Oh snap!</b></p>
+  <p class="alert-title"><nb-icon icon="alert-triangle-outline"></nb-icon><b>Erreur</b></p>
   <ul class="alert-message-list">
     <li *ngFor="let error of errors" class="alert-message">{{ error }}</li>
   </ul>
@@ -32,10 +32,10 @@
            [attr.aria-invalid]="username.invalid && username.touched ? true : null">
     <ng-container *ngIf="username.invalid && username.touched">
       <p class="caption status-danger" *ngIf="username.errors?.required">
-        L'username est requis !
+        L'email est requis !
       </p>
       <p class="caption status-danger" *ngIf="username.errors?.pattern">
-        l'username doit être de la forme requise ( firstname.lastname@loria.fr )
+        l'email doit être de la forme requise ( firstname.lastname@loria.fr )
       </p>
     </ng-container>
   </div>
@@ -78,7 +78,7 @@
     Se connecter
   </button>
   <div class="footer">
-    <a class="forgot-password" routerLink="../request-password">Mot de Passe oublié ?</a>
+<!--    <a class="forgot-password" routerLink="../request-password">Mot de Passe oublié ?</a>-->
   </div>
 </form>
 

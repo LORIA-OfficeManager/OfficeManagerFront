@@ -18,7 +18,7 @@ export class CarouselComponent implements OnInit {
 
     current = 0;
     img_list = [
-        'loriaHomePage.jpg',
+        'https://cdn.pixabay.com/photo/2015/01/09/11/08/startup-594090_1280.jpg',
         'https://project.inria.fr/ekaw2018/files/2018/01/C_ju3V8XgAAxAZe.jpg-large.jpg',
         'https://cdn.pixabay.com/photo/2016/02/19/11/19/office-1209640_1280.jpg',
         'https://images.pexels.com/photos/3184660/pexels-photo-3184660.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1500',

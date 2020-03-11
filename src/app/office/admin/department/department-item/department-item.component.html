@@ -4,7 +4,6 @@
                                     [object]="department.name"></ngx-department-item-header>
         <span (click)="toggle()"><nb-icon [class]="state" icon="arrow-ios-downward-outline"></nb-icon></span>
     </div>
-
     <div class="accordion-body" *ngIf="state === 'expanded'">
         <div class="info" *ngIf="depTeamsIsEmpty()">Aucune équipe n'est affectée à ce département</div>
         <ngx-team *ngIf="!depTeamsIsEmpty()" [department]="department" [teams]="department.teams"></ngx-team>

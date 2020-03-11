@@ -1,0 +1,44 @@
+@import '../../../../../node_modules/bootstrap/scss/mixins/breakpoints';
+@import '../../../../../node_modules/@nebular/theme/styles/global/breakpoints';
+@import '../../office.component';
+@import '../../../@theme/styles/themes';
+
+/*****************************************************Zombie***********************************************************/
+
+.Stranger {
+    span {
+        color: $color-officeMoreThanFull;;
+    }
+    i {
+        color: $color-officeMoreThanFull;;
+    }
+}
+
+/**************************************************composantWindow*****************************************************/
+
+.color nb-card {
+    background-color: #2d8ac7!important;
+}
+
+nb-tooltip.officeManagerTooltip {
+    background-color: #2d8ac7;
+    color: white;
+}
+
+.detailOffice {
+    max-height: 400px!important;
+    max-width: 500px!important;
+    h5 {
+        margin: 1% auto;
+        padding: 0;
+    }
+}
+
+.etatOffice {
+    height: 20px;
+}
+ul {
+    margin: 0;
+    padding: 0 0 0 2%;
+}
+

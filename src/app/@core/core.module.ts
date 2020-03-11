@@ -102,7 +102,7 @@ export const NB_CORE_PROVIDERS = [
             success: 'officeManager/Office',
             failure: null,
           },
-          defaultErrors: ['Login/Email combination is not correct, please try again.'],
+          defaultErrors: ['Les informations transmises n\'ont pas permis de vous authentifier.'],
           defaultMessages: ['You have been successfully logged in.'],
         },
           logout : {

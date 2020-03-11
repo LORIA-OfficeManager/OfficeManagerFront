@@ -1,13 +1,13 @@
 <div class="row show-grid">
     <div class="col-md-12 all">
         <ul>
-            <li class="col-12" style="padding: 0%" *ngIf=" 'Loria' !== department.name">
-                <span class="col-12" style="padding: 0; ">
+            <li class="col-12 noPadding" *ngIf=" 'Loria' !== department.name">
+                <span class="col-12 noPadding">
                     <form [formGroup]= "form" class="new-team">
-                        <mat-form-field class="col-lg-4" style="padding: 0;">
+                        <mat-form-field class="col-lg-4 noPadding">
                             <mat-label>Nouvelle équipe</mat-label>
-                            <input class="backInput" type="text" matInput  formControlName="name" required name="name"
-                                   style="width: 100%;" placeholder="Nouvelle équipe"/>
+                            <input class="backInput fullWidth" type="text" matInput  formControlName="name" required name="name"
+                                   placeholder="Nouvelle équipe"/>
                         </mat-form-field>
                         <button (click)="create(form.value)" class="btnOfficeM"
                                 outline nbButton status="primary">Créer une équipe</button>

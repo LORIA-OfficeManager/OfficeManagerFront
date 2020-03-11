@@ -1,7 +1,7 @@
 <mat-dialog-content>
     <form novalidate [formGroup]="form">
         <table class="full-width" cellspacing="0">
-            <tr class="col-lg-12 row" style="padding: 0%;margin: 0%">
+            <tr class="col-lg-12 row noPadMarg">
                 <td class="col-lg-6" style="">
                     <mat-form-field class="full-width " [class.mgb15]="form.get('size').dirty && form.get('size').invalid">
                         <input matInput type="number" placeholder="Taille" formControlName="size" minlength="1" required name="size" />
@@ -17,7 +17,7 @@
         </table>
     </form>
 </mat-dialog-content>
-<mat-dialog-actions style="padding: 0; margin: auto" class="col-12 row">
+<mat-dialog-actions style="margin: auto" class="col-12 row noPadding">
     <button class="col-5" (click)="cancel()" style="margin: auto"
             outline nbButton status="danger">Annuler</button>
     <button class="col-5" (click)="submit(form.value)" [disabled]="form.invalid" style="margin: auto"

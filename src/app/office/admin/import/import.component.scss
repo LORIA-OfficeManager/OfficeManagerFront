@@ -1,4 +1,10 @@
 @import '~app/office/office.component';
+.textFile {
+    p {
+        margin: 0.5%;
+    }
+}
+
 /***************************************toogle***********************************************************/
 ::ng-deep {
     .toggle.checked {

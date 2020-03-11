@@ -1,0 +1,126 @@
+<div class="fixedButton">
+    <button nbButton class="mainFixedButton" appearance="outline"
+            size="small" shape="round"><nb-icon icon="menu-outline"></nb-icon>
+    </button>
+    <ngx-modal-help class="firstFixedButton"></ngx-modal-help>
+    <ngx-modal-error class="secondFixedButton"></ngx-modal-error>
+</div>
+<nb-layout>
+    <nb-layout-header fixed>
+      <ngx-office-header></ngx-office-header>
+    </nb-layout-header>
+    <nb-sidebar responsive  class="menu-sidebar start expanded" >
+        <nb-card class="col-lg-12 filtre">
+            <nb-card-header >
+                <div class="col-lg-12">
+                    <a  style="margin: auto; text-align: center;">
+                        <div class="loriaBack">
+                            <p>Filtre</p>
+                        </div>
+                    </a>
+                </div>
+            </nb-card-header>
+            <div class="row show-grid" >
+                <div class="col-lg-12">
+                    <nb-actions size="medium" class="row">
+                        <nb-action class="col-lg-12 Cursorpointer" (click)="switchFilter('batiment')"
+                                   [ngClass]="' '+(filter==='batiment' ? 'activeFiltre' : 'inactiveFiltre')">
+                            <div class="col-12">Bâtiment</div>
+                        </nb-action>
+                        <nb-action class="col-lg-12 Cursorpointer" (click)="switchFilter('etat')"
+                                   [ngClass]="''+(filter==='etat' ? 'activeFiltre' : 'inactiveFiltre')">
+                            <div class="col-12">État</div>
+                        </nb-action>
+                        <nb-action class="col-lg-12 Cursorpointer" (click)="switchFilter('nom')"
+                                   [ngClass]="' '+(filter==='nom' ? 'activeFiltre' : 'inactiveFiltre')">
+                            <div class="col-12">Nom</div>
+                        </nb-action>
+                        <nb-action class="col-lg-12 Cursorpointer" (click)="switchFilter('person')"
+                                   [ngClass]="' '+(filter==='person' ? 'activeFiltre' : 'inactiveFiltre')">
+                            <div class="col-12">Personne</div>
+                        </nb-action>
+                        <nb-action class="col-lg-12 Cursorpointer" (click)="switchFilter('date')"
+                                   [ngClass]="' '+(filter==='date' ? 'activeFiltre' : 'inactiveFiltre')">
+                            <div class="col-12">Date</div>
+                        </nb-action>
+                    </nb-actions>
+                </div>
+            </div>
+        </nb-card>
+        <div [ngSwitch]="filter">
+            <ngx-testside-bar-list-office (filterfloorBatiment)="filterfloorBatiment($event)"  *ngSwitchCase="batiment"></ngx-testside-bar-list-office>
+            <ngx-radio-input-etat-list-office (filterState)="filterState($event)" *ngSwitchCase="etat"></ngx-radio-input-etat-list-office>
+            <nb-card *ngSwitchCase="nom">
+                <nb-card-body>
+                    <mat-dialog-content>
+                        <form [formGroup]="form">
+                            <mat-form-field class="full-width">
+                                <input class="backInput"  (keyup)="onKey($event)" matInput placeholder="Nom du bureau"
+                                       formControlName="search" name="seacrh" />
+                            </mat-form-field>
+                        </form>
+                    </mat-dialog-content>
+                </nb-card-body>
+            </nb-card>
+            <nb-card *ngSwitchCase="person">
+                <nb-card-body>
+                    <mat-dialog-content>
+                        <form class="example-form">
+                            <mat-form-field class="example-full-width">
+                                <input class="backInput" type="text" placeholder="Nom de la Personne" aria-label="Assignee"
+                                       matInput [formControl]="myControl" [matAutocomplete]="auto">
+                                <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                                        {{option.lastname | uppercase}} {{option.firstname}}
+                                    </mat-option>
+                                </mat-autocomplete>
+                            </mat-form-field>
+                            <span class="errorSearchPersone" *ngIf="isNotAperson(myControl.value)">Vous devez choisir une Personne</span>
+                            <button [disabled]="isNotAperson(myControl.value)"
+                                    (click)="searchperson(myControl.value)"
+                                    class="btnOfficeM iconClick"
+                                    outline nbButton status="primary">Rechercher</button>
+                        </form>
+                    </mat-dialog-content>
+                </nb-card-body>
+            </nb-card>
+            <nb-card *ngSwitchCase="date">
+                <nb-card-body>
+                    <ngx-date-picker  (submit)="updateOfficeTimeT($event)"></ngx-date-picker>
+                </nb-card-body>
+            </nb-card>
+        </div>
+    </nb-sidebar>
+    <nb-layout-column class="row">
+        <div class="loader" *ngIf="reload">
+            <h1>LOADING <span class="bullets">.</span></h1>
+        </div>
+        <div class="col-md-12 noPadding">
+            <div  class="colored-column-basic col-12 noPadding" [ngSwitch]="design">
+                <div class="row col-12 show-grid noPadding" style="max-height: 30px">
+                    <div class="col-lg-12 gallery noPadding" >
+                        <i class=" fa-2x fas fa-table iconClick" style="margin-left: 2%;"
+                           (click)="switchDesign('tab')" [ngClass]="' '+(design==='tab' ? 'activeFiltre' : 'inactiveFiltre')"></i>
+                        <i [nbTooltipPlacement]="'start'" nbTooltip="Afficher les bureaux sous form de plan"
+                           nbTooltipClass="officeManagerTooltip" class=" fa-2x fas fa-map-marked-alt iconClick"
+                           style="margin-left: 2%;" (click)="switchDesign('map')"
+                           [ngClass]="' '+(design==='map' ? 'activeFiltre' : 'inactiveFiltre')"></i>
+                    </div>
+                </div>
+                <ngx-tab-office (ChangeOffice)="setOffice($event)" [offices]="offices"
+                                [stateFilter]="stateFilter" *ngSwitchCase="'tab'"></ngx-tab-office>
+                <ngx-map (ChangeOffice)="setOffice($event)"
+                         [offices]="offices" [stateFilter]="stateFilter" *ngSwitchCase="'map'"></ngx-map>
+            </div>
+        </div>
+    </nb-layout-column>
+    <nb-layout-footer class="OfficeManagerFooter" style="margin-top: 3%">
+        <div class="row show-grid" >
+            <div class="col-lg-12 gallery" >
+                <img class="offset-sm-3 col-sm-3 col-6" src="https://members.loria.fr/infodoc/files/img/DOCLOGO/logo_loria_complet_couleur.png" style="width:100%">
+                <img class="logoDefault col-sm-3  col-6" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Logo_Universit%C3%A9_de_Lorraine.svg/1280px-Logo_Universit%C3%A9_de_Lorraine.svg.png" style="width:100%">
+                <img  class="logoDarOrCom col-sm-3  col-6" src="http://bienvenue.blog.univ-lorraine.fr/files/2019/06/ul-logo.png"  style="width:100%">
+            </div>
+        </div>
+    </nb-layout-footer>
+</nb-layout>

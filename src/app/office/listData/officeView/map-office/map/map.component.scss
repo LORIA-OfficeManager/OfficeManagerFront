@@ -1,0 +1,568 @@
+@import '../../../../office.component';
+
+rect.stairsH {
+    fill: url('#pattern-stripeH');
+}
+rect.stairsV {
+    fill: url('#pattern-stripeV');
+}
+path.stairsH {
+    fill: url('#pattern-stripeH');
+}
+ellipse.stairsC {
+    fill: url('#pattern-stairs');
+}
+
+text {
+    cursor: pointer !important;
+}
+
+::ng-deep {
+    .nb-theme-default, .nb-theme-corporate {
+        .stairFront {
+            stroke: white!important;
+            fill: white!important;
+        }
+        .backDefault {
+            fill: white !important;
+        }
+        .hide {
+            path,rect {
+                fill: white!important;
+                opacity: 0.5!important;
+            }
+            text {
+                opacity: 0 !important;
+            }
+        }
+        .V4 {
+            line {
+                stroke: #ffffff !important;
+            }
+
+            path {
+                stroke: #ffffff !important;
+            }
+
+            rect {
+                stroke: #ffffff !important;
+            }
+
+            ellipse {
+                stroke: #ffffff !important;
+            }
+
+            .emptyOffice .office {
+                fill: #ffffff !important;
+            }
+
+            .roomPlan {
+                fill: #ffffff !important;;
+            }
+            .onlywall {
+                fill: transparent !important;
+                stroke: white !important;
+                stroke-width: 1;
+            }
+        }
+    }
+}
+
+::ng-deep {
+    .nb-theme-cosmic {
+        .stairFront {
+            stroke: #323259!important;
+            fill: #323259!important;
+        }
+        .backDefault {
+            fill: #323259 !important;
+        }
+        .hide {
+            path,rect {
+                fill: #323259!important;
+                opacity: 0.5!important;
+            }
+            text {
+                opacity: 0 !important;
+            }
+        }
+        .V4 {
+            line {
+                stroke: #323259 !important;
+            }
+            path {
+                stroke: #323259 !important;
+            }
+            rect {
+                stroke: #323259 !important;
+            }
+            ellipse {
+                stroke: #323259 !important;
+            }
+            .roomPlan {
+                fill: #323259 !important;;
+            }
+            .emptyOffice .office {
+                fill: #323259 !important;
+            }
+            .onlywall {
+                fill: transparent !important;
+                stroke: #323259 !important;
+                stroke-width: 1;
+            }
+        }
+
+        .titleBuilding {
+            z-index: 100;
+            background-color: #1b1b38 !important;
+            color: $color-active;
+            margin-right: 1%;
+        }
+
+        .titleFloor {
+            color: white!important;
+        }
+
+        .mapLoria svg {
+            fill: #1b1b38!important;
+        }
+    }
+}
+::ng-deep {
+    .nb-theme-dark {
+        .stairFront {
+            stroke: #222b45!important;
+            fill: #222b45!important;
+        }
+        .backDefault {
+            fill: #222b45 !important;
+        }
+        .hide {
+            path,rect {
+                fill: #222b45!important;
+                opacity: 0.5!important;
+            }
+            text {
+                opacity: 0 !important;
+            }
+        }
+        .V4 {
+            line {
+                stroke: #222b45 !important;
+            }
+            path {
+                stroke: #222b45 !important;
+            }
+            rect {
+                stroke: #222b45 !important;
+            }
+            ellipse {
+                stroke: #222b45 !important;
+            }
+            .emptyOffice .office {
+                fill: #222b45 !important;
+            }
+            .roomPlan {
+                fill: #222b45 !important;;
+            }
+            .onlywall {
+                fill: transparent !important;
+                stroke: #222b45 !important;
+                stroke-width: 1;
+            }
+        }
+        .titleBuilding {
+            z-index: 100;
+            background-color: #151a30 !important;
+            color: $color-active;
+            margin-right: 1%;
+        }
+
+        .titleFloor {
+            color: white!important;
+        }
+
+        .mapLoria svg {
+            fill: #151a30 !important;
+        }
+    }
+}
+::ng-deep {
+    .mapLoria {
+        g:hover {
+            .hide {
+                text {
+                    opacity: 0 !important;
+                }
+            }
+
+            rect {
+                opacity: 0.5 !important;
+            }
+
+            path {
+                opacity: 0.5 !important;
+            }
+
+            ellipse {
+                opacity: 0.5 !important;
+            }
+
+            line {
+                opacity: 0.5 !important;
+            }
+
+            text {
+                opacity: 0.3 !important;
+            }
+        }
+    }
+    svg.filteremptyOffice {
+        rect {
+            opacity: 0.5 !important;
+        }
+
+        path {
+            opacity: 0.5 !important;
+        }
+
+        line {
+            opacity: 0.5 !important;
+        }
+
+        ellipse {
+            opacity: 0.5 !important;
+        }
+    }
+    .nb-theme-default, .nb-theme-corporate {
+        svg.filteremptyOffice {
+            .emptyOffice {
+                .office {
+                    opacity: 1!important;
+                    stroke: black!important;
+                    stroke-width: 1!important;
+                }
+                text {
+                    opacity: 1!important;
+                }
+            }
+            .StrangerOfficeemptyOffice {
+                .office {
+                    opacity: 1!important;
+                    stroke: black!important;
+                    stroke-width: 1!important;
+                }
+                text {
+                    opacity: 1!important;
+                }
+            }
+            text {
+                opacity: 0.3;
+            }
+        }
+        .officeHover:hover {
+            .hide {
+                text {
+                    opacity: 0 !important;
+                }
+            }
+
+            path {
+                cursor: pointer;
+                opacity: 1 !important;
+                stroke: black !important;
+                stroke-width: 1 !important;
+            }
+
+            rect {
+                cursor: pointer;
+                opacity: 1 !important;
+                stroke: black !important;
+                stroke-width: 1 !important;
+            }
+
+            text {
+                cursor: pointer;
+                opacity: 1 !important;
+            }
+
+        }
+    }
+    .nb-theme-dark, .nb-theme-cosmic {
+        svg.filteremptyOffice {
+            .emptyOffice {
+                .office {
+                    opacity: 1 !important;
+                    stroke: white !important;
+                    stroke-width: 1 !important;
+                }
+                text {
+                    opacity: 1!important;
+                }
+            }
+            .StrangerOfficeemptyOffice {
+                .office {
+                    opacity: 1 !important;
+                    stroke: white !important;
+                    stroke-width: 1 !important;
+                }
+                text {
+                    opacity: 1!important;
+                }
+            }
+            text {
+                opacity: 0.3;
+            }
+        }
+        .officeHover:hover {
+            .hide {
+                text {
+                    opacity: 0 !important;
+                }
+            }
+
+            path {
+                cursor: pointer;
+                opacity: 1 !important;
+                stroke: white !important;
+                stroke-width: 1 !important;
+            }
+
+            rect {
+                cursor: pointer;
+                opacity: 1 !important;
+                stroke: white !important;
+                stroke-width: 1 !important;
+            }
+
+            text {
+                cursor: pointer;
+                opacity: 1 !important;
+            }
+
+        }
+    }
+}
+
+/******************************************filtre etat*****************************************************************/
+svg.filterfullOffice {
+    .fullOffice {
+        .office {
+            opacity: 1 !important;
+        }
+        text {
+            opacity: 1!important;
+        }
+    }
+    .StrangerOfficefullOffice {
+        .office {
+            opacity: 1 !important;
+        }
+        text {
+            opacity: 1!important;
+        }
+    }
+    rect {
+        opacity: 0.5!important;
+    }
+    path {
+        opacity: 0.5!important;
+    }
+    line {
+        opacity: 0.5!important;
+    }
+    ellipse {
+        opacity: 0.5!important;
+    }
+    text {
+        opacity: 0.3;
+    }
+}
+
+svg.filtermoreThanFullOffice {
+    .moreThanFullOffice {
+        .office {
+            opacity: 1 !important;
+        }
+        text {
+            opacity: 1!important;
+        }
+    }
+    .StrangerOfficemoreThanFullOffice {
+        .office {
+            opacity: 1 !important;
+        }
+        text {
+            opacity: 1!important;
+        }
+    }
+    rect {
+        opacity: 0.5!important;
+    }
+    path {
+        opacity: 0.5!important;
+    }
+    line {
+        opacity: 0.5!important;
+    }
+    ellipse {
+        opacity: 0.5!important;
+    }
+    text {
+        opacity: 0.3;
+    }
+}
+
+svg.filternotFullOffice {
+    .notFullOffice {
+        .office {
+            opacity: 1 !important;
+        }
+        text {
+            opacity: 1!important;
+        }
+    }
+    .StrangerOfficenotFullOffice {
+        .office {
+            opacity: 1 !important;
+        }
+        text {
+            opacity: 1!important;
+        }
+    }
+    rect {
+        opacity: 0.5!important;
+    }
+    path {
+        opacity: 0.5;
+    }
+    line {
+        opacity: 0.5!important;
+    }
+    ellipse {
+        opacity: 0.5!important;
+    }
+    text {
+        opacity: 0.3;
+    }
+}
+
+svg.filterStrangerOffice {
+    .StrangerOfficefullOffice {
+        .office {
+            opacity: 1 !important;
+        }
+        text {
+            opacity: 1!important;
+        }
+    }
+    .StrangerOfficemoreThanFullOffice {
+        .office {
+            opacity: 1 !important;
+        }
+        text {
+            opacity: 1!important;
+        }
+    }
+    .StrangerOfficenotFullOffice {
+        .office {
+            opacity: 1 !important;
+        }
+        text {
+            opacity: 1!important;
+        }
+    }
+    .StrangerOfficeemptyOffice {
+        .office {
+            opacity: 1 !important;
+        }
+        text {
+            opacity: 1!important;
+        }
+    }
+    rect {
+        opacity: 0.5!important;
+    }
+    path {
+        opacity: 0.5!important;
+    }
+    line {
+        opacity: 0.5!important;
+    }
+    ellipse {
+        opacity: 0.5!important;
+    }
+    text {
+        opacity: 0.3;
+    }
+}
+svg.filternone {
+    rect {
+        opacity: 1;
+    }
+    path {
+        opacity: 1;
+    }
+}
+
+
+/******************************************code couleur****************************************************************/
+
+.fullOffice .office {
+    fill: $color-officeFull!important;
+}
+.moreThanFullOffice .office {
+    fill: $color-officeMoreThanFull!important;
+}
+.notFullOffice .office {
+    fill: $color-officeNoEmpty!important;
+}
+
+.emptyOffice .office {
+    fill: $color-officeEmpty;
+}
+
+.StrangerOfficefullOffice .office {
+    fill: url('#pattern-fullOffice');
+}
+.StrangerOfficemoreThanFullOffice .office {
+    fill: url('#pattern-moreThanFullOffice');
+}
+.StrangerOfficenotFullOffice .office {
+    fill: url('#pattern-notFullOffice');
+}
+
+::ng-deep {
+    .nb-theme-default .StrangerOfficeemptyOffice .office {
+        fill: url('#pattern-emptyOfficeDefault');
+    }
+    .nb-theme-cosmic .StrangerOfficeemptyOffice .office {
+        fill: url('#pattern-emptyOfficeComsic');
+    }
+    .nb-theme-dark .StrangerOfficeemptyOffice .office {
+        fill: url('#pattern-emptyOfficeDark');
+    }
+}
+
+.hideAndShow {
+    position: absolute;
+    right: 0;
+    margin-top: 0.5%;
+}
+
+.titleBuilding {
+    z-index: 100;
+    background-color: #edf1f7;
+    color: $color-active;
+    margin-right: 1%;
+}
+.titleFloor {
+    color: #000000;
+}
+svg {
+    fill: #edf1f7;
+    rect, path, ellipse, line {
+        stroke: #edf1f7;
+    }
+}
+
